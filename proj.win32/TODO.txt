@@ -1,0 +1,31 @@
+Chicken Crossing
+-Purpose: The purpose of the game is to get the chicken from one side of the road to the other.
+Mission, should you choose to accept it: get to the other side!
+
+Features:
+-Timed mode
+-Keep playing until you die
+-Compete against self
+-gain points with items to pickup?
+-pick up items to eliminate traffic
+
+
+Gameplay:
+-There will be a median in the road so you can take a break
+-possibly have pedestrians
+-definitely have vehicles
+-maybe crosswalks/stoplights can be worked in
+-swipe in any direction to make chicken move
+-accelerometer in any way?
+
+
+
+
+1.  Draw chicken on screen
+2.  Draw background
+3.  Make chicken move
+
+
+-the background image has 16 'lanes'.  Divide the height by 16 to get the amount the chicken should move up
+
+http://www.cocos2d-iphone.org/forums/topic/changing-the-aspect-fit-of-an-image-on-a-sprite-or-a-layer/
