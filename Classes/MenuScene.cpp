@@ -24,8 +24,6 @@ CCScene* MenuScene::scene()
     return scene;
 }
 
-
-
 // on "init" you need to initialize your instance
 bool MenuScene::init()
 {

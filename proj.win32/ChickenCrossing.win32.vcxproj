@@ -136,11 +136,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Background.h" />
     <ClInclude Include="..\Classes\Bus.h" />
     <ClInclude Include="..\Classes\Car.h" />
     <ClInclude Include="..\Classes\Chicken.h" />
     <ClInclude Include="..\Classes\GameScene.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\MenuScene.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\Truck.h" />
@@ -150,11 +150,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Background.cpp" />
     <ClCompile Include="..\Classes\Bus.cpp" />
     <ClCompile Include="..\Classes\Car.cpp" />
     <ClCompile Include="..\Classes\Chicken.cpp" />
     <ClCompile Include="..\Classes\GameScene.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\MenuScene.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />

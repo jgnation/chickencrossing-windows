@@ -1,9 +1,7 @@
 #include "Bus.h"
 #include "GameScene.h"
 
-
 using namespace cocos2d;
-
 
 Bus::Bus(void)
 {

@@ -79,9 +79,6 @@
     <ClInclude Include="..\Classes\GameScene.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\MenuScene.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -92,6 +89,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Vehicle.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Background.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -114,9 +114,6 @@
     <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\MenuScene.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -127,6 +124,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Vehicle.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Background.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

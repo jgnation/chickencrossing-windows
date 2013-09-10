@@ -2,6 +2,8 @@
 #include "Chicken.h"
 #include "SpriteContainer.h"
 #include "Car.h"
+#include "Truck.h"
+#include "Background.h"
 
 using namespace cocos2d;
 
@@ -39,39 +41,30 @@ bool GameScene::init()
         CC_BREAK_IF(! CCLayer::init());
 		this->setTouchEnabled(true);
 
-		//http://www.cocos2d-iphone.org/forums/topic/changing-the-aspect-fit-of-an-image-on-a-sprite-or-a-layer/
-		//set up background image and scale it appropriately
-		_backgroundSprite = CCSprite::create("background.png");
-		_backgroundSprite->setAnchorPoint(ccp(0, 0));
-		_backgroundSprite->setPosition(ccp(0, 0));
-		CCSize winSize = CCDirector::sharedDirector()->getWinSize(); //640 x 480
-		_backgroundSprite->setScaleX(winSize.width / _backgroundSprite->getContentSize().width);   //640 / 720
-		_backgroundSprite->setScaleY(winSize.height / _backgroundSprite->getContentSize().height); //480 / 960
-		this->addChild(_backgroundSprite);
+		_background = new Background();
+		this->addChild(_background->getSprite());
 
-		_chicken = new Chicken(this);		
-
-		//SpriteContainer * car = new Car();
-		//The above line also works.  I'm not sure what the difference is...
-		Car * car = new Car();
-		this->addChild(car->getSprite());
-		this->startMovement(car);
+		_chicken = new Chicken(this);			
 
 		//precreate vehicles rather than doing it dynamically
-		#define KNUMASTEROIDS 15
-		_vehicles = new CCArray(); 
-		for(int i = 0; i < KNUMASTEROIDS; ++i) 
+		#define K_NUM_VEHICLES 15
+		for(int i = 0; i < K_NUM_VEHICLES; ++i) 
 		{
-			//CCSprite *v = CCSprite::spriteWithSpriteFrameName("red_car.png");
-			CCSprite * v = CCSprite::create("red_car.png", CCRectMake(0, 0, 82, 25));
-			v->setVisible(false);
-			//_batchNode->addChild(asteroid);	//what is batch node?
-			_vehicles->addObject(v);
+			//TODO: vehicle creation should be randomized
+			if (i % 2 == 0)
+			{
+				Truck * truck = new Truck();
+				vehicleList.push_back(truck);
+			}
+			else
+			{
+				Car * car = new Car();
+				vehicleList.push_back(car);
+			}
 		}
 		_nextVehicle = 0;
 
 		this->scheduleUpdate();
-		//this->setto
 
         bRet = true;
     } while (0);
@@ -145,9 +138,8 @@ void GameScene::spriteMoveFinished(CCNode* sender)
 	this->removeChild(sprite, true);
 }
 
-float GameScene::randomValueBetween( float low , float high ) 
+float GameScene::randomValueBetween(float low , float high) 
 {
-    //return (((float) rand() / 0xFFFFFFFFu) * (high - low)) + low;
 	return rand() % (int)high + (int)low;
 }
 
@@ -180,15 +172,16 @@ void GameScene::update(float dt)
 			chickenSprite->getContentSize().width,
 			chickenSprite->getContentSize().height);
 
-	CCObject* it = NULL;
-	CCARRAY_FOREACH(_vehicles, it)
+	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
+	for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 	{
-		CCSprite *vehicle = dynamic_cast<CCSprite*>(it);
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		CCSprite *vehicleSprite = vehicle->getSprite();
 		CCRect vehicleRect = CCRectMake(
-			vehicle->getPosition().x - (vehicle->getContentSize().width / 2),
-			vehicle->getPosition().y - (vehicle->getContentSize().height / 2),
-			vehicle->getContentSize().width,
-			vehicle->getContentSize().height);
+			vehicleSprite->getPosition().x - (vehicleSprite->getContentSize().width / 2),
+			vehicleSprite->getPosition().y - (vehicleSprite->getContentSize().height / 2),
+			vehicleSprite->getContentSize().width,
+			vehicleSprite->getContentSize().height);
 
 		if (vehicleRect.intersectsRect(chickenRect))
 		{
@@ -208,28 +201,20 @@ void GameScene::update(float dt)
 		_nextVehicleSpawn = randMillisecs + curTimeMillis;
  
 		float randY = this->getRandomLanePosition() - 12; //TODO: this 12 needs to be a scaled value
-		//float randY = randomValueBetween(0.0,winSize.height);
-		float randDuration = randomValueBetween(2.0,10.0);
+		float randDuration = randomValueBetween(2.0, 10.0);
 
-		//CCSprite *asteroid = _vehicles->getObjectAtIndex(_nextVehicle);
-		CCSprite *vehicle = (CCSprite *) _vehicles->objectAtIndex(_nextVehicle);
+		Vehicle *  truck = vehicleList[_nextVehicle];
 		_nextVehicle++;
  
-		if (_nextVehicle >= _vehicles->count())
-			_nextVehicle = 0;
- 
-		//vehicle->stopAllActions();
-		vehicle->setPosition( ccp(winSize.width - 100, randY));
-		vehicle->setVisible(true) ;
-		this->addChild(vehicle);	//this wouldn't be necessary if I added it to batchnode
-		/*vehicle->runAction ( CCSequence::actions (
-			CCMoveBy::actionWithDuration(randDuration,ccp(-winSize.width-vehicle->getContentSize().width,0)) , 
-			CCCallFuncN::actionWithTarget(this,callfuncN_selector(GameScene::setInvisible)) ,
-			NULL // DO NOT FORGET TO TERMINATE WITH NULL (unexpected in C++)
-			) ) ; */
+		if (_nextVehicle >= vehicleList.size())
+			_nextVehicle = 0;		
+		
+		truck->getSprite()->setPosition(ccp(winSize.width - 100, randY));
+		this->addChild(truck->getSprite());
+
 		CCFiniteTimeAction* actionMove = CCMoveTo::create(3, ccp(0, randY));
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished));
-		vehicle->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+		truck->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
 }
 
@@ -242,7 +227,7 @@ void GameScene::resetFlag()
 
 void GameScene::setInvisible(CCNode * node) 
 {
-	node->setVisible(false) ;
+	node->setVisible(false);
 }
 
 

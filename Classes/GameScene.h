@@ -7,13 +7,14 @@
 #include "Vehicle.h"
 
 class Chicken;		//forward declation
+class Background;
 class GameScene : public cocos2d::CCLayer
 {
 private:
-	cocos2d::CCSprite * _backgroundSprite;
+	Background * _background;
 	Chicken * _chicken;
 	Vehicle * _vehicle;
-	cocos2d::CCArray * _vehicles; 
+	std::vector<Vehicle *> vehicleList;
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;

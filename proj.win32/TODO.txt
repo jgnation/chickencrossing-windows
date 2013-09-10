@@ -17,15 +17,23 @@ Gameplay:
 -maybe crosswalks/stoplights can be worked in
 -swipe in any direction to make chicken move
 -accelerometer in any way?
-
-
-
-
-1.  Draw chicken on screen
-2.  Draw background
-3.  Make chicken move
+-stopwatches to slow time?
+-bridges and jumping fish?  cart and horses?
 
 
 -the background image has 16 'lanes'.  Divide the height by 16 to get the amount the chicken should move up
 
+This link explains fitting an image to the screen in various ways:
 http://www.cocos2d-iphone.org/forums/topic/changing-the-aspect-fit-of-an-image-on-a-sprite-or-a-layer/
+
+NOTES:
+I tried creating a vector that will hold Vehicles.  Vehicles each contain a CCSprite.  When trying to add these Sprites
+to the GameScene in the update method, I would get a crash at CCNode.cpp line 507.  Here are some explanations of the
+problem:
+http://www.cocos2d-x.org/boards/6/topics/26278
+http://www.cocos2d-x.org/boards/6/topics/17613
+So, to solve this, I can learn how to use retain and release, and continue to use my design.
+Or, another option MIGHT be to subclass CCSprite for all of the vehicles (rather than composing them).  This would allow
+me to add the Vehicles to a CCArray.  In reality, this would probably be easier.
+Which design should I do?
+
