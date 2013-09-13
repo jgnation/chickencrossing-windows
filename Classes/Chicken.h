@@ -2,12 +2,12 @@
 #define CHICKEN_H
 
 #include "cocos2d.h"
+#include "SpriteContainer.h"
 
 class GameScene;	//forward declaration
-class Chicken
+class Chicken : public SpriteContainer
 {
 private:
-	cocos2d::CCSprite * _chickenSprite;
 	cocos2d::CCPoint _currentPosition;
 	int _yMoveDistance;
 	int _xMoveDistance;

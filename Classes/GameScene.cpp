@@ -165,28 +165,15 @@ void GameScene::update(float dt)
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
 	//check for overlap of chicken sprite and vehicle sprites
-	CCSprite * chickenSprite = _chicken->getSprite();
-	CCRect chickenRect = CCRectMake(
-			chickenSprite->getPosition().x - (chickenSprite->getContentSize().width / 2),
-			chickenSprite->getPosition().y - (chickenSprite->getContentSize().height / 2),
-			chickenSprite->getContentSize().width,
-			chickenSprite->getContentSize().height);
-
 	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
 	for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 	{
 		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
-		CCSprite *vehicleSprite = vehicle->getSprite();
-		CCRect vehicleRect = CCRectMake(
-			vehicleSprite->getPosition().x - (vehicleSprite->getContentSize().width / 2),
-			vehicleSprite->getPosition().y - (vehicleSprite->getContentSize().height / 2),
-			vehicleSprite->getContentSize().width,
-			vehicleSprite->getContentSize().height);
 
-		if (vehicleRect.intersectsRect(chickenRect))
+		if (_chicken->intersectsSprite(vehicle))
 		{
 			//reset position of chicken
-			this->removeChild(chickenSprite, true);
+			this->removeChild(_chicken->getSprite(), true);
 			_chicken = new Chicken(this);
 			this->resetFlag();
 		}
@@ -197,7 +184,7 @@ void GameScene::update(float dt)
 	if (curTimeMillis > _nextVehicleSpawn) 
 	{ 
 		//the values that I am inputting depend on the new version of randomValueBetween that I modified
-		float randMillisecs = randomValueBetween(5,15) * 100;
+		float randMillisecs = randomValueBetween(5, 15) * 100;
 		_nextVehicleSpawn = randMillisecs + curTimeMillis;
  
 		float randY = this->getRandomLanePosition() - 12; //TODO: this 12 needs to be a scaled value
@@ -229,6 +216,3 @@ void GameScene::setInvisible(CCNode * node)
 {
 	node->setVisible(false);
 }
-
-
-

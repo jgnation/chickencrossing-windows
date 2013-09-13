@@ -12,6 +12,7 @@ public:
 	SpriteContainer(void);
 	~SpriteContainer(void);
 	cocos2d::CCSprite * getSprite();
+	bool intersectsSprite(SpriteContainer * sprite);
 };
 
 #endif
