@@ -63,6 +63,7 @@ bool GameScene::init()
 			}
 		}
 		_nextVehicle = 0;
+		//random_shuffle(vehicleList.begin, vehicleList.end);
 
 		this->scheduleUpdate();
 
@@ -181,27 +182,30 @@ void GameScene::update(float dt)
 
 	//next section is for spawning vehicles
 	float curTimeMillis = getTimeTick();
-	if (curTimeMillis > _nextVehicleSpawn) 
+	if (curTimeMillis > _nextVehicleSpawn) //TODO: I haven't initialized _nextVehicleSpawn anywhere yet
 	{ 
 		//the values that I am inputting depend on the new version of randomValueBetween that I modified
 		float randMillisecs = randomValueBetween(5, 15) * 100;
 		_nextVehicleSpawn = randMillisecs + curTimeMillis;
  
-		float randY = this->getRandomLanePosition() - 12; //TODO: this 12 needs to be a scaled value
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+		float laneWidth = windowSize.height / 16;
+
+		float randY = this->getRandomLanePosition() - (laneWidth / 2);
 		float randDuration = randomValueBetween(2.0, 10.0);
 
-		Vehicle *  truck = vehicleList[_nextVehicle];
+		Vehicle *  vehicle = vehicleList[_nextVehicle];
 		_nextVehicle++;
  
 		if (_nextVehicle >= vehicleList.size())
 			_nextVehicle = 0;		
 		
-		truck->getSprite()->setPosition(ccp(winSize.width - 100, randY));
-		this->addChild(truck->getSprite());
+		vehicle->getSprite()->setPosition(ccp(winSize.width - 100, randY));
+		this->addChild(vehicle->getSprite());
 
 		CCFiniteTimeAction* actionMove = CCMoveTo::create(3, ccp(0, randY));
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished));
-		truck->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+		vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
 }
 

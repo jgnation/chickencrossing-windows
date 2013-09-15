@@ -24,7 +24,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	//start change screen size
 	CCEGLView * eglView = CCEGLView::sharedOpenGLView();
     eglView->setViewName("Hello World");
-    //eglView->setFrameSize(720, 960
+    //eglView->setFrameSize(720, 720);
 	eglView->setFrameSize(640, 480);
 	pDirector->setOpenGLView(eglView);
 	//end change screen size
