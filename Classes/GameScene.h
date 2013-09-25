@@ -8,12 +8,13 @@
 
 class Chicken;		//forward declation
 class Background;
+class Egg;
 class GameScene : public cocos2d::CCLayer
 {
 private:
 	Background * _background;
 	Chicken * _chicken;
-	Vehicle * _vehicle;
+	Egg * _egg;
 	std::vector<Vehicle *> vehicleList;
 	int _nextVehicle;
 	float _nextVehicleSpawn;

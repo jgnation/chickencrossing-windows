@@ -51,6 +51,9 @@
     <Image Include="..\Resources\white_truck.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\brown_egg.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ChickenCrossing.rc">
@@ -94,6 +97,9 @@
     <ClInclude Include="..\Classes\Background.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="Egg.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -127,6 +133,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Background.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Egg.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

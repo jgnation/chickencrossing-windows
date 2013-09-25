@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Image Include="..\Resources\background.png" />
+    <Image Include="..\Resources\brown_egg.png" />
     <Image Include="..\Resources\bus.png" />
     <Image Include="..\Resources\cat.png" />
     <Image Include="..\Resources\CloseNormal.png" />
@@ -145,6 +146,7 @@
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\Truck.h" />
     <ClInclude Include="..\Classes\Vehicle.h" />
+    <ClInclude Include="Egg.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -159,6 +161,7 @@
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />
     <ClCompile Include="..\Classes\Vehicle.cpp" />
+    <ClCompile Include="Egg.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

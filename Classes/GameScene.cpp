@@ -4,6 +4,8 @@
 #include "Car.h"
 #include "Truck.h"
 #include "Background.h"
+#include "Bus.h"
+#include "Egg.h"
 
 using namespace cocos2d;
 
@@ -41,8 +43,16 @@ bool GameScene::init()
         CC_BREAK_IF(! CCLayer::init());
 		this->setTouchEnabled(true);
 
+		srand(time(NULL)); //seed the random number generator
+
 		_background = new Background();
 		this->addChild(_background->getSprite());
+
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+		float a = this->randomValueBetween(0, windowSize.width);
+		float b = this->getRandomLanePosition();
+		_egg = new Egg(a, b);
+		this->addChild(_egg->getSprite());
 
 		_chicken = new Chicken(this);			
 
@@ -58,8 +68,16 @@ bool GameScene::init()
 			}
 			else
 			{
-				Car * car = new Car();
-				vehicleList.push_back(car);
+				if (i %  3 == 0)
+				{
+					Car * car = new Car();
+					vehicleList.push_back(car);
+				}
+				else
+				{
+					Bus * bus = new Bus();
+					vehicleList.push_back(bus);
+				}
 			}
 		}
 		_nextVehicle = 0;
@@ -104,7 +122,7 @@ void GameScene::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		else if (xDiffAbs > yDiffAbs && xDiff < 0)
 			_chicken->moveLeft();
 
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(1, _chicken->getPoint());
+		CCFiniteTimeAction* actionMove = CCMoveTo::create(.1, _chicken->getPoint());
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished2));
 		_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
@@ -150,7 +168,9 @@ float GameScene::getRandomLanePosition()
 	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
 	int randomIndex = (int)randomValueBetween(0.0, 9.0);
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	return (windowSize.height / 16) * validLanes[randomIndex];
+	float lanePosition = (windowSize.height / 16) * validLanes[randomIndex];
+	float laneWidth = windowSize.height / 16;
+	return lanePosition - (laneWidth / 2); //return the center of the lane
 }
  
 float GameScene::getTimeTick() 
@@ -180,6 +200,22 @@ void GameScene::update(float dt)
 		}
 	}
 
+	if (_chicken->intersectsSprite(_egg))
+	{
+		//TODO: I actually don't want to reset the chicken. I just want to count the # of eggs collected.
+		//reset position of chicken
+		this->removeChild(_chicken->getSprite(), true);
+		_chicken = new Chicken(this);
+		this->resetFlag();
+
+		//move the egg
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+		float a = this->randomValueBetween(0, windowSize.width);
+		float b = this->getRandomLanePosition();
+		_egg->setPosition(a, b);
+	}
+
+
 	//next section is for spawning vehicles
 	float curTimeMillis = getTimeTick();
 	if (curTimeMillis > _nextVehicleSpawn) //TODO: I haven't initialized _nextVehicleSpawn anywhere yet
@@ -187,12 +223,9 @@ void GameScene::update(float dt)
 		//the values that I am inputting depend on the new version of randomValueBetween that I modified
 		float randMillisecs = randomValueBetween(5, 15) * 100;
 		_nextVehicleSpawn = randMillisecs + curTimeMillis;
- 
-		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-		float laneWidth = windowSize.height / 16;
 
-		float randY = this->getRandomLanePosition() - (laneWidth / 2);
-		float randDuration = randomValueBetween(2.0, 10.0);
+		float randY = this->getRandomLanePosition();
+		float randDuration = this->randomValueBetween(2.0, 10.0);
 
 		Vehicle *  vehicle = vehicleList[_nextVehicle];
 		_nextVehicle++;
