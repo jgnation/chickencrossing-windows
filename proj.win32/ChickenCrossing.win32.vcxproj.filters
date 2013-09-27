@@ -97,7 +97,10 @@
     <ClInclude Include="..\Classes\Background.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Egg.h">
+    <ClInclude Include="..\Classes\Egg.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HUDLayer.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -135,7 +138,10 @@
     <ClCompile Include="..\Classes\Background.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="Egg.cpp">
+    <ClCompile Include="..\Classes\Egg.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HUDLayer.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

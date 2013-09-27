@@ -6,6 +6,7 @@
 #include "Background.h"
 #include "Bus.h"
 #include "Egg.h"
+#include "HUDLayer.h"
 
 using namespace cocos2d;
 
@@ -47,6 +48,10 @@ bool GameScene::init()
 
 		_background = new Background();
 		this->addChild(_background->getSprite());
+
+		HudLayer *hud = new HudLayer();
+		hud->init();
+		this->addChild(hud);
 
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float a = this->randomValueBetween(0, windowSize.width);
