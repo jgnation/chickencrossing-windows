@@ -24,3 +24,23 @@ Gameplay:
 -when five chickens get across, increase the level.
 -I need to figure out how many vertical lanes there will be
 -chicken can get to five spots at the end.  When he does progress to next level and increase difficulty.
+
+
+
+Notes:
+-don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
+-
+
+
+TODO:
+-fix the bug where if an egg is at the left side of the screen, the chicken dies
+-add a chicken count...game over if reach 0
+-make traffic travel both directions
+-make dimensions easier to reference
+-try out stuff on various screen sizes
+-change level after collecting a certain number of eggs
+-new levels mean more traffic and more eggs
+-new Scenes for each level?
+
+EVENTUALLY:
+-make more level maps....some with stuff to jump onto

@@ -9,9 +9,11 @@
 class Chicken;		//forward declation
 class Background;
 class Egg;
+class HudLayer;
 class GameScene : public cocos2d::CCLayer
 {
 private:
+	HudLayer * _hudLayer;
 	Background * _background;
 	Chicken * _chicken;
 	Egg * _egg;
@@ -19,6 +21,8 @@ private:
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;
+	int _score;
+	int _lives;
 public:
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone

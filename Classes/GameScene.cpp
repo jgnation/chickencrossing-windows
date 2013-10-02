@@ -46,12 +46,15 @@ bool GameScene::init()
 
 		srand(time(NULL)); //seed the random number generator
 
+		_score = 0;
+		_lives = 5;
+
 		_background = new Background();
 		this->addChild(_background->getSprite());
 
-		HudLayer *hud = new HudLayer();
-		hud->init();
-		this->addChild(hud);
+		_hudLayer = new HudLayer();
+		_hudLayer->init();
+		this->addChild(_hudLayer);
 
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float a = this->randomValueBetween(0, windowSize.width);
@@ -198,6 +201,10 @@ void GameScene::update(float dt)
 
 		if (_chicken->intersectsSprite(vehicle))
 		{
+			//decrement the number of lives remaining
+			_lives--;
+			_hudLayer->setLives(_lives);
+
 			//reset position of chicken
 			this->removeChild(_chicken->getSprite(), true);
 			_chicken = new Chicken(this);
@@ -218,6 +225,10 @@ void GameScene::update(float dt)
 		float a = this->randomValueBetween(0, windowSize.width);
 		float b = this->getRandomLanePosition();
 		_egg->setPosition(a, b);
+
+		//increment the score
+		_score++;
+		_hudLayer->setScore(_score);
 	}
 
 
