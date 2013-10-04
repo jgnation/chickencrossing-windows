@@ -58,7 +58,7 @@ bool GameScene::init()
 
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float a = this->randomValueBetween(0, windowSize.width);
-		float b = this->getRandomLanePosition();
+		float b = this->getLanePixelPosition(this->getRandomLaneNumber());
 		_egg = new Egg(a, b);
 		this->addChild(_egg->getSprite());
 
@@ -170,15 +170,20 @@ float GameScene::randomValueBetween(float low , float high)
 	return rand() % (int)high + (int)low;
 }
 
-float GameScene::getRandomLanePosition()
+float GameScene::getLanePixelPosition(int laneNumber)
 {
 	//the lane at the bottom of the screen is lane 1
 	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
-	int randomIndex = (int)randomValueBetween(0.0, 9.0);
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float lanePosition = (windowSize.height / 16) * validLanes[randomIndex];
+	float lanePosition = (windowSize.height / 16) * validLanes[laneNumber];
 	float laneWidth = windowSize.height / 16;
 	return lanePosition - (laneWidth / 2); //return the center of the lane
+}
+
+int GameScene::getRandomLaneNumber()
+{
+	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
+	return (int)randomValueBetween(0.0, 9.0);
 }
  
 float GameScene::getTimeTick() 
@@ -216,14 +221,14 @@ void GameScene::update(float dt)
 	{
 		//TODO: I actually don't want to reset the chicken. I just want to count the # of eggs collected.
 		//reset position of chicken
-		this->removeChild(_chicken->getSprite(), true);
-		_chicken = new Chicken(this);
-		this->resetFlag();
+		//this->removeChild(_chicken->getSprite(), true);
+		//_chicken = new Chicken(this);
+		//this->resetFlag();
 
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float a = this->randomValueBetween(0, windowSize.width);
-		float b = this->getRandomLanePosition();
+		float b = this->getLanePixelPosition(this->getRandomLaneNumber());
 		_egg->setPosition(a, b);
 
 		//increment the score
@@ -240,7 +245,8 @@ void GameScene::update(float dt)
 		float randMillisecs = randomValueBetween(5, 15) * 100;
 		_nextVehicleSpawn = randMillisecs + curTimeMillis;
 
-		float randY = this->getRandomLanePosition();
+		int randomLane = this->getRandomLaneNumber();
+		float randY = this->getLanePixelPosition(randomLane);
 		float randDuration = this->randomValueBetween(2.0, 10.0);
 
 		Vehicle *  vehicle = vehicleList[_nextVehicle];
@@ -248,13 +254,25 @@ void GameScene::update(float dt)
  
 		if (_nextVehicle >= vehicleList.size())
 			_nextVehicle = 0;		
-		
-		vehicle->getSprite()->setPosition(ccp(winSize.width - 100, randY));
-		this->addChild(vehicle->getSprite());
 
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(3, ccp(0, randY));
+		CCFiniteTimeAction* actionMove;
+		if (randomLane % 2 == 0)
+		{
+			vehicle->getSprite()->setPosition(ccp(winSize.width, randY));
+			actionMove = CCMoveTo::create(3, ccp(-120, randY)); //-120 so the sprite goes completely off screen.  This should be scaled
+			vehicle->getSprite()->setFlipX(false);
+		}
+		else
+		{
+			vehicle->getSprite()->setPosition(ccp(0, randY));
+			actionMove = CCMoveTo::create(3, ccp(winSize.width + 120, randY)); //+120 so the sprite goes completely off screen.  This should be scaled
+			//note: 120 is the width of the bus.  This fixes the issue where the chicken dies if the egg is at the left of the screen.
+			if (!vehicle->getSprite()->isFlipX()) vehicle->getSprite()->setFlipX(true);
+		}
+
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished));
 		vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+		this->addChild(vehicle->getSprite());
 	}
 }
 

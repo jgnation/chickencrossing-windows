@@ -26,6 +26,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     eglView->setViewName("Hello World");
     //eglView->setFrameSize(720, 720);
 	eglView->setFrameSize(640, 480);
+	//eglView->setFrameSize(400, 900);
 	pDirector->setOpenGLView(eglView);
 	//end change screen size
 

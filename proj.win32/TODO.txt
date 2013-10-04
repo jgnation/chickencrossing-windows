@@ -1,3 +1,5 @@
+http://www.flash-game.net/game/1892/chicken-road.html
+
 Chicken Crossing
 -Purpose: The purpose of the game is to get the chicken from one side of the road to the other.
 Mission, should you choose to accept it: get to the other side!
@@ -33,14 +35,22 @@ Notes:
 
 
 TODO:
--fix the bug where if an egg is at the left side of the screen, the chicken dies
 -add a chicken count...game over if reach 0
--make traffic travel both directions
 -make dimensions easier to reference
 -try out stuff on various screen sizes
 -change level after collecting a certain number of eggs
 -new levels mean more traffic and more eggs
 -new Scenes for each level?
+-I can't think of a way to add more challenge and fun without a river....dang it!
 
 EVENTUALLY:
 -make more level maps....some with stuff to jump onto
+
+TODO BUGS:
+
+
+FIXED BUGS:
+-fix the bug where if an egg is at the left side of the screen, the chicken dies
+-sometimes the cars are flipped the wrong way
+
+

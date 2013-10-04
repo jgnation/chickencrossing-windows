@@ -42,7 +42,8 @@ public:
 	void update(float dt);
 	void setInvisible(CCNode * node);
 	float randomValueBetween( float low , float high );
-	float getRandomLanePosition();
+	float getLanePixelPosition(int laneNumber);
+	int getRandomLaneNumber();
 	float getTimeTick();
 	void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
 	int getAbsoluteValue(int num);
