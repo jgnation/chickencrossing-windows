@@ -1,5 +1,5 @@
 #include "Truck.h"
-#include "GameScene.h"
+#include "GameLayer.h"
 
 using namespace cocos2d;
 

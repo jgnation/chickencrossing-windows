@@ -1,5 +1,5 @@
 #include "MenuScene.h"
-#include "GameScene.h"
+#include "GameLayer.h"
 
 using namespace cocos2d;
 
@@ -93,7 +93,7 @@ bool MenuScene::init()
 void MenuScene::menuStartGameCallback(CCObject* pSender)
 {
 	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(GameScene::scene());
+	pDirector->replaceScene(GameLayer::scene());
 }
 
 void MenuScene::menuCloseCallback(CCObject* pSender)

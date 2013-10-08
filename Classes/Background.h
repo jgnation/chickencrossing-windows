@@ -2,11 +2,12 @@
 #define BACKGROUND_H
 
 #include "SpriteContainer.h"
+#include <string>
 
 class Background : public SpriteContainer
 {
 public:
-	Background(void);
+	Background(std::string backgroundFileName);
 	~Background(void);
 };
 

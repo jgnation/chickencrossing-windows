@@ -27,9 +27,6 @@
     <Image Include="..\Resources\HelloWorld.png">
       <Filter>resource</Filter>
     </Image>
-    <Image Include="..\Resources\background.png">
-      <Filter>resource</Filter>
-    </Image>
     <Image Include="..\Resources\bus.png">
       <Filter>resource</Filter>
     </Image>
@@ -52,6 +49,21 @@
       <Filter>resource</Filter>
     </Image>
     <Image Include="..\Resources\brown_egg.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background3.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\log_large.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\log_small.png">
       <Filter>resource</Filter>
     </Image>
   </ItemGroup>
@@ -79,9 +91,6 @@
     <ClInclude Include="..\Classes\Chicken.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameScene.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\MenuScene.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -103,6 +112,21 @@
     <ClInclude Include="..\Classes\HUDLayer.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\GameLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Level.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Level1.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Level2.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Log.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -118,9 +142,6 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Chicken.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MenuScene.cpp">
@@ -142,6 +163,21 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HUDLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Level.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Level1.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Level2.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Log.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -118,7 +118,9 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Image Include="..\Resources\background.png" />
+    <Image Include="..\Resources\background1.png" />
+    <Image Include="..\Resources\background2.png" />
+    <Image Include="..\Resources\background3.png" />
     <Image Include="..\Resources\brown_egg.png" />
     <Image Include="..\Resources\bus.png" />
     <Image Include="..\Resources\cat.png" />
@@ -126,6 +128,8 @@
     <Image Include="..\Resources\CloseSelected.png" />
     <Image Include="..\Resources\dog.png" />
     <Image Include="..\Resources\HelloWorld.png" />
+    <Image Include="..\Resources\log_large.png" />
+    <Image Include="..\Resources\log_small.png" />
     <Image Include="..\Resources\pig.png" />
     <Image Include="..\Resources\red_car.png" />
     <Image Include="..\Resources\small_chicken.png" />
@@ -142,8 +146,12 @@
     <ClInclude Include="..\Classes\Car.h" />
     <ClInclude Include="..\Classes\Chicken.h" />
     <ClInclude Include="..\Classes\Egg.h" />
-    <ClInclude Include="..\Classes\GameScene.h" />
+    <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\HUDLayer.h" />
+    <ClInclude Include="..\Classes\Level.h" />
+    <ClInclude Include="..\Classes\Level1.h" />
+    <ClInclude Include="..\Classes\Level2.h" />
+    <ClInclude Include="..\Classes\Log.h" />
     <ClInclude Include="..\Classes\MenuScene.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\Truck.h" />
@@ -158,8 +166,12 @@
     <ClCompile Include="..\Classes\Car.cpp" />
     <ClCompile Include="..\Classes\Chicken.cpp" />
     <ClCompile Include="..\Classes\Egg.cpp" />
-    <ClCompile Include="..\Classes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\HUDLayer.cpp" />
+    <ClCompile Include="..\Classes\Level.cpp" />
+    <ClCompile Include="..\Classes\Level1.cpp" />
+    <ClCompile Include="..\Classes\Level2.cpp" />
+    <ClCompile Include="..\Classes\Log.cpp" />
     <ClCompile Include="..\Classes\MenuScene.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />

@@ -10,7 +10,7 @@ class Chicken;		//forward declation
 class Background;
 class Egg;
 class HudLayer;
-class GameScene : public cocos2d::CCLayer
+class GameLayer : public cocos2d::CCLayer
 {
 private:
 	HudLayer * _hudLayer;
@@ -50,7 +50,7 @@ public:
 	void resetFlag();
 
     // implement the "static node()" method manually
-    CREATE_FUNC(GameScene);
+    CREATE_FUNC(GameLayer);
 };
 
 #endif  

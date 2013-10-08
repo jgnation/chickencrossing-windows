@@ -35,6 +35,7 @@ Notes:
 
 
 TODO:
+-scale vehicle sprites (the Log, in particular)
 -add a chicken count...game over if reach 0
 -make dimensions easier to reference
 -try out stuff on various screen sizes

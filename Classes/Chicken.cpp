@@ -1,12 +1,12 @@
 #include "Chicken.h"
-#include "GameScene.h"
+#include "GameLayer.h"
 
 using namespace cocos2d;
 
 //constructor
 Chicken::Chicken(void) { }
 
-Chicken::Chicken(GameScene * gameScene)
+Chicken::Chicken(GameLayer * gameLayer)
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
@@ -30,7 +30,7 @@ Chicken::Chicken(GameScene * gameScene)
 	_currentPosition.y = (_sprite->getContentSize().height / 2);
 	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
 
-	gameScene->addChild(_sprite);
+	gameLayer->addChild(_sprite);
 }
 
 Chicken::~Chicken(void) { }

@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "SpriteContainer.h"
 
-class GameScene;	//forward declaration
+class GameLayer;	//forward declaration
 class Chicken : public SpriteContainer
 {
 private:
@@ -13,7 +13,7 @@ private:
 	int _xMoveDistance;
 public:
 	Chicken(void);
-	Chicken(GameScene* gameScene);
+	Chicken(GameLayer* gameScene);
 	~Chicken(void);
 
 	cocos2d::CCSprite * getSprite();

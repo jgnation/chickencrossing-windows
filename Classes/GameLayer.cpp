@@ -1,4 +1,4 @@
-#include "GameScene.h"
+#include "GameLayer.h"
 #include "Chicken.h"
 #include "SpriteContainer.h"
 #include "Car.h"
@@ -7,12 +7,16 @@
 #include "Bus.h"
 #include "Egg.h"
 #include "HUDLayer.h"
+#include "Level.h"
+#include "Level1.h"
+#include "Log.h"
+#include "Level2.h"
 
 using namespace cocos2d;
 
-bool GameScene::_isMoving = false;
+bool GameLayer::_isMoving = false;
 
-CCScene* GameScene::scene()
+CCScene* GameLayer::scene()
 {
     CCScene * scene = NULL;
     do 
@@ -22,7 +26,7 @@ CCScene* GameScene::scene()
         CC_BREAK_IF(! scene);
 
         // 'layer' is an autorelease object
-        GameScene *layer = GameScene::create();
+        GameLayer *layer = GameLayer::create();
         CC_BREAK_IF(! layer);
 
         // add layer as a child to scene
@@ -34,7 +38,7 @@ CCScene* GameScene::scene()
 }
 
 //don't do initialization logic in the constructor, instead, do it here
-bool GameScene::init()
+bool GameLayer::init()
 {
 	//http://www.dreamincode.net/forums/topic/243971-do-while0%3B/
 	//above is an explanation of do...while(0)
@@ -49,8 +53,11 @@ bool GameScene::init()
 		_score = 0;
 		_lives = 5;
 
-		_background = new Background();
-		this->addChild(_background->getSprite());
+		Level * level = new Level2();
+		this->addChild(level->getBackground()->getSprite());
+
+		//_background = new Background("background.png");
+		//this->addChild(_background->getSprite());
 
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
@@ -69,7 +76,7 @@ bool GameScene::init()
 		for(int i = 0; i < K_NUM_VEHICLES; ++i) 
 		{
 			//TODO: vehicle creation should be randomized
-			if (i % 2 == 0)
+			if (i % 2 == 0 && i % 4 != 0)
 			{
 				Truck * truck = new Truck();
 				vehicleList.push_back(truck);
@@ -83,8 +90,16 @@ bool GameScene::init()
 				}
 				else
 				{
-					Bus * bus = new Bus();
-					vehicleList.push_back(bus);
+					if (i % 4 == 0)
+					{
+						Log * log = new Log();
+						vehicleList.push_back(log);
+					}
+					else
+					{
+						Bus * bus = new Bus();
+						vehicleList.push_back(bus);
+					}
 				}
 			}
 		}
@@ -99,11 +114,11 @@ bool GameScene::init()
     return bRet;
 }
 
-void GameScene::ccTouchesEnded(CCSet* touches, CCEvent* event)
+void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 {
-	if (GameScene::_isMoving == false)
+	if (GameLayer::_isMoving == false)
 	{
-		GameScene::_isMoving = true;
+		GameLayer::_isMoving = true;
 		//Get location of touch
 		//compare location to current position of chicken
 		//move chicken in direction of touch
@@ -131,13 +146,13 @@ void GameScene::ccTouchesEnded(CCSet* touches, CCEvent* event)
 			_chicken->moveLeft();
 
 		CCFiniteTimeAction* actionMove = CCMoveTo::create(.1, _chicken->getPoint());
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished2));
+		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished2));
 		_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
 }
 
 //I implemented my own just because I am not sure about cross-platform compatibility of c libraries (cmath)
-int GameScene::getAbsoluteValue(int num)
+int GameLayer::getAbsoluteValue(int num)
 {
 	if (num < 0)
 		return num * (-1);
@@ -145,32 +160,32 @@ int GameScene::getAbsoluteValue(int num)
 		return num;
 }
 
-void GameScene::startMovement(Vehicle * vehicle)
+void GameLayer::startMovement(Vehicle * vehicle)
 {
 	CCFiniteTimeAction* actionMove = CCMoveTo::create(vehicle->getSpeed(), vehicle->getDestination());
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished));
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
 	vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
 
-void GameScene::spriteMoveFinished2(CCNode* sender)
+void GameLayer::spriteMoveFinished2(CCNode* sender)
 {
 	//CCSprite *sprite = (CCSprite *)sender;
 	//this->removeChild(sprite, true);
-	GameScene::_isMoving = false;
+	GameLayer::_isMoving = false;
 }
 
-void GameScene::spriteMoveFinished(CCNode* sender)
+void GameLayer::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
 	this->removeChild(sprite, true);
 }
 
-float GameScene::randomValueBetween(float low , float high) 
+float GameLayer::randomValueBetween(float low , float high) 
 {
 	return rand() % (int)high + (int)low;
 }
 
-float GameScene::getLanePixelPosition(int laneNumber)
+float GameLayer::getLanePixelPosition(int laneNumber)
 {
 	//the lane at the bottom of the screen is lane 1
 	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
@@ -180,13 +195,13 @@ float GameScene::getLanePixelPosition(int laneNumber)
 	return lanePosition - (laneWidth / 2); //return the center of the lane
 }
 
-int GameScene::getRandomLaneNumber()
+int GameLayer::getRandomLaneNumber()
 {
 	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
 	return (int)randomValueBetween(0.0, 9.0);
 }
  
-float GameScene::getTimeTick() 
+float GameLayer::getTimeTick() 
 {
 	timeval time;
 	gettimeofday(&time, NULL);
@@ -194,7 +209,7 @@ float GameScene::getTimeTick()
 	return (float) millisecs;
 }
 
-void GameScene::update(float dt) 
+void GameLayer::update(float dt) 
 {
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
@@ -270,20 +285,20 @@ void GameScene::update(float dt)
 			if (!vehicle->getSprite()->isFlipX()) vehicle->getSprite()->setFlipX(true);
 		}
 
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameScene::spriteMoveFinished));
+		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
 		vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 		this->addChild(vehicle->getSprite());
 	}
 }
 
-void GameScene::resetFlag()
+void GameLayer::resetFlag()
 {
 	//doing this directly in update did not work for some reason.
 	//not I call this->resetFlag() and it works.  Huh.
-	GameScene::_isMoving = false;
+	GameLayer::_isMoving = false;
 }
 
-void GameScene::setInvisible(CCNode * node) 
+void GameLayer::setInvisible(CCNode * node) 
 {
 	node->setVisible(false);
 }
