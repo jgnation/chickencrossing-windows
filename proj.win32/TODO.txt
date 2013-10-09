@@ -35,7 +35,8 @@ Notes:
 
 
 TODO:
--scale vehicle sprites (the Log, in particular)
+-kill chicken if it hitches a ride to the edge of the screen?
+-allow chicken to move while getting a ride
 -add a chicken count...game over if reach 0
 -make dimensions easier to reference
 -try out stuff on various screen sizes
@@ -43,6 +44,7 @@ TODO:
 -new levels mean more traffic and more eggs
 -new Scenes for each level?
 -I can't think of a way to add more challenge and fun without a river....dang it!
+-scale vehicle sprites better
 
 EVENTUALLY:
 -make more level maps....some with stuff to jump onto

@@ -53,8 +53,8 @@ bool GameLayer::init()
 		_score = 0;
 		_lives = 5;
 
-		Level * level = new Level2();
-		this->addChild(level->getBackground()->getSprite());
+		_level = new Level2();
+		this->addChild(_level->getBackground()->getSprite());
 
 		//_background = new Background("background.png");
 		//this->addChild(_background->getSprite());
@@ -92,13 +92,14 @@ bool GameLayer::init()
 				{
 					if (i % 4 == 0)
 					{
-						Log * log = new Log();
-						vehicleList.push_back(log);
+						Bus * bus = new Bus();
+						vehicleList.push_back(bus);
 					}
 					else
 					{
-						Bus * bus = new Bus();
-						vehicleList.push_back(bus);
+						Log * log = new Log();
+						vehicleList.push_back(log);
+						
 					}
 				}
 			}
@@ -145,7 +146,7 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		else if (xDiffAbs > yDiffAbs && xDiff < 0)
 			_chicken->moveLeft();
 
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(.1, _chicken->getPoint());
+		CCFiniteTimeAction* actionMove = CCMoveTo::create(_chicken->getSpeed(), _chicken->getPoint());
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished2));
 		_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
@@ -195,6 +196,16 @@ float GameLayer::getLanePixelPosition(int laneNumber)
 	return lanePosition - (laneWidth / 2); //return the center of the lane
 }
 
+int GameLayer::getLaneNumber(float pixelPosition)
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float laneWidth = windowSize.height / 16;
+	float lane = pixelPosition / laneWidth; //this will return the lane in indexes from 0
+	lane++; //add 1 to get the lane in natural index (from 1)
+	int laneNumber = static_cast <int> (std::floor(lane)); //is this fragile?
+	return laneNumber;
+}
+
 int GameLayer::getRandomLaneNumber()
 {
 	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
@@ -213,22 +224,59 @@ void GameLayer::update(float dt)
 {
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
+	//first thing I need to check is if I land on road or water
+	//if it is water, is the chicken intersecting a log?  if no, then die
+	Level::LaneType laneType = _level->getLaneType(this->getLaneNumber(_chicken->getSprite()->getPositionY()));
+	if (laneType == Level::LaneType::WATER)
+	{
+		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
+		{
+			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+
+			//I shouldn't have to check the base-class type.  I will revisit this issue later.
+			Log* log = dynamic_cast<Log*>(vehicle);
+			if(log != 0)
+			{
+				if (_chicken->intersectsSprite(log))
+				{
+					int logSpeed = log->getSpeed();
+					CCPoint destination = log->getDestination();
+
+					float distance = ccpDistance(_chicken->getSprite()->getPosition(), destination);
+					float duration = distance / logSpeed;
+					CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
+
+					CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
+					_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+					//_chicken->ride(log);
+					//go for a ride!
+					//get speed of log
+					//move chicken in the direction of the log at the same speed
+					//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				}
+			}
+		}
+	}
+
 	//check for overlap of chicken sprite and vehicle sprites
 	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
-	for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
+	if (laneType == Level::LaneType::ROAD)
 	{
-		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
-
-		if (_chicken->intersectsSprite(vehicle))
+		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 		{
-			//decrement the number of lives remaining
-			_lives--;
-			_hudLayer->setLives(_lives);
+			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
 
-			//reset position of chicken
-			this->removeChild(_chicken->getSprite(), true);
-			_chicken = new Chicken(this);
-			this->resetFlag();
+			if (_chicken->intersectsSprite(vehicle))
+			{
+				//decrement the number of lives remaining
+				_lives--;
+				_hudLayer->setLives(_lives);
+
+				//reset position of chicken
+				this->removeChild(_chicken->getSprite(), true);
+				_chicken = new Chicken(this);
+				this->resetFlag();
+			}			
 		}
 	}
 
@@ -274,13 +322,24 @@ void GameLayer::update(float dt)
 		if (randomLane % 2 == 0)
 		{
 			vehicle->getSprite()->setPosition(ccp(winSize.width, randY));
-			actionMove = CCMoveTo::create(3, ccp(-120, randY)); //-120 so the sprite goes completely off screen.  This should be scaled
+			CCPoint destination = ccp(-120, randY); //-120 so the sprite goes completely off screen.  This should be scaled
+			vehicle->setDestination(destination);
+			int speed = vehicle->getSpeed();
+			float distance = ccpDistance(ccp(winSize.width, randY), destination);
+			float duration = distance / speed;
+			actionMove = CCMoveTo::create(duration, destination); 
 			vehicle->getSprite()->setFlipX(false);
 		}
 		else
 		{
 			vehicle->getSprite()->setPosition(ccp(0, randY));
-			actionMove = CCMoveTo::create(3, ccp(winSize.width + 120, randY)); //+120 so the sprite goes completely off screen.  This should be scaled
+			CCPoint destination = ccp(winSize.width + 120, randY);
+			int speed = vehicle->getSpeed();
+			float distance = ccpDistance(ccp(0, randY), destination);
+			float duration = distance / speed;
+			actionMove = CCMoveTo::create(duration, destination); //+120 so the sprite goes completely off screen.  This should be scaled
+			vehicle->setDestination(destination);
+			vehicle->setMovementAction(actionMove);
 			//note: 120 is the width of the bus.  This fixes the issue where the chicken dies if the egg is at the left of the screen.
 			if (!vehicle->getSprite()->isFlipX()) vehicle->getSprite()->setFlipX(true);
 		}

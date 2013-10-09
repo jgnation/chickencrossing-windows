@@ -30,6 +30,8 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_currentPosition.y = (_sprite->getContentSize().height / 2);
 	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
 
+	_speed = .1;
+
 	gameLayer->addChild(_sprite);
 }
 
@@ -64,3 +66,20 @@ void Chicken::moveRight()
 {
 	_currentPosition.x += _xMoveDistance;
 }
+
+void Chicken::setSpeed(int speed)
+{
+	_speed = speed;
+}
+
+int Chicken::getSpeed()
+{
+	return _speed;
+}
+
+void Chicken::ride(Vehicle * vehicle)
+{
+	CCPoint destination = vehicle->getDestination();
+
+}
+

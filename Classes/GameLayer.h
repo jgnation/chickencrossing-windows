@@ -6,10 +6,11 @@
 #include "SimpleAudioEngine.h"
 #include "Vehicle.h"
 
-class Chicken;		//forward declation
+class Chicken;		//forward declation //can I just include the libraries?
 class Background;
 class Egg;
 class HudLayer;
+class Level;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
@@ -23,6 +24,7 @@ private:
 	static bool _isMoving;
 	int _score;
 	int _lives;
+	Level * _level;
 public:
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -48,6 +50,7 @@ public:
 	void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
 	int getAbsoluteValue(int num);
 	void resetFlag();
+	int getLaneNumber(float pixelPosition);
 
     // implement the "static node()" method manually
     CREATE_FUNC(GameLayer);
