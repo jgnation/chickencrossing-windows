@@ -31,6 +31,8 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
 
 	_speed = .1;
+	_isRiding = false;
+	_isMoving = false;
 
 	gameLayer->addChild(_sprite);
 }
@@ -79,7 +81,32 @@ int Chicken::getSpeed()
 
 void Chicken::ride(Vehicle * vehicle)
 {
-	CCPoint destination = vehicle->getDestination();
+	_isRiding = true;
+}
 
+void Chicken::setRiding(bool value)
+{
+	_isRiding = value;
+}
+
+bool Chicken::isRiding()
+{
+	return _isRiding;
+}
+
+void Chicken::endRide()
+{
+	_isRiding = false;
+	_sprite->stopAllActions();
+}
+
+bool Chicken::isMoving()
+{
+	return _isMoving;
+}
+
+void Chicken::setMoving(bool value)
+{
+	_isMoving = value;
 }
 

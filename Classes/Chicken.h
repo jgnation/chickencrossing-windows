@@ -13,6 +13,8 @@ private:
 	int _yMoveDistance;
 	int _xMoveDistance;
 	int _speed;
+	bool _isRiding;
+	bool _isMoving;
 public:
 	Chicken(void);
 	Chicken(GameLayer* gameScene);
@@ -27,6 +29,11 @@ public:
 	void setSpeed(int speed);
 	int getSpeed();
 	void ride(Vehicle * vehicle);
+	void setRiding(bool value);
+	bool isRiding();
+	void endRide();
+	void setMoving(bool value);
+	bool isMoving();
 };
 
 #endif

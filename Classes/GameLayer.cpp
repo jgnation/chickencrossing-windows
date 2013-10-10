@@ -146,8 +146,11 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		else if (xDiffAbs > yDiffAbs && xDiff < 0)
 			_chicken->moveLeft();
 
+		if (_chicken->isRiding()) _chicken->endRide();
+
 		CCFiniteTimeAction* actionMove = CCMoveTo::create(_chicken->getSpeed(), _chicken->getPoint());
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished2));
+		_chicken->setMoving(true);
 		_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
 }
@@ -173,6 +176,7 @@ void GameLayer::spriteMoveFinished2(CCNode* sender)
 	//CCSprite *sprite = (CCSprite *)sender;
 	//this->removeChild(sprite, true);
 	GameLayer::_isMoving = false;
+	_chicken->setMoving(false);
 }
 
 void GameLayer::spriteMoveFinished(CCNode* sender)
@@ -224,6 +228,24 @@ void GameLayer::update(float dt)
 {
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
+	if (_chicken->isRiding())
+	{
+		float a = _chicken->getSprite()->getPositionX();
+		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > winSize.width)
+		{
+			//chicken has ridden to the left edge....die!
+
+			//decrement the number of lives remaining
+			_lives--;
+			_hudLayer->setLives(_lives);
+
+			//reset position of chicken
+			this->removeChild(_chicken->getSprite(), true);
+			_chicken = new Chicken(this);
+			this->resetFlag();
+		}
+	}
+
 	//first thing I need to check is if I land on road or water
 	//if it is water, is the chicken intersecting a log?  if no, then die
 	Level::LaneType laneType = _level->getLaneType(this->getLaneNumber(_chicken->getSprite()->getPositionY()));
@@ -237,7 +259,7 @@ void GameLayer::update(float dt)
 			Log* log = dynamic_cast<Log*>(vehicle);
 			if(log != 0)
 			{
-				if (_chicken->intersectsSprite(log))
+				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
 				{
 					int logSpeed = log->getSpeed();
 					CCPoint destination = log->getDestination();
@@ -248,7 +270,7 @@ void GameLayer::update(float dt)
 
 					CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
 					_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
-					//_chicken->ride(log);
+					_chicken->ride(log);
 					//go for a ride!
 					//get speed of log
 					//move chicken in the direction of the log at the same speed
