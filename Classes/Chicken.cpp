@@ -31,6 +31,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
 
 	_speed = .1;
+	//_speed = 1;
 	_isRiding = false;
 	_isMoving = false;
 
@@ -47,26 +48,39 @@ CCSprite * Chicken::getSprite()
 CCPoint Chicken::getPoint()
 {
 	return _currentPosition;
+	//return _sprite->getPosition();
 }
 
 void Chicken::moveUp()
 {
-	_currentPosition.y += _yMoveDistance;
+	_currentPosition = _sprite->getPosition();
+	float yPosition = this->getSprite()->getPositionY();
+	_currentPosition.y = yPosition + _yMoveDistance;
+	//_currentPosition.y += _yMoveDistance;
 }
 
 void Chicken::moveDown()
 {
-	_currentPosition.y -= _yMoveDistance;
+	_currentPosition = _sprite->getPosition();
+	float yPosition = this->getSprite()->getPositionY();
+	_currentPosition.y = yPosition - _yMoveDistance;
+	//_currentPosition.y -= _yMoveDistance;
 }
 
 void Chicken::moveLeft()
 {
-	_currentPosition.x -= _xMoveDistance;
+	_currentPosition = _sprite->getPosition();
+	float xPosition = this->getSprite()->getPositionX();
+	_currentPosition.x = xPosition - _xMoveDistance;
+	//_currentPosition.x -= _xMoveDistance;
 }
 
 void Chicken::moveRight()
 {
-	_currentPosition.x += _xMoveDistance;
+	_currentPosition = _sprite->getPosition();
+	float xPosition = this->getSprite()->getPositionX();
+	_currentPosition.x = xPosition + _xMoveDistance;
+	//_currentPosition.x += _xMoveDistance;
 }
 
 void Chicken::setSpeed(int speed)

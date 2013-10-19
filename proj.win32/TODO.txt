@@ -35,8 +35,6 @@ Notes:
 
 
 TODO:
--kill chicken if it hitches a ride to the edge of the screen?
--allow chicken to move while getting a ride
 -add a chicken count...game over if reach 0
 -make dimensions easier to reference
 -try out stuff on various screen sizes
@@ -45,6 +43,10 @@ TODO:
 -new Scenes for each level?
 -I can't think of a way to add more challenge and fun without a river....dang it!
 -scale vehicle sprites better
+-the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
+	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
+	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
+	-or...maybe Chicken should extend CCSprite
 
 EVENTUALLY:
 -make more level maps....some with stuff to jump onto

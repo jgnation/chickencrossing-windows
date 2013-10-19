@@ -128,7 +128,9 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		CCPoint touchLocation = touch->locationInView();
 		touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
 
-		CCPoint currentLocation = _chicken->getPoint();
+		//CCPoint currentLocation = _chicken->getPoint();
+		CCPoint currentLocation = _chicken->getSprite()->getPosition();
+
 		//the greatest difference in coordinates is the direction in which we will move
 		int xDiff = touchLocation.x - currentLocation.x;
 		int yDiff = touchLocation.y - currentLocation.y;
@@ -137,6 +139,8 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		int yDiffAbs = this->getAbsoluteValue(yDiff);
 
 		//TODO take into account where coordinates is equal
+		CCPoint blah = _chicken->getSprite()->getPosition();
+		CCPoint blah4 = _chicken->getPoint();
 		if (yDiffAbs > xDiffAbs && yDiff > 0)
 			_chicken->moveUp();
 		else if (yDiffAbs > xDiffAbs && yDiff < 0)
@@ -231,6 +235,7 @@ void GameLayer::update(float dt)
 	if (_chicken->isRiding())
 	{
 		float a = _chicken->getSprite()->getPositionX();
+		//see if riding chicken is hitting edge of screen
 		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > winSize.width)
 		{
 			//chicken has ridden to the left edge....die!
@@ -248,6 +253,10 @@ void GameLayer::update(float dt)
 
 	//first thing I need to check is if I land on road or water
 	//if it is water, is the chicken intersecting a log?  if no, then die
+	if (_chicken->getSprite()->getPositionY() == 12)
+	{
+		int x = 20;
+	}
 	Level::LaneType laneType = _level->getLaneType(this->getLaneNumber(_chicken->getSprite()->getPositionY()));
 	if (laneType == Level::LaneType::WATER)
 	{
@@ -259,8 +268,14 @@ void GameLayer::update(float dt)
 			Log* log = dynamic_cast<Log*>(vehicle);
 			if(log != 0)
 			{
+				//if (_chicken->isMoving())
+				//{
+				//	return;
+				//}
+
 				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
 				{
+					//initiate the riding animation
 					int logSpeed = log->getSpeed();
 					CCPoint destination = log->getDestination();
 
@@ -275,6 +290,21 @@ void GameLayer::update(float dt)
 					//get speed of log
 					//move chicken in the direction of the log at the same speed
 					//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				}
+				
+				//if (!_chicken->intersectsSprite(log) && !_chicken->isMoving())
+				if (!_chicken->isRiding() && !_chicken->isMoving())
+				{
+					CCPoint blah = _chicken->getSprite()->getPosition();
+					//die!
+					//decrement the number of lives remaining
+					_lives--;
+					_hudLayer->setLives(_lives);
+
+					//reset position of chicken
+					this->removeChild(_chicken->getSprite(), true);
+					_chicken = new Chicken(this);
+					this->resetFlag();
 				}
 			}
 		}
