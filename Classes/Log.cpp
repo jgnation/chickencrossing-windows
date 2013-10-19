@@ -25,7 +25,7 @@ Log::Log(void)
 	_sprite->retain();
 	_sprite->setPosition(ccp(windowSize.width, 40));
 	//_speed = 150;
-	_speed = 50;
+	_speed = 100;
 }
 
 Log::~Log(void)

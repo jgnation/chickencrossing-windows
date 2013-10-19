@@ -51,6 +51,7 @@ public:
 	int getAbsoluteValue(int num);
 	void resetFlag();
 	int getLaneNumber(float pixelPosition);
+	void killChicken();
 
     // implement the "static node()" method manually
     CREATE_FUNC(GameLayer);

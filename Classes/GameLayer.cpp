@@ -72,7 +72,7 @@ bool GameLayer::init()
 		_chicken = new Chicken(this);			
 
 		//precreate vehicles rather than doing it dynamically
-		#define K_NUM_VEHICLES 15
+		#define K_NUM_VEHICLES 25
 		for(int i = 0; i < K_NUM_VEHICLES; ++i) 
 		{
 			//TODO: vehicle creation should be randomized
@@ -98,8 +98,7 @@ bool GameLayer::init()
 					else
 					{
 						Log * log = new Log();
-						vehicleList.push_back(log);
-						
+						vehicleList.push_back(log);						
 					}
 				}
 			}
@@ -232,34 +231,21 @@ void GameLayer::update(float dt)
 {
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
+	//check if a chicken riding a log is hitting the edge of the screen
 	if (_chicken->isRiding())
 	{
-		float a = _chicken->getSprite()->getPositionX();
-		//see if riding chicken is hitting edge of screen
 		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > winSize.width)
 		{
-			//chicken has ridden to the left edge....die!
-
-			//decrement the number of lives remaining
-			_lives--;
-			_hudLayer->setLives(_lives);
-
-			//reset position of chicken
-			this->removeChild(_chicken->getSprite(), true);
-			_chicken = new Chicken(this);
-			this->resetFlag();
+			this->killChicken();
 		}
 	}
 
-	//first thing I need to check is if I land on road or water
-	//if it is water, is the chicken intersecting a log?  if no, then die
-	if (_chicken->getSprite()->getPositionY() == 12)
-	{
-		int x = 20;
-	}
 	Level::LaneType laneType = _level->getLaneType(this->getLaneNumber(_chicken->getSprite()->getPositionY()));
+
+	//check to see if a chicken is jumping on a log or into the water
 	if (laneType == Level::LaneType::WATER)
 	{
+		bool intersectsLog = false;
 		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 		{
 			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
@@ -268,10 +254,6 @@ void GameLayer::update(float dt)
 			Log* log = dynamic_cast<Log*>(vehicle);
 			if(log != 0)
 			{
-				//if (_chicken->isMoving())
-				//{
-				//	return;
-				//}
 
 				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
 				{
@@ -281,36 +263,25 @@ void GameLayer::update(float dt)
 
 					float distance = ccpDistance(_chicken->getSprite()->getPosition(), destination);
 					float duration = distance / logSpeed;
-					CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
 
+					//should this be done in the chicken class?
+					CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
 					CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
 					_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 					_chicken->ride(log);
-					//go for a ride!
-					//get speed of log
-					//move chicken in the direction of the log at the same speed
-					//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				}
-				
-				//if (!_chicken->intersectsSprite(log) && !_chicken->isMoving())
-				if (!_chicken->isRiding() && !_chicken->isMoving())
-				{
-					CCPoint blah = _chicken->getSprite()->getPosition();
-					//die!
-					//decrement the number of lives remaining
-					_lives--;
-					_hudLayer->setLives(_lives);
 
-					//reset position of chicken
-					this->removeChild(_chicken->getSprite(), true);
-					_chicken = new Chicken(this);
-					this->resetFlag();
+					intersectsLog = true;
 				}
 			}
 		}
+		if (!intersectsLog && !_chicken->isMoving()) //when debugging, this value might be incorrect due to the log still moving
+		//if (!_chicken->isRiding())
+		{
+			this->killChicken();
+		}
 	}
 
-	//check for overlap of chicken sprite and vehicle sprites
+	//check to see if a chicken has been hit by a vehicle
 	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
 	if (laneType == Level::LaneType::ROAD)
 	{
@@ -320,26 +291,14 @@ void GameLayer::update(float dt)
 
 			if (_chicken->intersectsSprite(vehicle))
 			{
-				//decrement the number of lives remaining
-				_lives--;
-				_hudLayer->setLives(_lives);
-
-				//reset position of chicken
-				this->removeChild(_chicken->getSprite(), true);
-				_chicken = new Chicken(this);
-				this->resetFlag();
+				this->killChicken();
 			}			
 		}
 	}
 
+	//check to see if kitchen has collected an egg
 	if (_chicken->intersectsSprite(_egg))
 	{
-		//TODO: I actually don't want to reset the chicken. I just want to count the # of eggs collected.
-		//reset position of chicken
-		//this->removeChild(_chicken->getSprite(), true);
-		//_chicken = new Chicken(this);
-		//this->resetFlag();
-
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float a = this->randomValueBetween(0, windowSize.width);
@@ -350,7 +309,6 @@ void GameLayer::update(float dt)
 		_score++;
 		_hudLayer->setScore(_score);
 	}
-
 
 	//next section is for spawning vehicles
 	float curTimeMillis = getTimeTick();
@@ -412,4 +370,17 @@ void GameLayer::resetFlag()
 void GameLayer::setInvisible(CCNode * node) 
 {
 	node->setVisible(false);
+}
+
+//this logic should be in the chicken class
+void GameLayer::killChicken()
+{
+	//decrement the number of lives remaining
+	_lives--;
+	_hudLayer->setLives(_lives);
+
+	//reset position of chicken
+	this->removeChild(_chicken->getSprite(), true);
+	_chicken = new Chicken(this);
+	this->resetFlag();
 }

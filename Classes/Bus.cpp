@@ -11,7 +11,7 @@ Bus::Bus(void)
 	_sprite = CCSprite::create("bus.png", CCRectMake(0, 0, 115, 35));
 	_sprite->retain();
 	_sprite->setPosition(ccp(windowSize.width, 40));
-	_speed = 50;
+	_speed = 100;
 }
 
 Bus::~Bus(void)
