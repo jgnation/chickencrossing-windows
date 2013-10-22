@@ -35,7 +35,7 @@ Notes:
 
 
 TODO:
--vehicles can only spawn on roads and logs on water
+-refactor and clean up code!
 -put alligators in the water
 -add a chicken count...game over if reach 0
 -make dimensions easier to reference

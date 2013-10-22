@@ -254,7 +254,6 @@ void GameLayer::update(float dt)
 			Log* log = dynamic_cast<Log*>(vehicle);
 			if(log != 0)
 			{
-
 				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
 				{
 					//initiate the riding animation
@@ -318,15 +317,38 @@ void GameLayer::update(float dt)
 		float randMillisecs = randomValueBetween(5, 15) * 100;
 		_nextVehicleSpawn = randMillisecs + curTimeMillis;
 
-		int randomLane = this->getRandomLaneNumber();
-		float randY = this->getLanePixelPosition(randomLane);
+		//int randomLane = this->getRandomLaneNumber();
+		//float randY = this->getLanePixelPosition(randomLane);
 		float randDuration = this->randomValueBetween(2.0, 10.0);
 
 		Vehicle *  vehicle = vehicleList[_nextVehicle];
 		_nextVehicle++;
  
 		if (_nextVehicle >= vehicleList.size())
-			_nextVehicle = 0;		
+			_nextVehicle = 0;	
+
+		Log* log = dynamic_cast<Log*>(vehicle);
+		//this stuff works for Level2!
+		int randomLane = 0;
+		if(log != 0)
+		{
+			//it's a log
+			randomLane = this->getRandomLaneNumber();
+			while (randomLane < 5)
+			{
+				randomLane = this->getRandomLaneNumber();
+			}
+		}
+		else
+		{
+			//it's not a log
+			randomLane = this->getRandomLaneNumber();
+			while (randomLane > 4)
+			{
+				randomLane = this->getRandomLaneNumber();
+			}
+		}
+		float randY = this->getLanePixelPosition(randomLane);
 
 		CCFiniteTimeAction* actionMove;
 		if (randomLane % 2 == 0)
