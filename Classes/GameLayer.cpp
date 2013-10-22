@@ -14,8 +14,6 @@
 
 using namespace cocos2d;
 
-bool GameLayer::_isMoving = false;
-
 CCScene* GameLayer::scene()
 {
     CCScene * scene = NULL;
@@ -116,9 +114,9 @@ bool GameLayer::init()
 
 void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 {
-	if (GameLayer::_isMoving == false)
+	if (!_chicken->isMoving())
 	{
-		GameLayer::_isMoving = true;
+		_chicken->setMoving(true);
 		//Get location of touch
 		//compare location to current position of chicken
 		//move chicken in direction of touch
@@ -138,8 +136,6 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		int yDiffAbs = this->getAbsoluteValue(yDiff);
 
 		//TODO take into account where coordinates is equal
-		CCPoint blah = _chicken->getSprite()->getPosition();
-		CCPoint blah4 = _chicken->getPoint();
 		if (yDiffAbs > xDiffAbs && yDiff > 0)
 			_chicken->moveUp();
 		else if (yDiffAbs > xDiffAbs && yDiff < 0)
@@ -148,13 +144,6 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 			_chicken->moveRight();
 		else if (xDiffAbs > yDiffAbs && xDiff < 0)
 			_chicken->moveLeft();
-
-		if (_chicken->isRiding()) _chicken->endRide();
-
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(_chicken->getSpeed(), _chicken->getPoint());
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished2));
-		_chicken->setMoving(true);
-		_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	}
 }
 
@@ -176,9 +165,6 @@ void GameLayer::startMovement(Vehicle * vehicle)
 
 void GameLayer::spriteMoveFinished2(CCNode* sender)
 {
-	//CCSprite *sprite = (CCSprite *)sender;
-	//this->removeChild(sprite, true);
-	GameLayer::_isMoving = false;
 	_chicken->setMoving(false);
 }
 
@@ -274,7 +260,6 @@ void GameLayer::update(float dt)
 			}
 		}
 		if (!intersectsLog && !_chicken->isMoving()) //when debugging, this value might be incorrect due to the log still moving
-		//if (!_chicken->isRiding())
 		{
 			this->killChicken();
 		}
@@ -385,8 +370,8 @@ void GameLayer::update(float dt)
 void GameLayer::resetFlag()
 {
 	//doing this directly in update did not work for some reason.
-	//not I call this->resetFlag() and it works.  Huh.
-	GameLayer::_isMoving = false;
+	//now I call this->resetFlag() and it works.  Huh.
+	_chicken->setMoving(false);
 }
 
 void GameLayer::setInvisible(CCNode * node) 
@@ -401,8 +386,7 @@ void GameLayer::killChicken()
 	_lives--;
 	_hudLayer->setLives(_lives);
 
-	//reset position of chicken
-	this->removeChild(_chicken->getSprite(), true);
-	_chicken = new Chicken(this);
+	_chicken->die();
+
 	this->resetFlag();
 }

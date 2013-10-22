@@ -8,6 +8,7 @@ Chicken::Chicken(void) { }
 
 Chicken::Chicken(GameLayer * gameLayer)
 {
+	_gameLayer = gameLayer;
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
 	_xMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
@@ -57,6 +58,7 @@ void Chicken::moveUp()
 	float yPosition = this->getSprite()->getPositionY();
 	_currentPosition.y = yPosition + _yMoveDistance;
 	//_currentPosition.y += _yMoveDistance;
+	move();
 }
 
 void Chicken::moveDown()
@@ -65,6 +67,7 @@ void Chicken::moveDown()
 	float yPosition = this->getSprite()->getPositionY();
 	_currentPosition.y = yPosition - _yMoveDistance;
 	//_currentPosition.y -= _yMoveDistance;
+	move();
 }
 
 void Chicken::moveLeft()
@@ -73,6 +76,7 @@ void Chicken::moveLeft()
 	float xPosition = this->getSprite()->getPositionX();
 	_currentPosition.x = xPosition - _xMoveDistance;
 	//_currentPosition.x -= _xMoveDistance;
+	move();
 }
 
 void Chicken::moveRight()
@@ -81,6 +85,24 @@ void Chicken::moveRight()
 	float xPosition = this->getSprite()->getPositionX();
 	_currentPosition.x = xPosition + _xMoveDistance;
 	//_currentPosition.x += _xMoveDistance;
+	move();
+}
+
+void Chicken::move()
+{
+	if (this->isRiding()) this->endRide();
+
+	CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), this->getPoint());
+	//for some reason I have to use the 'SpriteFinished' method from GameLayer rather than Chicken
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(_gameLayer, callfuncN_selector(GameLayer::spriteMoveFinished2));
+
+	this->setMoving(true);
+	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+}
+
+void Chicken::spriteMoveFinished2(CCNode* sender)
+{
+	this->setMoving(false);
 }
 
 void Chicken::setSpeed(int speed)
@@ -122,5 +144,15 @@ bool Chicken::isMoving()
 void Chicken::setMoving(bool value)
 {
 	_isMoving = value;
+}
+
+void Chicken::die()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	_currentPosition.x = windowSize.width / 2;
+	_currentPosition.y = (_sprite->getContentSize().height / 2);
+	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
+	_isRiding = false;
+	_isMoving = false;
 }
 

@@ -15,6 +15,10 @@ private:
 	int _speed;
 	bool _isRiding;
 	bool _isMoving;
+	GameLayer *  _gameLayer;
+
+	void move();
+	void spriteMoveFinished2(cocos2d::CCNode* sender);
 public:
 	Chicken(void);
 	Chicken(GameLayer* gameScene);
@@ -34,6 +38,7 @@ public:
 	void endRide();
 	void setMoving(bool value);
 	bool isMoving();
+	void die();
 };
 
 #endif

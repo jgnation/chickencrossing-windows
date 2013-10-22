@@ -35,6 +35,7 @@ Notes:
 
 
 TODO:
+-fix bug that occurs when a chicken dies while riding a log
 -refactor and clean up code!
 -put alligators in the water
 -add a chicken count...game over if reach 0
