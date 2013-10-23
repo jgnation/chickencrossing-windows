@@ -163,11 +163,6 @@ void GameLayer::startMovement(Vehicle * vehicle)
 	vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
 
-void GameLayer::spriteMoveFinished2(CCNode* sender)
-{
-	_chicken->setMoving(false);
-}
-
 void GameLayer::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;

@@ -35,7 +35,8 @@ Notes:
 
 
 TODO:
--fix bug that occurs when a chicken dies while riding a log
+-fix bug that occurs when a chicken dies while riding a log (by hitting side of screen)
+-sometimes the chicken gets stuck when on the log.  Whattup with that?
 -refactor and clean up code!
 -put alligators in the water
 -add a chicken count...game over if reach 0

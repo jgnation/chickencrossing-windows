@@ -93,14 +93,13 @@ void Chicken::move()
 	if (this->isRiding()) this->endRide();
 
 	CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), this->getPoint());
-	//for some reason I have to use the 'SpriteFinished' method from GameLayer rather than Chicken
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(_gameLayer, callfuncN_selector(GameLayer::spriteMoveFinished2));
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::doneMoving));
 
 	this->setMoving(true);
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
 
-void Chicken::spriteMoveFinished2(CCNode* sender)
+void Chicken::doneMoving(CCNode* sender)
 {
 	this->setMoving(false);
 }
