@@ -114,8 +114,19 @@ int Chicken::getSpeed()
 	return _speed;
 }
 
-void Chicken::ride(Vehicle * vehicle)
+void Chicken::ride(Log * log)
 {
+	//initiate the riding animation
+	int logSpeed = log->getSpeed();
+	CCPoint destination = log->getDestination();
+
+	float distance = ccpDistance(this->getSprite()->getPosition(), destination);
+	float duration = distance / logSpeed;
+
+	//should this be done in the chicken class?
+	CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished)); //TODO this should be a callback in the Chicken class
+	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	_isRiding = true;
 }
 

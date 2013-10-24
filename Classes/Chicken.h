@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "SpriteContainer.h"
-#include "Vehicle.h"
+#include "Log.h"
 
 class GameLayer;	//forward declaration
 class Chicken : public SpriteContainer
@@ -32,7 +32,7 @@ public:
 	void moveRight();
 	void setSpeed(int speed);
 	int getSpeed();
-	void ride(Vehicle * vehicle);
+	void ride(Log * log);
 	void setRiding(bool value);
 	bool isRiding();
 	void endRide();

@@ -230,17 +230,6 @@ void GameLayer::update(float dt)
 			{
 				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
 				{
-					//initiate the riding animation
-					int logSpeed = log->getSpeed();
-					CCPoint destination = log->getDestination();
-
-					float distance = ccpDistance(_chicken->getSprite()->getPosition(), destination);
-					float duration = distance / logSpeed;
-
-					//should this be done in the chicken class?
-					CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
-					CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
-					_chicken->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 					_chicken->ride(log);
 
 					intersectsLog = true;
