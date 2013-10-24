@@ -156,13 +156,6 @@ int GameLayer::getAbsoluteValue(int num)
 		return num;
 }
 
-void GameLayer::startMovement(Vehicle * vehicle)
-{
-	CCFiniteTimeAction* actionMove = CCMoveTo::create(vehicle->getSpeed(), vehicle->getDestination());
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
-	vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
-}
-
 void GameLayer::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
@@ -362,18 +355,6 @@ void GameLayer::update(float dt)
 	}
 }
 
-void GameLayer::resetFlag()
-{
-	//doing this directly in update did not work for some reason.
-	//now I call this->resetFlag() and it works.  Huh.
-	_chicken->setMoving(false);
-}
-
-void GameLayer::setInvisible(CCNode * node) 
-{
-	node->setVisible(false);
-}
-
 //this logic should be in the chicken class
 void GameLayer::killChicken()
 {
@@ -382,6 +363,4 @@ void GameLayer::killChicken()
 	_hudLayer->setLives(_lives);
 
 	_chicken->die();
-
-	this->resetFlag();
 }

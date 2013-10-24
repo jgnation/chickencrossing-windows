@@ -13,6 +13,7 @@ public:
 	Level1();
 	~Level1();
     LaneType getLaneType(int laneNumber);
+	void update();
 };
  
 #endif // __LEVEL1_H__

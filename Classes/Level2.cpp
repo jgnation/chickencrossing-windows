@@ -27,3 +27,7 @@ Level::LaneType Level2::getLaneType(int laneNumber)
 {
 	return _lanes[laneNumber];
 }
+
+void Level2::update()
+{
+}

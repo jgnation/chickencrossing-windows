@@ -14,6 +14,7 @@ public:
 	//Level();
 	//~Level();
     virtual LaneType getLaneType(int laneNumber) = 0; //the = 0 makes it a 'pure' virtual function
+	virtual void update() = 0;
     Background * getBackground();
 
 protected:
