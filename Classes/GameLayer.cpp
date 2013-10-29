@@ -11,6 +11,7 @@
 #include "Level1.h"
 #include "Log.h"
 #include "Level2.h"
+#include <string>
 
 using namespace cocos2d;
 
@@ -53,6 +54,8 @@ bool GameLayer::init()
 
 		_level = new Level2();
 		this->addChild(_level->getBackground()->getSprite());
+
+		this->loadLevel();
 
 		//_background = new Background("background.png");
 		//this->addChild(_background->getSprite());
@@ -352,4 +355,27 @@ void GameLayer::killChicken()
 	_hudLayer->setLives(_lives);
 
 	_chicken->die();
+}
+
+void GameLayer::loadLevel()
+{
+	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
+	CCArray * levels = CCArray::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
+	levels->retain();
+	
+	CCDictionary * levelData = (CCDictionary *) levels->objectAtIndex(0);
+
+	int levelNum = levelData->valueForKey("Level")->intValue();
+	std::string background = levelData->valueForKey("Background")->getCString();
+
+	CCArray * lanes = (CCArray *) levelData->objectForKey("Lanes");
+
+	CCString * laneType = (CCString *) lanes->objectAtIndex(0);
+	std::string laneTypeString = laneType->getCString();
+
+	CCString * laneType1 = (CCString *) lanes->objectAtIndex(1);
+	std::string laneTypeString1 = laneType1->getCString();
+
+	int x = 30;
+
 }
