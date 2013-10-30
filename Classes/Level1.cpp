@@ -1,7 +1,7 @@
 #include "Level1.h"
 #include <map>
 
-Level1::Level1(void)
+/*Level1::Level1(void)
 {
 	_background = new Background("background1.png");
 
@@ -30,4 +30,4 @@ Level::LaneType Level1::getLaneType(int laneNumber)
 
 void Level1::update()
 {
-}
+}*/

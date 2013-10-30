@@ -1,7 +1,7 @@
 #include "Level2.h"
 
 
-Level2::Level2(void)
+/*Level2::Level2(void)
 {
 	_background = new Background("background2.png");
 
@@ -30,4 +30,4 @@ Level::LaneType Level2::getLaneType(int laneNumber)
 
 void Level2::update()
 {
-}
+}*/

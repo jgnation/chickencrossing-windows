@@ -184,4 +184,9 @@
   <ItemGroup>
     <Text Include="TODO.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\levels.plist">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
 </Project>

@@ -7,13 +7,13 @@
 
 using namespace cocos2d;
 
-class Level2 : public Level
+class Level2// : public Level
 {
-public:
+/*public:
 	Level2();
 	~Level2();
     LaneType getLaneType(int laneNumber);
-	void update();
+	void update();*/
 };
  
 #endif // __LEVEL2_H__

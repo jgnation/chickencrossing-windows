@@ -52,10 +52,11 @@ bool GameLayer::init()
 		_score = 0;
 		_lives = 5;
 
-		_level = new Level2();
-		this->addChild(_level->getBackground()->getSprite());
+		//_level = new Level2();
+		//this->addChild(_level->getBackground()->getSprite());
 
 		this->loadLevel();
+		this->addChild(_level->getBackground()->getSprite());
 
 		//_background = new Background("background.png");
 		//this->addChild(_background->getSprite());
@@ -359,7 +360,9 @@ void GameLayer::killChicken()
 
 void GameLayer::loadLevel()
 {
-	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
+	_level = new Level();
+
+	/*std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
 	CCArray * levels = CCArray::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
 	levels->retain();
 	
@@ -376,6 +379,5 @@ void GameLayer::loadLevel()
 	CCString * laneType1 = (CCString *) lanes->objectAtIndex(1);
 	std::string laneTypeString1 = laneType1->getCString();
 
-	int x = 30;
-
+	int x = 30;*/
 }
