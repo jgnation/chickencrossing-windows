@@ -1,25 +1,25 @@
-#include "Level.h"
+#include "LevelManager.h"
 
 using namespace cocos2d;
 
-Level::Level(void)
+LevelManager::LevelManager(void)
 {
 	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
-	CCArray * levels = CCArray::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
-	levels->retain();
+	_levels = CCArray::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
+	_levels->retain();
 
-	_levelData = (CCDictionary *) levels->objectAtIndex(0);
+	_levelData = (CCDictionary *) _levels->objectAtIndex(0);
 
 	_background = new Background(_levelData->valueForKey("Background")->getCString());
 }
 
 
-Background * Level::getBackground()
+/*Background * LevelManager::getBackground()
 {
 	return _background;
 }
 
-Level::LaneType Level::getLaneType(int laneNumber)
+LevelManager::LaneType LevelManager::getLaneType(int laneNumber)
 {
 	laneNumber--; //the index of the items in the file are 1 less than I am using in the program
 	//I am using 'natural indeces'
@@ -31,13 +31,18 @@ Level::LaneType Level::getLaneType(int laneNumber)
 
 	LaneType laneEnumType;
 	if (laneTypeString == "INVALID")
-		laneEnumType = Level::LaneType::INVALID;
+		laneEnumType = LevelManager::LaneType::INVALID;
 	else if (laneTypeString == "REST")
-		laneEnumType = Level::LaneType::REST;
+		laneEnumType = LevelManager::LaneType::REST;
 	else if (laneTypeString == "ROAD")
-		laneEnumType = Level::LaneType::ROAD;
+		laneEnumType = LevelManager::LaneType::ROAD;
 	else // == WATER
-		laneEnumType = Level::LaneType::WATER;
+		laneEnumType = LevelManager::LaneType::WATER;
 
 	return laneEnumType;
+}*/
+
+Level * LevelManager::getLevel(int levelNumber)
+{
+	return new Level((CCDictionary *) _levels->objectAtIndex(levelNumber));
 }

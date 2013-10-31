@@ -7,10 +7,8 @@
 #include "Bus.h"
 #include "Egg.h"
 #include "HUDLayer.h"
-#include "Level.h"
-#include "Level1.h"
+#include "LevelManager.h"
 #include "Log.h"
-#include "Level2.h"
 #include <string>
 
 using namespace cocos2d;
@@ -360,7 +358,10 @@ void GameLayer::killChicken()
 
 void GameLayer::loadLevel()
 {
-	_level = new Level();
+	int levelNumber = 1;
+
+	LevelManager * levelManager = new LevelManager();
+	_level = levelManager->getLevel(levelNumber);
 
 	/*std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
 	CCArray * levels = CCArray::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
