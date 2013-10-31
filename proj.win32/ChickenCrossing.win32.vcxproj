@@ -148,13 +148,13 @@
     <ClInclude Include="..\Classes\Egg.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\HUDLayer.h" />
+    <ClInclude Include="..\Classes\Level.h" />
     <ClInclude Include="..\Classes\LevelManager.h" />
     <ClInclude Include="..\Classes\Log.h" />
     <ClInclude Include="..\Classes\MenuScene.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\Truck.h" />
     <ClInclude Include="..\Classes\Vehicle.h" />
-    <ClInclude Include="Level.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -167,13 +167,13 @@
     <ClCompile Include="..\Classes\Egg.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\HUDLayer.cpp" />
+    <ClCompile Include="..\Classes\Level.cpp" />
     <ClCompile Include="..\Classes\LevelManager.cpp" />
     <ClCompile Include="..\Classes\Log.cpp" />
     <ClCompile Include="..\Classes\MenuScene.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />
     <ClCompile Include="..\Classes\Vehicle.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

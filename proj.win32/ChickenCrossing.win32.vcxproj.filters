@@ -121,7 +121,7 @@
     <ClInclude Include="..\Classes\LevelManager.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Level.h">
+    <ClInclude Include="..\Classes\Level.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -168,10 +168,10 @@
     <ClCompile Include="..\Classes\Log.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="Level.cpp">
+    <ClCompile Include="..\Classes\LevelManager.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LevelManager.cpp">
+    <ClCompile Include="..\Classes\Level.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
