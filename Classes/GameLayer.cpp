@@ -52,7 +52,7 @@ bool GameLayer::init()
 		this->addChild(_hudLayer, 1);	//z position is  on top
 
 		_levelManager = new LevelManager();
-		_levelNumber = 0;
+		_levelNumber = 1;
 		this->loadLevel(_levelNumber);
 
 		this->scheduleUpdate();

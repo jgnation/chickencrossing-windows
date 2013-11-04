@@ -19,13 +19,7 @@ public:
 protected:
     Background * _background;
 	CCDictionary * _levelData;
-	CCArray * _levels;
-
-	/*
-	 For some reason the _lanes map had to be declared BELOW the enum, otherwise it was 'undefined'.  Forward declaration wouldn't work.
-	 It caused a strange error in Level1.cpp.
-	*/
-
+	CCDictionary * _levels;
 };
  
 #endif // __LEVELMANAGER_H__

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<array>
-		<dict>
-			<key>Level</key>
+  <dict>
+    <key>1</key>
+    <dict>
+      <key>Level</key>
 			<string>1</string>
 			<key>Background</key>
 			<string>background1.png</string>
@@ -25,10 +26,11 @@
 				<string>REST</string>
 				<string>INVALID</string>
 				<string>INVALID</string>
-			</array>			
-		</dict>
-		<dict>
-			<key>Level</key>
+			</array>	
+    </dict>
+    <key>2</key>
+    <dict>
+      <key>Level</key>
 			<string>2</string>
 			<key>Background</key>
 			<string>background2.png</string>
@@ -50,7 +52,33 @@
 				<string>REST</string>
 				<string>INVALID</string>
 				<string>INVALID</string>
-			</array>			
-		</dict>
-	</array>
+			</array>	
+    </dict>
+    <key>3</key>
+    <dict>
+      <key>Level</key>
+			<string>3</string>
+			<key>Background</key>
+			<string>background3.png</string>
+			<key>Lanes</key>
+      <array>
+        <string>INVALID</string>
+				<string>REST</string>
+				<string>ROAD</string>
+				<string>ROAD</string>
+				<string>REST</string>
+				<string>WATER</string>
+				<string>WATER</string>
+				<string>WATER</string>
+				<string>WATER</string>
+				<string>WATER</string>
+				<string>REST</string>
+				<string>ROAD</string>
+				<string>ROAD</string>
+				<string>REST</string>
+				<string>INVALID</string>
+				<string>INVALID</string>
+      </array>
+    </dict>
+  </dict>
 </plist>
