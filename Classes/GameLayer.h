@@ -7,24 +7,26 @@
 #include "Vehicle.h"
 
 class Chicken;		//forward declation //can I just include the libraries?
-class Background;
 class Egg;
 class HudLayer;
 class Level;
+class LevelManager;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
-	HudLayer * _hudLayer;
-	Background * _background;
-	Chicken * _chicken;
-	Egg * _egg;
-	std::vector<Vehicle *> vehicleList;
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;
 	int _score;
 	int _lives;
+	int _levelNumber;
+
+	HudLayer * _hudLayer;
+	Chicken * _chicken;
+	Egg * _egg;
+	std::vector<Vehicle *> vehicleList;
 	Level * _level;
+	LevelManager * _levelManager;
 public:
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -52,7 +54,8 @@ public:
 	void resetFlag();
 	int getLaneNumber(float pixelPosition);
 	void killChicken();
-	void loadLevel();
+	void loadLevel(int levelNumber);
+	void loadNextLevel();
 
     // implement the "static node()" method manually
     CREATE_FUNC(GameLayer);

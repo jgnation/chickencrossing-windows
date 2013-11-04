@@ -47,64 +47,13 @@ bool GameLayer::init()
 
 		srand(time(NULL)); //seed the random number generator
 
-		_score = 0;
-		_lives = 5;
-
-		//_level = new Level2();
-		//this->addChild(_level->getBackground()->getSprite());
-
-		this->loadLevel();
-		this->addChild(_level->getBackground()->getSprite());
-
-		//_background = new Background("background.png");
-		//this->addChild(_background->getSprite());
-
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
-		this->addChild(_hudLayer);
+		this->addChild(_hudLayer, 1);	//z position is  on top
 
-		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-		float a = this->randomValueBetween(0, windowSize.width);
-		float b = this->getLanePixelPosition(this->getRandomLaneNumber());
-		_egg = new Egg(a, b);
-		this->addChild(_egg->getSprite());
-
-		_chicken = new Chicken(this);			
-
-		//precreate vehicles rather than doing it dynamically
-		#define K_NUM_VEHICLES 25
-		for(int i = 0; i < K_NUM_VEHICLES; ++i) 
-		{
-			//TODO: vehicle creation should be randomized
-			if (i % 2 == 0 && i % 4 != 0)
-			{
-				Truck * truck = new Truck();
-				vehicleList.push_back(truck);
-			}
-			else
-			{
-				if (i %  3 == 0)
-				{
-					Car * car = new Car();
-					vehicleList.push_back(car);
-				}
-				else
-				{
-					if (i % 4 == 0)
-					{
-						Bus * bus = new Bus();
-						vehicleList.push_back(bus);
-					}
-					else
-					{
-						Log * log = new Log();
-						vehicleList.push_back(log);						
-					}
-				}
-			}
-		}
-		_nextVehicle = 0;
-		//random_shuffle(vehicleList.begin, vehicleList.end);
+		_levelManager = new LevelManager();
+		_levelNumber = 0;
+		this->loadLevel(_levelNumber);
 
 		this->scheduleUpdate();
 
@@ -205,6 +154,11 @@ float GameLayer::getTimeTick()
 
 void GameLayer::update(float dt) 
 {
+	if (_score >= 5)
+	{
+		this->loadNextLevel();
+	}
+
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
 	//check if a chicken riding a log is hitting the edge of the screen
@@ -356,29 +310,61 @@ void GameLayer::killChicken()
 	_chicken->die();
 }
 
-void GameLayer::loadLevel()
+void GameLayer::loadLevel(int levelNumber)
 {
-	int levelNumber = 1;
+	_score = 0;									//I will probably not want to reset this in the future
+	_hudLayer->setScore(_score);
+	_lives = 5;
+	_hudLayer->setLives(_lives);
+	_level = _levelManager->getLevel(levelNumber);
+	this->addChild(_level->getBackground()->getSprite());
 
-	LevelManager * levelManager = new LevelManager();
-	_level = levelManager->getLevel(levelNumber);
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float a = this->randomValueBetween(0, windowSize.width);
+	float b = this->getLanePixelPosition(this->getRandomLaneNumber());
+	_egg = new Egg(a, b);
+	this->addChild(_egg->getSprite());
 
-	/*std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
-	CCArray * levels = CCArray::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
-	levels->retain();
-	
-	CCDictionary * levelData = (CCDictionary *) levels->objectAtIndex(0);
+	_chicken = new Chicken(this);			
 
-	int levelNum = levelData->valueForKey("Level")->intValue();
-	std::string background = levelData->valueForKey("Background")->getCString();
+	//precreate vehicles rather than doing it dynamically
+	#define K_NUM_VEHICLES 25
+	for(int i = 0; i < K_NUM_VEHICLES; ++i) 
+	{
+		//TODO: vehicle creation should be randomized
+		if (i % 2 == 0 && i % 4 != 0)
+		{
+			Truck * truck = new Truck();
+			vehicleList.push_back(truck);
+		}
+		else
+		{
+			if (i %  3 == 0)
+			{
+				Car * car = new Car();
+				vehicleList.push_back(car);
+			}
+			else
+			{
+				if (i % 4 == 0)
+				{
+					Bus * bus = new Bus();
+					vehicleList.push_back(bus);
+				}
+				else
+				{
+					Log * log = new Log();
+					vehicleList.push_back(log);						
+				}
+			}
+		}
+	}
+	_nextVehicle = 0;
+	//random_shuffle(vehicleList.begin, vehicleList.end);
+}
 
-	CCArray * lanes = (CCArray *) levelData->objectForKey("Lanes");
-
-	CCString * laneType = (CCString *) lanes->objectAtIndex(0);
-	std::string laneTypeString = laneType->getCString();
-
-	CCString * laneType1 = (CCString *) lanes->objectAtIndex(1);
-	std::string laneTypeString1 = laneType1->getCString();
-
-	int x = 30;*/
+void GameLayer::loadNextLevel()
+{
+	//I should probably call a method here to clean up dynamically allocated objects, and add a 'you win!' capation
+	this->loadLevel(++_levelNumber);
 }
