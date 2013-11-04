@@ -1,4 +1,7 @@
 http://www.flash-game.net/game/1892/chicken-road.html
+-In that game, vehicles spawn at predictable intervals.  Each lane has certain vehicle(s) that spawn, but in
+no particular order.  It appears to be random (unless it is the same thing every time)
+-so it looks like each lane has a list of possibilities, and an item from those possibilities is picked at random
 
 Chicken Crossing
 -Purpose: The purpose of the game is to get the chicken from one side of the road to the other.
@@ -27,25 +30,20 @@ Gameplay:
 -I need to figure out how many vertical lanes there will be
 -chicken can get to five spots at the end.  When he does progress to next level and increase difficulty.
 
-
-
 Notes:
 -don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
--
-
 
 TODO:
+-Modify pList so that each lane also specifies the types of vehicles that can spawn
+-clean up traffic spawning
+-add vehicles to CCArray instead of vector?
 -fix bug that occurs when a chicken dies while riding a log (by hitting side of screen)
 -sometimes the chicken gets stuck when on the log.  Whattup with that?
--refactor and clean up code!
 -put alligators in the water
 -add a chicken count...game over if reach 0
 -make dimensions easier to reference
 -try out stuff on various screen sizes
--change level after collecting a certain number of eggs
 -new levels mean more traffic and more eggs
--new Scenes for each level?
--I can't think of a way to add more challenge and fun without a river....dang it!
 -scale vehicle sprites better
 -the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
 	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
@@ -61,5 +59,6 @@ TODO BUGS:
 FIXED BUGS:
 -fix the bug where if an egg is at the left side of the screen, the chicken dies
 -sometimes the cars are flipped the wrong way
+
 
 

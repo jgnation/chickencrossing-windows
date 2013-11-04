@@ -19,8 +19,8 @@ Level::LaneType Level::getLaneType(int laneNumber)
 	//I am using 'natural indeces'
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
-
-	CCString * laneType = (CCString *) lanes->objectAtIndex(laneNumber);
+	CCDictionary * lane = (CCDictionary *) lanes->objectAtIndex(laneNumber);
+	CCString * laneType = (CCString *) lane->objectForKey("Type");
 	std::string laneTypeString = laneType->getCString();
 
 	LaneType laneEnumType;
