@@ -34,6 +34,8 @@ Notes:
 -don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
 
 TODO:
+-add speed and spawnInterval to plist for each lane.  interval and speed can be RANDOM.
+-different plist for each level?
 -Modify pList so that each lane also specifies the types of vehicles that can spawn
 -clean up traffic spawning
 -add vehicles to CCArray instead of vector?

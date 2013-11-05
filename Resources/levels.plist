@@ -21,6 +21,26 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
+        </dict>
+        <dict>
+          <key>Type</key>
+          <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
+        </dict>
+        <dict>
+          <key>Type</key>
+          <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -29,14 +49,10 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
-        </dict>
-        <dict>
-          <key>Type</key>
-          <string>ROAD</string>
-        </dict>
-        <dict>
-          <key>Type</key>
-          <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -45,22 +61,42 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -95,22 +131,42 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -119,22 +175,42 @@
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -169,10 +245,18 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -181,22 +265,42 @@
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>WATER</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
@@ -205,10 +309,18 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <string>RANDOM</string>
+          <key>Speed</key>
+          <string>100</string>
         </dict>
         <dict>
           <key>Type</key>
