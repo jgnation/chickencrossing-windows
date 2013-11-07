@@ -123,9 +123,8 @@ void Chicken::ride(Log * log)
 	float distance = ccpDistance(this->getSprite()->getPosition(), destination);
 	float duration = distance / logSpeed;
 
-	//should this be done in the chicken class?
 	CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished)); //TODO this should be a callback in the Chicken class
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::spriteMoveFinished));
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 	_isRiding = true;
 }
@@ -164,5 +163,11 @@ void Chicken::die()
 	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
 	_isRiding = false;
 	_isMoving = false;
+}
+
+void Chicken::spriteMoveFinished(CCNode* sender)
+{
+	CCSprite *sprite = (CCSprite *)sender;
+	_gameLayer->removeChild(sprite, true);
 }
 

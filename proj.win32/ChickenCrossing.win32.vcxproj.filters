@@ -124,6 +124,9 @@
     <ClInclude Include="..\Classes\Level.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Lane.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -172,6 +175,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Level.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lane.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

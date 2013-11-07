@@ -2,7 +2,7 @@
 
 using namespace cocos2d;
 
-LevelManager::LevelManager(void)
+LevelManager::LevelManager()
 {
 	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
 	_levels = CCDictionary::createWithContentsOfFileThreadSafe(levelsFileName.c_str());

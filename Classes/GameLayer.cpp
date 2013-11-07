@@ -47,6 +47,8 @@ bool GameLayer::init()
 
 		srand(time(NULL)); //seed the random number generator
 
+		vehicleList2 = new CCArray();
+
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
 		this->addChild(_hudLayer, 1);	//z position is  on top
@@ -108,6 +110,12 @@ int GameLayer::getAbsoluteValue(int num)
 }
 
 void GameLayer::spriteMoveFinished(CCNode* sender)
+{
+	CCSprite *sprite = (CCSprite *)sender;
+	this->removeChild(sprite, true);
+}
+
+void GameLayer::spriteMoveFinished3(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
 	this->removeChild(sprite, true);
@@ -227,6 +235,52 @@ void GameLayer::update(float dt)
 		_hudLayer->setScore(_score);
 	}
 
+
+
+
+	/*
+
+	for each (lane)
+		lane->hasEnoughTimePassedToSpawnVehicle()
+		if (true) lane->spawn a vehicle //this method can randomly pick one of the appropriate vehicles and spawn it
+
+
+	*/
+
+	
+	std::vector<Lane *> lanes = _level->getLanes(); //I shouldn't have to retrieve this every update
+	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
+	{
+		Lane * lane = dynamic_cast<Lane *>(*it);
+		float currentTime = getTimeTick();
+		if (lane->isTimeToSpawn(currentTime))
+		{
+			Vehicle * vehicle = lane->spawnVehicle();
+			vehicleList.push_back(vehicle);
+
+			CCPoint destination = ccp(-120, lane->getY());
+			vehicle->setDestination(destination);
+			int speed = lane->getSpeed();
+			float distance = ccpDistance(ccp(winSize.width, lane->getY()), destination);
+			float duration = distance / speed;
+
+			vehicleList2->addObject(vehicle);
+
+			CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, destination);
+			CCFiniteTimeAction * actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
+			vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+			this->addChild(vehicle->getSprite());
+
+			//vehicle->move();
+			//this->addChild(vehicle->getSprite());
+
+			//set vehicle movement animation
+			//delete or release at end of animation?
+		}
+	}
+
+
+	/*
 	//next section is for spawning vehicles
 	float curTimeMillis = getTimeTick();
 	if (curTimeMillis > _nextVehicleSpawn) //TODO: I haven't initialized _nextVehicleSpawn anywhere yet
@@ -297,7 +351,7 @@ void GameLayer::update(float dt)
 		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
 		vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 		this->addChild(vehicle->getSprite());
-	}
+	}*/
 }
 
 //this logic should be in the chicken class
@@ -326,7 +380,7 @@ void GameLayer::loadLevel(int levelNumber)
 	this->addChild(_egg->getSprite());
 
 	_chicken = new Chicken(this);			
-
+/*
 	//precreate vehicles rather than doing it dynamically
 	#define K_NUM_VEHICLES 25
 	for(int i = 0; i < K_NUM_VEHICLES; ++i) 
@@ -359,7 +413,7 @@ void GameLayer::loadLevel(int levelNumber)
 			}
 		}
 	}
-	_nextVehicle = 0;
+	_nextVehicle = 0;*/
 	//random_shuffle(vehicleList.begin, vehicleList.end);
 }
 

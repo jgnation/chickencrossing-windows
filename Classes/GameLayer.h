@@ -24,6 +24,7 @@ private:
 	HudLayer * _hudLayer;
 	Chicken * _chicken;
 	Egg * _egg;
+	cocos2d::CCArray * vehicleList2;
 	std::vector<Vehicle *> vehicleList;
 	Level * _level;
 	LevelManager * _levelManager;
@@ -42,6 +43,7 @@ public:
 	void startMovement(Vehicle * vehicle);
 	void spriteMoveFinished(CCNode* sender);
 	void spriteMoveFinished2(CCNode* sender);
+	void spriteMoveFinished3(CCNode* sender);
 
 	void update(float dt);
 	void setInvisible(CCNode * node);

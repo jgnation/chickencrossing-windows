@@ -39,6 +39,8 @@ public:
 	void setMoving(bool value);
 	bool isMoving();
 	void die();
+
+	void spriteMoveFinished(cocos2d::CCNode* sender);
 };
 
 #endif
