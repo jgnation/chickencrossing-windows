@@ -55,6 +55,8 @@ void Vehicle::move()
 	CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, _destination);
 	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+
+	//if I call a callback in GameLayer, then I don't have to have a reference to the GameLayer object in this clas
 }
 
 void Vehicle::spriteMoveFinished(CCNode* sender)

@@ -38,6 +38,7 @@ Vehicle * Lane::spawnVehicle()
 	float y = this->getLanePixelPosition(_laneNumber);
 	_y = y;
 
+
 	car->getSprite()->setPosition(ccp(windowSize.width, y));
 	CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  This should be scaled
 	car->setDestination(destination);
@@ -50,9 +51,8 @@ Vehicle * Lane::spawnVehicle()
 float Lane::getLanePixelPosition(int laneNumber)
 {
 	//the lane at the bottom of the screen is lane 1
-	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float lanePosition = (windowSize.height / 16) * validLanes[laneNumber];
+	float lanePosition = (windowSize.height / 16) * laneNumber;
 	float laneWidth = windowSize.height / 16;
 	return lanePosition - (laneWidth / 2); //return the center of the lane
 }

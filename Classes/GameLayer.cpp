@@ -119,6 +119,7 @@ void GameLayer::spriteMoveFinished3(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
 	this->removeChild(sprite, true);
+	sprite->setVisible(false);
 }
 
 float GameLayer::randomValueBetween(float low , float high) 
@@ -235,19 +236,7 @@ void GameLayer::update(float dt)
 		_hudLayer->setScore(_score);
 	}
 
-
-
-
-	/*
-
-	for each (lane)
-		lane->hasEnoughTimePassedToSpawnVehicle()
-		if (true) lane->spawn a vehicle //this method can randomly pick one of the appropriate vehicles and spawn it
-
-
-	*/
-
-	
+	//spawn vehicles for each lane
 	std::vector<Lane *> lanes = _level->getLanes(); //I shouldn't have to retrieve this every update
 	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
 	{
@@ -264,6 +253,21 @@ void GameLayer::update(float dt)
 			//set vehicle movement animation
 			//delete or release at end of animation?
 		}
+	}
+
+	//This loop exists to delete Vehicle objects whose sprites are finished moving across the screen.
+	//I don't know if this stuff is really doing what it should be...investigate sometime.
+	std::vector<Vehicle *>::iterator it = vehicleList.begin();
+	while (it != vehicleList.end())
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		if (!vehicle->getSprite()->isVisible())
+		{
+			it = vehicleList.erase(it);
+			//also, delete vehicle to free up memory
+			//delete vehicle; <- this causes an error when I close the program for some reason.
+		}
+		else ++it;
 	}
 
 

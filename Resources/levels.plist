@@ -45,6 +45,10 @@
         <dict>
           <key>Type</key>
           <string>ROAD</string>
+          <key>Interval</key>
+          <real>10000</real>
+          <key>Speed</key>
+          <integer>100</integer>
         </dict>
         <dict>
           <key>Type</key>
