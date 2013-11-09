@@ -19,6 +19,8 @@ public:
 	void setSpeed(std::string speed);
 	bool isTimeToSpawn(float currentTime);
 	Vehicle * spawnVehicle();
+	Vehicle * getRandomVehicle();	//this should be private
+	int randomValueBetween(int low , int high); //private
 
 	int getSpeed();
 	float getY();

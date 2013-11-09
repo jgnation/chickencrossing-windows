@@ -1,5 +1,8 @@
 #include "Lane.h"
 #include "Car.h"
+#include "Bus.h"
+#include "Truck.h"
+#include "Log.h"
 
 using namespace cocos2d;
 
@@ -14,6 +17,14 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 	_interval = lane->valueForKey("Interval")->floatValue();
 
 	_speed = lane->valueForKey("Speed")->intValue();
+
+	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
+	CCObject *it;
+	CCARRAY_FOREACH(vehicles, it)
+	{
+		CCString * vehicle = dynamic_cast<CCString *>(it);
+		_vehicles.push_back(vehicle->getCString());
+	}
 }
 
 bool Lane::isTimeToSpawn(float currentTime)
@@ -34,7 +45,7 @@ Vehicle * Lane::spawnVehicle()
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
-	Car * car = new Car();
+	/*Car * car = new Car();
 	float y = this->getLanePixelPosition(_laneNumber);
 	_y = y;
 
@@ -45,7 +56,51 @@ Vehicle * Lane::spawnVehicle()
 
 	car->setSpeed(_speed);
 
-	return car; //TODO
+	return car; //TODO*/
+
+	Vehicle * vehicle = this->getRandomVehicle();
+	float y = this->getLanePixelPosition(_laneNumber);
+	_y = y;
+
+	vehicle->getSprite()->setPosition(ccp(windowSize.width, y));
+	CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  This should be scaled
+	vehicle->setDestination(destination);
+
+	vehicle->setSpeed(_speed);
+
+	return vehicle;
+}
+
+Vehicle * Lane::getRandomVehicle()
+{
+	int randomIndex = this->randomValueBetween(0, _vehicles.size());
+	std::string vehicle = _vehicles.at(randomIndex);
+
+	if (vehicle == "Car")
+	{
+		return new Car();
+	}
+	else if (vehicle == "Bus")
+	{
+		return new Bus();
+	}
+	else if (vehicle == "Truck")
+	{
+		return new Truck();
+	}
+	else if (vehicle == "Log")
+	{
+		return new Log();
+	}
+	else
+	{
+		return NULL; //this is an error, should throw an exception
+	}
+}
+
+int Lane::randomValueBetween(int low , int high) 
+{
+	return rand() % (int)high + (int)low;
 }
 
 float Lane::getLanePixelPosition(int laneNumber)

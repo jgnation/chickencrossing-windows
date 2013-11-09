@@ -63,6 +63,13 @@ just have to make sure that we never try to add a sprite that is already doing s
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
 
 TODO:
+-alternate directions of vehicles
+-if speed or inteval or 0, make it random
+-devise another way to randomize?  A given lane's vehicles should always go the same speed
+-when incrementing a level, reset the vehicles and get new ones
+-split levels into different plist files
+
+
 -add speed and spawnInterval to plist for each lane.  interval and speed can be RANDOM.
 -different plist for each level?
 -Modify pList so that each lane also specifies the types of vehicles that can spawn
