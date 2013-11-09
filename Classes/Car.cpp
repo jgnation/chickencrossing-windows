@@ -3,7 +3,7 @@
 
 using namespace cocos2d;
 
-Car::Car(void)
+Car::Car(void) 
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	_origin = ccp(windowSize.width, 40);

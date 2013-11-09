@@ -48,18 +48,19 @@ CCFiniteTimeAction * Vehicle::getMovementAction()
 
 void Vehicle::move()
 {
+
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 	float distance = ccpDistance(ccp(winSize.width, _destination.y), _destination);
 	float duration = distance / _speed;
 	CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, _destination);
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
 
-/*void Vehicle::spriteMoveFinished(CCNode* sender)
+void Vehicle::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
-	_gameLayer->removeChild(sprite, true);
+	//_gameLayer->removeChild(sprite, true);
 
 	delete this;
-}*/
+}

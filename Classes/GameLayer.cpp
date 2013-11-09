@@ -258,21 +258,8 @@ void GameLayer::update(float dt)
 			Vehicle * vehicle = lane->spawnVehicle();
 			vehicleList.push_back(vehicle);
 
-			CCPoint destination = ccp(-120, lane->getY());
-			vehicle->setDestination(destination);
-			int speed = lane->getSpeed();
-			float distance = ccpDistance(ccp(winSize.width, lane->getY()), destination);
-			float duration = distance / speed;
-
-			vehicleList2->addObject(vehicle);
-
-			CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, destination);
-			CCFiniteTimeAction * actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
-			vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+			vehicle->move();
 			this->addChild(vehicle->getSprite());
-
-			//vehicle->move();
-			//this->addChild(vehicle->getSprite());
 
 			//set vehicle movement animation
 			//delete or release at end of animation?

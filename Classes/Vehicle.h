@@ -10,6 +10,7 @@ protected:
 	cocos2d::CCPoint _origin;
 	cocos2d::CCPoint _destination;
 	cocos2d::CCFiniteTimeAction * _movementAction;
+	//GameLayer * _gameLayer;
 public:
 	Vehicle(void);
 	~Vehicle(void);

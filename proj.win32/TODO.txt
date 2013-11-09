@@ -33,6 +33,35 @@ Gameplay:
 Notes:
 -don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
 
+
+options for refactoring vehicle spawning:
+-vehicles can inherit from CCSprite.  then the CCObject * sender can be that sprite and I can easily remove it
+-
+
++I need to maintain a list of sprites currently on the screen.  I can precreate them like I am now (this is a waste if
+many of them are not on the screen), or I can create them on the fly (waste of time constantly initializing)
++If I precreate them, I can add a 'isVisible' property to check.  if !isVisible, don't execute any logic
++If I precreate them, where would I do it?  In GameLayer?  In each Lane?  The lane can only produce certain vehicles.
++Each lane could precreate vehicles, have a list of them, and pick them at random to display them
++If I were to do that, I would have to somehow notate which ones are currently visible
++CCSprite has a isVisible property
++If I create them on the fly, I can:
+	-create them in lane
+	-add the sprite to the layer
+	-after adding the sprite, add the vehicle to a list of vehicles....isVisible will be true
+	-in the callback, isVisible will be false after removing it from the layer (either that or I will set it to false)
+	-in the update method I can scan the list of vehicles.  Vehicles where !isVisible, delete it
++Ideally I want the object destroyed right when the action is over!
++Maybe initiate the action in the Vehicle class...with the callback in the Vehicle class.  Then the callback can call a 
+'delete this'?  Maybe?  I SHOULD TRY THIS FIRST.
++I Think the option directly above would work well....but it is not optimal.  The best thing to do will probably be to
+have Vehicle inherit from CCSprite and have the callback remove it.  I would have to redo sprite intersection logic...
+although that may already be built into CCSprite
++Really...the best way would probably be to NOT create these sprite dynamically.  Use the isVisible property.  I would
+just have to make sure that we never try to add a sprite that is already doing something on the screen.
++Maybe SpriteContainer should be a CCNode instead of CCObject (a CCNode is a CCObject, right?), and then the whole object
+can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
+
 TODO:
 -add speed and spawnInterval to plist for each lane.  interval and speed can be RANDOM.
 -different plist for each level?
