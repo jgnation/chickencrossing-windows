@@ -185,6 +185,9 @@
     <None Include="..\Resources\levels.plist">
       <SubType>Designer</SubType>
     </None>
+    <None Include="..\Resources\level_1.plist" />
+    <None Include="..\Resources\level_2.plist" />
+    <None Include="..\Resources\level_3.plist" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,6 +14,7 @@ Features:
 -gain points with items to pickup?
 -pick up items to eliminate traffic
 -swipe option or buttons on screen option
+-levels described in plist file(s).  Setting speed/interval of 0 will randomize the value.
 
 
 Gameplay:
@@ -63,16 +64,12 @@ just have to make sure that we never try to add a sprite that is already doing s
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
 
 TODO:
--when incrementing a level, reset the vehicles and get new ones
--split levels into different plist files
+-fix bug where chicken dies by hitting edge of screen and then the game crashes
+-make sure chicken picture is always on top (especially when riding a log) (chicken, then egg, then anything else)
 
 
--add speed and spawnInterval to plist for each lane.  interval and speed can be RANDOM.
--different plist for each level?
--Modify pList so that each lane also specifies the types of vehicles that can spawn
--clean up traffic spawning
+
 -add vehicles to CCArray instead of vector?
--fix bug that occurs when a chicken dies while riding a log (by hitting side of screen)
 -sometimes the chicken gets stuck when on the log.  Whattup with that?
 -put alligators in the water
 -add a chicken count...game over if reach 0
@@ -84,11 +81,6 @@ TODO:
 	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
 	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
 	-or...maybe Chicken should extend CCSprite
-
-EVENTUALLY:
--make more level maps....some with stuff to jump onto
-
-TODO BUGS:
 
 
 FIXED BUGS:

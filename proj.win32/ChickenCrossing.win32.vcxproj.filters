@@ -188,5 +188,14 @@
     <None Include="..\Resources\levels.plist">
       <Filter>resource</Filter>
     </None>
+    <None Include="..\Resources\level_1.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_3.plist">
+      <Filter>resource</Filter>
+    </None>
   </ItemGroup>
 </Project>
