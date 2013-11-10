@@ -23,7 +23,6 @@ public:
 	int randomValueBetween(int low , int high); //private
 
 	int getSpeed();
-	float getY();
 
 	std::string _type;
 	std::vector<std::string> _vehicles;
@@ -32,9 +31,6 @@ public:
 	int _speed;
 	float _nextSpawnTime;
 	int _laneNumber;
-
-	float _y;
-
 
 	float getLanePixelPosition(int laneNumber);
 };

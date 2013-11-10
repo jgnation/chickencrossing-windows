@@ -48,9 +48,20 @@ CCFiniteTimeAction * Vehicle::getMovementAction()
 
 void Vehicle::move()
 {
-
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-	float distance = ccpDistance(ccp(winSize.width, _destination.y), _destination);
+
+	float distance = 0;
+	if (_destination.x < 0)
+	{
+		//vehicle is moving left
+		distance = ccpDistance(ccp(winSize.width, _destination.y), _destination);
+	}
+	else //destination.x > winSize.width
+	{
+		//vehicle is moving right
+		distance = ccpDistance(ccp(0, _destination.y), _destination);
+	}
+
 	float duration = distance / _speed;
 	CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, _destination);
 	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
