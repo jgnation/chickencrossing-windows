@@ -15,8 +15,18 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 	_type = laneTypeCCString->getCString();
 
 	_interval = lane->valueForKey("Interval")->floatValue();
+	if (_interval == 0)
+	{
+		//get random interval
+		_interval = this->randomValueBetween(1000, 10000);
+	}
 
 	_speed = lane->valueForKey("Speed")->intValue();
+	if (_speed == 0)
+	{
+		//get random speed
+		_speed = this->randomValueBetween(100, 300);
+	}
 
 	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
 	CCObject *it;
@@ -96,6 +106,11 @@ Vehicle * Lane::getRandomVehicle()
 }
 
 int Lane::randomValueBetween(int low , int high) 
+{
+	return rand() % (int)high + (int)low;
+}
+
+float Lane::randomValueBetween(float low , float high) 
 {
 	return rand() % (int)high + (int)low;
 }
