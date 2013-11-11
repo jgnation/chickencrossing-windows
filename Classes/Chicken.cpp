@@ -36,7 +36,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_isRiding = false;
 	_isMoving = false;
 
-	gameLayer->addChild(_sprite);
+	gameLayer->addChild(_sprite, 1);
 }
 
 Chicken::~Chicken(void) { }
@@ -157,11 +157,12 @@ void Chicken::setMoving(bool value)
 
 void Chicken::die()
 {
+	this->endRide();	//adding this here fixed the bug where the game crashes when the riding chicken hits the edge of the screen
+
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	_currentPosition.x = windowSize.width / 2;
 	_currentPosition.y = (_sprite->getContentSize().height / 2);
 	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
-	_isRiding = false;
 	_isMoving = false;
 }
 

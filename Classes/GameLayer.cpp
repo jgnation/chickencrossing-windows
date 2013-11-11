@@ -51,7 +51,7 @@ bool GameLayer::init()
 
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
-		this->addChild(_hudLayer, 1);	//z position is  on top
+		this->addChild(_hudLayer, 2);	//z position is  on top, chicken is on 1
 
 		_levelManager = new LevelManager();
 		_levelNumber = 1;
@@ -165,6 +165,7 @@ void GameLayer::update(float dt)
 {
 	if (_score >= 5)
 	{
+		this->resetChicken();
 		this->loadNextLevel();
 	}
 
@@ -179,6 +180,7 @@ void GameLayer::update(float dt)
 		}
 	}
 
+	//getPositionY is returning a bad value after the chicken dies by running into the side of the wall
 	Level::LaneType laneType = _level->getLaneType(this->getLaneNumber(_chicken->getSprite()->getPositionY()));
 
 	//check to see if a chicken is jumping on a log or into the water
@@ -269,80 +271,6 @@ void GameLayer::update(float dt)
 		}
 		else ++it;
 	}
-
-
-	/*
-	//next section is for spawning vehicles
-	float curTimeMillis = getTimeTick();
-	if (curTimeMillis > _nextVehicleSpawn) //TODO: I haven't initialized _nextVehicleSpawn anywhere yet
-	{ 
-		//the values that I am inputting depend on the new version of randomValueBetween that I modified
-		float randMillisecs = randomValueBetween(5, 15) * 100;
-		_nextVehicleSpawn = randMillisecs + curTimeMillis;
-
-		//int randomLane = this->getRandomLaneNumber();
-		//float randY = this->getLanePixelPosition(randomLane);
-		float randDuration = this->randomValueBetween(2.0, 10.0);
-
-		Vehicle *  vehicle = vehicleList[_nextVehicle];
-		_nextVehicle++;
- 
-		if (_nextVehicle >= vehicleList.size())
-			_nextVehicle = 0;	
-
-		Log* log = dynamic_cast<Log*>(vehicle);
-		//this stuff works for Level2!
-		int randomLane = 0;
-		if(log != 0)
-		{
-			//it's a log
-			randomLane = this->getRandomLaneNumber();
-			while (randomLane < 5)
-			{
-				randomLane = this->getRandomLaneNumber();
-			}
-		}
-		else
-		{
-			//it's not a log
-			randomLane = this->getRandomLaneNumber();
-			while (randomLane > 4)
-			{
-				randomLane = this->getRandomLaneNumber();
-			}
-		}
-		float randY = this->getLanePixelPosition(randomLane);
-
-		CCFiniteTimeAction* actionMove;
-		if (randomLane % 2 == 0)
-		{
-			vehicle->getSprite()->setPosition(ccp(winSize.width, randY));
-			CCPoint destination = ccp(-120, randY); //-120 so the sprite goes completely off screen.  This should be scaled
-			vehicle->setDestination(destination);
-			int speed = vehicle->getSpeed();
-			float distance = ccpDistance(ccp(winSize.width, randY), destination);
-			float duration = distance / speed;
-			actionMove = CCMoveTo::create(duration, destination); 
-			vehicle->getSprite()->setFlipX(false);
-		}
-		else
-		{
-			vehicle->getSprite()->setPosition(ccp(0, randY));
-			CCPoint destination = ccp(winSize.width + 120, randY);
-			int speed = vehicle->getSpeed();
-			float distance = ccpDistance(ccp(0, randY), destination);
-			float duration = distance / speed;
-			actionMove = CCMoveTo::create(duration, destination); //+120 so the sprite goes completely off screen.  This should be scaled
-			vehicle->setDestination(destination);
-			vehicle->setMovementAction(actionMove);
-			//note: 120 is the width of the bus.  This fixes the issue where the chicken dies if the egg is at the left of the screen.
-			if (!vehicle->getSprite()->isFlipX()) vehicle->getSprite()->setFlipX(true);
-		}
-
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished));
-		vehicle->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
-		this->addChild(vehicle->getSprite());
-	}*/
 }
 
 //this logic should be in the chicken class
@@ -352,6 +280,11 @@ void GameLayer::killChicken()
 	_lives--;
 	_hudLayer->setLives(_lives);
 
+	_chicken->die();
+}
+
+void GameLayer::resetChicken()
+{
 	_chicken->die();
 }
 
@@ -371,40 +304,6 @@ void GameLayer::loadLevel(int levelNumber)
 	this->addChild(_egg->getSprite());
 
 	_chicken = new Chicken(this);			
-/*
-	//precreate vehicles rather than doing it dynamically
-	#define K_NUM_VEHICLES 25
-	for(int i = 0; i < K_NUM_VEHICLES; ++i) 
-	{
-		//TODO: vehicle creation should be randomized
-		if (i % 2 == 0 && i % 4 != 0)
-		{
-			Truck * truck = new Truck();
-			vehicleList.push_back(truck);
-		}
-		else
-		{
-			if (i %  3 == 0)
-			{
-				Car * car = new Car();
-				vehicleList.push_back(car);
-			}
-			else
-			{
-				if (i % 4 == 0)
-				{
-					Bus * bus = new Bus();
-					vehicleList.push_back(bus);
-				}
-				else
-				{
-					Log * log = new Log();
-					vehicleList.push_back(log);						
-				}
-			}
-		}
-	}
-	_nextVehicle = 0;*/
 	//random_shuffle(vehicleList.begin, vehicleList.end);
 }
 

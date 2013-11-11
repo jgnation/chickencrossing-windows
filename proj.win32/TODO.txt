@@ -64,11 +64,10 @@ just have to make sure that we never try to add a sprite that is already doing s
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
 
 TODO:
--fix bug where chicken dies by hitting edge of screen and then the game crashes
--make sure chicken picture is always on top (especially when riding a log) (chicken, then egg, then anything else)
+-fix cars in different lanes killing chickens (sprite sizing issues)
 
 
-
+-maybe add a master levels.plist that has an array that has level number and level plist (e.g. level1 -> level_1.plist)
 -add vehicles to CCArray instead of vector?
 -sometimes the chicken gets stuck when on the log.  Whattup with that?
 -put alligators in the water
@@ -86,6 +85,7 @@ TODO:
 FIXED BUGS:
 -fix the bug where if an egg is at the left side of the screen, the chicken dies
 -sometimes the cars are flipped the wrong way
+-fixed the bug where the program crashes when a riding chicken hits the screen edge (fixed it by adding this->endRide(); to the chicken's die() method)
 
 
 

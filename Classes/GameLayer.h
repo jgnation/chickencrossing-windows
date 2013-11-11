@@ -56,6 +56,7 @@ public:
 	void resetFlag();
 	int getLaneNumber(float pixelPosition);
 	void killChicken();
+	void resetChicken();
 	void loadLevel(int levelNumber);
 	void loadNextLevel();
 
