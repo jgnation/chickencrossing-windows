@@ -68,6 +68,7 @@ TODO:
 
 
 -maybe add a master levels.plist that has an array that has level number and level plist (e.g. level1 -> level_1.plist)
+-make main menu
 -add vehicles to CCArray instead of vector?
 -sometimes the chicken gets stuck when on the log.  Whattup with that?
 -put alligators in the water
