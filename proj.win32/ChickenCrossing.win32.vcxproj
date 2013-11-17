@@ -152,7 +152,8 @@
     <ClInclude Include="..\Classes\Level.h" />
     <ClInclude Include="..\Classes\LevelManager.h" />
     <ClInclude Include="..\Classes\Log.h" />
-    <ClInclude Include="..\Classes\MenuScene.h" />
+    <ClInclude Include="..\Classes\MenuButtonLayer.h" />
+    <ClInclude Include="..\Classes\MenuLayer.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\Truck.h" />
     <ClInclude Include="..\Classes\Vehicle.h" />
@@ -172,7 +173,8 @@
     <ClCompile Include="..\Classes\Level.cpp" />
     <ClCompile Include="..\Classes\LevelManager.cpp" />
     <ClCompile Include="..\Classes\Log.cpp" />
-    <ClCompile Include="..\Classes\MenuScene.cpp" />
+    <ClCompile Include="..\Classes\MenuButtonLayer.cpp" />
+    <ClCompile Include="..\Classes\MenuLayer.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />
     <ClCompile Include="..\Classes\Vehicle.cpp" />

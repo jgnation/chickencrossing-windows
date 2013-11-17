@@ -91,9 +91,6 @@
     <ClInclude Include="..\Classes\Chicken.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MenuScene.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\SpriteContainer.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -127,6 +124,12 @@
     <ClInclude Include="..\Classes\Lane.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\MenuLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuButtonLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -142,9 +145,6 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Chicken.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MenuScene.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\SpriteContainer.cpp">
@@ -178,6 +178,12 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Lane.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuButtonLayer.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
