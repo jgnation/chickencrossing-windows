@@ -66,6 +66,15 @@
     <Image Include="..\Resources\log_small.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\chicken_crossing_title.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\start_game_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\start_game_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ChickenCrossing.rc">

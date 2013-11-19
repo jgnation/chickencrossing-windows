@@ -124,6 +124,7 @@
     <Image Include="..\Resources\brown_egg.png" />
     <Image Include="..\Resources\bus.png" />
     <Image Include="..\Resources\cat.png" />
+    <Image Include="..\Resources\chicken_crossing_title.png" />
     <Image Include="..\Resources\CloseNormal.png" />
     <Image Include="..\Resources\CloseSelected.png" />
     <Image Include="..\Resources\dog.png" />
@@ -133,6 +134,8 @@
     <Image Include="..\Resources\pig.png" />
     <Image Include="..\Resources\red_car.png" />
     <Image Include="..\Resources\small_chicken.png" />
+    <Image Include="..\Resources\start_game_orange.png" />
+    <Image Include="..\Resources\start_game_yellow.png" />
     <Image Include="..\Resources\white_truck.png" />
     <Image Include="res\ChickenCrossing.ico" />
   </ItemGroup>
