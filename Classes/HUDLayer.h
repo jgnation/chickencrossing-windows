@@ -12,6 +12,7 @@ class HudLayer : public cocos2d::CCLayer
 private:
     CCLabelTTF * _scoreLabel;
 	CCLabelTTF * _livesLabel;
+	CCLabelTTF * _levelLabel;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -29,6 +30,8 @@ public:
     void setScore(int score);
 
 	void setLives(int lives);
+
+	void setLevel(int level);
 };
  
 #endif // __HUDLAYER_H__

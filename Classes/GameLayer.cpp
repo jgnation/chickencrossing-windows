@@ -292,6 +292,7 @@ void GameLayer::loadLevel(int levelNumber)
 {
 	_numEggsToCollect = levelNumber;
 	_score = 0;									//I will probably not want to reset this in the future
+	_hudLayer->setLevel(levelNumber);
 	_hudLayer->setScore(_score);
 	_lives = 5;
 	_hudLayer->setLives(_lives);

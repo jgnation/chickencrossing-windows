@@ -61,8 +61,8 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--display level number during game
--fix log not coming often enough
+-fix chicken being displayed after level change
+-fix logs not coming often enough
 
 
 -a chicken sprite is left behind when going to the second level
