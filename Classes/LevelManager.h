@@ -15,11 +15,13 @@ public:
 	~LevelManager();
 
 	Level * getLevel(int levelNumber);
+	int mapLevelNumberToLevelPList(int levelNumber);
 
 protected:
     Background * _background;
 	CCDictionary * _levelData;
 	CCDictionary * _levels;
+	int _numOfLevels;
 };
  
 #endif // __LEVELMANAGER_H__

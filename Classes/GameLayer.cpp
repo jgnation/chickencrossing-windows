@@ -163,7 +163,7 @@ float GameLayer::getTimeTick()
 
 void GameLayer::update(float dt) 
 {
-	if (_score >= 5)
+	if (_score >= _numEggsToCollect)
 	{
 		this->resetChicken();
 		this->loadNextLevel();
@@ -290,6 +290,7 @@ void GameLayer::resetChicken()
 
 void GameLayer::loadLevel(int levelNumber)
 {
+	_numEggsToCollect = levelNumber;
 	_score = 0;									//I will probably not want to reset this in the future
 	_hudLayer->setScore(_score);
 	_lives = 5;

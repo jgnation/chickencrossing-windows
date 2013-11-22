@@ -61,8 +61,8 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--make a master plist and make it accessible
--make correct number of eggs need to be collected at each level
+-display level number during game
+-fix log not coming often enough
 
 
 -a chicken sprite is left behind when going to the second level

@@ -20,6 +20,7 @@ private:
 	int _score;
 	int _lives;
 	int _levelNumber;
+	int _numEggsToCollect;
 
 	HudLayer * _hudLayer;
 	Chicken * _chicken;

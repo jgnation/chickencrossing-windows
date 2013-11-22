@@ -38,7 +38,7 @@ bool MenuLayer::init()
 		this->addChild(menuButtonLayer, 5);	//z position is  on top, chicken is on 1
 
 		LevelManager * _levelManager = new LevelManager();
-		int _levelNumber = 1;
+		int _levelNumber = 4;
 		//this->loadLevel(_levelNumber);
 		_level = _levelManager->getLevel(_levelNumber);
 		this->addChild(_level->getBackground()->getSprite());
