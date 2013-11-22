@@ -3,10 +3,10 @@
 <plist version="1.0">
   <dict>
     <key>Level</key>
-	<string>3</string>
-	<key>Background</key>
-	<string>background3.png</string>
-	<key>Lanes</key>
+	  <string>3</string>
+	  <key>Background</key>
+	  <string>background3.png</string>
+	  <key>Lanes</key>
     <array>
       <dict>
         <key>Type</key>

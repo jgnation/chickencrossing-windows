@@ -19,7 +19,7 @@ Features:
 -also have bonus levels (like the all-water level)
 -survival mode...how long can you survive with faster and faster traffic?  Somehow have an incentive to collect eggs or get across the road.
 -collect as many eggs as you can as traffic moves faster and faster.  record the highest number of eggs collected.
--regular mode will be just collect eggs and move to the next level.  An incentive to play again will be to do it as fast as possible...or with dying the least number of times.
+
 
 
 Gameplay:
@@ -36,13 +36,66 @@ Gameplay:
 -I need to figure out how many vertical lanes there will be
 -chicken can get to five spots at the end.  When he does progress to next level and increase difficulty.
 
+
+Features to implement:
+-1st level get 1 egg, second get 2, third get 3 and so on.  After the levels have been completed, go back to the first but continue incrementing the eggs.  Do this indefinitely.
+	-user gets 3 - 5 lives
+	-five levels (one will be water on both sides of a rest in the middle)
+	-the enemies will not get harder and harder....they will stay the same
+	-The incentive to keep playing will be to see what level you can get to.  Record the maximum level achieved.
+	-store highest levels achieved with date (save top 5 attempts)
+	-show high scores after dying
+-store scores on device
+-make a pause screen (pause button on game Layer)
+-create 'scramble egg' mode: scramble to get as many eggs as you can!  Traffic will gradually move faster and faster.  User can pick a level.
+	-make a level-select screen (can only select levels that have been opened in regular mode, maybe?) for other this mode
+	-this will have the same five levels as the main mode, plus a road map with no rests and a water map with no rests
+	-maybe enemies should stay consistent (and relatively easy?)
+	-store highest number of eggs collected (save top 5 attempts)
+	-HUD should show current record number of eggs collected for that given level
+	-to do this I need to add a master levels.plist that has an array that has level number and level plist (e.g. level1 -> level_1.plist)
+-I need the following screens added:
+	-JGNation splash screen
+	-tutorial screen for each mode
+	-About screen (movie credits text) 
+	-like on facebook kind of text?  review game button?
+
+TODO:
+-make a master plist and make it accessible
+-make correct number of eggs need to be collected at each level
+
+
+-a chicken sprite is left behind when going to the second level
+-nail down the best way to handle the water levels....so that the chicken can get across fairly easily
+	(the logs should come by fairly frequently)
+-fix cars in different lanes killing chickens (sprite sizing issues)
+-collect egg mode and regular frogger mode and timed mode
+-add vehicles to CCArray instead of vector?
+-sometimes the chicken gets stuck when on the log.  Whattup with that?
+-put alligators and disappearing logs in the water
+-add a chicken count...game over if reach 0
+-make dimensions easier to reference
+-try out stuff on various screen sizes
+-scale vehicle sprites better
+-the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
+	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
+	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
+	-or...maybe Chicken should extend CCSprite
+
+
+FIXED BUGS:
+-fix the bug where if an egg is at the left side of the screen, the chicken dies
+-sometimes the cars are flipped the wrong way
+-fixed the bug where the program crashes when a riding chicken hits the screen edge (fixed it by adding this->endRide(); to the chicken's die() method)
+
+
+
 Notes:
 -don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
 
 
 options for refactoring vehicle spawning:
 -vehicles can inherit from CCSprite.  then the CCObject * sender can be that sprite and I can easily remove it
--
 
 +I need to maintain a list of sprites currently on the screen.  I can precreate them like I am now (this is a waste if
 many of them are not on the screen), or I can create them on the fly (waste of time constantly initializing)
@@ -67,33 +120,6 @@ although that may already be built into CCSprite
 just have to make sure that we never try to add a sprite that is already doing something on the screen.
 +Maybe SpriteContainer should be a CCNode instead of CCObject (a CCNode is a CCObject, right?), and then the whole object
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
-
-TODO:
--a chicken sprite is left behind when going to the second level
--nail down the best way to handle the water levels....so that the chicken can get across fairly easily
-	(the logs should come by fairly frequently)
--fix cars in different lanes killing chickens (sprite sizing issues)
--store scores on device
--collect egg mode and regular frogger mode and timed mode
--maybe add a master levels.plist that has an array that has level number and level plist (e.g. level1 -> level_1.plist)
--add vehicles to CCArray instead of vector?
--sometimes the chicken gets stuck when on the log.  Whattup with that?
--put alligators in the water
--add a chicken count...game over if reach 0
--make dimensions easier to reference
--try out stuff on various screen sizes
--new levels mean more traffic and more eggs
--scale vehicle sprites better
--the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
-	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
-	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
-	-or...maybe Chicken should extend CCSprite
-
-
-FIXED BUGS:
--fix the bug where if an egg is at the left side of the screen, the chicken dies
--sometimes the cars are flipped the wrong way
--fixed the bug where the program crashes when a riding chicken hits the screen edge (fixed it by adding this->endRide(); to the chicken's die() method)
 
 
 
