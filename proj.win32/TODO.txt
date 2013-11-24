@@ -61,8 +61,9 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--fix chicken being displayed after level change
 -fix logs not coming often enough
+-add button support for windows
+-intervals should probably be different for water vs road
 
 
 -a chicken sprite is left behind when going to the second level
@@ -120,6 +121,10 @@ although that may already be built into CCSprite
 just have to make sure that we never try to add a sprite that is already doing something on the screen.
 +Maybe SpriteContainer should be a CCNode instead of CCObject (a CCNode is a CCObject, right?), and then the whole object
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
+
+
+-Keyboard input on version > 3.0 alpha:
+	http://www.cocos2d-x.org/forums/6/topics/39145
 
 
 

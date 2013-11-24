@@ -47,6 +47,8 @@ bool GameLayer::init()
 
 		srand(time(NULL)); //seed the random number generator
 
+		_chicken = new Chicken(this);
+
 		vehicleList2 = new CCArray();
 
 		_hudLayer = new HudLayer();
@@ -165,7 +167,6 @@ void GameLayer::update(float dt)
 {
 	if (_score >= _numEggsToCollect)
 	{
-		this->resetChicken();
 		this->loadNextLevel();
 	}
 
@@ -290,6 +291,8 @@ void GameLayer::resetChicken()
 
 void GameLayer::loadLevel(int levelNumber)
 {
+	this->resetChicken();
+
 	_numEggsToCollect = levelNumber;
 	_score = 0;									//I will probably not want to reset this in the future
 	_hudLayer->setLevel(levelNumber);
@@ -305,7 +308,6 @@ void GameLayer::loadLevel(int levelNumber)
 	_egg = new Egg(a, b);
 	this->addChild(_egg->getSprite());
 
-	_chicken = new Chicken(this);			
 	//random_shuffle(vehicleList.begin, vehicleList.end);
 }
 

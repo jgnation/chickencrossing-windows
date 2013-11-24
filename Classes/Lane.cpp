@@ -18,14 +18,14 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 	if (_interval == 0)
 	{
 		//get random interval
-		_interval = this->randomValueBetween(1000, 10000);
+		_interval = this->randomValueBetween(2000, 3000);
 	}
 
 	_speed = lane->valueForKey("Speed")->intValue();
 	if (_speed == 0)
 	{
 		//get random speed
-		_speed = this->randomValueBetween(100, 300);
+		_speed = this->randomValueBetween(80, 150);
 	}
 
 	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
