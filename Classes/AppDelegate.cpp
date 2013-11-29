@@ -14,11 +14,10 @@ AppDelegate::AppDelegate()
 
 AppDelegate::~AppDelegate()
 {
-    SimpleAudioEngine::end();
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
-{
+{/*
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
 	//start change screen size
@@ -44,21 +43,44 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // run
     pDirector->runWithScene(pScene);
+    return true;*/
+
+
+	// initialize director
+    auto director = Director::getInstance();
+    auto eglView = EGLView::getInstance();
+
+	//eglView->setFrameSize(640,480);
+
+    director->setOpenGLView(eglView);
+	
+    // turn on display FPS
+    director->setDisplayStats(true);
+
+    // set FPS. the default value is 1.0/60 if you don't call this
+    director->setAnimationInterval(1.0 / 60);
+
+    // create a scene. it's an autorelease object
+    auto scene = MenuLayer::scene();
+
+    // run
+    director->runWithScene(scene);
+
     return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
-void AppDelegate::applicationDidEnterBackground()
-{
-    CCDirector::sharedDirector()->stopAnimation();
+void AppDelegate::applicationDidEnterBackground() {
+    Director::getInstance()->stopAnimation();
 
-    SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    // if you use SimpleAudioEngine, it must be pause
+    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
-void AppDelegate::applicationWillEnterForeground()
-{
-    CCDirector::sharedDirector()->startAnimation();
+void AppDelegate::applicationWillEnterForeground() {
+    Director::getInstance()->startAnimation();
 
-    SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    // if you use SimpleAudioEngine, it must resume here
+    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }

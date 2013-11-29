@@ -61,8 +61,9 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--fix logs not coming often enough
--add button support for windows
+-games crashes if you press down right where the chicken starts?
+-I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
+-get rid of depracated calls (do this absolutely last)
 -intervals should probably be different for water vs road
 
 

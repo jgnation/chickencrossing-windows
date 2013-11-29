@@ -4,7 +4,7 @@ using namespace cocos2d;
 
 LevelManager::LevelManager()
 {
-	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath("levels.plist");
+	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathForFilename("levels.plist");
 	_levels = CCDictionary::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
 	_levels->retain();
 
@@ -16,7 +16,7 @@ Level * LevelManager::getLevel(int levelNumber)
 	levelNumber = this->mapLevelNumberToLevelPList(levelNumber);
 
 	std::string fileName = _levels->valueForKey(std::to_string(levelNumber))->getCString();
-	std::string filePath = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(fileName.c_str());
+	std::string filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename(fileName.c_str());
 	return new Level(CCDictionary::createWithContentsOfFileThreadSafe(filePath.c_str()));
 }
 

@@ -43,6 +43,14 @@ bool GameLayer::init()
     do 
     {
         CC_BREAK_IF(! CCLayer::init());
+
+		//add keyboard support
+		auto keyboardListener = EventListenerKeyboard::create();
+		keyboardListener->onKeyPressed = CC_CALLBACK_2(GameLayer::keyPressed, this);
+		keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
+		EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+
+
 		this->setTouchEnabled(true);
 
 		srand(time(NULL)); //seed the random number generator
@@ -67,7 +75,8 @@ bool GameLayer::init()
     return bRet;
 }
 
-void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
+//void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
+void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
 {
 	if (!_chicken->isMoving())
 	{
@@ -76,8 +85,8 @@ void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 		//compare location to current position of chicken
 		//move chicken in direction of touch
 
-		CCTouch* touch = (CCTouch*)( touches->anyObject() );
-		CCPoint touchLocation = touch->locationInView();
+		CCTouch* touch = (CCTouch*)( touches[0] );
+		CCPoint touchLocation = touch->getLocationInView();
 		touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
 
 		//CCPoint currentLocation = _chicken->getPoint();
@@ -187,7 +196,7 @@ void GameLayer::update(float dt)
 	//check to see if a chicken is jumping on a log or into the water
 	if (laneType == Level::LaneType::WATER)
 	{
-		bool intersectsLog = false;
+		//bool intersectsLog = false;
 		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 		{
 			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
@@ -198,14 +207,18 @@ void GameLayer::update(float dt)
 			{
 				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
 				{
-					_chicken->ride(log);
-
-					intersectsLog = true;
+					if (!_chicken->isRiding())
+					{
+						_chicken->ride(log);
+					}
 				}
 			}
 		}
-		if (!intersectsLog && !_chicken->isMoving()) //when debugging, this value might be incorrect due to the log still moving
+		//keep in mind that with the way chicken is currently built....it is not "riding" when it is "moving"...
+		//...even if it is on a log.  It can be riding, moving, and then still be on the log and be riding again
+		if (!_chicken->isMoving() && !_chicken->isRiding())
 		{
+			//chicken is in the water
 			this->killChicken();
 		}
 	}
@@ -315,4 +328,33 @@ void GameLayer::loadNextLevel()
 {
 	//I should probably call a method here to clean up dynamically allocated objects, and add a 'you win!' capation
 	this->loadLevel(++_levelNumber);
+}
+
+void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+{
+	if (!_chicken->isMoving())
+	{
+		_chicken->setMoving(true);
+
+		if (keyCode == EventKeyboard::KeyCode::KEY_W)
+		{
+			_chicken->moveUp();
+		}
+		else if (keyCode == EventKeyboard::KeyCode::KEY_S)
+		{
+			_chicken->moveDown();
+		}
+		else if (keyCode == EventKeyboard::KeyCode::KEY_A)
+		{
+			_chicken->moveLeft();
+		}
+		else if (keyCode == EventKeyboard::KeyCode::KEY_D)
+		{
+			_chicken->moveRight();
+		}
+	}
+}
+void GameLayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+{
+	//do nothing
 }

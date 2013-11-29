@@ -1,10 +1,10 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by ChickenCrossing.RC
+// Used by game.RC
 //
 
 #define IDS_PROJNAME                100
-#define IDR_CHICKENCROSSING    100
+#define IDR_TESTJS    100
 
 #define ID_FILE_NEW_WINDOW            32771
 

@@ -38,21 +38,22 @@ public:
     static cocos2d::CCScene* scene();
     
     // a selector callback
-    void menuCloseCallback(CCObject* pSender);
+    void menuCloseCallback(cocos2d::CCObject* pSender);
 
 	void addDog();
 	void startMovement(Vehicle * vehicle);
-	void spriteMoveFinished(CCNode* sender);
-	void spriteMoveFinished2(CCNode* sender);
-	void spriteMoveFinished3(CCNode* sender);
+	void spriteMoveFinished(cocos2d::CCNode* sender);
+	void spriteMoveFinished2(cocos2d::CCNode* sender);
+	void spriteMoveFinished3(cocos2d::CCNode* sender);
 
 	void update(float dt);
-	void setInvisible(CCNode * node);
+	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
 	float getLanePixelPosition(int laneNumber);
 	int getRandomLaneNumber();
 	float getTimeTick();
-	void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+	//void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
 	int getAbsoluteValue(int num);
 	void resetFlag();
 	int getLaneNumber(float pixelPosition);
@@ -60,6 +61,9 @@ public:
 	void resetChicken();
 	void loadLevel(int levelNumber);
 	void loadNextLevel();
+
+	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 
     // implement the "static node()" method manually
     CREATE_FUNC(GameLayer);
