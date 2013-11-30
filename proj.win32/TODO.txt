@@ -61,17 +61,17 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
+-work on storing scores
+-make about button and scrambled eggs button
+-make scrambled eggs mode level select screen
+-make all road level
 -games crashes if you press down right where the chicken starts?
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
 -get rid of depracated calls (do this absolutely last)
 -intervals should probably be different for water vs road
 
 
--a chicken sprite is left behind when going to the second level
--nail down the best way to handle the water levels....so that the chicken can get across fairly easily
-	(the logs should come by fairly frequently)
--fix cars in different lanes killing chickens (sprite sizing issues)
--collect egg mode and regular frogger mode and timed mode
+-fix cars in different lanes killing chickens (sprite sizing issues -- depends on resolution)
 -add vehicles to CCArray instead of vector?
 -sometimes the chicken gets stuck when on the log.  Whattup with that?
 -put alligators and disappearing logs in the water
