@@ -61,6 +61,7 @@ public:
 	void resetChicken();
 	void loadLevel(int levelNumber);
 	void loadNextLevel();
+	void gameOver();
 
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);

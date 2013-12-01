@@ -67,6 +67,8 @@ bool GameLayer::init()
 		_levelNumber = 1;
 		this->loadLevel(_levelNumber);
 
+		_lives = 5;
+
 		this->scheduleUpdate();
 
         bRet = true;
@@ -295,6 +297,58 @@ void GameLayer::killChicken()
 	_hudLayer->setLives(_lives);
 
 	_chicken->die();
+
+	if (_lives <= 0)
+	{
+		this->gameOver();
+	}
+}
+
+void GameLayer::gameOver()
+{
+	//display GameOver with a next button
+
+	//see if current score should be saved and save it if necessary
+	int levelsBeaten = _levelNumber - 1;
+
+	//all of this saving functionality should be pulled into another class
+	std::vector<int> highScores;
+	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("level_place_1"));
+	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("level_place_2"));
+	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("level_place_3"));
+	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("level_place_4"));
+	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("level_place_5"));
+
+	bool topScore = false;
+	for (int i = 0; i < highScores.size(); i++)
+	{
+		if (levelsBeaten > highScores[i])
+		{
+			highScores.emplace(highScores.begin() + i, levelsBeaten);
+			topScore = true;
+			break;
+		}
+	}	
+	if (topScore)
+	{
+		//remove last element of vector
+		highScores.pop_back();
+
+		//save new scores
+		for (int i = 0; i < highScores.size(); i++)
+		{
+			std::stringstream sstm;
+			sstm << "level_place_" << (i + 1);
+
+			std::string blah = sstm.str();
+			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i]);
+		}
+		CCUserDefault::sharedUserDefault()->flush();
+	}
+
+	//display high scores with a next button
+
+	//take user to main screen
 }
 
 void GameLayer::resetChicken()
@@ -310,8 +364,8 @@ void GameLayer::loadLevel(int levelNumber)
 	_score = 0;									//I will probably not want to reset this in the future
 	_hudLayer->setLevel(levelNumber);
 	_hudLayer->setScore(_score);
-	_lives = 5;
-	_hudLayer->setLives(_lives);
+	//_lives = 5;
+	//_hudLayer->setLives(_lives);
 	_level = _levelManager->getLevel(levelNumber);
 	this->addChild(_level->getBackground()->getSprite());
 
