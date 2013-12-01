@@ -62,7 +62,6 @@ Features to implement:
 
 TODO:
 -work on storing scores
--make about button and scrambled eggs button
 -make scrambled eggs mode level select screen
 -make all road level
 -games crashes if you press down right where the chicken starts?

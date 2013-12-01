@@ -24,11 +24,19 @@ public:
     CREATE_FUNC(MenuButtonLayer);
 
 	    // a selector callback
-    void menuCloseCallback(CCObject* pSender);
+    void closeCallback(CCObject* pSender);
 
 	// a selector callback
-    void menuStartGameCallback(CCObject* pSender);
+    void startGameCallback(CCObject* pSender);
+	void eggScrambleCallback(CCObject* pSender);
+	void aboutCallback(CCObject* pSender);
  
+	void createStartGameButton();
+
+	void createEggScrambleButton();
+
+	void createAboutButton();
+
 
 };
  
