@@ -9,6 +9,7 @@
 #include "HUDLayer.h"
 #include "LevelManager.h"
 #include "Log.h"
+#include "GameOverLayer.h"
 #include <string>
 
 using namespace cocos2d;
@@ -307,6 +308,9 @@ void GameLayer::killChicken()
 void GameLayer::gameOver()
 {
 	//display GameOver with a next button
+	GameOverLayer* gameOverLayer = new GameOverLayer();
+	gameOverLayer->init();
+	this->addChild(gameOverLayer, 3);
 
 	//see if current score should be saved and save it if necessary
 	int levelsBeaten = _levelNumber - 1;
