@@ -235,6 +235,9 @@
     <Image Include="..\Resources\game_over.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\arrow.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

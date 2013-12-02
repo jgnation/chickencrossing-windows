@@ -61,7 +61,8 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--work game over screen and taking back to main screen
+-add scores to game over screen
+-fix about screen
 -make scrambled eggs mode level select screen
 -make all road level
 -games crashes if you press down right where the chicken starts?
