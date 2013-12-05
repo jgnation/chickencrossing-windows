@@ -11,10 +11,12 @@ private:
 	CCSprite * titleImage;
 	CCMenuItemImage *arrow1;
 	CCMenu* pMenu;
+
+	std::vector<int> _highScores;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
-    virtual bool init();
+    virtual bool init(std::vector<int> highScores);
  
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static CCScene* scene();
@@ -23,7 +25,7 @@ public:
     void menuCloseCallback(CCObject* pSender);
  
     // preprocessor macro for "static create()" constructor ( node() deprecated )
-    CREATE_FUNC(GameOverLayer);
+    //CREATE_FUNC(GameOverLayer);
 
 	void nextButton1Callback(cocos2d::CCObject* pSender);
 

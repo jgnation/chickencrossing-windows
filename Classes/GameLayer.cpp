@@ -307,10 +307,7 @@ void GameLayer::killChicken()
 
 void GameLayer::gameOver()
 {
-	//display GameOver with a next button
-	GameOverLayer* gameOverLayer = new GameOverLayer();
-	gameOverLayer->init();
-	this->addChild(gameOverLayer, 3);
+
 
 	//see if current score should be saved and save it if necessary
 	int levelsBeaten = _levelNumber - 1;
@@ -344,7 +341,6 @@ void GameLayer::gameOver()
 			std::stringstream sstm;
 			sstm << "level_place_" << (i + 1);
 
-			std::string blah = sstm.str();
 			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i]);
 		}
 		CCUserDefault::sharedUserDefault()->flush();
@@ -353,6 +349,12 @@ void GameLayer::gameOver()
 	//display high scores with a next button
 
 	//take user to main screen
+
+
+	//display GameOver with a next button
+	GameOverLayer* gameOverLayer = new GameOverLayer();
+	gameOverLayer->init(highScores);
+	this->addChild(gameOverLayer, 3);
 }
 
 void GameLayer::resetChicken()

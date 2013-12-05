@@ -3,9 +3,12 @@
  
 using namespace cocos2d;
  
-bool GameOverLayer::init()
+bool GameOverLayer::init(std::vector<int> highScores)
 {
     if (CCLayer::init()) {
+
+		_highScores = highScores;
+
         CCSize winSize = CCDirector::sharedDirector()->getWinSize();
  
         //add game over image
@@ -63,6 +66,19 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 	// Add the menu to HelloWorld layer as a child layer.
 	this->addChild(pMenu);
 
+	//display scores
+	std::stringstream sstm;
+	for (int i = 0; i < _highScores.size(); i++)
+	{
+		sstm << (i + 1) << ". " << _highScores[i] << "\n";
+	}
+	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+	CCLabelTTF* _scoreLabel = new CCLabelTTF();
+	_scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 18.0);
+    _scoreLabel->setColor(ccc3(255,255,255));
+
+	_scoreLabel->setPosition(ccp(500, 300));
+    this->addChild(_scoreLabel);
 }
 
 void GameOverLayer::nextButton2Callback(CCObject* pSender)
