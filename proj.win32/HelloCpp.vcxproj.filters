@@ -66,9 +66,6 @@
     <ClCompile Include="..\Classes\Vehicle.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AboutLayer.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\LevelSelectLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -132,9 +129,6 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="AboutLayer.h" />
-    <ClInclude Include="..\Classes\AboutLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\LevelSelectLayer.h">
       <Filter>Classes</Filter>
     </ClInclude>

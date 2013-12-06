@@ -9,8 +9,8 @@ using namespace cocos2d;
 class MenuButtonLayer : public cocos2d::CCLayer
 {
 private:
-    CCLabelTTF * _scoreLabel;
-	CCLabelTTF * _livesLabel;
+    CCMenu* _mainMenu;
+	CCMenu* _aboutMenu;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -31,11 +31,11 @@ public:
 	void eggScrambleCallback(CCObject* pSender);
 	void aboutCallback(CCObject* pSender);
  
-	void createStartGameButton();
+	CCMenuItemImage* createStartGameButton();
 
-	void createEggScrambleButton();
+	CCMenuItemImage* createEggScrambleButton();
 
-	void createAboutButton();
+	CCMenuItemImage* createAboutButton();
 
 
 };

@@ -1,6 +1,5 @@
 #include "MenuButtonLayer.h"
 #include "GameLayer.h"
-#include "AboutLayer.h"
  
 using namespace cocos2d;
  
@@ -20,11 +19,37 @@ bool MenuButtonLayer::init()
 		this->addChild(titleImage);
 
 		//these createButton calls should return a boolean.  If it is false, call CC_BREAK_IF(! bool)
-		this->createStartGameButton();
-		this->createEggScrambleButton();
-		this->createAboutButton();
+		CCMenuItemImage* startGameImage = this->createStartGameButton();
+		CCMenuItemImage* eggScrambleImage = this->createEggScrambleButton();
+		CCMenuItemImage* aboutImage = this->createAboutButton();
 
-        bRet = true;
+		_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, aboutImage, NULL);
+		_mainMenu->setPosition(CCPointZero);
+		this->addChild(_mainMenu);
+
+
+
+
+		//create exit about button
+		CCMenuItemImage* closeAboutImage = CCMenuItemImage::create(
+			"CloseNormal.png",
+			"CloseSelected.png",
+			this,
+			menu_selector(MenuButtonLayer::closeCallback));
+
+		closeAboutImage->setScale(.5);
+		// Place the menu item bottom-right conner.
+		closeAboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
+
+		// Create a menu with the "close" menu item, it's an auto release object.
+		_aboutMenu = CCMenu::create(closeAboutImage, NULL);
+		_aboutMenu->setPosition(CCPointZero);
+
+		// Add the menu to HelloWorld layer as a child layer.
+		this->addChild(_aboutMenu);
+		_aboutMenu->setVisible(false);
+
+		bRet = true;
     } while (0);
 
     return bRet;
@@ -44,19 +69,18 @@ void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 
 void MenuButtonLayer::aboutCallback(CCObject* pSender)
 {
-	AboutLayer* _aboutLayer = new AboutLayer();
-	_aboutLayer->init();
-	this->addChild(_aboutLayer, 2);
+	_mainMenu->setVisible(false);
+	_aboutMenu->setVisible(true);
+
 }
 
 void MenuButtonLayer::closeCallback(CCObject* pSender)
 {
-    // "close" menu item clicked
-    CCDirector::sharedDirector()->end();
-	
+	_aboutMenu->setVisible(false);
+	_mainMenu->setVisible(true);	
 }
 
-void MenuButtonLayer::createStartGameButton()
+CCMenuItemImage* MenuButtonLayer::createStartGameButton()
 {
 	CCMenuItemImage *startGameImage = CCMenuItemImage::create(
 		"start_game_orange.png",
@@ -68,15 +92,10 @@ void MenuButtonLayer::createStartGameButton()
 	// Place the menu item bottom-right conner.
 	startGameImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .5));
 
-	// Create a menu with the "close" menu item, it's an auto release object.
-	CCMenu* pMenu = CCMenu::create(startGameImage, NULL);
-	pMenu->setPosition(CCPointZero);
-
-	// Add the menu to HelloWorld layer as a child layer.
-	this->addChild(pMenu);
+	return startGameImage;
 }
 
-void MenuButtonLayer::createEggScrambleButton()
+CCMenuItemImage* MenuButtonLayer::createEggScrambleButton()
 {
 	CCMenuItemImage *startGameImage = CCMenuItemImage::create(
 		"egg_scramble_orange.png",
@@ -88,15 +107,10 @@ void MenuButtonLayer::createEggScrambleButton()
 	// Place the menu item bottom-right conner.
 	startGameImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
 
-	// Create a menu with the "close" menu item, it's an auto release object.
-	CCMenu* pMenu = CCMenu::create(startGameImage, NULL);
-	pMenu->setPosition(CCPointZero);
-
-	// Add the menu to HelloWorld layer as a child layer.
-	this->addChild(pMenu);
+	return startGameImage;
 }
 
-void MenuButtonLayer::createAboutButton()
+CCMenuItemImage* MenuButtonLayer::createAboutButton()
 {
 	CCMenuItemImage *startGameImage = CCMenuItemImage::create(
 		"about_orange.png",
@@ -108,10 +122,5 @@ void MenuButtonLayer::createAboutButton()
 	// Place the menu item bottom-right conner.
 	startGameImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .3));
 
-	// Create a menu with the "close" menu item, it's an auto release object.
-	CCMenu* pMenu = CCMenu::create(startGameImage, NULL);
-	pMenu->setPosition(CCPointZero);
-
-	// Add the menu to HelloWorld layer as a child layer.
-	this->addChild(pMenu);
+	return startGameImage;
 }
