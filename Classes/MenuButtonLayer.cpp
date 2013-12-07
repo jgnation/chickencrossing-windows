@@ -1,7 +1,8 @@
 #include "MenuButtonLayer.h"
 #include "GameLayer.h"
 #include "LevelSelectLayer.h"
- 
+#include "GameMode.h"
+
 using namespace cocos2d;
  
 bool MenuButtonLayer::init()
@@ -58,8 +59,10 @@ bool MenuButtonLayer::init()
 
 void MenuButtonLayer::startGameCallback(CCObject* pSender)
 {
+	GameMode * gameMode = new GameMode();
+
 	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(GameLayer::scene());
+	pDirector->replaceScene(GameLayer::scene(gameMode));
 }
 
 void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)

@@ -151,4 +151,7 @@ wikimedia commons
 		-EggScrambleMode will see how many eggs were collected, and see if that fits in the top scores,
 		 then it will show the top scores
 
+Passing Parameters into CCObjects:
+http://www.cocos2d-x.org/forums/6/topics/14363
+
 

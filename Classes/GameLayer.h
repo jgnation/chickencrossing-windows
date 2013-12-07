@@ -6,11 +6,14 @@
 #include "SimpleAudioEngine.h"
 #include "Vehicle.h"
 
+//#include "GameMode.h"
+
 class Chicken;		//forward declation //can I just include the libraries?
 class Egg;
 class HudLayer;
 class Level;
 class LevelManager;
+class GameMode;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
@@ -31,13 +34,14 @@ private:
 	LevelManager * _levelManager;
 
 	void addKeyboardSupport();
+
 public:
+	//The following 3 items are overriding CCLayer's methods....or is it redefining?
+	//technically....I think I am overLOADING
+	static cocos2d::CCScene* scene(GameMode* gameMode);
+	static GameLayer* create(GameMode* gameMode);
+	virtual bool init(GameMode* gameMode);
 
-    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-    virtual bool init();  
-
-    // there's no 'id' in cpp, so we recommand to return the exactly class pointer
-    static cocos2d::CCScene* scene();
     
     // a selector callback
     void menuCloseCallback(cocos2d::CCObject* pSender);
@@ -69,7 +73,7 @@ public:
 	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 
     // implement the "static node()" method manually
-    CREATE_FUNC(GameLayer);
+    //CREATE_FUNC(GameLayer);
 };
 
 #endif  

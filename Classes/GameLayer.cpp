@@ -10,11 +10,12 @@
 #include "LevelManager.h"
 #include "Log.h"
 #include "GameOverLayer.h"
+#include "GameMode.h"
 #include <string>
 
 using namespace cocos2d;
 
-CCScene* GameLayer::scene()
+CCScene* GameLayer::scene(GameMode* mode)
 {
     CCScene * scene = NULL;
     do 
@@ -24,7 +25,7 @@ CCScene* GameLayer::scene()
         CC_BREAK_IF(! scene);
 
         // 'layer' is an autorelease object
-        GameLayer *layer = GameLayer::create();
+        GameLayer *layer = GameLayer::create(mode);
         CC_BREAK_IF(! layer);
 
         // add layer as a child to scene
@@ -35,8 +36,19 @@ CCScene* GameLayer::scene()
     return scene;
 }
 
+GameLayer* GameLayer::create(GameMode* mode)
+{
+    GameLayer *pGOL = new GameLayer();
+    if (pGOL && pGOL->init(mode)) {
+        pGOL->autorelease();
+        return pGOL;
+    }
+    CC_SAFE_DELETE(pGOL);
+    return NULL;
+}
+
 //don't do initialization logic in the constructor, instead, do it here
-bool GameLayer::init()
+bool GameLayer::init(GameMode* mode)
 {
 	//http://www.dreamincode.net/forums/topic/243971-do-while0%3B/
 	//above is an explanation of do...while(0)
