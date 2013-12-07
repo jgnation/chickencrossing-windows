@@ -232,6 +232,18 @@
     <Image Include="..\Resources\arrow.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\number1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\number2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\number3.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\number4.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

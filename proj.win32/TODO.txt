@@ -61,11 +61,14 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--figure out why Visual Studio building sucks
--clean up MenuButtonLayer code
+-figure out how to make GameLayer work for both Main Mode and Egg Scramble Mode
+-NO Pause button!  Then the player could have an unfair advantage
+-figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
+layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
+or doing a "getParent" kind of thing.
+-figure out why Visual Studio building sucks (on my Desktop PC)
 -pretty up the game over score screen.  Indicate if one of the scores is new.
 -disable chicken movement at game over screen (can I disable movements per layer?)
--make scrambled eggs mode level select screen
 -make all road level
 -games crashes if you press down right where the chicken starts?
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
@@ -129,5 +132,23 @@ can be sent to the callback (THIS will not work because *sender is the Sprite, n
 -Keyboard input on version > 3.0 alpha:
 	http://www.cocos2d-x.org/forums/6/topics/39145
 
+-Images:
+clker
+openclipart
+wikimedia commons
+
+
+-GameLayer supports MainMode and EggScrambleMode
+	-pass a Mode to the GameLayer on initialization
+	-Mode class can provide the HUDLayer (since this will be different depending on the Mode)
+	-first thing GameLayer::Update will do is check for endGame:
+		-Main mode will see if the score is enough to go to next level
+		-EggScramble may not do anything?
+	-Mode class will probably have to take care of GameOver logic.  The this->gameOver() call
+	 in killChicken() may need to be modified.
+		-MainMode will see what level was beaten, and see if that fits in the top scores, then it will
+		 show the top scores
+		-EggScrambleMode will see how many eggs were collected, and see if that fits in the top scores,
+		 then it will show the top scores
 
 

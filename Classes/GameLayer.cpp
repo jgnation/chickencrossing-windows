@@ -45,12 +45,7 @@ bool GameLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
-		//add keyboard support
-		auto keyboardListener = EventListenerKeyboard::create();
-		keyboardListener->onKeyPressed = CC_CALLBACK_2(GameLayer::keyPressed, this);
-		keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
-		EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
-
+		this->addKeyboardSupport();
 
 		this->setTouchEnabled(true);
 
@@ -307,8 +302,6 @@ void GameLayer::killChicken()
 
 void GameLayer::gameOver()
 {
-
-
 	//see if current score should be saved and save it if necessary
 	int levelsBeaten = _levelNumber - 1;
 
@@ -417,4 +410,12 @@ void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Eve
 void GameLayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
 	//do nothing
+}
+
+void GameLayer::addKeyboardSupport()
+{
+	auto keyboardListener = EventListenerKeyboard::create();
+	keyboardListener->onKeyPressed = CC_CALLBACK_2(GameLayer::keyPressed, this);
+	keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
+	EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 }

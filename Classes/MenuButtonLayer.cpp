@@ -1,5 +1,6 @@
 #include "MenuButtonLayer.h"
 #include "GameLayer.h"
+#include "LevelSelectLayer.h"
  
 using namespace cocos2d;
  
@@ -18,11 +19,11 @@ bool MenuButtonLayer::init()
 		titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
 		this->addChild(titleImage);
 
+		//create main menu
 		//these createButton calls should return a boolean.  If it is false, call CC_BREAK_IF(! bool)
 		CCMenuItemImage* startGameImage = this->createStartGameButton();
 		CCMenuItemImage* eggScrambleImage = this->createEggScrambleButton();
 		CCMenuItemImage* aboutImage = this->createAboutButton();
-
 		_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, aboutImage, NULL);
 		_mainMenu->setPosition(CCPointZero);
 		this->addChild(_mainMenu);
@@ -30,7 +31,7 @@ bool MenuButtonLayer::init()
 
 
 
-		//create exit about button
+		//create about menu
 		CCMenuItemImage* closeAboutImage = CCMenuItemImage::create(
 			"CloseNormal.png",
 			"CloseSelected.png",
@@ -63,8 +64,14 @@ void MenuButtonLayer::startGameCallback(CCObject* pSender)
 
 void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 {
-	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(GameLayer::scene());
+	//CCDirector *pDirector = CCDirector::sharedDirector();
+	//pDirector->replaceScene(GameLayer::scene());
+	_mainMenu->setVisible(false);
+	//_levelSelectMenu->setVisible(true);
+
+	LevelSelectLayer* levelSelectLayer = new LevelSelectLayer();
+	levelSelectLayer->init();
+	this->addChild(levelSelectLayer);
 }
 
 void MenuButtonLayer::aboutCallback(CCObject* pSender)
