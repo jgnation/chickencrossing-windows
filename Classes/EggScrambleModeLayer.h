@@ -10,10 +10,17 @@ public:
 	~EggScrambleModeLayer(void);
 
 	void initialChecks();
+	std::vector<int> checkHighScores();
 
 	//virtual bool init();
-	static cocos2d::CCScene* scene();
-	CREATE_FUNC(EggScrambleModeLayer);
+	//static cocos2d::CCScene* scene();
+	//CREATE_FUNC(EggScrambleModeLayer);
+
+		//The following 3 items are overriding CCLayer's methods....or is it redefining?
+	//technically....I think I am overLOADING
+	static cocos2d::CCScene* scene(int levelNumber);
+	static EggScrambleModeLayer* create(int levelNumber);
+	virtual bool init(int levelNumber);
 };
 
 #endif

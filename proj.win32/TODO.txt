@@ -46,7 +46,7 @@ Features to implement:
 	-store highest levels achieved with date (save top 5 attempts)
 	-show high scores after dying
 -store scores on device
--make a pause screen (pause button on game Layer)
+-make a pause screen (pause button on game Layer) (actually....don't do this.  this could give the player an unfair advantage)
 -create 'scramble egg' mode: scramble to get as many eggs as you can!  Traffic will gradually move faster and faster.  User can pick a level.
 	-make a level-select screen (can only select levels that have been opened in regular mode, maybe?) for other this mode
 	-this will have the same five levels as the main mode, plus a road map with no rests and a water map with no rests
@@ -61,12 +61,10 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--figure out how to make GameLayer work for both Main Mode and Egg Scramble Mode
--NO Pause button!  Then the player could have an unfair advantage
+-fix game-over-scoring for eggscramblemode (look into std::to_string(42);)
 -figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
 layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
 or doing a "getParent" kind of thing.
--figure out why Visual Studio building sucks (on my Desktop PC)
 -pretty up the game over score screen.  Indicate if one of the scores is new.
 -disable chicken movement at game over screen (can I disable movements per layer?)
 -make all road level
@@ -151,6 +149,7 @@ wikimedia commons
 		-EggScrambleMode will see how many eggs were collected, and see if that fits in the top scores,
 		 then it will show the top scores
 	-Remember that the cars will gradually move faster and faster in EggScramble mode
+	-I will need a different HUD for each mode
 
 
 Passing Parameters into CCObjects:

@@ -55,7 +55,7 @@ void LevelSelectLayer::number1Callback(CCObject* pSender)
 	//GameMode * gameMode = new EggScrambleMode(1);
 
 	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(EggScrambleModeLayer::scene());
+	pDirector->replaceScene(EggScrambleModeLayer::scene(1));
 }
 
 void LevelSelectLayer::number2Callback(CCObject* pSender)
@@ -63,7 +63,7 @@ void LevelSelectLayer::number2Callback(CCObject* pSender)
 	//GameMode * gameMode = new EggScrambleMode(2);
 
 	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(EggScrambleModeLayer::scene());
+	pDirector->replaceScene(EggScrambleModeLayer::scene(2));
 }
 
 void LevelSelectLayer::number3Callback(CCObject* pSender)
@@ -71,6 +71,6 @@ void LevelSelectLayer::number3Callback(CCObject* pSender)
 	//GameMode * gameMode = new EggScrambleMode(3);
 
 	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(EggScrambleModeLayer::scene());
+	pDirector->replaceScene(EggScrambleModeLayer::scene(3));
 }
 

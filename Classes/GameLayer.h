@@ -22,7 +22,7 @@ private:
 	static bool _isMoving;
 
 	int _lives;
-	int _levelNumber;
+
 
 
 	//GameMode * _mode;
@@ -35,7 +35,8 @@ private:
 	LevelManager * _levelManager;
 
 	void addKeyboardSupport();
-
+protected:
+		int _levelNumber;
 public:
 		int _score;
 		int _numEggsToCollect;
@@ -86,6 +87,7 @@ public:
 	void ridingChickenHittingEdgeOfScreen();
 
 	virtual void initialChecks() = 0;
+	virtual std::vector<int> checkHighScores() = 0;
 
 
 };
