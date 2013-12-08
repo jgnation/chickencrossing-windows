@@ -75,10 +75,10 @@
     <ClCompile Include="..\Classes\GameMode.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\EggScrambleMode.cpp">
+    <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MainMode.cpp">
+    <ClCompile Include="..\Classes\MainModeLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,7 +137,6 @@
     <ClInclude Include="..\Classes\Vehicle.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="AboutLayer.h" />
     <ClInclude Include="..\Classes\LevelSelectLayer.h">
       <Filter>Classes</Filter>
     </ClInclude>
@@ -147,10 +146,10 @@
     <ClInclude Include="..\Classes\GameMode.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EggScrambleMode.h">
+    <ClInclude Include="..\Classes\EggScrambleModeLayer.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainMode.h">
+    <ClInclude Include="..\Classes\MainModeLayer.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

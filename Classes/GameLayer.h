@@ -1,5 +1,5 @@
-#ifndef __GAME_SCENE_H__
-#define __GAME_SCENE_H__
+#ifndef __GAME_LAYER_H__
+#define __GAME_LAYER_H__
 
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
@@ -13,7 +13,7 @@ class Egg;
 class HudLayer;
 class Level;
 class LevelManager;
-class GameMode;
+//class GameMode;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
@@ -25,7 +25,7 @@ private:
 	int _levelNumber;
 
 
-	GameMode * _mode;
+	//GameMode * _mode;
 	HudLayer * _hudLayer;
 	Chicken * _chicken;
 	Egg * _egg;
@@ -40,11 +40,15 @@ public:
 		int _score;
 		int _numEggsToCollect;
 
+	virtual bool init();
+	//static cocos2d::CCScene* scene();
+
+
 	//The following 3 items are overriding CCLayer's methods....or is it redefining?
 	//technically....I think I am overLOADING
-	static cocos2d::CCScene* scene(GameMode* gameMode);
-	static GameLayer* create(GameMode* gameMode);
-	virtual bool init(GameMode* gameMode);
+	//static cocos2d::CCScene* scene(GameMode* gameMode);
+	//static GameLayer* create(GameMode* gameMode);
+	//virtual bool init(GameMode* gameMode);
 
     
     // a selector callback
@@ -78,6 +82,12 @@ public:
 
     // implement the "static node()" method manually
     //CREATE_FUNC(GameLayer);
+
+	void ridingChickenHittingEdgeOfScreen();
+
+	virtual void initialChecks() = 0;
+
+
 };
 
 #endif  

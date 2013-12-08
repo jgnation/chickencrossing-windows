@@ -151,12 +151,7 @@ wikimedia commons
 		-EggScrambleMode will see how many eggs were collected, and see if that fits in the top scores,
 		 then it will show the top scores
 	-Remember that the cars will gradually move faster and faster in EggScramble mode
-	-Best Class design for this?  Should Modes be in different classes?  Should I subclass GameLayer?
-	-It seems like the Mode classes solution is Strategy pattern
-	-TemplateMethodPattern may work http://en.wikipedia.org/wiki/Template_method_pattern
-	-Also...breaking up the update method into functions and then putting those functions together
-	 in a subclass's update method may work
-	-I should go with template method.
+
 
 Passing Parameters into CCObjects:
 http://www.cocos2d-x.org/forums/6/topics/14363

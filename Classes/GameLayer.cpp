@@ -15,7 +15,7 @@
 
 using namespace cocos2d;
 
-CCScene* GameLayer::scene(GameMode* mode)
+/*CCScene* GameLayer::scene()
 {
     CCScene * scene = NULL;
     do 
@@ -25,7 +25,7 @@ CCScene* GameLayer::scene(GameMode* mode)
         CC_BREAK_IF(! scene);
 
         // 'layer' is an autorelease object
-        GameLayer *layer = GameLayer::create(mode);
+        GameLayer *layer = GameLayer::create();
         CC_BREAK_IF(! layer);
 
         // add layer as a child to scene
@@ -34,9 +34,9 @@ CCScene* GameLayer::scene(GameMode* mode)
 
     // return the scene
     return scene;
-}
+}*/
 
-GameLayer* GameLayer::create(GameMode* mode)
+/*GameLayer* GameLayer::create(GameMode* mode)
 {
     GameLayer *pGOL = new GameLayer();
     if (pGOL && pGOL->init(mode)) {
@@ -45,10 +45,10 @@ GameLayer* GameLayer::create(GameMode* mode)
     }
     CC_SAFE_DELETE(pGOL);
     return NULL;
-}
+}*/
 
 //don't do initialization logic in the constructor, instead, do it here
-bool GameLayer::init(GameMode* mode)
+bool GameLayer::init()
 {
 	//http://www.dreamincode.net/forums/topic/243971-do-while0%3B/
 	//above is an explanation of do...while(0)
@@ -60,8 +60,6 @@ bool GameLayer::init(GameMode* mode)
 		this->addKeyboardSupport();
 
 		this->setTouchEnabled(true);
-
-		_mode = mode;
 
 		srand(time(NULL)); //seed the random number generator
 
@@ -184,13 +182,10 @@ float GameLayer::getTimeTick()
 	return (float) millisecs;
 }
 
+//this is a template method
 void GameLayer::update(float dt) 
 {
-	_mode->initialLoopInstructions(this);
-	/*if (_score >= _numEggsToCollect)
-	{
-		this->loadNextLevel();
-	}*/
+	this->initialChecks();
 
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
