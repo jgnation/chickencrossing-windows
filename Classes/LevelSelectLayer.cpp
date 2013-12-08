@@ -1,5 +1,7 @@
 #include "LevelSelectLayer.h"
 #include "GameLayer.h"
+#include "GameMode.h"
+#include "EggScrambleMode.h"
  
 using namespace cocos2d;
  
@@ -50,16 +52,25 @@ bool LevelSelectLayer::init()
 
 void LevelSelectLayer::number1Callback(CCObject* pSender)
 {
-	int x = 10;
+	GameMode * gameMode = new EggScrambleMode(1);
+
+	CCDirector *pDirector = CCDirector::sharedDirector();
+	pDirector->replaceScene(GameLayer::scene(gameMode));
 }
 
 void LevelSelectLayer::number2Callback(CCObject* pSender)
 {
-	int x = 10;
+	GameMode * gameMode = new EggScrambleMode(2);
+
+	CCDirector *pDirector = CCDirector::sharedDirector();
+	pDirector->replaceScene(GameLayer::scene(gameMode));
 }
 
 void LevelSelectLayer::number3Callback(CCObject* pSender)
 {
-	int x = 10;
+	GameMode * gameMode = new EggScrambleMode(3);
+
+	CCDirector *pDirector = CCDirector::sharedDirector();
+	pDirector->replaceScene(GameLayer::scene(gameMode));
 }
 

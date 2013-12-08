@@ -20,11 +20,12 @@ private:
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;
-	int _score;
+
 	int _lives;
 	int _levelNumber;
-	int _numEggsToCollect;
 
+
+	GameMode * _mode;
 	HudLayer * _hudLayer;
 	Chicken * _chicken;
 	Egg * _egg;
@@ -36,6 +37,9 @@ private:
 	void addKeyboardSupport();
 
 public:
+		int _score;
+		int _numEggsToCollect;
+
 	//The following 3 items are overriding CCLayer's methods....or is it redefining?
 	//technically....I think I am overLOADING
 	static cocos2d::CCScene* scene(GameMode* gameMode);

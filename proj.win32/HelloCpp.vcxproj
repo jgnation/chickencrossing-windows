@@ -138,6 +138,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\Car.cpp" />
     <ClCompile Include="..\Classes\Chicken.cpp" />
     <ClCompile Include="..\Classes\Egg.cpp" />
+    <ClCompile Include="..\Classes\EggScrambleMode.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameMode.cpp" />
     <ClCompile Include="..\Classes\GameOverLayer.cpp" />
@@ -147,6 +148,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\LevelManager.cpp" />
     <ClCompile Include="..\Classes\LevelSelectLayer.cpp" />
     <ClCompile Include="..\Classes\Log.cpp" />
+    <ClCompile Include="..\Classes\MainMode.cpp" />
     <ClCompile Include="..\Classes\MenuButtonLayer.cpp" />
     <ClCompile Include="..\Classes\MenuLayer.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
@@ -161,6 +163,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClInclude Include="..\Classes\Car.h" />
     <ClInclude Include="..\Classes\Chicken.h" />
     <ClInclude Include="..\Classes\Egg.h" />
+    <ClInclude Include="..\Classes\EggScrambleMode.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameMode.h" />
     <ClInclude Include="..\Classes\GameOverLayer.h" />
@@ -170,6 +173,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClInclude Include="..\Classes\LevelManager.h" />
     <ClInclude Include="..\Classes\LevelSelectLayer.h" />
     <ClInclude Include="..\Classes\Log.h" />
+    <ClInclude Include="..\Classes\MainMode.h" />
     <ClInclude Include="..\Classes\MenuButtonLayer.h" />
     <ClInclude Include="..\Classes\MenuLayer.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />

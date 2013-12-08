@@ -2,6 +2,7 @@
 #include "GameLayer.h"
 #include "LevelSelectLayer.h"
 #include "GameMode.h"
+#include "MainMode.h"
 
 using namespace cocos2d;
  
@@ -59,7 +60,7 @@ bool MenuButtonLayer::init()
 
 void MenuButtonLayer::startGameCallback(CCObject* pSender)
 {
-	GameMode * gameMode = new GameMode();
+	GameMode * gameMode = new MainMode();
 
 	CCDirector *pDirector = CCDirector::sharedDirector();
 	pDirector->replaceScene(GameLayer::scene(gameMode));

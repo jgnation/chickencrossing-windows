@@ -61,6 +61,8 @@ bool GameLayer::init(GameMode* mode)
 
 		this->setTouchEnabled(true);
 
+		_mode = mode;
+
 		srand(time(NULL)); //seed the random number generator
 
 		_chicken = new Chicken(this);
@@ -184,10 +186,11 @@ float GameLayer::getTimeTick()
 
 void GameLayer::update(float dt) 
 {
-	if (_score >= _numEggsToCollect)
+	_mode->initialLoopInstructions(this);
+	/*if (_score >= _numEggsToCollect)
 	{
 		this->loadNextLevel();
-	}
+	}*/
 
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
