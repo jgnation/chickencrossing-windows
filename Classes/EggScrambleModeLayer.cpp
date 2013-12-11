@@ -1,4 +1,6 @@
 #include "EggScrambleModeLayer.h"
+#include "Lane.h"
+#include "Level.h"
 
 using namespace cocos2d;
 
@@ -63,6 +65,29 @@ bool EggScrambleModeLayer::init(int levelNumber)
 void EggScrambleModeLayer::initialChecks()
 {
 	//do nothing
+
+	std::vector<Lane *> lanes = _level->getLanes(); //I shouldn't have to retrieve this every update
+	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
+	{
+		Lane * lane = dynamic_cast<Lane *>(*it);
+		/*float currentTime = getTimeTick();
+		if (lane->isTimeToSpawn(currentTime))
+		{
+			Vehicle * vehicle = lane->spawnVehicle();
+			vehicleList.push_back(vehicle);
+
+			vehicle->move();
+			this->addChild(vehicle->getSprite());
+
+			//set vehicle movement animation
+			//delete or release at end of animation?
+		}*/
+		float currentTime = getTimeTick();
+		if (lane->isTimeToIncreaseSpeed(currentTime))
+		{
+			lane->increaseSpeed();
+		}
+	}
 }
 
 std::vector<int> EggScrambleModeLayer::checkHighScores()

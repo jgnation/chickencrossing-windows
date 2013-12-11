@@ -18,12 +18,14 @@ public:
 	void setInterval(std::string interval);
 	void setSpeed(std::string speed);
 	bool isTimeToSpawn(float currentTime);
+	bool isTimeToIncreaseSpeed(float currentTime);
 	Vehicle * spawnVehicle();
 	Vehicle * getRandomVehicle();	//this should be private
 	int randomValueBetween(int low , int high); //private
 	float randomValueBetween(float low , float high); //private
 
 	int getSpeed();
+	void increaseSpeed();
 
 	std::string _type;
 	std::vector<std::string> _vehicles;
@@ -32,6 +34,8 @@ public:
 	int _speed;
 	float _nextSpawnTime;
 	int _laneNumber;
+	float _increaseSpeedInterval;
+	float _nextIncreaseSpeedTime;
 
 	float getLanePixelPosition(int laneNumber);
 };

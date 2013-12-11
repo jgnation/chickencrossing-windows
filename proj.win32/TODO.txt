@@ -61,7 +61,14 @@ Features to implement:
 	-like on facebook kind of text?  review game button?
 
 TODO:
--fix game-over-scoring for eggscramblemode (look into std::to_string(42);)
+-add disappearing logs
+-make a plist for game settings...this might include speed increase times for easy/medium/hard
+-add ability to randomize spawn interval
+-Egg Scramble Mode:
+	-add a lower and upper limit on speed increases for egg scramble mode
+	-make sure cars can't run into each other due to speeding up in egg scramble mode
+	-in egg scramble mode, as the speed increases, the interval needs to decrease
+	-fix game-over-scoring for eggscramblemode (look into std::to_string(42);)
 -figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
 layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
 or doing a "getParent" kind of thing.
@@ -70,7 +77,6 @@ or doing a "getParent" kind of thing.
 -make all road level
 -games crashes if you press down right where the chicken starts?
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
--get rid of depracated calls (do this absolutely last)
 -intervals should probably be different for water vs road
 
 
@@ -86,12 +92,6 @@ or doing a "getParent" kind of thing.
 	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
 	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
 	-or...maybe Chicken should extend CCSprite
-
-
-FIXED BUGS:
--fix the bug where if an egg is at the left side of the screen, the chicken dies
--sometimes the cars are flipped the wrong way
--fixed the bug where the program crashes when a riding chicken hits the screen edge (fixed it by adding this->endRide(); to the chicken's die() method)
 
 
 

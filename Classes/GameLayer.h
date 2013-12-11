@@ -30,13 +30,15 @@ private:
 	Chicken * _chicken;
 	Egg * _egg;
 	cocos2d::CCArray * vehicleList2;
-	std::vector<Vehicle *> vehicleList;
-	Level * _level;
+
+
 	LevelManager * _levelManager;
 
 	void addKeyboardSupport();
 protected:
 		int _levelNumber;
+		std::vector<Vehicle *> vehicleList;
+			Level * _level;
 public:
 		int _score;
 		int _numEggsToCollect;

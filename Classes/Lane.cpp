@@ -10,6 +10,8 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 {
 	_laneNumber = laneNumber;
 	_nextSpawnTime = 0;
+	_increaseSpeedInterval = 4000.0;	//pull this into config
+	_nextIncreaseSpeedTime = 0;
 
 	CCString * laneTypeCCString = (CCString *) lane->objectForKey("Type");
 	_type = laneTypeCCString->getCString();
@@ -46,6 +48,16 @@ bool Lane::isTimeToSpawn(float currentTime)
 			_nextSpawnTime = _interval + currentTime;
 			return true;
 		}
+	}
+	return false;
+}
+
+bool Lane::isTimeToIncreaseSpeed(float currentTime)
+{
+	if (currentTime > _nextIncreaseSpeedTime)
+	{
+		_nextIncreaseSpeedTime = _increaseSpeedInterval + currentTime;
+		return true;
 	}
 	return false;
 }
@@ -127,4 +139,9 @@ float Lane::getLanePixelPosition(int laneNumber)
 int Lane::getSpeed()
 {
 	return _speed;
+}
+
+void Lane::increaseSpeed()
+{
+	_speed = _speed + 100;
 }
