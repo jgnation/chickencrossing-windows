@@ -129,6 +129,21 @@ void Chicken::ride(Log * log)
 		_isRiding = true;
 }
 
+void Chicken::ride(DisappearingLog * log)
+{
+		//initiate the riding animation
+		int logSpeed = log->getSpeed();
+		CCPoint destination = log->getDestination();
+
+		float distance = ccpDistance(this->getSprite()->getPosition(), destination);
+		float duration = distance / logSpeed;
+
+		CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
+		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::spriteMoveFinished));
+		this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+		_isRiding = true;
+}
+
 void Chicken::setRiding(bool value)
 {
 	_isRiding = value;

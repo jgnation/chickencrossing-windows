@@ -21,7 +21,7 @@ public:
 	void setDestination(cocos2d::CCPoint destination);
 	void setMovementAction(cocos2d::CCFiniteTimeAction * action);
 	cocos2d::CCFiniteTimeAction * getMovementAction();
-	void Vehicle::move();
+	virtual void Vehicle::move();
 	void spriteMoveFinished(cocos2d::CCNode * sender);
 };
 

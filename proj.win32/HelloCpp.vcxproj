@@ -137,6 +137,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\Bus.cpp" />
     <ClCompile Include="..\Classes\Car.cpp" />
     <ClCompile Include="..\Classes\Chicken.cpp" />
+    <ClCompile Include="..\Classes\DisappearingLog.cpp" />
     <ClCompile Include="..\Classes\Egg.cpp" />
     <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
@@ -162,6 +163,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClInclude Include="..\Classes\Bus.h" />
     <ClInclude Include="..\Classes\Car.h" />
     <ClInclude Include="..\Classes\Chicken.h" />
+    <ClInclude Include="..\Classes\DisappearingLog.h" />
     <ClInclude Include="..\Classes\Egg.h" />
     <ClInclude Include="..\Classes\EggScrambleModeLayer.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />

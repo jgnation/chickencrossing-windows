@@ -3,6 +3,7 @@
 #include "Bus.h"
 #include "Truck.h"
 #include "Log.h"
+#include "DisappearingLog.h"
 
 using namespace cocos2d;
 
@@ -110,6 +111,10 @@ Vehicle * Lane::getRandomVehicle()
 	else if (vehicle == "Log")
 	{
 		return new Log();
+	}
+	else if (vehicle == "DisappearingLog")
+	{
+		return new DisappearingLog();
 	}
 	else
 	{

@@ -17,17 +17,24 @@ SpriteContainer::~SpriteContainer(void)
 
 bool SpriteContainer::intersectsSprite(SpriteContainer * container)
 {
-	CCRect thisRect = CCRectMake(
-		_sprite->getPosition().x - (_sprite->getContentSize().width / 2),
-		_sprite->getPosition().y - (_sprite->getContentSize().height / 2),
-		_sprite->getContentSize().width,
-		_sprite->getContentSize().height);
+	if (container->getSprite()->getOpacity() == 0)
+	{
+		return false;
+	}
+	else
+	{
+		CCRect thisRect = CCRectMake(
+			_sprite->getPosition().x - (_sprite->getContentSize().width / 2),
+			_sprite->getPosition().y - (_sprite->getContentSize().height / 2),
+			_sprite->getContentSize().width,
+			_sprite->getContentSize().height);
 
-	CCRect spriteRect = CCRectMake(
-		container->getSprite()->getPosition().x - (container->getSprite()->getContentSize().width / 2),
-		container->getSprite()->getPosition().y - (container->getSprite()->getContentSize().height / 2),
-		container->getSprite()->getContentSize().width,
-		container->getSprite()->getContentSize().height);
+		CCRect spriteRect = CCRectMake(
+			container->getSprite()->getPosition().x - (container->getSprite()->getContentSize().width / 2),
+			container->getSprite()->getPosition().y - (container->getSprite()->getContentSize().height / 2),
+			container->getSprite()->getContentSize().width,
+			container->getSprite()->getContentSize().height);
 
-	return thisRect.intersectsRect(spriteRect);
+		return thisRect.intersectsRect(spriteRect);	
+	}
 }

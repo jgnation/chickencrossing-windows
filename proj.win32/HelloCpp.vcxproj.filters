@@ -81,6 +81,9 @@
     <ClCompile Include="..\Classes\MainModeLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\DisappearingLog.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -150,6 +153,9 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainModeLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DisappearingLog.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

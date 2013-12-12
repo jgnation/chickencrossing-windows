@@ -9,6 +9,7 @@
 #include "HUDLayer.h"
 #include "LevelManager.h"
 #include "Log.h"
+#include "DisappearingLog.h"
 #include "GameOverLayer.h"
 #include "GameMode.h"
 #include <string>
@@ -218,6 +219,19 @@ void GameLayer::update(float dt)
 					if (!_chicken->isRiding())
 					{
 						_chicken->ride(log);
+					}
+				}
+			}
+
+			//I might not have to do this if DisappearingLog inherited from Log
+			DisappearingLog* disappearingLog = dynamic_cast<DisappearingLog*>(vehicle);
+			if(disappearingLog != 0)
+			{
+				if (_chicken->intersectsSprite(disappearingLog) && !_chicken->isMoving())
+				{
+					if (!_chicken->isRiding())
+					{
+						_chicken->ride(disappearingLog);
 					}
 				}
 			}

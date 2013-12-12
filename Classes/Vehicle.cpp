@@ -66,6 +66,17 @@ void Vehicle::move()
 	CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, _destination);
 	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+	
+	/*CCFadeTo* fadeOut = CCFadeTo::create(0.5, 0);
+	CCFadeTo* stayHidden = CCFadeTo::create(2.0, 0);
+	CCFadeTo* fadeIn = CCFadeTo::create(0.5, 255);
+	CCArray * arrayOfAction = CCArray::create();
+	arrayOfAction->addObject(fadeOut);
+	arrayOfAction->addObject(stayHidden);
+	arrayOfAction->addObject(fadeIn);
+	CCSequence* pulseSequence = CCSequence::create(arrayOfAction);
+	CCRepeatForever* repeat = CCRepeatForever::create(pulseSequence);
+	this->getSprite()->runAction(repeat);*/
 
 	//if I call a callback in GameLayer, then I don't have to have a reference to the GameLayer object in this clas
 }

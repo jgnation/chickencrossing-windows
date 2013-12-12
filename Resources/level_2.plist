@@ -100,6 +100,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -112,6 +113,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -124,6 +126,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -136,6 +139,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -148,6 +152,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
