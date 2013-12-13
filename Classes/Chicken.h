@@ -17,6 +17,7 @@ private:
 	bool _isRiding;
 	bool _isMoving;
 	GameLayer *  _gameLayer;
+	Log *_logBeingRidden;
 
 	void move();
 	void doneMoving(cocos2d::CCNode* sender);
@@ -34,13 +35,13 @@ public:
 	void setSpeed(int speed);
 	int getSpeed();
 	void ride(Log * log);
-	void ride(DisappearingLog * log);
 	void setRiding(bool value);
 	bool isRiding();
 	void endRide();
 	void setMoving(bool value);
 	bool isMoving();
 	void die();
+	Log * getLogBeingRidden();
 
 	void spriteMoveFinished(cocos2d::CCNode* sender);
 };

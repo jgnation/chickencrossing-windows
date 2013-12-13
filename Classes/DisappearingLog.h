@@ -3,8 +3,9 @@
 
 #include "cocos2d.h"
 #include "Vehicle.h"
+#include "Log.h"
 
-class DisappearingLog :	public Vehicle
+class DisappearingLog :	public Log
 {
 public:
 	DisappearingLog(void);

@@ -62,10 +62,7 @@ Features to implement:
 
 TODO:
 -clean up disappearing log stuff:
-	-should disappearing log inherit from log?
-	-Chicken now has a ride(log) and ride(disappearinglog) method
-	-chicken can't get on a log that is not visible (this is good), but when the log disappears,
-	 the chicken survives(bad)
+	-clean up the log class.  It inherits from Log...make it look lik eit.
 -make a plist for game settings...this might include speed increase times for easy/medium/hard
 -add ability to randomize spawn interval
 -Egg Scramble Mode:

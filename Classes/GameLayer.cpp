@@ -197,6 +197,12 @@ void GameLayer::update(float dt)
 		{
 			this->killChicken();
 		}
+
+		//see if chicken is riding a log that has disappeared
+		if (_chicken->getLogBeingRidden()->getSprite()->getOpacity() == 0)
+		{
+			this->killChicken();
+		}
 	}
 
 	//getPositionY is returning a bad value after the chicken dies by running into the side of the wall
@@ -364,6 +370,9 @@ void GameLayer::loadLevel(int levelNumber)
 	_egg = new Egg(a, b);
 	this->addChild(_egg->getSprite());
 
+	//this fixes the bug where at the beginning of the second level, if the chicken moved
+	//up quickly, it would randomly die.  I think this might also be creating memory leaks.
+	vehicleList.clear(); 
 	//random_shuffle(vehicleList.begin, vehicleList.end);
 }
 

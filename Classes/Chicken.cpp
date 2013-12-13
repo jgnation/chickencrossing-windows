@@ -35,6 +35,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	//_speed = 1;
 	_isRiding = false;
 	_isMoving = false;
+	_logBeingRidden = NULL;
 
 	gameLayer->addChild(_sprite, 1);
 }
@@ -116,32 +117,23 @@ int Chicken::getSpeed()
 
 void Chicken::ride(Log * log)
 {
-		//initiate the riding animation
-		int logSpeed = log->getSpeed();
-		CCPoint destination = log->getDestination();
+	//initiate the riding animation
+	int logSpeed = log->getSpeed();
+	CCPoint destination = log->getDestination();
 
-		float distance = ccpDistance(this->getSprite()->getPosition(), destination);
-		float duration = distance / logSpeed;
+	float distance = ccpDistance(this->getSprite()->getPosition(), destination);
+	float duration = distance / logSpeed;
 
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::spriteMoveFinished));
-		this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
-		_isRiding = true;
+	CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::spriteMoveFinished));
+	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+	_isRiding = true;
+	_logBeingRidden = log;
 }
 
-void Chicken::ride(DisappearingLog * log)
+Log * Chicken::getLogBeingRidden()
 {
-		//initiate the riding animation
-		int logSpeed = log->getSpeed();
-		CCPoint destination = log->getDestination();
-
-		float distance = ccpDistance(this->getSprite()->getPosition(), destination);
-		float duration = distance / logSpeed;
-
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(duration, destination);
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::spriteMoveFinished));
-		this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
-		_isRiding = true;
+	return _logBeingRidden;
 }
 
 void Chicken::setRiding(bool value)
@@ -157,6 +149,7 @@ bool Chicken::isRiding()
 void Chicken::endRide()
 {
 	_isRiding = false;
+	_logBeingRidden = NULL;
 	_sprite->stopAllActions();
 }
 
