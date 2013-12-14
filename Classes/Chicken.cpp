@@ -27,9 +27,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	//setContentSize changes the size of the 'bounding box' around the image
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
-	_currentPosition.x = windowSize.width / 2;
-	_currentPosition.y = (_sprite->getContentSize().height / 2);
-	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
+	_sprite->setPosition(ccp(windowSize.width / 2, _sprite->getContentSize().height / 2));
 
 	_speed = .1;
 	//_speed = 1;
@@ -47,57 +45,31 @@ CCSprite * Chicken::getSprite()
 	return _sprite;
 }
 
-CCPoint Chicken::getPoint()
-{
-	return _currentPosition;
-	//return _sprite->getPosition();
-}
-
 void Chicken::moveUp()
 {
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-
-	_currentPosition = _sprite->getPosition();
-	float yPosition = this->getSprite()->getPositionY();
-	_currentPosition.y = yPosition + _yMoveDistance;
-	move();
+	move(ccp(_sprite->getPositionX(), _sprite->getPositionY() + _yMoveDistance));
 }
 
 void Chicken::moveDown()
 {
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-
-	_currentPosition = _sprite->getPosition();
-	float yPosition = this->getSprite()->getPositionY();
-	_currentPosition.y = yPosition - _yMoveDistance;
-	move();
+	move(ccp(_sprite->getPositionX(), _sprite->getPositionY() - _yMoveDistance));
 }
 
 void Chicken::moveLeft()
 {
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-
-	_currentPosition = _sprite->getPosition();
-	float xPosition = this->getSprite()->getPositionX();
-	_currentPosition.x = xPosition - _xMoveDistance;
-	move();
+	move(ccp(_sprite->getPositionX() - _xMoveDistance, _sprite->getPositionY()));
 }
 
 void Chicken::moveRight()
 {
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-
-	_currentPosition = _sprite->getPosition();
-	float xPosition = this->getSprite()->getPositionX();
-	_currentPosition.x = xPosition + _xMoveDistance;
-	move();
+	move(ccp(_sprite->getPositionX() + _xMoveDistance, _sprite->getPositionY()));
 }
 
-void Chicken::move()
+void Chicken::move(Point point)
 {
 	if (this->isRiding()) this->endRide();
 
-	CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), this->getPoint());
+	CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), point);
 	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::doneMoving));
 
 	this->setMoving(true);
@@ -172,9 +144,7 @@ void Chicken::die()
 	this->endRide();	//adding this here fixed the bug where the game crashes when the riding chicken hits the edge of the screen
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	_currentPosition.x = windowSize.width / 2;
-	_currentPosition.y = (_sprite->getContentSize().height / 2);
-	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
+	_sprite->setPosition(ccp(windowSize.width / 2, _sprite->getContentSize().height / 2));
 	_isMoving = false;
 }
 
@@ -183,4 +153,3 @@ void Chicken::spriteMoveFinished(CCNode* sender)
 	CCSprite *sprite = (CCSprite *)sender;
 	_gameLayer->removeChild(sprite, true);
 }
-

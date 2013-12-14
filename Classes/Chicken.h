@@ -10,7 +10,6 @@ class GameLayer;	//forward declaration
 class Chicken : public SpriteContainer
 {
 private:
-	cocos2d::CCPoint _currentPosition;
 	int _yMoveDistance;
 	int _xMoveDistance;
 	int _speed;
@@ -19,7 +18,7 @@ private:
 	GameLayer *  _gameLayer;
 	Log *_logBeingRidden;
 
-	void move();
+	void move(cocos2d::Point point);
 	void doneMoving(cocos2d::CCNode* sender);
 public:
 	Chicken(void);
@@ -27,7 +26,6 @@ public:
 	~Chicken(void);
 
 	cocos2d::CCSprite * getSprite();
-	cocos2d::CCPoint getPoint();
 	void moveUp();
 	void moveDown();
 	void moveLeft();

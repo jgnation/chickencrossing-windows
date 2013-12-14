@@ -90,36 +90,39 @@ bool GameLayer::init()
 //void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
 {
-	if (!_chicken->isMoving())
+	if (_chicken->getSprite()->isVisible())
 	{
-		_chicken->setMoving(true);
-		//Get location of touch
-		//compare location to current position of chicken
-		//move chicken in direction of touch
+		if (!_chicken->isMoving())
+		{
+			_chicken->setMoving(true);
+			//Get location of touch
+			//compare location to current position of chicken
+			//move chicken in direction of touch
 
-		CCTouch* touch = (CCTouch*)( touches[0] );
-		CCPoint touchLocation = touch->getLocationInView();
-		touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
+			CCTouch* touch = (CCTouch*)( touches[0] );
+			CCPoint touchLocation = touch->getLocationInView();
+			touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
 
-		//CCPoint currentLocation = _chicken->getPoint();
-		CCPoint currentLocation = _chicken->getSprite()->getPosition();
+			//CCPoint currentLocation = _chicken->getPoint();
+			CCPoint currentLocation = _chicken->getSprite()->getPosition();
 
-		//the greatest difference in coordinates is the direction in which we will move
-		int xDiff = touchLocation.x - currentLocation.x;
-		int yDiff = touchLocation.y - currentLocation.y;
+			//the greatest difference in coordinates is the direction in which we will move
+			int xDiff = touchLocation.x - currentLocation.x;
+			int yDiff = touchLocation.y - currentLocation.y;
 
-		int xDiffAbs = this->getAbsoluteValue(xDiff);
-		int yDiffAbs = this->getAbsoluteValue(yDiff);
+			int xDiffAbs = this->getAbsoluteValue(xDiff);
+			int yDiffAbs = this->getAbsoluteValue(yDiff);
 
-		//TODO take into account where coordinates is equal
-		if (yDiffAbs > xDiffAbs && yDiff > 0)
-			_chicken->moveUp();
-		else if (yDiffAbs > xDiffAbs && yDiff < 0)
-			_chicken->moveDown();
-		else if (xDiffAbs > yDiffAbs && xDiff > 0)
-			_chicken->moveRight();
-		else if (xDiffAbs > yDiffAbs && xDiff < 0)
-			_chicken->moveLeft();
+			//TODO take into account where coordinates is equal
+			if (yDiffAbs > xDiffAbs && yDiff > 0)
+				_chicken->moveUp();
+			else if (yDiffAbs > xDiffAbs && yDiff < 0)
+				_chicken->moveDown();
+			else if (xDiffAbs > yDiffAbs && xDiff > 0)
+				_chicken->moveRight();
+			else if (xDiffAbs > yDiffAbs && xDiff < 0)
+				_chicken->moveLeft();
+		}
 	}
 }
 
@@ -334,6 +337,8 @@ void GameLayer::killChicken()
 
 void GameLayer::gameOver()
 {
+	_chicken->getSprite()->setVisible(false);
+
 	std::vector<int> highScores = this->checkHighScores();
 
 	//display high scores with a next button
@@ -385,25 +390,28 @@ void GameLayer::loadNextLevel()
 
 void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	if (!_chicken->isMoving())
+	if (_chicken->getSprite()->isVisible())
 	{
-		_chicken->setMoving(true);
+		if (!_chicken->isMoving())
+		{
+			_chicken->setMoving(true);
 
-		if (keyCode == EventKeyboard::KeyCode::KEY_W)
-		{
-			_chicken->moveUp();
-		}
-		else if (keyCode == EventKeyboard::KeyCode::KEY_S)
-		{
-			_chicken->moveDown();
-		}
-		else if (keyCode == EventKeyboard::KeyCode::KEY_A)
-		{
-			_chicken->moveLeft();
-		}
-		else if (keyCode == EventKeyboard::KeyCode::KEY_D)
-		{
-			_chicken->moveRight();
+			if (keyCode == EventKeyboard::KeyCode::KEY_W)
+			{
+				_chicken->moveUp();
+			}
+			else if (keyCode == EventKeyboard::KeyCode::KEY_S)
+			{
+				_chicken->moveDown();
+			}
+			else if (keyCode == EventKeyboard::KeyCode::KEY_A)
+			{
+				_chicken->moveLeft();
+			}
+			else if (keyCode == EventKeyboard::KeyCode::KEY_D)
+			{
+				_chicken->moveRight();
+			}
 		}
 	}
 }

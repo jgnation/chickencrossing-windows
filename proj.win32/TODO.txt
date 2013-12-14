@@ -3,28 +3,24 @@ TODO (Important):
 
 -games crashes if you press down right where the chicken starts?
 -make chicken start on sidewalk and unable to move below
+-the logs shouldn't disappear right after coming onto the screen
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
 -make all road level and all water level
--figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
-layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
-or doing a "getParent" kind of thing.
--disable chicken movement at game over screen (can I disable movements per layer?)
 -pretty up the game over score screen.  Indicate if one of the scores is new.
 -try out stuff on various screen sizes
 -fix cars in different lanes killing chickens (sprite sizing issues -- depends on resolution)
 -logs of various lengths
 -alligators to ride
 -splash screen
--tutorial screen
+-tutorial screen (or just an explanation when the mode is selected)
 -link to play/iStore on about screen?
 -------------------------------------------------------------------------------------------------------------------------------
 TODO (Cleanup):
+-figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
+layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
+or doing a "getParent" kind of thing.
 -make dimensions easier to reference
 -scale vehicle sprites better
--the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
-	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
-	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
-	-or...maybe Chicken should extend CCSprite
 -add vehicles to CCArray instead of vector?
 -Egg Scramble Mode:
 	-add a lower and upper limit on speed increases for egg scramble mode
