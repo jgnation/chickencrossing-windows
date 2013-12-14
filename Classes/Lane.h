@@ -3,11 +3,14 @@
 
 #include "cocos2d.h"
 #include "Vehicle.h"
+#include "VehicleFactory.h"
 
 using namespace cocos2d;
 
 class Lane
 {
+private:
+	VehicleFactory *_vehicleFactory;
 public:
 	Lane(CCDictionary * lane, int laneNumber);
 

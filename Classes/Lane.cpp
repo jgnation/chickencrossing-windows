@@ -9,6 +9,8 @@ using namespace cocos2d;
 
 Lane::Lane(CCDictionary * lane, int laneNumber)
 {
+	_vehicleFactory = new VehicleFactory();
+
 	_laneNumber = laneNumber;
 	_nextSpawnTime = 0;
 	_increaseSpeedInterval = 4000.0;	//pull this into config
@@ -96,30 +98,7 @@ Vehicle * Lane::getRandomVehicle()
 	int randomIndex = this->randomValueBetween(0, _vehicles.size());
 	std::string vehicle = _vehicles.at(randomIndex);
 
-	if (vehicle == "Car")
-	{
-		return new Car();
-	}
-	else if (vehicle == "Bus")
-	{
-		return new Bus();
-	}
-	else if (vehicle == "Truck")
-	{
-		return new Truck();
-	}
-	else if (vehicle == "Log")
-	{
-		return new Log();
-	}
-	else if (vehicle == "DisappearingLog")
-	{
-		return new DisappearingLog();
-	}
-	else
-	{
-		return NULL; //this is an error, should throw an exception
-	}
+	return _vehicleFactory->createVehicle(vehicle);
 }
 
 int Lane::randomValueBetween(int low , int high) 

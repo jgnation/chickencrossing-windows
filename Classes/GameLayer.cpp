@@ -12,6 +12,7 @@
 #include "DisappearingLog.h"
 #include "GameOverLayer.h"
 #include "GameMode.h"
+#include "Dimensions.h"
 #include <string>
 
 using namespace cocos2d;

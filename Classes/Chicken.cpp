@@ -55,37 +55,41 @@ CCPoint Chicken::getPoint()
 
 void Chicken::moveUp()
 {
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
 	_currentPosition = _sprite->getPosition();
 	float yPosition = this->getSprite()->getPositionY();
 	_currentPosition.y = yPosition + _yMoveDistance;
-	//_currentPosition.y += _yMoveDistance;
 	move();
 }
 
 void Chicken::moveDown()
 {
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
 	_currentPosition = _sprite->getPosition();
 	float yPosition = this->getSprite()->getPositionY();
 	_currentPosition.y = yPosition - _yMoveDistance;
-	//_currentPosition.y -= _yMoveDistance;
 	move();
 }
 
 void Chicken::moveLeft()
 {
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
 	_currentPosition = _sprite->getPosition();
 	float xPosition = this->getSprite()->getPositionX();
 	_currentPosition.x = xPosition - _xMoveDistance;
-	//_currentPosition.x -= _xMoveDistance;
 	move();
 }
 
 void Chicken::moveRight()
 {
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
 	_currentPosition = _sprite->getPosition();
 	float xPosition = this->getSprite()->getPositionX();
 	_currentPosition.x = xPosition + _xMoveDistance;
-	//_currentPosition.x += _xMoveDistance;
 	move();
 }
 

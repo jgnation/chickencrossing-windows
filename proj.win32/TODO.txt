@@ -1,11 +1,43 @@
-http://www.flash-game.net/game/1892/chicken-road.html
--In that game, vehicles spawn at predictable intervals.  Each lane has certain vehicle(s) that spawn, but in
-no particular order.  It appears to be random (unless it is the same thing every time)
--so it looks like each lane has a list of possibilities, and an item from those possibilities is picked at random
 
-Chicken Crossing
--Purpose: The purpose of the game is to get the chicken from one side of the road to the other.
-Mission, should you choose to accept it: get to the other side!
+TODO (Important):
+
+-games crashes if you press down right where the chicken starts?
+-make chicken start on sidewalk and unable to move below
+-I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
+-make all road level and all water level
+-figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
+layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
+or doing a "getParent" kind of thing.
+-disable chicken movement at game over screen (can I disable movements per layer?)
+-pretty up the game over score screen.  Indicate if one of the scores is new.
+-try out stuff on various screen sizes
+-fix cars in different lanes killing chickens (sprite sizing issues -- depends on resolution)
+-logs of various lengths
+-alligators to ride
+-splash screen
+-tutorial screen
+-link to play/iStore on about screen?
+-------------------------------------------------------------------------------------------------------------------------------
+TODO (Cleanup):
+-make dimensions easier to reference
+-scale vehicle sprites better
+-the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
+	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
+	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
+	-or...maybe Chicken should extend CCSprite
+-add vehicles to CCArray instead of vector?
+-Egg Scramble Mode:
+	-add a lower and upper limit on speed increases for egg scramble mode
+	-make sure cars can't run into each other due to speeding up in egg scramble mode
+	-in egg scramble mode, as the speed increases, the interval needs to decrease
+	-fix game-over-scoring for eggscramblemode (look into std::to_string(42);)
+-make a plist for game settings...this might include speed increase times for easy/medium/hard
+-add ability to randomize spawn interval
+-clean up disappearing log stuff:
+	-clean up the log class.  It inherits from Log...make it look like it.
+-intervals should probably be different for water vs road
+-------------------------------------------------------------------------------------------------------------------------
+
 
 Features:
 -Timed mode
@@ -59,47 +91,15 @@ Features to implement:
 	-tutorial screen for each mode
 	-About screen (movie credits text) 
 	-like on facebook kind of text?  review game button?
+------------------------------------------------------------------------------------------------------------------------------
 
-TODO:
--clean up disappearing log stuff:
-	-clean up the log class.  It inherits from Log...make it look lik eit.
--make a plist for game settings...this might include speed increase times for easy/medium/hard
--add ability to randomize spawn interval
--Egg Scramble Mode:
-	-add a lower and upper limit on speed increases for egg scramble mode
-	-make sure cars can't run into each other due to speeding up in egg scramble mode
-	-in egg scramble mode, as the speed increases, the interval needs to decrease
-	-fix game-over-scoring for eggscramblemode (look into std::to_string(42);)
--figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
-layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
-or doing a "getParent" kind of thing.
--pretty up the game over score screen.  Indicate if one of the scores is new.
--disable chicken movement at game over screen (can I disable movements per layer?)
--make all road level
--games crashes if you press down right where the chicken starts?
--I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
--intervals should probably be different for water vs road
-
-
--fix cars in different lanes killing chickens (sprite sizing issues -- depends on resolution)
--add vehicles to CCArray instead of vector?
--sometimes the chicken gets stuck when on the log.  Whattup with that?
--put alligators and disappearing logs in the water
--add a chicken count...game over if reach 0
--make dimensions easier to reference
--try out stuff on various screen sizes
--scale vehicle sprites better
--the _currentPosition section in Chicken is causing problems.  It needs to get updated along with the sprite's position.
-	-the only reason it exists currently is so I can update the position with the moveUp(), moveLeft(), etc functions BEFORE running the animation.
-	-instead....it would be better if the moveUp(), moveLeft(), etc functions actually ran the animations, rather than the game layer.
-	-or...maybe Chicken should extend CCSprite
-
+------------------------------------------------------------------------------------------------------------------------------
 
 
 Notes:
 -don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
 
-
+----------------------------------------------------------------------------------------------------------------------------------------
 options for refactoring vehicle spawning:
 -vehicles can inherit from CCSprite.  then the CCObject * sender can be that sprite and I can easily remove it
 
@@ -126,34 +126,27 @@ although that may already be built into CCSprite
 just have to make sure that we never try to add a sprite that is already doing something on the screen.
 +Maybe SpriteContainer should be a CCNode instead of CCObject (a CCNode is a CCObject, right?), and then the whole object
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
-
+----------------------------------------------------------------------------------------------------------------------
 
 -Keyboard input on version > 3.0 alpha:
 	http://www.cocos2d-x.org/forums/6/topics/39145
+
+----------------------------------------------------------------------------------------------------------------------
 
 -Images:
 clker
 openclipart
 wikimedia commons
 
-
--GameLayer supports MainMode and EggScrambleMode
-	-pass a Mode to the GameLayer on initialization
-	-Mode class can provide the HUDLayer (since this will be different depending on the Mode)
-	-first thing GameLayer::Update will do is check for endGame:
-		-Main mode will see if the score is enough to go to next level
-		-EggScramble may not do anything?
-	-Mode class will probably have to take care of GameOver logic.  The this->gameOver() call
-	 in killChicken() may need to be modified.
-		-MainMode will see what level was beaten, and see if that fits in the top scores, then it will
-		 show the top scores
-		-EggScrambleMode will see how many eggs were collected, and see if that fits in the top scores,
-		 then it will show the top scores
-	-Remember that the cars will gradually move faster and faster in EggScramble mode
-	-I will need a different HUD for each mode
-
-
+---------------------------------------------------------------------------------------------------------------------------
 Passing Parameters into CCObjects:
 http://www.cocos2d-x.org/forums/6/topics/14363
+
+-----------------------------------------------------------------------------------------------------------------------------
+Other chicken game:
+http://www.flash-game.net/game/1892/chicken-road.html
+-In that game, vehicles spawn at predictable intervals.  Each lane has certain vehicle(s) that spawn, but in
+no particular order.  It appears to be random (unless it is the same thing every time)
+-so it looks like each lane has a list of possibilities, and an item from those possibilities is picked at random
 
 
