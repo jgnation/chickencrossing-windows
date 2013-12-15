@@ -5,6 +5,7 @@
 #include "Box2D/Box2D.h"
 #include "SimpleAudioEngine.h"
 #include "Vehicle.h"
+#include "Dimensions.h"
 
 //#include "GameMode.h"
 
@@ -17,6 +18,7 @@ class LevelManager;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
+	Dimensions * _dimensions;
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;
@@ -66,14 +68,11 @@ public:
 	void update(float dt);
 	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
-	float getLanePixelPosition(int laneNumber);
-	int getRandomLaneNumber();
 	float getTimeTick();
 	//void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
 	int getAbsoluteValue(int num);
 	void resetFlag();
-	int getLaneNumber(float pixelPosition);
 	void killChicken();
 	void resetChicken();
 	void loadLevel(int levelNumber);

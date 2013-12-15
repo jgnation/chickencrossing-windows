@@ -65,6 +65,8 @@ bool GameLayer::init()
 
 		srand(time(NULL)); //seed the random number generator
 
+		_dimensions = new Dimensions();
+
 		_chicken = new Chicken(this);
 
 		vehicleList2 = new CCArray();
@@ -152,30 +154,6 @@ float GameLayer::randomValueBetween(float low , float high)
 {
 	return rand() % (int)high + (int)low;
 }
-
-float GameLayer::getLanePixelPosition(int laneNumber)
-{
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float lanePosition = (windowSize.height / 16) * laneNumber;
-	float laneWidth = windowSize.height / 16;
-	return lanePosition - (laneWidth / 2); //return the center of the lane
-}
-
-int GameLayer::getLaneNumber(float pixelPosition)
-{
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float laneWidth = windowSize.height / 16;
-	float lane = pixelPosition / laneWidth; //this will return the lane in indexes from 0
-	lane++; //add 1 to get the lane in natural index (from 1)
-	int laneNumber = static_cast <int> (std::floor(lane)); //is this fragile?
-	return laneNumber;
-}
-
-int GameLayer::getRandomLaneNumber()
-{
-	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
-	return (int)randomValueBetween(0.0, 9.0);
-}
  
 float GameLayer::getTimeTick() 
 {
@@ -208,7 +186,7 @@ void GameLayer::update(float dt)
 	}
 
 	//getPositionY is returning a bad value after the chicken dies by running into the side of the wall
-	Level::LaneType laneType = _level->getLaneType(this->getLaneNumber(_chicken->getSprite()->getPositionY()));
+	Level::LaneType laneType = _level->getLaneType(_dimensions->getLaneNumber(_chicken->getSprite()->getPositionY()));
 
 	//check to see if a chicken is jumping on a log or into the water
 	if (laneType == Level::LaneType::WATER)
@@ -260,9 +238,9 @@ void GameLayer::update(float dt)
 	{
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-		float a = this->randomValueBetween(0, windowSize.width);
-		float b = this->getLanePixelPosition(_level->getRandomValidLaneNumber());
-		_egg->setPosition(a, b);
+		float x = this->randomValueBetween(0, windowSize.width);
+		float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
+		_egg->setPosition(x, y);
 
 		//increment the score
 		_score++;
@@ -356,9 +334,9 @@ void GameLayer::loadLevel(int levelNumber)
 	this->addChild(_level->getBackground()->getSprite());
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float a = this->randomValueBetween(0, windowSize.width);
-	float b = this->getLanePixelPosition(_level->getRandomValidLaneNumber());
-	_egg = new Egg(a, b);
+	float x = this->randomValueBetween(0, windowSize.width);
+	float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
+	_egg = new Egg(x, y);
 	this->addChild(_egg->getSprite());
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved

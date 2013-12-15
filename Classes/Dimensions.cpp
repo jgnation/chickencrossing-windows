@@ -6,8 +6,11 @@ using namespace cocos2d;
 //or as a static singleton object like CCdirector
 Dimensions::Dimensions(void)
 {
-}
+	_windowSize = CCDirector::sharedDirector()->getWinSize();
+	_laneWidth = _windowSize.height / NUM_OF_LANES;
 
+	_playableArea = new CCRect(0, _laneWidth, _windowSize.width, _windowSize.height - (_laneWidth * 2));
+}
 
 Dimensions::~Dimensions(void)
 {
@@ -15,13 +18,28 @@ Dimensions::~Dimensions(void)
 
 float Dimensions::getLaneWidth()
 {
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	return windowSize.height / 16;
+	return _laneWidth;
 }
 
-bool Dimensions::moveIsValid()
+bool Dimensions::moveIsValid(CCPoint point)
 {
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float laneWidth = Dimensions::getLaneWidth();
-	return true;
+	if (_playableArea->containsPoint(point))
+	{
+		return true;
+	}
+	return false;
+}
+
+float Dimensions::getCenterOfLanePixelValue(int laneNumber)
+{
+	float lanePosition = (_laneWidth) * laneNumber;
+	return lanePosition - (_laneWidth / 2); //return the center of the lane
+}
+
+int Dimensions::getLaneNumber(float pixelPosition)
+{
+	float lane = pixelPosition / _laneWidth; //this will return the lane in indexes from 0
+	lane++; //add 1 to get the lane in natural index (from 1)
+	int laneNumber = static_cast <int> (std::floor(lane)); //is this fragile?
+	return laneNumber;
 }
