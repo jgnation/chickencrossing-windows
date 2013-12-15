@@ -11,7 +11,6 @@
 #include "Log.h"
 #include "DisappearingLog.h"
 #include "GameOverLayer.h"
-#include "GameMode.h"
 #include "Dimensions.h"
 #include <string>
 
@@ -176,12 +175,14 @@ void GameLayer::update(float dt)
 		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > winSize.width)
 		{
 			this->killChicken();
+			return;
 		}
 
 		//see if chicken is riding a log that has disappeared
 		if (_chicken->getLogBeingRidden()->getSprite()->getOpacity() == 0)
 		{
 			this->killChicken();
+			return;
 		}
 	}
 

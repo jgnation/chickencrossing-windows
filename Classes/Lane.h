@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Vehicle.h"
 #include "VehicleFactory.h"
+#include "Dimensions.h"
 
 using namespace cocos2d;
 
@@ -11,6 +12,7 @@ class Lane
 {
 private:
 	VehicleFactory *_vehicleFactory;
+	Dimensions * _dimensions;
 public:
 	Lane(CCDictionary * lane, int laneNumber);
 
@@ -40,7 +42,6 @@ public:
 	float _increaseSpeedInterval;
 	float _nextIncreaseSpeedTime;
 
-	float getLanePixelPosition(int laneNumber);
 	int getLaneNumber();
 
 	std::string getLaneType();

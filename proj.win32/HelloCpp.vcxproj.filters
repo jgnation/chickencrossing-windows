@@ -72,9 +72,6 @@
     <ClCompile Include="..\Classes\GameOverLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameMode.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -150,9 +147,6 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameOverLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GameMode.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\EggScrambleModeLayer.h">

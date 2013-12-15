@@ -10,6 +10,7 @@ using namespace cocos2d;
 Lane::Lane(CCDictionary * lane, int laneNumber)
 {
 	_vehicleFactory = new VehicleFactory();
+	_dimensions = new Dimensions();
 
 	_laneNumber = laneNumber;
 	_nextSpawnTime = 0;
@@ -71,7 +72,7 @@ Vehicle * Lane::spawnVehicle()
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
 	Vehicle * vehicle = this->getRandomVehicle();
-	float y = this->getLanePixelPosition(_laneNumber);
+	float y = _dimensions->getCenterOfLanePixelValue(_laneNumber);
 
 	if (_laneNumber % 2 == 0)
 	{
@@ -109,15 +110,6 @@ int Lane::randomValueBetween(int low , int high)
 float Lane::randomValueBetween(float low , float high) 
 {
 	return rand() % (int)high + (int)low;
-}
-
-float Lane::getLanePixelPosition(int laneNumber)
-{
-	//the lane at the bottom of the screen is lane 1
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float lanePosition = (windowSize.height / 16) * laneNumber;
-	float laneWidth = windowSize.height / 16;
-	return lanePosition - (laneWidth / 2); //return the center of the lane
 }
 
 int Lane::getSpeed()

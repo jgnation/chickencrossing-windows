@@ -1,6 +1,5 @@
 #include "LevelSelectLayer.h"
 #include "GameLayer.h"
-#include "GameMode.h"
 #include "EggScrambleModeLayer.h"
  
 using namespace cocos2d;

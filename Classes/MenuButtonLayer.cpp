@@ -1,7 +1,6 @@
 #include "MenuButtonLayer.h"
 #include "GameLayer.h"
 #include "LevelSelectLayer.h"
-#include "GameMode.h"
 #include "MainModeLayer.h"
 
 using namespace cocos2d;
