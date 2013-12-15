@@ -1,12 +1,11 @@
 
 TODO (Important):
--games crashes if you press down right where the chicken starts?
 -remove getlanepixelposition from Lane class
 -fix bug when chicken rides log into edge of screen
 -make sure the egg can show up in any lane (I know it can show up in the lowest lane...the one above the lower sidewalk)
 -find out how to add notes to methods so I can see those notes when calling the methods
 -pull random stuff into a namespace
--make chicken start on sidewalk and unable to move below
+-make chicken start on sidewalk
 -work on the speed increase for egg scramble mode
 -find an appropriate number of cars per level, as well as appropriate interval
 -the logs shouldn't disappear right after coming onto the screen

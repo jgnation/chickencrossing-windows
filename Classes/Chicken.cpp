@@ -11,6 +11,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_gameLayer = gameLayer;
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
+	_dimensions = new Dimensions();
 	_xMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
 	_yMoveDistance = _xMoveDistance;
 
@@ -67,13 +68,21 @@ void Chicken::moveRight()
 
 void Chicken::move(Point point)
 {
-	if (this->isRiding()) this->endRide();
+	if (_dimensions->moveIsInPlayableArea(point))
+	{
+		if (this->isRiding()) this->endRide();
 
-	CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), point);
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::doneMoving));
+		CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), point);
+		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::doneMoving));
 
-	this->setMoving(true);
-	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+		this->setMoving(true);
+		this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+	}
+	else
+	{
+		this->setMoving(false); //this is set because setMoving(true) is called in GameLayer
+		//maybe GameLayer shouldn't be calling that?
+	}
 }
 
 void Chicken::doneMoving(CCNode* sender)

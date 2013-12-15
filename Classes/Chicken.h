@@ -4,12 +4,13 @@
 #include "cocos2d.h"
 #include "SpriteContainer.h"
 #include "Log.h"
-#include "DisappearingLog.h"
+#include "Dimensions.h"
 
 class GameLayer;	//forward declaration
 class Chicken : public SpriteContainer
 {
 private:
+	Dimensions * _dimensions;
 	int _yMoveDistance;
 	int _xMoveDistance;
 	int _speed;

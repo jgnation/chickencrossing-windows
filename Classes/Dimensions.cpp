@@ -9,7 +9,7 @@ Dimensions::Dimensions(void)
 	_windowSize = CCDirector::sharedDirector()->getWinSize();
 	_laneWidth = _windowSize.height / NUM_OF_LANES;
 
-	_playableArea = new CCRect(0, _laneWidth, _windowSize.width, _windowSize.height - (_laneWidth * 2));
+	_playableArea = new CCRect(0, _laneWidth, _windowSize.width, _windowSize.height - (_laneWidth * 3));
 }
 
 Dimensions::~Dimensions(void)
@@ -21,7 +21,7 @@ float Dimensions::getLaneWidth()
 	return _laneWidth;
 }
 
-bool Dimensions::moveIsValid(CCPoint point)
+bool Dimensions::moveIsInPlayableArea(CCPoint point)
 {
 	if (_playableArea->containsPoint(point))
 	{
