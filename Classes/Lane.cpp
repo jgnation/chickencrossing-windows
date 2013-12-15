@@ -4,6 +4,7 @@
 #include "Truck.h"
 #include "Log.h"
 #include "DisappearingLog.h"
+#include "GameFunctions.h"
 
 using namespace cocos2d;
 
@@ -24,14 +25,14 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 	if (_interval == 0)
 	{
 		//get random interval
-		_interval = this->randomValueBetween(2000, 3000);
+		_interval = GameFunctions::randomValueBetween(2000, 3000);
 	}
 
 	_speed = lane->valueForKey("Speed")->intValue();
 	if (_speed == 0)
 	{
 		//get random speed
-		_speed = this->randomValueBetween(80, 150);
+		_speed = GameFunctions::randomValueBetween(80, 150);
 	}
 
 	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
@@ -96,20 +97,10 @@ Vehicle * Lane::spawnVehicle()
 
 Vehicle * Lane::getRandomVehicle()
 {
-	int randomIndex = this->randomValueBetween(0, _vehicles.size());
+	int randomIndex = GameFunctions::randomValueBetween(0, _vehicles.size());
 	std::string vehicle = _vehicles.at(randomIndex);
 
 	return _vehicleFactory->createVehicle(vehicle);
-}
-
-int Lane::randomValueBetween(int low , int high) 
-{
-	return rand() % (int)high + (int)low;
-}
-
-float Lane::randomValueBetween(float low , float high) 
-{
-	return rand() % (int)high + (int)low;
 }
 
 int Lane::getSpeed()

@@ -7,6 +7,7 @@
 #include "Vehicle.h"
 #include "Dimensions.h"
 
+
 //#include "GameMode.h"
 
 class Chicken;		//forward declation //can I just include the libraries?
@@ -68,10 +69,9 @@ public:
 	void update(float dt);
 	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
-	float getTimeTick();
 	//void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
-	int getAbsoluteValue(int num);
+	//int getAbsoluteValue(int num);
 	void resetFlag();
 	void killChicken();
 	void resetChicken();

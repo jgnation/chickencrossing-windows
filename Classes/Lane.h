@@ -26,8 +26,6 @@ public:
 	bool isTimeToIncreaseSpeed(float currentTime);
 	Vehicle * spawnVehicle();
 	Vehicle * getRandomVehicle();	//this should be private
-	int randomValueBetween(int low , int high); //private
-	float randomValueBetween(float low , float high); //private
 
 	int getSpeed();
 	void increaseSpeed();

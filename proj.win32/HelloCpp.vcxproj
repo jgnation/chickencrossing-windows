@@ -141,6 +141,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\DisappearingLog.cpp" />
     <ClCompile Include="..\Classes\Egg.cpp" />
     <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp" />
+    <ClCompile Include="..\Classes\GameFunctions.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameOverLayer.cpp" />
     <ClCompile Include="..\Classes\HUDLayer.cpp" />
@@ -179,6 +180,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClInclude Include="..\Classes\MainModeLayer.h" />
     <ClInclude Include="..\Classes\MenuButtonLayer.h" />
     <ClInclude Include="..\Classes\MenuLayer.h" />
+    <ClInclude Include="..\Classes\GameFunctions.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\Truck.h" />
     <ClInclude Include="..\Classes\Vehicle.h" />

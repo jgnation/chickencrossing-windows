@@ -2,8 +2,8 @@
 TODO (Important):
 -make sure the egg can show up in any lane (I know it can show up in the lowest lane...the one above the lower sidewalk)
 -find out how to add notes to methods so I can see those notes when calling the methods
--pull random stuff into a namespace
 -work on the speed increase for egg scramble mode
+-on egg scramble mode, as the traffic moves faster, the time that a log disappears should decrease
 -find an appropriate number of cars per level, as well as appropriate interval
 -the logs shouldn't disappear right after coming onto the screen
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
@@ -16,14 +16,15 @@ TODO (Important):
 -splash screen
 -tutorial screen (or just an explanation when the mode is selected)
 -link to play/iStore on about screen?
+
 -------------------------------------------------------------------------------------------------------------------------------
 TODO (Cleanup):
+-when to include #include declarations in .h and when in .cpp?
 -make Dimensions a singleton that can be reference like CCDirector (so I don't have to new it in every class)
 -should I have a return; after every killChicken() in the update loop?
 -figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
 layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
 or doing a "getParent" kind of thing.
--make dimensions easier to reference
 -scale vehicle sprites better
 -add vehicles to CCArray instead of vector?
 -Egg Scramble Mode:

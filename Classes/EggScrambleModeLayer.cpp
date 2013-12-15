@@ -1,6 +1,8 @@
 #include "EggScrambleModeLayer.h"
 #include "Lane.h"
 #include "Level.h"
+#include "GameFunctions.h"
+
 
 using namespace cocos2d;
 
@@ -82,7 +84,7 @@ void EggScrambleModeLayer::initialChecks()
 			//set vehicle movement animation
 			//delete or release at end of animation?
 		}*/
-		float currentTime = getTimeTick();
+		float currentTime = GameFunctions::getTimeTick();
 		if (lane->isTimeToIncreaseSpeed(currentTime))
 		{
 			lane->increaseSpeed();

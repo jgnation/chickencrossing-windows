@@ -12,6 +12,7 @@
 #include "DisappearingLog.h"
 #include "GameOverLayer.h"
 #include "Dimensions.h"
+#include "GameFunctions.h"
 #include <string>
 
 using namespace cocos2d;
@@ -111,8 +112,8 @@ void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Even
 			int xDiff = touchLocation.x - currentLocation.x;
 			int yDiff = touchLocation.y - currentLocation.y;
 
-			int xDiffAbs = this->getAbsoluteValue(xDiff);
-			int yDiffAbs = this->getAbsoluteValue(yDiff);
+			int xDiffAbs = GameFunctions::getAbsoluteValue(xDiff);
+			int yDiffAbs = GameFunctions::getAbsoluteValue(yDiff);
 
 			//TODO take into account where coordinates is equal
 			if (yDiffAbs > xDiffAbs && yDiff > 0)
@@ -127,15 +128,6 @@ void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Even
 	}
 }
 
-//I implemented my own just because I am not sure about cross-platform compatibility of c libraries (cmath)
-int GameLayer::getAbsoluteValue(int num)
-{
-	if (num < 0)
-		return num * (-1);
-	else
-		return num;
-}
-
 void GameLayer::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
@@ -147,19 +139,6 @@ void GameLayer::spriteMoveFinished3(CCNode* sender)
 	CCSprite *sprite = (CCSprite *)sender;
 	this->removeChild(sprite, true);
 	sprite->setVisible(false);
-}
-
-float GameLayer::randomValueBetween(float low , float high) 
-{
-	return rand() % (int)high + (int)low;
-}
- 
-float GameLayer::getTimeTick() 
-{
-	timeval time;
-	gettimeofday(&time, NULL);
-	unsigned long millisecs = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (float) millisecs;
 }
 
 //this is a template method
@@ -239,7 +218,7 @@ void GameLayer::update(float dt)
 	{
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-		float x = this->randomValueBetween(0, windowSize.width);
+		float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
 		float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
 		_egg->setPosition(x, y);
 
@@ -253,7 +232,7 @@ void GameLayer::update(float dt)
 	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
 	{
 		Lane * lane = dynamic_cast<Lane *>(*it);
-		float currentTime = getTimeTick();
+		float currentTime = GameFunctions::getTimeTick();
 		if (lane->isTimeToSpawn(currentTime))
 		{
 			Vehicle * vehicle = lane->spawnVehicle();
@@ -335,7 +314,7 @@ void GameLayer::loadLevel(int levelNumber)
 	this->addChild(_level->getBackground()->getSprite());
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float x = this->randomValueBetween(0, windowSize.width);
+	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
 	float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg = new Egg(x, y);
 	this->addChild(_egg->getSprite());
