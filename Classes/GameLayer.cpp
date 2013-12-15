@@ -221,7 +221,7 @@ void GameLayer::update(float dt)
 			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
 
 			//I shouldn't have to check the base-class type.  I will revisit this issue later.
-			Log* log = dynamic_cast<Log*>(vehicle);
+			Log* log = dynamic_cast<Log*>(vehicle); //this will work for DisappearingLogs as well
 			if(log != 0)
 			{
 				if (_chicken->intersectsSprite(log) && !_chicken->isMoving())
@@ -229,19 +229,6 @@ void GameLayer::update(float dt)
 					if (!_chicken->isRiding())
 					{
 						_chicken->ride(log);
-					}
-				}
-			}
-
-			//I might not have to do this if DisappearingLog inherited from Log
-			DisappearingLog* disappearingLog = dynamic_cast<DisappearingLog*>(vehicle);
-			if(disappearingLog != 0)
-			{
-				if (_chicken->intersectsSprite(disappearingLog) && !_chicken->isMoving())
-				{
-					if (!_chicken->isRiding())
-					{
-						_chicken->ride(disappearingLog);
 					}
 				}
 			}

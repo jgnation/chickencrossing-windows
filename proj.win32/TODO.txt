@@ -1,8 +1,28 @@
+//I need a class that has info such as screen width/height, lane width, scaling factor, etc.
+//I need a class that enables me to retrieve info such as validLane, edge of screen, edge of playable area
+//isValidLane(CCPoint) would see if that point is within the playable area
+//maybe it should be isValidMove(CCPoint)
+//should the above two classes be the same?
+getLanePixelPosition is used to position newly created eggs, vehicles (it is used in GameLayer and Lane)
+getLaneNumber(pixelPosition) is only used so that I can get the laneType from Level (so that I know if it is water, road, etc)
+getRandomLaneNumber only returns valid lanes that could be spawned to (the result is sent to getLanePixelPosition which is then used to set the coordinates of an egg)
+
+maybe I should have an array of lanes (or a map of lanes, with the index the lane number)
+maybe the lane class should store its coordinates and stuff
+currently Level has an array of lanes
+
+maybe Level could have the getRandomValidLaneNumber method
+use that number to get a Lane from the Level class
+use Lane to get info like centerPixelPosition
+it would probably have to get the pixelPosition from information from the class described at the top
+
+
 
 TODO (Important):
-
 -games crashes if you press down right where the chicken starts?
 -make chicken start on sidewalk and unable to move below
+-work on the speed increase for egg scramble mode
+-find an appropriate number of cars per level, as well as appropriate interval
 -the logs shouldn't disappear right after coming onto the screen
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
 -make all road level and all water level
