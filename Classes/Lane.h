@@ -41,6 +41,9 @@ public:
 	float _nextIncreaseSpeedTime;
 
 	float getLanePixelPosition(int laneNumber);
+	int getLaneNumber();
+
+	std::string getLaneType();
 };
 
 #endif

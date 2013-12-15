@@ -24,6 +24,8 @@ public:
 	Level::LaneType getLaneType(int laneNumber);
 	Lane * getLane(int laneNumber);
 	std::vector<Lane *> getLanes();
+	int getRandomValidLaneNumber();
+	int Level::randomValueBetween(int low , int high);
 };
 
 #endif // LEVEL_H

@@ -129,3 +129,13 @@ void Lane::increaseSpeed()
 {
 	_speed = _speed + 100;
 }
+
+std::string Lane::getLaneType()
+{
+	return _type;
+}
+
+int Lane::getLaneNumber()
+{
+	return _laneNumber;
+}

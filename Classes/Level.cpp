@@ -59,3 +59,34 @@ Level::LaneType Level::getLaneType(int laneNumber)
 
 	return laneEnumType;
 }
+
+/**blahblahblah
+*/
+int Level::getRandomValidLaneNumber()
+{
+	//this is what GameLayer currently does
+	//int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
+	//return (int)randomValueBetween(0.0, 9.0);
+
+	//get list of VALID lanes (lanes where type != INVALID or REST)
+	//return random value from that list
+
+	//iterate through _lanes...if _lanes->type != invlaid or rest, then add _laneNumber to a vector
+	std::vector<int> validLaneNumbers;
+	for(std::vector<Lane *>::iterator it = _lanes.begin(); it != _lanes.end(); ++it) 
+	{
+		Lane * lane = dynamic_cast<Lane *>(*it);
+		if (lane->getLaneType() != "INVALID" && lane->getLaneType() != "REST")
+		{
+			validLaneNumbers.push_back(lane->getLaneNumber());
+		}
+	}
+	//get random value between 0 and length of vector-1....to get a random index of that
+	int randomIndex = randomValueBetween(0, validLaneNumbers.size() -  1);
+	return validLaneNumbers[randomIndex];
+}
+
+int Level::randomValueBetween(int low , int high) 
+{
+	return rand() % (int)high + (int)low;
+}

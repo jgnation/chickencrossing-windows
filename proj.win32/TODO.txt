@@ -11,7 +11,7 @@ maybe I should have an array of lanes (or a map of lanes, with the index the lan
 maybe the lane class should store its coordinates and stuff
 currently Level has an array of lanes
 
-maybe Level could have the getRandomValidLaneNumber method
+DONE: maybe Level could have the getRandomValidLaneNumber method
 use that number to get a Lane from the Level class
 use Lane to get info like centerPixelPosition
 it would probably have to get the pixelPosition from information from the class described at the top
@@ -19,6 +19,8 @@ it would probably have to get the pixelPosition from information from the class 
 
 
 TODO (Important):
+-find out how to add notes to methods so I can see those notes when calling the methods
+-pull random stuff into a namespace
 -games crashes if you press down right where the chicken starts?
 -make chicken start on sidewalk and unable to move below
 -work on the speed increase for egg scramble mode

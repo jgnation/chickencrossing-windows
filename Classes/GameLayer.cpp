@@ -155,10 +155,8 @@ float GameLayer::randomValueBetween(float low , float high)
 
 float GameLayer::getLanePixelPosition(int laneNumber)
 {
-	//the lane at the bottom of the screen is lane 1
-	int validLanes[10] = {3, 4, 5, 6, 7, 9, 10, 11, 12, 13};
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float lanePosition = (windowSize.height / 16) * validLanes[laneNumber];
+	float lanePosition = (windowSize.height / 16) * laneNumber;
 	float laneWidth = windowSize.height / 16;
 	return lanePosition - (laneWidth / 2); //return the center of the lane
 }
@@ -263,7 +261,7 @@ void GameLayer::update(float dt)
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float a = this->randomValueBetween(0, windowSize.width);
-		float b = this->getLanePixelPosition(this->getRandomLaneNumber());
+		float b = this->getLanePixelPosition(_level->getRandomValidLaneNumber());
 		_egg->setPosition(a, b);
 
 		//increment the score
@@ -359,7 +357,7 @@ void GameLayer::loadLevel(int levelNumber)
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	float a = this->randomValueBetween(0, windowSize.width);
-	float b = this->getLanePixelPosition(this->getRandomLaneNumber());
+	float b = this->getLanePixelPosition(_level->getRandomValidLaneNumber());
 	_egg = new Egg(a, b);
 	this->addChild(_egg->getSprite());
 
