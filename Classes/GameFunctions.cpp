@@ -17,11 +17,13 @@ int GameFunctions::getAbsoluteValue(int num)
 		return num;
 }
 
+//I believe this can return a number between low and (high - 1), inclusive
 float GameFunctions::randomValueBetween(float low , float high) 
 {
 	return rand() % (int)high + (int)low;
 }
 
+//I believe this can return a number between low and (high - 1), inclusive
 int GameFunctions::randomValueBetween(int low , int high) 
 {
 	return rand() % (int)high + (int)low;

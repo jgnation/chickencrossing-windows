@@ -1,4 +1,5 @@
 #include "Level.h"
+#include "GameFunctions.h"
 
 using namespace cocos2d;
 
@@ -82,11 +83,7 @@ int Level::getRandomValidLaneNumber()
 		}
 	}
 	//get random value between 0 and length of vector-1....to get a random index of that
-	int randomIndex = randomValueBetween(0, validLaneNumbers.size() -  1);
+	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size());
 	return validLaneNumbers[randomIndex];
 }
 
-int Level::randomValueBetween(int low , int high) 
-{
-	return rand() % (int)high + (int)low;
-}

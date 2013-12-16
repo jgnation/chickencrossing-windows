@@ -1,9 +1,10 @@
 
 TODO (Important):
--make sure the egg can show up in any lane (I know it can show up in the lowest lane...the one above the lower sidewalk)
--find out how to add notes to methods so I can see those notes when calling the methods
--work on the speed increase for egg scramble mode
--on egg scramble mode, as the traffic moves faster, the time that a log disappears should decrease
+-fix egg scramble mode:
+	-work on the speed increase
+	-as the traffic moves faster, the time that a log disappears should decrease (it should be a percentage of the log movement duration)
+	-as speed increases in egg scramble, the new cars should be spawning quicker
+	-should traffic steady increase as time goes on, or as eggs are collected?
 -find an appropriate number of cars per level, as well as appropriate interval
 -the logs shouldn't disappear right after coming onto the screen
 -I saw the game crash when I beat level 2 while riding a log...whattup w/ that?

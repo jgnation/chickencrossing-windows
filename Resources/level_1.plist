@@ -94,9 +94,9 @@
         <key>Type</key>
         <string>ROAD</string>
         <key>Interval</key>
-        <real>10000</real>
+        <real>0</real>
         <key>Speed</key>
-        <integer>100</integer>
+        <integer>0</integer>
         <key>Vehicles</key>
         <array>
           <string>Car</string>
@@ -108,9 +108,9 @@
         <key>Type</key>
         <string>ROAD</string>
         <key>Interval</key>
-        <real>10000</real>
+        <real>0</real>
         <key>Speed</key>
-        <integer>100</integer>
+        <integer>0</integer>
         <key>Vehicles</key>
         <array>
           <string>Car</string>
@@ -122,9 +122,9 @@
         <key>Type</key>
         <string>ROAD</string>
         <key>Interval</key>
-        <real>10000</real>
+        <real>0</real>
         <key>Speed</key>
-        <integer>100</integer>
+        <integer>0</integer>
         <key>Vehicles</key>
         <array>
           <string>Car</string>
@@ -136,9 +136,9 @@
         <key>Type</key>
         <string>ROAD</string>
         <key>Interval</key>
-        <real>10000</real>
+        <real>0</real>
         <key>Speed</key>
-        <integer>100</integer>
+        <integer>0</integer>
         <key>Vehicles</key>
         <array>
           <string>Car</string>
@@ -150,9 +150,9 @@
         <key>Type</key>
         <string>ROAD</string>
         <key>Interval</key>
-        <real>10000</real>
+        <real>0</real>
         <key>Speed</key>
-        <integer>100</integer>
+        <integer>0</integer>
         <key>Vehicles</key>
         <array>
           <string>Car</string>
