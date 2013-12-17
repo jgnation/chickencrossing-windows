@@ -7,7 +7,7 @@
 	-I think I will just have to experiment
 -I think the speed should probably increase based on eggs collected...maybe bump the increase to 20%?
 
-
+//egg scramble - can I find a way to score such that time and eggs collected are taken into account?
 
 TODO (Important):
 -fix egg scramble mode:
