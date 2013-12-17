@@ -1,3 +1,13 @@
+//In Lane, I need to do the following
+-save the original interval and the original speed
+-when increasing speed, I am going to increase it by a certain PERCENTAGE
+-when decreasing the interval, I am going to decrease it by the same 1/PERCENTAGE as above
+-for example, if I double the speed (speed * 2), then interval will be (interval * 1/2)
+-should I increase the speed by 5% at a time...10%.  What should the upper limit be?
+	-I think I will just have to experiment
+-I think the speed should probably increase based on eggs collected...maybe bump the increase to 20%?
+
+
 
 TODO (Important):
 -fix egg scramble mode:

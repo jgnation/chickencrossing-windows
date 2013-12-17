@@ -21,19 +21,21 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 	CCString * laneTypeCCString = (CCString *) lane->objectForKey("Type");
 	_type = laneTypeCCString->getCString();
 
-	_interval = lane->valueForKey("Interval")->floatValue();
-	if (_interval == 0)
+	_spawnInterval = lane->valueForKey("Interval")->floatValue();
+	_spawnIntervalLow = 2000;
+	_spawnIntervalHigh = 3000;
+	if (_spawnInterval == 0)
 	{
-		//get random interval
-		_interval = GameFunctions::randomValueBetween(2000, 3000);
+		_spawnInterval = GameFunctions::randomValueBetween(_spawnIntervalLow, _spawnIntervalHigh);
 	}
+	_initialSpawnInterval = _spawnInterval;
 
 	_speed = lane->valueForKey("Speed")->intValue();
 	if (_speed == 0)
 	{
-		//get random speed
 		_speed = GameFunctions::randomValueBetween(80, 150);
 	}
+	_initialSpeed = _speed;
 
 	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
 	CCObject *it;
@@ -50,7 +52,7 @@ bool Lane::isTimeToSpawn(float currentTime)
 	{
 		if (currentTime > _nextSpawnTime) 
 		{ 
-			_nextSpawnTime = _interval + currentTime;
+			_nextSpawnTime = _spawnInterval + currentTime;
 			return true;
 		}
 	}
@@ -108,9 +110,17 @@ int Lane::getSpeed()
 	return _speed;
 }
 
+//in addition to increasing speed, this should reduce the _interval
+//should all of this arithmetic be using floats?  To avoid truncation?
+//this seems to be working.  Make sure vehicles can't overtake the ones in front of them.
 void Lane::increaseSpeed()
 {
-	_speed = _speed + 100;
+	float delta = 0.1;
+	_speed = _speed + (_initialSpeed * delta);		//speed increases by delta% of the original speed
+
+	//find the percentage difference between _speed and _initialSpeed
+	float factor = _speed / _initialSpeed;
+	_spawnInterval = _initialSpawnInterval / factor;
 }
 
 std::string Lane::getLaneType()
