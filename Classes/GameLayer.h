@@ -26,25 +26,24 @@ private:
 
 	int _lives;
 
-
-
 	//GameMode * _mode;
 	HudLayer * _hudLayer;
 	Chicken * _chicken;
 	Egg * _egg;
 	cocos2d::CCArray * vehicleList2;
 
-
 	LevelManager * _levelManager;
 
 	void addKeyboardSupport();
+
+	//cocos2d::CCTouch * swipeStart;
 protected:
-		int _levelNumber;
-		std::vector<Vehicle *> vehicleList;
-			Level * _level;
+	int _levelNumber;
+	std::vector<Vehicle *> vehicleList;
+	Level * _level;
 public:
-		int _score;
-		int _numEggsToCollect;
+	int _score;
+	int _numEggsToCollect;
 
 	virtual bool init();
 	//static cocos2d::CCScene* scene();
@@ -69,7 +68,7 @@ public:
 	void update(float dt);
 	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
-	//void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+	void onTouchesBegan (const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
 	//int getAbsoluteValue(int num);
 	void resetFlag();

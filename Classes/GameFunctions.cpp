@@ -1,4 +1,6 @@
 #include "GameFunctions.h"
+#include <sstream>
+#include <string>
 
 float GameFunctions::getTimeTick() 
 {
@@ -27,4 +29,15 @@ float GameFunctions::randomValueBetween(float low , float high)
 int GameFunctions::randomValueBetween(int low , int high) 
 {
 	return rand() % (int)high + (int)low;
+}
+
+//the NDK compiler does not support std::to_string, so this is a workaround
+//http://stackoverflow.com/questions/22774009/android-ndk-stdto-string-support
+//template <typename T>
+//this was generic but it was causing compilation problems.
+std::string GameFunctions::to_string(int value)
+{
+	std::ostringstream os;
+    os << value;
+    return os.str();
 }

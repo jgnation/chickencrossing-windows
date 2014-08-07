@@ -1,4 +1,6 @@
 #include "LevelManager.h"
+#include "GameFunctions.h"
+//#include <string>
 
 using namespace cocos2d;
 
@@ -15,7 +17,7 @@ Level * LevelManager::getLevel(int levelNumber)
 {
 	levelNumber = this->mapLevelNumberToLevelPList(levelNumber);
 
-	std::string fileName = _levels->valueForKey(std::to_string(levelNumber))->getCString();
+	std::string fileName = _levels->valueForKey(GameFunctions::to_string(levelNumber))->getCString();
 	std::string filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename(fileName.c_str());
 	return new Level(CCDictionary::createWithContentsOfFileThreadSafe(filePath.c_str()));
 }

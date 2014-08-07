@@ -73,7 +73,7 @@ bool GameLayer::init()
 
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
-		this->addChild(_hudLayer, 2);	//z position is  on top, chicken is on 1
+		this->addChild(_hudLayer, 4);	//z position is  on top, chicken is on 1
 
 		_levelManager = new LevelManager();
 		//_levelNumber = 1;
@@ -89,8 +89,62 @@ bool GameLayer::init()
     return bRet;
 }
 
-//void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
+void GameLayer::onTouchesBegan (const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *event)
+{
+	int a = 43;
+	a = 423;
+
+	//if (_chicken->getSprite()->isVisible() && !_chicken->isMoving())
+	//{
+	//	initialTouchPos = (CCTouch*)(touches[0]);
+	//}
+}
+
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
+{
+	if (_chicken->getSprite()->isVisible() && !_chicken->isMoving())
+	{
+		_chicken->setMoving(true);
+
+		CCTouch * swipe = (CCTouch*)(touches[0]);
+
+		CCPoint initialLocation = swipe->getPreviousLocationInView();
+		initialLocation = CCDirector::sharedDirector()->convertToGL(initialLocation);
+		
+		//CCPoint c = swipe->getLocationInView(); //what is location vs startLocation vs prevLocation?
+
+		CCPoint finalLocation = swipe->getStartLocationInView();
+		finalLocation = CCDirector::sharedDirector()->convertToGL(finalLocation);
+
+		//calculate slope between initial and final
+		//determine the direction
+		//m = (y2 - y1) / (x2 - x1)
+		float slope = (finalLocation.y - initialLocation.y) / (finalLocation.x - initialLocation.x);
+
+		if (std::abs(slope) > 1) //direction is either up or down
+		{
+			if (initialLocation.y > finalLocation.y) 
+				_chicken->moveUp();
+			else
+				_chicken->moveDown();
+		}
+		else if (std::abs(slope) < 1) //direction is either left or right
+		{
+			if (initialLocation.x > finalLocation.x)
+				_chicken->moveRight();
+			else
+				_chicken->moveLeft();
+		}
+		else
+		{
+			_chicken->setMoving(false);
+			//if std::abs(slope) == 1, then the swipe was perfectly diagonal. Do nothing.
+		}
+	}
+}
+
+//on touches ended for clicking
+/*void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
 {
 	if (_chicken->getSprite()->isVisible())
 	{
@@ -126,7 +180,7 @@ void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Even
 				_chicken->moveLeft();
 		}
 	}
-}
+}*/
 
 void GameLayer::spriteMoveFinished(CCNode* sender)
 {
@@ -239,7 +293,7 @@ void GameLayer::update(float dt)
 			vehicleList.push_back(vehicle);
 
 			vehicle->move();
-			this->addChild(vehicle->getSprite());
+			this->addChild(vehicle->getSprite(), 3);
 
 			//set vehicle movement animation
 			//delete or release at end of animation?
@@ -311,13 +365,13 @@ void GameLayer::loadLevel(int levelNumber)
 	//_lives = 5;
 	//_hudLayer->setLives(_lives);
 	_level = _levelManager->getLevel(levelNumber);
-	this->addChild(_level->getBackground()->getSprite());
+	this->addChild(_level->getBackground()->getSprite(), 0);
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
 	float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg = new Egg(x, y);
-	this->addChild(_egg->getSprite());
+	this->addChild(_egg->getSprite(), 1);
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved
 	//up quickly, it would randomly die.  I think this might also be creating memory leaks.

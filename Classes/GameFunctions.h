@@ -2,6 +2,7 @@
 #define GAME_FUNCTIONS_H
 
 #include "cocos2d.h"
+#include <string>
 using namespace cocos2d;
 
 namespace GameFunctions
@@ -14,6 +15,8 @@ namespace GameFunctions
 	float randomValueBetween(float low , float high);
 
 	int randomValueBetween(int low , int high);
+
+	std::string to_string(int value);
 }
 
 #endif

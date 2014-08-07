@@ -1,4 +1,5 @@
 #include "Dimensions.h"
+#include <cmath>
 
 using namespace cocos2d;
 
