@@ -26,6 +26,7 @@ private:
 
 	int _lives;
 
+	cocos2d::CCLayer * _actionLayer;
 	//GameMode * _mode;
 	HudLayer * _hudLayer;
 	Chicken * _chicken;

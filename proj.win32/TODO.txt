@@ -25,7 +25,8 @@ this I need to do a couple of things:
 	by id.
 	-Currently, old vehicles on the screen will stay on the screen when changing levels.  Those need to be wiped out.
 	Maybe they should be on their own Layer object and I can erase the entire layer?
--implement support for swiping
+	-NOTE: I think the above stuff is fixed
+-Add chicken to the actionLayer
 -I might want to upgrade to version 3.0 of the framework at some point.  Maybe I should just worry about getting it all
 working first.  Yes, yes I should.
 -swiping tutorial for version 3: https://www.youtube.com/watch?v=aof2QOab56M

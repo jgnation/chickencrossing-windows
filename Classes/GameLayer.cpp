@@ -17,6 +17,20 @@
 
 using namespace cocos2d;
 
+//everything that gets replaced between levels will be added to the actionLayer
+//when changing the level, wipe out all children from the actionLayer, change level, and then replace the children
+/*
+Layer hierarchy:
+GameLayer
+	actionLayer
+		background
+		vehicles
+		egg
+	chicken
+	hudLayer
+	gameoverlayer
+*/
+
 /*CCScene* GameLayer::scene()
 {
     CCScene * scene = NULL;
@@ -66,6 +80,9 @@ bool GameLayer::init()
 		srand(time(NULL)); //seed the random number generator
 
 		_dimensions = new Dimensions();
+
+		_actionLayer = CCLayer::create();
+		this->addChild(_actionLayer, 0);
 
 		_chicken = new Chicken(this);
 
@@ -293,7 +310,7 @@ void GameLayer::update(float dt)
 			vehicleList.push_back(vehicle);
 
 			vehicle->move();
-			this->addChild(vehicle->getSprite(), 3);
+			_actionLayer->addChild(vehicle->getSprite(), 2);
 
 			//set vehicle movement animation
 			//delete or release at end of animation?
@@ -356,6 +373,8 @@ void GameLayer::resetChicken()
 
 void GameLayer::loadLevel(int levelNumber)
 {
+	_actionLayer->removeAllChildren(); //remove all with cleanup?
+
 	this->resetChicken();
 
 	_numEggsToCollect = levelNumber;
@@ -365,13 +384,13 @@ void GameLayer::loadLevel(int levelNumber)
 	//_lives = 5;
 	//_hudLayer->setLives(_lives);
 	_level = _levelManager->getLevel(levelNumber);
-	this->addChild(_level->getBackground()->getSprite(), 0);
+	_actionLayer->addChild(_level->getBackground()->getSprite(), 0);
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
 	float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg = new Egg(x, y);
-	this->addChild(_egg->getSprite(), 1);
+	_actionLayer->addChild(_egg->getSprite(), 1);
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved
 	//up quickly, it would randomly die.  I think this might also be creating memory leaks.
