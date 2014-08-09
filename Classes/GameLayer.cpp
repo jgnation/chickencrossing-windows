@@ -290,7 +290,7 @@ void GameLayer::update(float dt)
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
-		float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
+		float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
 		_egg->setPosition(x, y);
 
 		//increment the score
@@ -388,7 +388,7 @@ void GameLayer::loadLevel(int levelNumber)
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
-	float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
+	float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg = new Egg(x, y);
 	_actionLayer->addChild(_egg->getSprite(), 1);
 

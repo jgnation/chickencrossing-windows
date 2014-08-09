@@ -10,6 +10,8 @@ Egg::Egg(float x, float y)
 	float originalHeight = 68;
 	_sprite = CCSprite::create("brown_egg.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
+	_sprite->setAnchorPoint(ccp(0,0));
+
 	float scaleRatio = (windowSize.height / 20) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
 	_sprite->setScale(scaleRatio);
 
