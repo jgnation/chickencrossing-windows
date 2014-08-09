@@ -73,21 +73,34 @@ Vehicle * Lane::spawnVehicle()
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
 	Vehicle * vehicle = this->getRandomVehicle();
-	float y = _dimensions->getCenterOfLanePixelValue(_laneNumber);
+	CCSprite * vehicleSprite = vehicle->getSprite();
+	float y = _dimensions->getLanePixelValue(_laneNumber);
 
-	if (_laneNumber % 2 == 0)
+	if (_laneNumber % 2 == 0) //move to the left
 	{
-		vehicle->getSprite()->setPosition(ccp(windowSize.width, y));
-		CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  This should be scaled
+		vehicleSprite->setPosition(ccp(windowSize.width, y));
+		CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  TODO: This should be scaled
 		vehicle->setDestination(destination);
-		vehicle->getSprite()->setFlipX(false);
+		if (vehicleSprite->getScaleX() < 0)
+			vehicleSprite->setScaleX(vehicleSprite->getScaleX() * -1.f);
 	}
-	else
+	else //move to the right
 	{
-		vehicle->getSprite()->setPosition(ccp(0, y));
+		vehicleSprite->setPosition(ccp(0, y));
 		CCPoint destination = ccp(windowSize.width + 120, y);
 		vehicle->setDestination(destination);
-		if (!vehicle->getSprite()->isFlipX()) vehicle->getSprite()->setFlipX(true);
+		vehicleSprite->setScaleX(vehicleSprite->getScaleX() * -1.f);
+		/*
+		For quite a while, I was having a problem here with vehicle->getSprite()->setFlippedX().  It would alter the y position of the sprite.
+		I still am not quite sure why it did that.  Due to that I decided to flip X with the following:
+		vehicle->getSprite()->setScaleX(-1.f);
+		That worked, in that it flipped the sprite and did not alter the y position of the sprite.  However, it shortened the x length of
+		the sprite.  Ugh, problems!  This occurred because in the class of the specific sprite container (Truck, when I was testing this out)
+		I scaled the sprite AND set the appropriate content size.  Thus, the scale was set to something GREATER that 1.  Therefore, setting
+		the scale to -1.f flipped the sprite but made it smaller relative to the content size.  The solution was to do this:
+		vehicle->getSprite()->setScaleX(vehicle->getSprite()->getScaleX() * -1.f);
+		I still need to figure out the intricacies between scaling a sprite and the sprite's content size.
+		*/
 	}
 
 	vehicle->setSpeed(_speed);

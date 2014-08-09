@@ -13,6 +13,8 @@ DisappearingLog::DisappearingLog(void)
 	float originalHeight = 93;
 	_sprite = CCSprite::create("log_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
+	_sprite->setAnchorPoint(ccp(0,0));
+
 	//see the chicken class for explanation
 	float scaleRatio = (windowSize.height / 20) / _sprite->getContentSize().height;
 	_sprite->setScale(scaleRatio);
@@ -23,8 +25,6 @@ DisappearingLog::DisappearingLog(void)
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
 	_sprite->retain();
-	_sprite->setPosition(ccp(windowSize.width, 40));
-	//_speed = 150;
 	_speed = 100;
 }
 
