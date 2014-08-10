@@ -14,22 +14,12 @@ ant debug install (after this command, the phone may ask to allow usb debugging.
 
 
 TODO:
--on android, I get flickering sprites.  This happens when more than one sprite occupy the same space on a z-level.
-For example, I add the background sprite to level 0 of the GameLayer.  When going to the next level, I get the sprite
-for the next level and do addChild(backgroundSprite). Now I have two sprites on level 0 and they will flicker.  To solve
-this I need to do a couple of things:
-	-Establish rules for which z level sprites will occupy.  For example, background sprites on level 0, chicken and egg
-	on level 1, vehicles on level 2, HUD on level 3, etc.
-	-Old background sprites should be removed when going to a new level.  How to accomplish this?  There are probably a
-	few different ways.  I could replace the entire scene.  I could keep track of an id for each sprite and remove those
-	by id.
-	-Currently, old vehicles on the screen will stay on the screen when changing levels.  Those need to be wiped out.
-	Maybe they should be on their own Layer object and I can erase the entire layer?
-	-NOTE: I think the above stuff is fixed
+-Add a min interval and max interval to each lane in the plists.  Or should I do it for each level?  Or a water-interval min/max and road interval min/max per level? Water vehicles
+should spawn more often than road ones.
+-get a new random interval for each lane after a vehicle spawn so that a given lane doesn't always have the same time between spawns.
 -Add chicken to the actionLayer
 -I might want to upgrade to version 3.0 of the framework at some point.  Maybe I should just worry about getting it all
 working first.  Yes, yes I should.
--swiping tutorial for version 3: https://www.youtube.com/watch?v=aof2QOab56M
 
 
 
@@ -45,7 +35,6 @@ TODO (Important):
 -make all road level and all water level
 -pretty up the game over score screen.  Indicate if one of the scores is new.
 -try out stuff on various screen sizes
--fix cars in different lanes killing chickens (sprite sizing issues -- depends on resolution)
 -logs of various lengths
 -alligators to ride
 -splash screen

@@ -25,14 +25,14 @@ Lane::Lane(CCDictionary * lane, int laneNumber)
 	if (_interval == 0)
 	{
 		//get random interval
-		_interval = GameFunctions::randomValueBetween(2000, 3000);
+		_interval = GameFunctions::randomValueBetween(3500, 4000);
 	}
 
 	_speed = lane->valueForKey("Speed")->intValue();
 	if (_speed == 0)
 	{
 		//get random speed
-		_speed = GameFunctions::randomValueBetween(80, 150);
+		_speed = GameFunctions::randomValueBetween(40, 100);
 	}
 
 	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");

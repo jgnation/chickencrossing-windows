@@ -106,17 +106,6 @@ bool GameLayer::init()
     return bRet;
 }
 
-void GameLayer::onTouchesBegan (const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *event)
-{
-	int a = 43;
-	a = 423;
-
-	//if (_chicken->getSprite()->isVisible() && !_chicken->isMoving())
-	//{
-	//	initialTouchPos = (CCTouch*)(touches[0]);
-	//}
-}
-
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
 {
 	if (_chicken->getSprite()->isVisible() && !_chicken->isMoving())
@@ -159,45 +148,6 @@ void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Even
 		}
 	}
 }
-
-//on touches ended for clicking
-/*void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
-{
-	if (_chicken->getSprite()->isVisible())
-	{
-		if (!_chicken->isMoving())
-		{
-			_chicken->setMoving(true);
-			//Get location of touch
-			//compare location to current position of chicken
-			//move chicken in direction of touch
-
-			CCTouch* touch = (CCTouch*)( touches[0] );
-			CCPoint touchLocation = touch->getLocationInView();
-			touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
-
-			//CCPoint currentLocation = _chicken->getPoint();
-			CCPoint currentLocation = _chicken->getSprite()->getPosition();
-
-			//the greatest difference in coordinates is the direction in which we will move
-			int xDiff = touchLocation.x - currentLocation.x;
-			int yDiff = touchLocation.y - currentLocation.y;
-
-			int xDiffAbs = GameFunctions::getAbsoluteValue(xDiff);
-			int yDiffAbs = GameFunctions::getAbsoluteValue(yDiff);
-
-			//TODO take into account where coordinates is equal
-			if (yDiffAbs > xDiffAbs && yDiff > 0)
-				_chicken->moveUp();
-			else if (yDiffAbs > xDiffAbs && yDiff < 0)
-				_chicken->moveDown();
-			else if (xDiffAbs > yDiffAbs && xDiff > 0)
-				_chicken->moveRight();
-			else if (xDiffAbs > yDiffAbs && xDiff < 0)
-				_chicken->moveLeft();
-		}
-	}
-}*/
 
 void GameLayer::spriteMoveFinished(CCNode* sender)
 {
@@ -355,11 +305,6 @@ void GameLayer::gameOver()
 
 	std::vector<int> highScores = this->checkHighScores();
 
-	//display high scores with a next button
-
-	//take user to main screen
-
-
 	//display GameOver with a next button
 	GameOverLayer* gameOverLayer = new GameOverLayer();
 	gameOverLayer->init(highScores);
@@ -430,10 +375,6 @@ void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Eve
 			}
 		}
 	}
-}
-void GameLayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
-{
-	//do nothing
 }
 
 void GameLayer::addKeyboardSupport()
