@@ -13,11 +13,14 @@ class Lane
 private:
 	VehicleFactory *_vehicleFactory;
 	Dimensions * _dimensions;
+
 public:
-	Lane(CCDictionary * lane, int laneNumber);
+	enum LaneType { ROAD, WATER, REST, INVALID };
+
+	Lane(int laneNumber, LaneType laneType, int interval, int speed, std::vector<std::string> vehicles);
 
 	~Lane(void);
-
+	LaneType _laneType;
 	void setType(std::string type);
 	void setVehicles();
 	void setInterval(std::string interval);
@@ -41,8 +44,7 @@ public:
 	float _nextIncreaseSpeedTime;
 
 	int getLaneNumber();
-
-	std::string getLaneType();
+	LaneType getLaneType();
 };
 
 #endif

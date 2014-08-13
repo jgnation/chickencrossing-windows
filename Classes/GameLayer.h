@@ -69,8 +69,9 @@ public:
 	void update(float dt);
 	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
-	void onTouchesBegan (const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
+	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+
 	//int getAbsoluteValue(int num);
 	void resetFlag();
 	void killChicken();
@@ -80,7 +81,6 @@ public:
 	void gameOver();
 
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
-	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 
     // implement the "static node()" method manually
     //CREATE_FUNC(GameLayer);

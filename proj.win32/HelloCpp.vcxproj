@@ -212,8 +212,12 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
   <ItemGroup>
     <None Include="..\Resources\background_layered.psd" />
     <None Include="..\Resources\levels.plist" />
-    <None Include="..\Resources\level_1.plist" />
-    <None Include="..\Resources\level_2.plist" />
+    <None Include="..\Resources\level_1.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\level_2.plist">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Resources\level_3.plist" />
     <None Include="..\Resources\start_game.psd" />
   </ItemGroup>

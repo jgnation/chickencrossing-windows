@@ -187,10 +187,10 @@ void GameLayer::update(float dt)
 	}
 
 	//getPositionY is returning a bad value after the chicken dies by running into the side of the wall
-	Level::LaneType laneType = _level->getLaneType(_dimensions->getLaneNumber(_chicken->getSprite()->getPositionY()));
+	Lane::LaneType laneType = _level->getLaneType(_dimensions->getLaneNumber(_chicken->getSprite()->getPositionY()));
 
 	//check to see if a chicken is jumping on a log or into the water
-	if (laneType == Level::LaneType::WATER)
+	if (laneType == Lane::LaneType::WATER)
 	{
 		//bool intersectsLog = false;
 		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
@@ -221,7 +221,7 @@ void GameLayer::update(float dt)
 
 	//check to see if a chicken has been hit by a vehicle
 	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
-	if (laneType == Level::LaneType::ROAD)
+	if (laneType == Lane::LaneType::ROAD)
 	{
 		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 		{
@@ -377,10 +377,18 @@ void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Eve
 	}
 }
 
+void GameLayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+{
+    //do nothing
+}
+
+
 void GameLayer::addKeyboardSupport()
 {
 	auto keyboardListener = EventListenerKeyboard::create();
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(GameLayer::keyPressed, this);
 	keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
+
 	EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 }
+

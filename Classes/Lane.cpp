@@ -8,45 +8,26 @@
 
 using namespace cocos2d;
 
-Lane::Lane(CCDictionary * lane, int laneNumber)
+Lane::Lane(int laneNumber, LaneType laneType, int interval, int speed, std::vector<std::string> vehicles) 
 {
-	_vehicleFactory = new VehicleFactory();
-	_dimensions = new Dimensions();
-
 	_laneNumber = laneNumber;
+	_laneType = laneType;
+	_speed = speed;
+	_vehicles = vehicles;
+	_interval = interval;
+
+	//TODO, deal with these
 	_nextSpawnTime = 0;
 	_increaseSpeedInterval = 4000.0;	//pull this into config
 	_nextIncreaseSpeedTime = 0;
 
-	CCString * laneTypeCCString = (CCString *) lane->objectForKey("Type");
-	_type = laneTypeCCString->getCString();
-
-	_interval = lane->valueForKey("Interval")->floatValue();
-	if (_interval == 0)
-	{
-		//get random interval
-		_interval = GameFunctions::randomValueBetween(3500, 4000);
-	}
-
-	_speed = lane->valueForKey("Speed")->intValue();
-	if (_speed == 0)
-	{
-		//get random speed
-		_speed = GameFunctions::randomValueBetween(40, 100);
-	}
-
-	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
-	CCObject *it;
-	CCARRAY_FOREACH(vehicles, it)
-	{
-		CCString * vehicle = dynamic_cast<CCString *>(it);
-		_vehicles.push_back(vehicle->getCString());
-	}
+	_vehicleFactory = new VehicleFactory();
+	_dimensions = new Dimensions();
 }
 
 bool Lane::isTimeToSpawn(float currentTime)
 {
-	if (_type == "WATER" || _type == "ROAD")
+	if (_laneType == LaneType::WATER || _laneType == LaneType::ROAD)
 	{
 		if (currentTime > _nextSpawnTime) 
 		{ 
@@ -126,9 +107,9 @@ void Lane::increaseSpeed()
 	_speed = _speed + 100;
 }
 
-std::string Lane::getLaneType()
+Lane::LaneType Lane::getLaneType()
 {
-	return _type;
+	return _laneType;
 }
 
 int Lane::getLaneNumber()
