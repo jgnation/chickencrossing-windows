@@ -16,12 +16,14 @@ Bus::Bus(void)
 	_sprite->setAnchorPoint(ccp(0,0));
 
 	//see the chicken class for explanation
-	float scaleRatio = (windowSize.height / 30) / _sprite->getContentSize().height;
-	_sprite->setScale(scaleRatio);
+	float scaleRatioY = (windowSize.height / 30) / _sprite->getContentSize().height;
+	_sprite->setScaleY(scaleRatioY);
+	float scaleRatioX = (windowSize.width / 10) / _sprite->getContentSize().width;
+	_sprite->setScaleX(scaleRatioX);
 
 	//see the chicken class for explanation
-	float scaledWidth = originalWidth * scaleRatio;
-	float scaledHeight = originalHeight * scaleRatio;
+	float scaledWidth = originalWidth * scaleRatioX;
+	float scaledHeight = originalHeight * scaleRatioY;
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
 	_sprite->retain();

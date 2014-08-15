@@ -14,6 +14,11 @@ ant debug install (after this command, the phone may ask to allow usb debugging.
 
 
 TODO:
+-test on OSX - can I just make very high resolution pictures and use them on all sizes?
+-more levels!
+-The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
+-scale chicken and egg horizontally?
+-Scale chicken movement?
 -Add a min interval and max interval to each lane in the plists.  Or should I do it for each level?  Or a water-interval min/max and road interval min/max per level? Water vehicles
 should spawn more often than road ones.
 -get a new random interval for each lane after a vehicle spawn so that a given lane doesn't always have the same time between spawns.
@@ -175,3 +180,12 @@ no particular order.  It appears to be random (unless it is the same thing every
 -so it looks like each lane has a list of possibilities, and an item from those possibilities is picked at random
 
 
+Solved problems:
+1.  The issue was that the distance between vehicles was different on pc vs android, even with the same speed and interval
+-Figure out how to calculate speed and interval so that the player gets a similar experience regardless of screen resolution.
+OPTIONS:
+	-pick a minInterval such that the vehicles will never be too close in small resolutions.  I don't like this option
+	-I always want there to be a minimum distance between vehicles. Maybe the width of 3 scaled chickens or so.
+	-configure duration instead of speed?
+	-I want vehicles to travel the same distance in the same amount of time!  A wider screen should take longer to get across
+1. Fix!  Scale the vehicles horizontally.
