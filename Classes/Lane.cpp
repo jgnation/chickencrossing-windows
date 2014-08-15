@@ -91,7 +91,7 @@ Vehicle * Lane::spawnVehicle()
 
 Vehicle * Lane::getRandomVehicle()
 {
-	int randomIndex = GameFunctions::randomValueBetween(0, _vehicles.size());
+	int randomIndex = GameFunctions::randomValueBetween(0, _vehicles.size() - 1);
 	std::string vehicle = _vehicles.at(randomIndex);
 
 	return _vehicleFactory->createVehicle(vehicle);

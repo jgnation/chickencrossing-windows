@@ -28,7 +28,8 @@ float GameFunctions::randomValueBetween(float low , float high)
 //I believe this can return a number between low and (high - 1), inclusive
 int GameFunctions::randomValueBetween(int low , int high) 
 {
-	return rand() % (int)high + (int)low;
+	//return rand() % (int)high + (int)low;
+	return rand() % ((high - low) + 1) + low;
 }
 
 //the NDK compiler does not support std::to_string, so this is a workaround
