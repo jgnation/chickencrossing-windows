@@ -50,8 +50,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto director = Director::getInstance();
     auto eglView = EGLView::getInstance();
 
-	//eglView->setFrameSize(640,480);
-
     director->setOpenGLView(eglView);
 	
     // turn on display FPS

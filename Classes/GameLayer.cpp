@@ -17,6 +17,20 @@
 
 using namespace cocos2d;
 
+//everything that gets replaced between levels will be added to the actionLayer
+//when changing the level, wipe out all children from the actionLayer, change level, and then replace the children
+/*
+Layer hierarchy:
+GameLayer
+	actionLayer
+		background
+		vehicles
+		egg
+	chicken
+	hudLayer
+	gameoverlayer
+*/
+
 /*CCScene* GameLayer::scene()
 {
     CCScene * scene = NULL;
@@ -67,13 +81,16 @@ bool GameLayer::init()
 
 		_dimensions = new Dimensions();
 
+		_actionLayer = CCLayer::create();
+		this->addChild(_actionLayer, 0);
+
 		_chicken = new Chicken(this);
 
 		vehicleList2 = new CCArray();
 
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
-		this->addChild(_hudLayer, 2);	//z position is  on top, chicken is on 1
+		this->addChild(_hudLayer, 4);	//z position is  on top, chicken is on 1
 
 		_levelManager = new LevelManager();
 		//_levelNumber = 1;
@@ -89,41 +106,45 @@ bool GameLayer::init()
     return bRet;
 }
 
-//void GameLayer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
 {
-	if (_chicken->getSprite()->isVisible())
+	if (_chicken->getSprite()->isVisible() && !_chicken->isMoving())
 	{
-		if (!_chicken->isMoving())
+		_chicken->setMoving(true);
+
+		CCTouch * swipe = (CCTouch*)(touches[0]);
+
+		CCPoint initialLocation = swipe->getPreviousLocationInView();
+		initialLocation = CCDirector::sharedDirector()->convertToGL(initialLocation);
+		
+		//CCPoint c = swipe->getLocationInView(); //what is location vs startLocation vs prevLocation?
+
+		CCPoint finalLocation = swipe->getStartLocationInView();
+		finalLocation = CCDirector::sharedDirector()->convertToGL(finalLocation);
+
+		//calculate slope between initial and final
+		//determine the direction
+		//m = (y2 - y1) / (x2 - x1)
+		float slope = (finalLocation.y - initialLocation.y) / (finalLocation.x - initialLocation.x);
+
+		if (std::abs(slope) > 1) //direction is either up or down
 		{
-			_chicken->setMoving(true);
-			//Get location of touch
-			//compare location to current position of chicken
-			//move chicken in direction of touch
-
-			CCTouch* touch = (CCTouch*)( touches[0] );
-			CCPoint touchLocation = touch->getLocationInView();
-			touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
-
-			//CCPoint currentLocation = _chicken->getPoint();
-			CCPoint currentLocation = _chicken->getSprite()->getPosition();
-
-			//the greatest difference in coordinates is the direction in which we will move
-			int xDiff = touchLocation.x - currentLocation.x;
-			int yDiff = touchLocation.y - currentLocation.y;
-
-			int xDiffAbs = GameFunctions::getAbsoluteValue(xDiff);
-			int yDiffAbs = GameFunctions::getAbsoluteValue(yDiff);
-
-			//TODO take into account where coordinates is equal
-			if (yDiffAbs > xDiffAbs && yDiff > 0)
+			if (initialLocation.y > finalLocation.y) 
 				_chicken->moveUp();
-			else if (yDiffAbs > xDiffAbs && yDiff < 0)
+			else
 				_chicken->moveDown();
-			else if (xDiffAbs > yDiffAbs && xDiff > 0)
+		}
+		else if (std::abs(slope) < 1) //direction is either left or right
+		{
+			if (initialLocation.x > finalLocation.x)
 				_chicken->moveRight();
-			else if (xDiffAbs > yDiffAbs && xDiff < 0)
+			else
 				_chicken->moveLeft();
+		}
+		else
+		{
+			_chicken->setMoving(false);
+			//if std::abs(slope) == 1, then the swipe was perfectly diagonal. Do nothing.
 		}
 	}
 }
@@ -166,10 +187,10 @@ void GameLayer::update(float dt)
 	}
 
 	//getPositionY is returning a bad value after the chicken dies by running into the side of the wall
-	Level::LaneType laneType = _level->getLaneType(_dimensions->getLaneNumber(_chicken->getSprite()->getPositionY()));
+	Lane::LaneType laneType = _level->getLaneType(_dimensions->getLaneNumber(_chicken->getSprite()->getPositionY()));
 
 	//check to see if a chicken is jumping on a log or into the water
-	if (laneType == Level::LaneType::WATER)
+	if (laneType == Lane::LaneType::WATER)
 	{
 		//bool intersectsLog = false;
 		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
@@ -200,7 +221,7 @@ void GameLayer::update(float dt)
 
 	//check to see if a chicken has been hit by a vehicle
 	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
-	if (laneType == Level::LaneType::ROAD)
+	if (laneType == Lane::LaneType::ROAD)
 	{
 		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
 		{
@@ -219,7 +240,7 @@ void GameLayer::update(float dt)
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
-		float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
+		float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
 		_egg->setPosition(x, y);
 
 		//increment the score
@@ -239,7 +260,7 @@ void GameLayer::update(float dt)
 			vehicleList.push_back(vehicle);
 
 			vehicle->move();
-			this->addChild(vehicle->getSprite());
+			_actionLayer->addChild(vehicle->getSprite(), 2);
 
 			//set vehicle movement animation
 			//delete or release at end of animation?
@@ -284,11 +305,6 @@ void GameLayer::gameOver()
 
 	std::vector<int> highScores = this->checkHighScores();
 
-	//display high scores with a next button
-
-	//take user to main screen
-
-
 	//display GameOver with a next button
 	GameOverLayer* gameOverLayer = new GameOverLayer();
 	gameOverLayer->init(highScores);
@@ -302,6 +318,8 @@ void GameLayer::resetChicken()
 
 void GameLayer::loadLevel(int levelNumber)
 {
+	_actionLayer->removeAllChildren(); //remove all with cleanup?
+
 	this->resetChicken();
 
 	_numEggsToCollect = levelNumber;
@@ -311,13 +329,13 @@ void GameLayer::loadLevel(int levelNumber)
 	//_lives = 5;
 	//_hudLayer->setLives(_lives);
 	_level = _levelManager->getLevel(levelNumber);
-	this->addChild(_level->getBackground()->getSprite());
+	_actionLayer->addChild(_level->getBackground()->getSprite(), 0);
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
-	float y = _dimensions->getCenterOfLanePixelValue(_level->getRandomValidLaneNumber());
+	float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg = new Egg(x, y);
-	this->addChild(_egg->getSprite());
+	_actionLayer->addChild(_egg->getSprite(), 1);
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved
 	//up quickly, it would randomly die.  I think this might also be creating memory leaks.
@@ -358,15 +376,19 @@ void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Eve
 		}
 	}
 }
+
 void GameLayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	//do nothing
+    //do nothing
 }
+
 
 void GameLayer::addKeyboardSupport()
 {
 	auto keyboardListener = EventListenerKeyboard::create();
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(GameLayer::keyPressed, this);
 	keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
+
 	EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 }
+

@@ -8,7 +8,31 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+				   ../../Classes/Background.cpp \
+				   ../../Classes/Bus.cpp \
+				   ../../Classes/Car.cpp \
+				   ../../Classes/Chicken.cpp \
+				   ../../Classes/Dimensions.cpp \
+				   ../../Classes/DisappearingLog.cpp \
+				   ../../Classes/Egg.cpp \
+				   ../../Classes/EggScrambleModeLayer.cpp \
+				   ../../Classes/GameFunctions.cpp \
+				   ../../Classes/GameLayer.cpp \
+				   ../../Classes/GameOverLayer.cpp \
+				   ../../Classes/HUDLayer.cpp \
+				   ../../Classes/Lane.cpp \
+				   ../../Classes/Level.cpp \
+				   ../../Classes/LevelManager.cpp \
+				   ../../Classes/LevelSelectLayer.cpp \
+				   ../../Classes/Log.cpp \
+				   ../../Classes/MainModeLayer.cpp \
+				   ../../Classes/MenuButtonLayer.cpp \
+				   ../../Classes/MenuLayer.cpp \
+				   ../../Classes/SpriteContainer.cpp \
+				   ../../Classes/Truck.cpp \
+				   ../../Classes/Vehicle.cpp \
+				   ../../Classes/VehicleFactory.cpp
+				   
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

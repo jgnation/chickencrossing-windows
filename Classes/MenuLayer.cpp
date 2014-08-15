@@ -41,7 +41,7 @@ bool MenuLayer::init()
 		int _levelNumber = 4;
 		//this->loadLevel(_levelNumber);
 		_level = _levelManager->getLevel(_levelNumber);
-		this->addChild(_level->getBackground()->getSprite());
+		this->addChild(_level->getBackground()->getSprite(), 0); //added 5/24
 
 		this->scheduleUpdate();
 
@@ -65,7 +65,7 @@ void MenuLayer::update(float dt)
 			vehicleList.push_back(vehicle);
 
 			vehicle->move();
-			this->addChild(vehicle->getSprite());
+			this->addChild(vehicle->getSprite(), 1);
 
 			//set vehicle movement animation
 			//delete or release at end of animation?

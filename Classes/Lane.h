@@ -14,30 +14,13 @@ private:
 	VehicleFactory *_vehicleFactory;
 	Dimensions * _dimensions;
 
-	int _speed;
-	int _initialSpeed;
-	float _spawnInterval; //this should probably be an int
-	float _initialSpawnInterval;
-
-
-
-	int _spawnIntervalLow;
-	int _spawnIntervalHigh;
-	int _spawnIntervalLowerBound;
-
-	std::string _type;
-	std::vector<std::string> _vehicles;
-
-	
-	
-	float _nextSpawnTime;
-	int _laneNumber;
-	float _increaseSpeedInterval;
-	float _nextIncreaseSpeedTime;
 public:
-	Lane(CCDictionary * lane, int laneNumber);
-	~Lane(void);
+	enum LaneType { ROAD, WATER, REST, INVALID };
 
+	Lane(int laneNumber, LaneType laneType, int interval, int speed, std::vector<std::string> vehicles);
+
+	~Lane(void);
+	LaneType _laneType;
 	void setType(std::string type);
 	void setVehicles();
 	void setInterval(std::string interval);
@@ -45,11 +28,23 @@ public:
 	bool isTimeToSpawn(float currentTime);
 	bool isTimeToIncreaseSpeed(float currentTime);
 	Vehicle * spawnVehicle();
-	Vehicle * getRandomVehicle();
+	Vehicle * getRandomVehicle();	//this should be private
+
 	int getSpeed();
 	void increaseSpeed();
+
+	std::string _type;
+	std::vector<std::string> _vehicles;
+
+	float _interval;
+	int _speed;
+	float _nextSpawnTime;
+	int _laneNumber;
+	float _increaseSpeedInterval;
+	float _nextIncreaseSpeedTime;
+
 	int getLaneNumber();
-	std::string getLaneType();
+	LaneType getLaneType();
 };
 
 #endif

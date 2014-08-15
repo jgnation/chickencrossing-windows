@@ -8,51 +8,30 @@
 
 using namespace cocos2d;
 
-Lane::Lane(CCDictionary * lane, int laneNumber)
+Lane::Lane(int laneNumber, LaneType laneType, int interval, int speed, std::vector<std::string> vehicles) 
 {
-	_vehicleFactory = new VehicleFactory();
-	_dimensions = new Dimensions();
-
 	_laneNumber = laneNumber;
+	_laneType = laneType;
+	_speed = speed;
+	_vehicles = vehicles;
+	_interval = interval;
+
+	//TODO, deal with these
 	_nextSpawnTime = 0;
 	_increaseSpeedInterval = 4000.0;	//pull this into config
 	_nextIncreaseSpeedTime = 0;
 
-	CCString * laneTypeCCString = (CCString *) lane->objectForKey("Type");
-	_type = laneTypeCCString->getCString();
-
-	_spawnInterval = lane->valueForKey("Interval")->floatValue();
-	_spawnIntervalLow = 2000;
-	_spawnIntervalHigh = 3000;
-	if (_spawnInterval == 0)
-	{
-		_spawnInterval = GameFunctions::randomValueBetween(_spawnIntervalLow, _spawnIntervalHigh);
-	}
-	_initialSpawnInterval = _spawnInterval;
-
-	_speed = lane->valueForKey("Speed")->intValue();
-	if (_speed == 0)
-	{
-		_speed = GameFunctions::randomValueBetween(80, 150);
-	}
-	_initialSpeed = _speed;
-
-	CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
-	CCObject *it;
-	CCARRAY_FOREACH(vehicles, it)
-	{
-		CCString * vehicle = dynamic_cast<CCString *>(it);
-		_vehicles.push_back(vehicle->getCString());
-	}
+	_vehicleFactory = new VehicleFactory();
+	_dimensions = new Dimensions();
 }
 
 bool Lane::isTimeToSpawn(float currentTime)
 {
-	if (_type == "WATER" || _type == "ROAD")
+	if (_laneType == LaneType::WATER || _laneType == LaneType::ROAD)
 	{
 		if (currentTime > _nextSpawnTime) 
 		{ 
-			_nextSpawnTime = _spawnInterval + currentTime;
+			_nextSpawnTime = _interval + currentTime;
 			return true;
 		}
 	}
@@ -75,21 +54,34 @@ Vehicle * Lane::spawnVehicle()
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
 	Vehicle * vehicle = this->getRandomVehicle();
-	float y = _dimensions->getCenterOfLanePixelValue(_laneNumber);
+	CCSprite * vehicleSprite = vehicle->getSprite();
+	float y = _dimensions->getLanePixelValue(_laneNumber);
 
-	if (_laneNumber % 2 == 0)
+	if (_laneNumber % 2 == 0) //move to the left
 	{
-		vehicle->getSprite()->setPosition(ccp(windowSize.width, y));
-		CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  This should be scaled
+		vehicleSprite->setPosition(ccp(windowSize.width, y));
+		CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  TODO: This should be scaled
 		vehicle->setDestination(destination);
-		vehicle->getSprite()->setFlipX(false);
+		if (vehicleSprite->getScaleX() < 0)
+			vehicleSprite->setScaleX(vehicleSprite->getScaleX() * -1.f);
 	}
-	else
+	else //move to the right
 	{
-		vehicle->getSprite()->setPosition(ccp(0, y));
+		vehicleSprite->setPosition(ccp(0, y));
 		CCPoint destination = ccp(windowSize.width + 120, y);
 		vehicle->setDestination(destination);
-		if (!vehicle->getSprite()->isFlipX()) vehicle->getSprite()->setFlipX(true);
+		vehicleSprite->setScaleX(vehicleSprite->getScaleX() * -1.f);
+		/*
+		For quite a while, I was having a problem here with vehicle->getSprite()->setFlippedX().  It would alter the y position of the sprite.
+		I still am not quite sure why it did that.  Due to that I decided to flip X with the following:
+		vehicle->getSprite()->setScaleX(-1.f);
+		That worked, in that it flipped the sprite and did not alter the y position of the sprite.  However, it shortened the x length of
+		the sprite.  Ugh, problems!  This occurred because in the class of the specific sprite container (Truck, when I was testing this out)
+		I scaled the sprite AND set the appropriate content size.  Thus, the scale was set to something GREATER that 1.  Therefore, setting
+		the scale to -1.f flipped the sprite but made it smaller relative to the content size.  The solution was to do this:
+		vehicle->getSprite()->setScaleX(vehicle->getSprite()->getScaleX() * -1.f);
+		I still need to figure out the intricacies between scaling a sprite and the sprite's content size.
+		*/
 	}
 
 	vehicle->setSpeed(_speed);
@@ -99,7 +91,7 @@ Vehicle * Lane::spawnVehicle()
 
 Vehicle * Lane::getRandomVehicle()
 {
-	int randomIndex = GameFunctions::randomValueBetween(0, _vehicles.size());
+	int randomIndex = GameFunctions::randomValueBetween(0, _vehicles.size() - 1);
 	std::string vehicle = _vehicles.at(randomIndex);
 
 	return _vehicleFactory->createVehicle(vehicle);
@@ -110,22 +102,14 @@ int Lane::getSpeed()
 	return _speed;
 }
 
-//in addition to increasing speed, this should reduce the _interval
-//should all of this arithmetic be using floats?  To avoid truncation?
-//this seems to be working.  Make sure vehicles can't overtake the ones in front of them.
 void Lane::increaseSpeed()
 {
-	float delta = 0.1;
-	_speed = _speed + (_initialSpeed * delta);		//speed increases by delta% of the original speed
-
-	//find the percentage difference between _speed and _initialSpeed
-	float factor = _speed / _initialSpeed;
-	_spawnInterval = _initialSpawnInterval / factor;
+	_speed = _speed + 100;
 }
 
-std::string Lane::getLaneType()
+Lane::LaneType Lane::getLaneType()
 {
-	return _type;
+	return _laneType;
 }
 
 int Lane::getLaneNumber()

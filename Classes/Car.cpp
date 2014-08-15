@@ -8,9 +8,25 @@ Car::Car(void)
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	_origin = ccp(windowSize.width, 40);
 	_destination = ccp(0, 40);
-	_sprite = CCSprite::create("red_car.png", CCRectMake(0, 0, 82, 25));
+
+	float originalWidth = 82;
+	float originalHeight = 25;
+	_sprite = CCSprite::create("red_car.png", CCRectMake(0, 0, originalWidth, originalHeight));
+
+	_sprite->setAnchorPoint(ccp(0,0));
+
+	//see the chicken class for explanation
+	float scaleRatioY = (windowSize.height / 30) / _sprite->getContentSize().height;
+	_sprite->setScaleY(scaleRatioY);
+	float scaleRatioX = (windowSize.width / 10) / _sprite->getContentSize().width;
+	_sprite->setScaleX(scaleRatioX);
+
+	//see the chicken class for explanation
+	float scaledWidth = originalWidth * scaleRatioX;
+	float scaledHeight = originalHeight * scaleRatioY;
+	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+
 	_sprite->retain();
-	_sprite->setPosition(ccp(windowSize.width, 40));
 	_speed = 100;
 }
 

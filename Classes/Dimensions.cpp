@@ -1,4 +1,5 @@
 #include "Dimensions.h"
+#include <cmath>
 
 using namespace cocos2d;
 
@@ -32,8 +33,15 @@ bool Dimensions::moveIsInPlayableArea(CCPoint point)
 
 float Dimensions::getCenterOfLanePixelValue(int laneNumber)
 {
+	//I no longer have to use this method after setting the vehicle sprite's anchor points to (0,0)
 	float lanePosition = (_laneWidth) * laneNumber;
 	return lanePosition - (_laneWidth / 2); //return the center of the lane
+}
+
+float Dimensions::getLanePixelValue(int laneNumber)
+{
+	float lanePosition = (_laneWidth) * laneNumber;
+	return lanePosition - (_laneWidth); //return the center of the lane
 }
 
 int Dimensions::getLaneNumber(float pixelPosition)

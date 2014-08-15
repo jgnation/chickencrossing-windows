@@ -7,6 +7,12 @@ Level::Level(CCDictionary * levelData)
 {
 	_levelData = levelData;
 	_background = new Background(_levelData->valueForKey("Background")->getCString());
+	int maxRoadInterval = _levelData->valueForKey("MaxRoadInterval")->intValue();
+	int minRoadInterval = _levelData->valueForKey("MinRoadInterval")->intValue();
+	int maxWaterInterval = _levelData->valueForKey("MaxWaterInterval")->intValue();
+	int minWaterInterval = _levelData->valueForKey("MinWaterInterval")->intValue();
+	int minSpeed = _levelData->valueForKey("MinSpeed")->intValue();
+	int maxSpeed = _levelData->valueForKey("MaxSpeed")->intValue();
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
 
@@ -15,7 +21,29 @@ Level::Level(CCDictionary * levelData)
 	CCARRAY_FOREACH(lanes, it)
 	{
 		CCDictionary * lane = dynamic_cast<CCDictionary *>(it);
-		_lanes.push_back(new Lane(lane, laneNumber));
+
+		Lane::LaneType laneType = this->getLaneType(laneNumber);
+
+		int interval;
+		if (laneType == Lane::LaneType::ROAD)
+			interval = GameFunctions::randomValueBetween(minRoadInterval, maxRoadInterval);
+		else if (laneType == Lane::LaneType::WATER)
+			interval = GameFunctions::randomValueBetween(minWaterInterval, maxWaterInterval);
+		else
+			interval = 0;
+
+		int speed = GameFunctions::randomValueBetween(minSpeed, maxSpeed);
+
+		CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
+		CCObject *iter;
+		std::vector<std::string> vehicleVector;
+		CCARRAY_FOREACH(vehicles, iter)
+		{
+			CCString * vehicle = dynamic_cast<CCString *>(iter);
+			vehicleVector.push_back(vehicle->getCString());
+		}
+
+		_lanes.push_back(new Lane(laneNumber, laneType, interval, speed, vehicleVector));
 		laneNumber++;
 	}
 }
@@ -38,7 +66,8 @@ Lane * Level::getLane(int laneNumber)
 	return _lanes[laneNumber];
 }
 
-Level::LaneType Level::getLaneType(int laneNumber)
+//TODO: cache the lane value so I don't have to parse the XML every time this is called
+Lane::LaneType Level::getLaneType(int laneNumber)
 {
 	laneNumber--; //the index of the items in the file are 1 less than I am using in the program
 	//I am using 'natural indeces'
@@ -48,15 +77,15 @@ Level::LaneType Level::getLaneType(int laneNumber)
 	CCString * laneType = (CCString *) lane->objectForKey("Type");
 	std::string laneTypeString = laneType->getCString();
 
-	LaneType laneEnumType;
+	Lane::LaneType laneEnumType;
 	if (laneTypeString == "INVALID")
-		laneEnumType = Level::LaneType::INVALID;
+		laneEnumType = Lane::LaneType::INVALID;
 	else if (laneTypeString == "REST")
-		laneEnumType = Level::LaneType::REST;
+		laneEnumType = Lane::LaneType::REST;
 	else if (laneTypeString == "ROAD")
-		laneEnumType = Level::LaneType::ROAD;
+		laneEnumType = Lane::LaneType::ROAD;
 	else // == WATER
-		laneEnumType = Level::LaneType::WATER;
+		laneEnumType = Lane::LaneType::WATER;
 
 	return laneEnumType;
 }
@@ -77,13 +106,13 @@ int Level::getRandomValidLaneNumber()
 	for(std::vector<Lane *>::iterator it = _lanes.begin(); it != _lanes.end(); ++it) 
 	{
 		Lane * lane = dynamic_cast<Lane *>(*it);
-		if (lane->getLaneType() != "INVALID" && lane->getLaneType() != "REST")
+		if (lane->getLaneType() != Lane::LaneType::INVALID && lane->getLaneType() != Lane::LaneType::REST)
 		{
 			validLaneNumbers.push_back(lane->getLaneNumber());
 		}
 	}
 	//get random value between 0 and length of vector-1....to get a random index of that
-	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size());
+	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size() - 1);
 	return validLaneNumbers[randomIndex];
 }
 

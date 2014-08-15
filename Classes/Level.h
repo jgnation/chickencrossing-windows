@@ -18,10 +18,9 @@ private:
 	Background * _background;
 	std::vector<Lane *> _lanes;
 public:
-	enum LaneType { ROAD, WATER, REST, INVALID };
 
 	Background * getBackground();
-	Level::LaneType getLaneType(int laneNumber);
+	Lane::LaneType getLaneType(int laneNumber);
 	Lane * getLane(int laneNumber);
 	std::vector<Lane *> getLanes();
 	int getRandomValidLaneNumber();

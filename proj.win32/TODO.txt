@@ -1,13 +1,33 @@
-//In Lane, I need to do the following
--save the original interval and the original speed
--when increasing speed, I am going to increase it by a certain PERCENTAGE
--when decreasing the interval, I am going to decrease it by the same 1/PERCENTAGE as above
--for example, if I double the speed (speed * 2), then interval will be (interval * 1/2)
--should I increase the speed by 5% at a time...10%.  What should the upper limit be?
-	-I think I will just have to experiment
--I think the speed should probably increase based on eggs collected...maybe bump the increase to 20%?
+To get this on my phone:
+-compile the c++ code with the following commands in cygwin:
+    $ cd cocos2d-x/samples/Cpp/TestCpp/proj.android/
+    $ export NDK_ROOT=/path/to/ndk
+    $ ./build_native.sh
+-build the apk with ant in the normal Windows command prompt:
+	ant debug install
+*see the readme in proj.android
 
-//egg scramble - can I find a way to score such that time and eggs collected are taken into account?
+export NDK_ROOT=/cygdrive/c/android-ndk-r9d/
+cd /cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android
+./build_native.sh
+ant debug install (after this command, the phone may ask to allow usb debugging.  Press OK)
+
+
+TODO:
+-test on OSX - can I just make very high resolution pictures and use them on all sizes?
+-randomValueBetween(float, float) is probably not implemented correctly
+-more levels!
+-The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
+-scale chicken and egg horizontally?
+-Scale chicken movement?
+-Add a min interval and max interval to each lane in the plists.  Or should I do it for each level?  Or a water-interval min/max and road interval min/max per level? Water vehicles
+should spawn more often than road ones.
+-get a new random interval for each lane after a vehicle spawn so that a given lane doesn't always have the same time between spawns.
+-Add chicken to the actionLayer
+-I might want to upgrade to version 3.0 of the framework at some point.  Maybe I should just worry about getting it all
+working first.  Yes, yes I should.
+
+
 
 TODO (Important):
 -fix egg scramble mode:
@@ -21,7 +41,6 @@ TODO (Important):
 -make all road level and all water level
 -pretty up the game over score screen.  Indicate if one of the scores is new.
 -try out stuff on various screen sizes
--fix cars in different lanes killing chickens (sprite sizing issues -- depends on resolution)
 -logs of various lengths
 -alligators to ride
 -splash screen
@@ -162,3 +181,12 @@ no particular order.  It appears to be random (unless it is the same thing every
 -so it looks like each lane has a list of possibilities, and an item from those possibilities is picked at random
 
 
+Solved problems:
+1.  The issue was that the distance between vehicles was different on pc vs android, even with the same speed and interval
+-Figure out how to calculate speed and interval so that the player gets a similar experience regardless of screen resolution.
+OPTIONS:
+	-pick a minInterval such that the vehicles will never be too close in small resolutions.  I don't like this option
+	-I always want there to be a minimum distance between vehicles. Maybe the width of 3 scaled chickens or so.
+	-configure duration instead of speed?
+	-I want vehicles to travel the same distance in the same amount of time!  A wider screen should take longer to get across
+1. Fix!  Scale the vehicles horizontally.

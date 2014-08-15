@@ -26,25 +26,25 @@ private:
 
 	int _lives;
 
-
-
+	cocos2d::CCLayer * _actionLayer;
 	//GameMode * _mode;
 	HudLayer * _hudLayer;
 	Chicken * _chicken;
 	Egg * _egg;
 	cocos2d::CCArray * vehicleList2;
 
-
 	LevelManager * _levelManager;
 
 	void addKeyboardSupport();
+
+	//cocos2d::CCTouch * swipeStart;
 protected:
-		int _levelNumber;
-		std::vector<Vehicle *> vehicleList;
-			Level * _level;
+	int _levelNumber;
+	std::vector<Vehicle *> vehicleList;
+	Level * _level;
 public:
-		int _score;
-		int _numEggsToCollect;
+	int _score;
+	int _numEggsToCollect;
 
 	virtual bool init();
 	//static cocos2d::CCScene* scene();
@@ -69,8 +69,9 @@ public:
 	void update(float dt);
 	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
-	//void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
+	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+
 	//int getAbsoluteValue(int num);
 	void resetFlag();
 	void killChicken();
@@ -80,7 +81,6 @@ public:
 	void gameOver();
 
 	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
-	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
 
     // implement the "static node()" method manually
     //CREATE_FUNC(GameLayer);

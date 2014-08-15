@@ -16,6 +16,7 @@ public:
 
 	float getLaneWidth();
 	bool moveIsInPlayableArea(cocos2d::CCPoint);
+	float getLanePixelValue(int laneNumber);
 	float getCenterOfLanePixelValue(int laneNumber);
 	int getLaneNumber(float pixelPosition);
 };

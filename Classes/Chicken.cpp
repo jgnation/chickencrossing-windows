@@ -18,6 +18,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	float originalWidth = 25;
 	float originalHeight = 38;
 	_sprite = CCSprite::create("small_chicken.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	_sprite->setAnchorPoint(ccp(0,0));
 
 	float scaleRatio = (windowSize.height / 20) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
 	//setScale only changes the size of the image, not the 'bounding box'
@@ -28,7 +29,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	//setContentSize changes the size of the 'bounding box' around the image
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
-	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getCenterOfLanePixelValue(5)));
+	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(5)));
 
 	_speed = .1;
 	//_speed = 1;
@@ -153,7 +154,7 @@ void Chicken::die()
 	this->endRide();	//adding this here fixed the bug where the game crashes when the riding chicken hits the edge of the screen
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getCenterOfLanePixelValue(2)));
+	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
 	_isMoving = false;
 }
 
