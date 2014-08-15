@@ -112,7 +112,7 @@ int Level::getRandomValidLaneNumber()
 		}
 	}
 	//get random value between 0 and length of vector-1....to get a random index of that
-	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size());
+	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size() - 1);
 	return validLaneNumbers[randomIndex];
 }
 

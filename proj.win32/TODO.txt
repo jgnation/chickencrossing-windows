@@ -15,6 +15,7 @@ ant debug install (after this command, the phone may ask to allow usb debugging.
 
 TODO:
 -test on OSX - can I just make very high resolution pictures and use them on all sizes?
+-randomValueBetween(float, float) is probably not implemented correctly
 -more levels!
 -The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
 -scale chicken and egg horizontally?
