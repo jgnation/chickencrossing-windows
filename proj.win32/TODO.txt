@@ -190,3 +190,5 @@ OPTIONS:
 	-configure duration instead of speed?
 	-I want vehicles to travel the same distance in the same amount of time!  A wider screen should take longer to get across
 1. Fix!  Scale the vehicles horizontally.
+2. executing build_native.sh spits out syntax errors
+2. Fix! Open build_native.sh in Notepad++ and use menu Edit~~>EOL Conversion~~>Convert to UNIX 

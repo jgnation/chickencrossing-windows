@@ -1,9 +1,6 @@
 APPNAME="ChickenCrossing"
-
 # options
-
 buildexternalsfromsource=
-
 usage(){
 cat << EOF
 usage: $0 [options]
