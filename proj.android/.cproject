@@ -18,7 +18,7 @@
 					<folderInfo id="0.756827735." name="/" resourcePath="">
 						<toolChain errorParsers="" id="org.eclipse.cdt.build.core.prefbase.toolchain.294545719" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
 							<targetPlatform id="org.eclipse.cdt.build.core.prefbase.toolchain.294545719.993860072" name=""/>
-							<builder buildPath="${ProjDirPath}" id="cdt.managedbuild.target.gnu.builder.base.2133593213" superClass="cdt.managedbuild.target.gnu.builder.base"/>
+							<builder arguments="C:\cocos2d-x-3.0alpha0\cocos2d-x-3.0alpha0\projects\ChickenCrossing\proj.android\build_native.sh" buildPath="${ProjDirPath}" command="c:\cygwin64\bin\bash.exe" id="cdt.managedbuild.target.gnu.builder.base.2133593213" incrementalBuildTarget="" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.base"/>
 							<tool errorParsers="org.eclipse.cdt.core.VCErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser" id="org.eclipse.cdt.build.core.settings.holder.libs.1844369373" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs">
 								<option id="org.eclipse.cdt.build.core.settings.holder.libfiles.628519629" name="Library Files" superClass="org.eclipse.cdt.build.core.settings.holder.libfiles" valueType="libFiles">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="../libcocos2dx.a"/>

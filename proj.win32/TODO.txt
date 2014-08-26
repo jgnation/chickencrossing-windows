@@ -192,3 +192,10 @@ OPTIONS:
 1. Fix!  Scale the vehicles horizontally.
 2. executing build_native.sh spits out syntax errors
 2. Fix! Open build_native.sh in Notepad++ and use menu Edit~~>EOL Conversion~~>Convert to UNIX 
+
+
+To get the build working via eclipse:
+-do a whole bunch of crap that I don't remember
+-right click project > properties > C/C++ Build > Builder Settings
+-Uncheck "Use default build command"
+-Put this in the build command field: bash "/cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android/build_native.sh"
