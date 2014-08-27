@@ -1111,6 +1111,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
 				);
+				OTHER_CODE_SIGN_FLAGS = "-gta";
 				PRODUCT_NAME = "ChickenCrossing iOS";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1152,6 +1153,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
 				);
+				OTHER_CODE_SIGN_FLAGS = "-gta";
 				PRODUCT_NAME = "ChickenCrossing iOS";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
