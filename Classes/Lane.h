@@ -17,7 +17,7 @@ private:
 public:
 	enum LaneType { ROAD, WATER, REST, INVALID };
 
-	Lane(int laneNumber, LaneType laneType, int interval, int speed, std::vector<std::string> vehicles);
+	Lane(int laneNumber, LaneType laneType, int interval, float duration, std::vector<std::string> vehicles);
 
 	~Lane(void);
 	LaneType _laneType;
@@ -38,6 +38,7 @@ public:
 
 	float _interval;
 	int _speed;
+	float _duration;
 	float _nextSpawnTime;
 	int _laneNumber;
 	float _increaseSpeedInterval;

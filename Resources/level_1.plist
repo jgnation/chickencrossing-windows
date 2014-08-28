@@ -14,10 +14,10 @@
     <string>4000</string>
     <key>MinWaterInterval</key>
     <string>3500</string>
-    <key>MinSpeed</key>
-    <string>40</string>
-    <key>MaxSpeed</key>
-    <string>100</string>
+    <key>MinDuration</key>
+    <string>3.0</string>
+    <key>MaxDuration</key>
+    <string>10.0</string>
 	  <key>Lanes</key>
 	  <array>
       <dict>

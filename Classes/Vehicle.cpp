@@ -16,9 +16,14 @@ int Vehicle::getSpeed()
 	return _speed;
 }
 
-void Vehicle::setSpeed(int speed)
+float Vehicle::getDuration()
 {
-	_speed = speed;
+	return _duration;
+}
+
+void Vehicle::setDuration(float duration)
+{
+	_duration = duration;
 }
 
 CCPoint Vehicle::getOrigin()
@@ -62,8 +67,8 @@ void Vehicle::move()
 		distance = ccpDistance(ccp(0, _destination.y), _destination);
 	}
 
-	float duration = distance / _speed;
-	CCFiniteTimeAction * actionMove = CCMoveTo::create(duration, _destination);
+	_speed = distance / _duration; //set speed through a private function?
+	CCFiniteTimeAction * actionMove = CCMoveTo::create(_duration, _destination);
 	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
