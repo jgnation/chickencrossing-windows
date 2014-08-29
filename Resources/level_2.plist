@@ -15,7 +15,7 @@
     <key>MinWaterInterval</key>
     <string>3500</string>
     <key>MinDuration</key>
-    <string>3.0</string>
+    <string>5.0</string>
     <key>MaxDuration</key>
     <string>10.0</string>
 	  <key>Lanes</key>

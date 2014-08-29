@@ -18,7 +18,7 @@ DisappearingLog::DisappearingLog(void)
 	//see the chicken class for explanation
 	float scaleRatioY = (windowSize.height / 20) / _sprite->getContentSize().height;
 	_sprite->setScaleY(scaleRatioY);
-	float scaleRatioX = (windowSize.width / 10) / _sprite->getContentSize().width;
+	float scaleRatioX = (windowSize.width / 4) / _sprite->getContentSize().width;
 	_sprite->setScaleX(scaleRatioX);
 
 	//see the chicken class for explanation
@@ -47,10 +47,11 @@ void DisappearingLog::move()
 {
 	Vehicle::move();
 
+	//TODO should these times be dependent on the _duration of the log?
 	CCFadeTo* fadeOut = CCFadeTo::create(0.5, 0);
-	CCFadeTo* stayHidden = CCFadeTo::create(1.0, 0);
+	CCFadeTo* stayHidden = CCFadeTo::create(0.25, 0);
 	CCFadeTo* fadeIn = CCFadeTo::create(0.5, 255);
-	CCFadeTo* stayExposed = CCFadeTo::create(3, 255);
+	CCFadeTo* stayExposed = CCFadeTo::create(1.5, 255);
 	CCArray * arrayOfAction = CCArray::create();
 	arrayOfAction->addObject(fadeOut);
 	arrayOfAction->addObject(stayHidden);
