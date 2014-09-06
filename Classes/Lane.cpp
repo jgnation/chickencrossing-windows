@@ -8,11 +8,11 @@
 
 using namespace cocos2d;
 
-Lane::Lane(int laneNumber, LaneType laneType, int interval, int speed, std::vector<std::string> vehicles) 
+Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std::vector<std::string> vehicles) 
 {
 	_laneNumber = laneNumber;
 	_laneType = laneType;
-	_speed = speed;
+	_duration = duration;
 	_vehicles = vehicles;
 	_interval = interval;
 
@@ -84,7 +84,7 @@ Vehicle * Lane::spawnVehicle()
 		*/
 	}
 
-	vehicle->setSpeed(_speed);
+	vehicle->setDuration(_duration);
 
 	return vehicle;
 }

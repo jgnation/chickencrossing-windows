@@ -7,15 +7,16 @@ class Vehicle : public SpriteContainer
 {
 protected:
 	int _speed;
+	float _duration;
 	cocos2d::CCPoint _origin;
 	cocos2d::CCPoint _destination;
 	cocos2d::CCFiniteTimeAction * _movementAction;
-	//GameLayer * _gameLayer;
 public:
 	Vehicle(void);
 	~Vehicle(void);
-	virtual int getSpeed();
-	void setSpeed(int speed);
+	virtual int getSpeed(); //TODO: should I make this a friend function to share with Chicken?
+	virtual float getDuration();
+	void setDuration(float duration);
 	cocos2d::CCPoint getOrigin();
 	cocos2d::CCPoint getDestination();
 	void setDestination(cocos2d::CCPoint destination);

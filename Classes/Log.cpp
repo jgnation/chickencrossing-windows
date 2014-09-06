@@ -18,7 +18,7 @@ Log::Log(void)
 	//see the chicken class for explanation
 	float scaleRatioY = (windowSize.height / 20) / _sprite->getContentSize().height;
 	_sprite->setScaleY(scaleRatioY);
-	float scaleRatioX = (windowSize.width / 10) / _sprite->getContentSize().width;
+	float scaleRatioX = (windowSize.width / 5=4) / _sprite->getContentSize().width;
 	_sprite->setScaleX(scaleRatioX);
 
 	//see the chicken class for explanation

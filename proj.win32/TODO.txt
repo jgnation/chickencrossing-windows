@@ -14,14 +14,12 @@ ant debug install (after this command, the phone may ask to allow usb debugging.
 
 
 TODO:
--test on OSX - can I just make very high resolution pictures and use them on all sizes?
--randomValueBetween(float, float) is probably not implemented correctly
 -more levels!
+-disappearing logs should not be created as frequently as regular logs
+-make variable length logs
 -The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
 -scale chicken and egg horizontally?
 -Scale chicken movement?
--Add a min interval and max interval to each lane in the plists.  Or should I do it for each level?  Or a water-interval min/max and road interval min/max per level? Water vehicles
-should spawn more often than road ones.
 -get a new random interval for each lane after a vehicle spawn so that a given lane doesn't always have the same time between spawns.
 -Add chicken to the actionLayer
 -I might want to upgrade to version 3.0 of the framework at some point.  Maybe I should just worry about getting it all

@@ -22,7 +22,8 @@ int GameFunctions::getAbsoluteValue(int num)
 //I believe this can return a number between low and (high - 1), inclusive
 float GameFunctions::randomValueBetween(float low , float high) 
 {
-	return rand() % (int)high + (int)low;
+	//http://stackoverflow.com/questions/686353/c-random-float-number-generation
+	return low + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(high-low)));
 }
 
 //I believe this can return a number between low and (high - 1), inclusive
