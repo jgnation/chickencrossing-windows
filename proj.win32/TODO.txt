@@ -16,6 +16,7 @@ ant debug install (after this command, the phone may ask to allow usb debugging.
 TODO:
 -more levels!
 -disappearing logs should not be created as frequently as regular logs
+-logs should disappear more slowly so the chicken has more of a chance to get out of the way
 -make variable length logs
 -The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
 -scale chicken and egg horizontally?
