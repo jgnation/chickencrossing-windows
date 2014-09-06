@@ -14,8 +14,12 @@ ant debug install (after this command, the phone may ask to allow usb debugging.
 
 
 TODO:
--more levels!
--disappearing logs should not be created as frequently as regular logs
+-egg should be on top of vehicles
+-more levels!  Also, determine the best order of levels (gradually increase difficulty)
+-scale word-graphics and arrow-graphics
+-sometimes the vehicles disappear too quickly at the edge of the screen.  Take care of that.  The spot that the vehicles are generated off-screen should also be scaled.
+-chicken can't always get egg when close to edge of screen
+-add alligators?
 -logs should disappear more slowly so the chicken has more of a chance to get out of the way
 -make variable length logs
 -The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
@@ -83,20 +87,6 @@ Features:
 -collect as many eggs as you can as traffic moves faster and faster.  record the highest number of eggs collected.
 
 
-
-Gameplay:
--There will be a median in the road so you can take a break
--possibly have pedestrians
--definitely have vehicles
--maybe crosswalks/stoplights can be worked in
--swipe in any direction to make chicken move
--accelerometer in any way?
--stopwatches to slow time?
--bridges and jumping fish?  cart and horses?
--collect a number of eggs before crossing the road.  an egg will only appear after others are collected.
--when five chickens get across, increase the level.
--I need to figure out how many vertical lanes there will be
--chicken can get to five spots at the end.  When he does progress to next level and increase difficulty.
 
 
 Features to implement:
@@ -198,3 +188,7 @@ To get the build working via eclipse:
 -right click project > properties > C/C++ Build > Builder Settings
 -Uncheck "Use default build command"
 -Put this in the build command field: bash "/cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android/build_native.sh"
+
+
+NOTES:
+-I want the standard logs to spawn more frequently than the disappearing logs.  To determine the probability, I simply added more logs to a given lane in the plist file.

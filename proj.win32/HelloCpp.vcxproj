@@ -215,10 +215,19 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <None Include="..\Resources\level_1.plist">
       <SubType>Designer</SubType>
     </None>
+    <None Include="..\Resources\level_10.plist" />
+    <None Include="..\Resources\level_11.plist" />
+    <None Include="..\Resources\level_12.plist" />
     <None Include="..\Resources\level_2.plist">
       <SubType>Designer</SubType>
     </None>
     <None Include="..\Resources\level_3.plist" />
+    <None Include="..\Resources\level_4.plist" />
+    <None Include="..\Resources\level_5.plist" />
+    <None Include="..\Resources\level_6.plist" />
+    <None Include="..\Resources\level_7.plist" />
+    <None Include="..\Resources\level_8.plist" />
+    <None Include="..\Resources\level_9.plist" />
     <None Include="..\Resources\start_game.psd" />
   </ItemGroup>
   <ItemGroup>
@@ -226,8 +235,17 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\about_yellow.png" />
     <Image Include="..\Resources\arrow.png" />
     <Image Include="..\Resources\background1.png" />
+    <Image Include="..\Resources\background10.png" />
+    <Image Include="..\Resources\background11.png" />
+    <Image Include="..\Resources\background12.png" />
     <Image Include="..\Resources\background2.png" />
     <Image Include="..\Resources\background3.png" />
+    <Image Include="..\Resources\background4.png" />
+    <Image Include="..\Resources\background5.png" />
+    <Image Include="..\Resources\background6.png" />
+    <Image Include="..\Resources\background7.png" />
+    <Image Include="..\Resources\background8.png" />
+    <Image Include="..\Resources\background9.png" />
     <Image Include="..\Resources\brown_egg.png" />
     <Image Include="..\Resources\bus.png" />
     <Image Include="..\Resources\cat.png" />

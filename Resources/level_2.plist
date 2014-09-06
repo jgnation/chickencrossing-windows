@@ -88,14 +88,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
-          <string>DisappearingLog</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>WATER</string>
-        <key>Vehicles</key>
-        <array>
+          <string>Log</string>
           <string>Log</string>
           <string>DisappearingLog</string>
         </array>
@@ -106,14 +99,7 @@
         <key>Vehicles</key>
         <array>
           <string>Log</string>
-          <string>DisappearingLog</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>WATER</string>
-        <key>Vehicles</key>
-        <array>
+          <string>Log</string>
           <string>Log</string>
           <string>DisappearingLog</string>
         </array>
@@ -123,6 +109,30 @@
         <string>WATER</string>
         <key>Vehicles</key>
         <array>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>WATER</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>WATER</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Log</string>
+          <string>Log</string>
           <string>Log</string>
           <string>DisappearingLog</string>
         </array>

@@ -190,6 +190,33 @@
     <None Include="..\Resources\start_game.psd">
       <Filter>resource</Filter>
     </None>
+    <None Include="..\Resources\level_4.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_5.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_6.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_7.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_8.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_9.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_10.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_11.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\level_12.plist">
+      <Filter>resource</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\background1.png">
@@ -277,6 +304,33 @@
       <Filter>resource</Filter>
     </Image>
     <Image Include="..\Resources\number4.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background4.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background5.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background6.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background7.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background9.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background10.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background11.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background12.png">
       <Filter>resource</Filter>
     </Image>
   </ItemGroup>
