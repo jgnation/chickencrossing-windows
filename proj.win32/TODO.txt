@@ -12,10 +12,11 @@ cd /cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/
 ./build_native.sh
 ant debug install (after this command, the phone may ask to allow usb debugging.  Press OK)
 
+Balancing Difficulty:
+-The frequency that logs appear might need to be tweaked
+-Number of lives might need to be tweaked
 
 TODO:
--egg should be on top of vehicles
--more levels!  Also, determine the best order of levels (gradually increase difficulty)
 -scale word-graphics and arrow-graphics
 -sometimes the vehicles disappear too quickly at the edge of the screen.  Take care of that.  The spot that the vehicles are generated off-screen should also be scaled.
 -chicken can't always get egg when close to edge of screen

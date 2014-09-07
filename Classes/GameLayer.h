@@ -37,7 +37,18 @@ private:
 
 	void addKeyboardSupport();
 
-	//cocos2d::CCTouch * swipeStart;
+	//TODO can I stick these static const in a namespace?
+	//action layer z-positions
+	static const int BACKGROUND_POSITION = 0;
+	static const int VEHICLES_POSITION = 1;
+	static const int EGG_POSITION = 2;
+
+	//game layer z-positions
+	static const int ACTION_LAYER_POSITION = 0;
+	static const int CHICKEN_POSITION = 1;
+	static const int GAME_OVER_LAYER_POSITION = 3;
+	static const int HUD_LAYER_POSITION = 4;
+
 protected:
 	int _levelNumber;
 	std::vector<Vehicle *> vehicleList;

@@ -82,7 +82,7 @@ bool GameLayer::init()
 		_dimensions = new Dimensions();
 
 		_actionLayer = CCLayer::create();
-		this->addChild(_actionLayer, 0);
+		this->addChild(_actionLayer, ACTION_LAYER_POSITION);
 
 		_chicken = new Chicken(this);
 
@@ -90,7 +90,7 @@ bool GameLayer::init()
 
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
-		this->addChild(_hudLayer, 4);	//z position is  on top, chicken is on 1
+		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
 
 		_levelManager = new LevelManager();
 		//_levelNumber = 1;
@@ -260,7 +260,7 @@ void GameLayer::update(float dt)
 			vehicleList.push_back(vehicle);
 
 			vehicle->move();
-			_actionLayer->addChild(vehicle->getSprite(), 2);
+			_actionLayer->addChild(vehicle->getSprite(), VEHICLES_POSITION);
 
 			//set vehicle movement animation
 			//delete or release at end of animation?
@@ -308,7 +308,7 @@ void GameLayer::gameOver()
 	//display GameOver with a next button
 	GameOverLayer* gameOverLayer = new GameOverLayer();
 	gameOverLayer->init(highScores);
-	this->addChild(gameOverLayer, 3);
+	this->addChild(gameOverLayer, GAME_OVER_LAYER_POSITION);
 }
 
 void GameLayer::resetChicken()
@@ -329,13 +329,13 @@ void GameLayer::loadLevel(int levelNumber)
 	//_lives = 5;
 	//_hudLayer->setLives(_lives);
 	_level = _levelManager->getLevel(levelNumber);
-	_actionLayer->addChild(_level->getBackground()->getSprite(), 0);
+	_actionLayer->addChild(_level->getBackground()->getSprite(), BACKGROUND_POSITION);
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
 	float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg = new Egg(x, y);
-	_actionLayer->addChild(_egg->getSprite(), 1);
+	_actionLayer->addChild(_egg->getSprite(), EGG_POSITION);
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved
 	//up quickly, it would randomly die.  I think this might also be creating memory leaks.
