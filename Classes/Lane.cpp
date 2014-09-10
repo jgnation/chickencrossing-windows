@@ -56,11 +56,12 @@ Vehicle * Lane::spawnVehicle()
 	Vehicle * vehicle = this->getRandomVehicle();
 	CCSprite * vehicleSprite = vehicle->getSprite();
 	float y = _dimensions->getLanePixelValue(_laneNumber);
+	float vehicleWidth = vehicleSprite->getContentSize().width;
 
 	if (_laneNumber % 2 == 0) //move to the left
 	{
 		vehicleSprite->setPosition(ccp(windowSize.width, y));
-		CCPoint destination = ccp(-120, y); //-120 so the sprite goes completely off screen.  TODO: This should be scaled
+		CCPoint destination = ccp(-vehicleWidth, y);
 		vehicle->setDestination(destination);
 		if (vehicleSprite->getScaleX() < 0)
 			vehicleSprite->setScaleX(vehicleSprite->getScaleX() * -1.f);
@@ -68,7 +69,7 @@ Vehicle * Lane::spawnVehicle()
 	else //move to the right
 	{
 		vehicleSprite->setPosition(ccp(0, y));
-		CCPoint destination = ccp(windowSize.width + 120, y);
+		CCPoint destination = ccp(windowSize.width + vehicleWidth, y);
 		vehicle->setDestination(destination);
 		vehicleSprite->setScaleX(vehicleSprite->getScaleX() * -1.f);
 		/*

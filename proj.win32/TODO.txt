@@ -17,9 +17,10 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO:
--scale word-graphics and arrow-graphics
--sometimes the vehicles disappear too quickly at the edge of the screen.  Take care of that.  The spot that the vehicles are generated off-screen should also be scaled.
+-scale chicken movement?  the chicken should always be able to get to the very edge of the screen, just like the egg
 -chicken can't always get egg when close to edge of screen
+-scale word-graphics and arrow-graphics
+-design the about screen
 -add alligators?
 -logs should disappear more slowly so the chicken has more of a chance to get out of the way
 -make variable length logs

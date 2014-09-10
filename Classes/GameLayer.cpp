@@ -239,7 +239,7 @@ void GameLayer::update(float dt)
 	{
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-		float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
+		float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
 		float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
 		_egg->setPosition(x, y);
 
@@ -332,9 +332,11 @@ void GameLayer::loadLevel(int levelNumber)
 	_actionLayer->addChild(_level->getBackground()->getSprite(), BACKGROUND_POSITION);
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float x = GameFunctions::randomValueBetween((float)0, windowSize.width);
+
+	_egg = new Egg();
+	float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
 	float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
-	_egg = new Egg(x, y);
+	_egg->setPosition(x, y);
 	_actionLayer->addChild(_egg->getSprite(), EGG_POSITION);
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved

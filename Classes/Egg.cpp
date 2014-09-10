@@ -2,7 +2,7 @@
 
 using namespace cocos2d;
 
-Egg::Egg(float x, float y) 
+Egg::Egg() 
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
@@ -18,11 +18,6 @@ Egg::Egg(float x, float y)
 	float scaledWidth = originalWidth * scaleRatio;
 	float scaledHeight = originalHeight * scaleRatio;
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
-
-	_currentPosition.x = x;
-	_currentPosition.y = y;
-	_sprite->setPosition(ccp(_currentPosition.x, _currentPosition.y));
-
 }
 
 void Egg::setPosition(float x, float y)
