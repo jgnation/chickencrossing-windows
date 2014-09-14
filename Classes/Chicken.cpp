@@ -49,41 +49,74 @@ CCSprite * Chicken::getSprite()
 
 void Chicken::moveUp()
 {
-	move(ccp(_sprite->getPositionX(), _sprite->getPositionY() + _yMoveDistance));
-}
-
-void Chicken::moveDown()
-{
-	move(ccp(_sprite->getPositionX(), _sprite->getPositionY() - _yMoveDistance));
-}
-
-void Chicken::moveLeft()
-{
-	move(ccp(_sprite->getPositionX() - _xMoveDistance, _sprite->getPositionY()));
-}
-
-void Chicken::moveRight()
-{
-	move(ccp(_sprite->getPositionX() + _xMoveDistance, _sprite->getPositionY()));
-}
-
-void Chicken::move(Point point)
-{
-	if (_dimensions->moveIsInPlayableArea(point))
+	Point point = ccp(_sprite->getPositionX(), _sprite->getPositionY() + _yMoveDistance);
+	if (_dimensions->moveIsInPlayableArea(point, this))
 	{
-		if (this->isRiding()) this->endRide();
-
-		CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), point);
-		CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::doneMoving));
-
-		this->setMoving(true);
-		this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
+		move(point);
 	}
 	else
 	{
 		this->setMoving(false); //this is set because setMoving(true) is called in GameLayer
 		//maybe GameLayer shouldn't be calling that?
 	}
+}
+
+void Chicken::moveDown()
+{
+	Point point = ccp(_sprite->getPositionX(), _sprite->getPositionY() - _yMoveDistance);
+	if (_dimensions->moveIsInPlayableArea(point, this))
+	{
+		move(point);
+	}
+	else
+	{
+		this->setMoving(false); //this is set because setMoving(true) is called in GameLayer
+		//maybe GameLayer shouldn't be calling that?
+	}
+}
+
+void Chicken::moveLeft()
+{
+	Point point = ccp(_sprite->getPositionX() - _xMoveDistance, _sprite->getPositionY());
+	if (_dimensions->moveIsInPlayableArea(point, this))
+	{
+		move(point);
+		//if moving left and not in playable area, I'm pretty sure I can just set the chicken at the left edge of the screen.
+	}
+	else
+	{
+		move(ccp(0, _sprite->getPositionY()));
+		//this->setMoving(false); //this is set because setMoving(true) is called in GameLayer
+		//maybe GameLayer shouldn't be calling that?
+	}
+}
+
+void Chicken::moveRight()
+{
+	Point point = ccp(_sprite->getPositionX() + _xMoveDistance, _sprite->getPositionY());
+	if (_dimensions->moveIsInPlayableArea(point, this))
+	{
+		move(point);
+	}
+	else
+	{
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();		
+		float xPos = windowSize.width - _sprite->getContentSize().width;
+		move(ccp(xPos, _sprite->getPositionY()));
+		//this->setMoving(false); //this is set because setMoving(true) is called in GameLayer
+		//maybe GameLayer shouldn't be calling that?
+	}
+}
+
+void Chicken::move(Point point)
+{
+	if (this->isRiding()) this->endRide();
+
+	CCFiniteTimeAction* actionMove = CCMoveTo::create(this->getSpeed(), point);
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::doneMoving));
+
+	this->setMoving(true);
+	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
 
 void Chicken::doneMoving(CCNode* sender)

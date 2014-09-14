@@ -1,4 +1,5 @@
 #include "Dimensions.h"
+#include "Chicken.h"
 #include <cmath>
 
 using namespace cocos2d;
@@ -9,8 +10,6 @@ Dimensions::Dimensions(void)
 {
 	_windowSize = CCDirector::sharedDirector()->getWinSize();
 	_laneWidth = _windowSize.height / NUM_OF_LANES;
-
-	_playableArea = new CCRect(0, _laneWidth, _windowSize.width, _windowSize.height - (_laneWidth * 3));
 }
 
 Dimensions::~Dimensions(void)
@@ -22,8 +21,11 @@ float Dimensions::getLaneWidth()
 	return _laneWidth;
 }
 
-bool Dimensions::moveIsInPlayableArea(CCPoint point)
+bool Dimensions::moveIsInPlayableArea(CCPoint point, Chicken * chicken)
 {
+	//TODO: this method may belong in Chicken, not in Dimensions.
+	//initialize this only once
+	static CCRect * _playableArea = new CCRect(0, _laneWidth, (_windowSize.width - chicken->getSprite()->getContentSize().width), _windowSize.height - (_laneWidth * 3));
 	if (_playableArea->containsPoint(point))
 	{
 		return true;

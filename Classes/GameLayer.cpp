@@ -172,7 +172,8 @@ void GameLayer::update(float dt)
 	//check if a chicken riding a log is hitting the edge of the screen
 	if (_chicken->isRiding())
 	{
-		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > winSize.width)
+		//TODO: move this logic to chicken? _chicken->isRidingToEdgeOfScreen
+		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > (winSize.width - _chicken->getSprite()->getContentSize().width))
 		{
 			this->killChicken();
 			return;
