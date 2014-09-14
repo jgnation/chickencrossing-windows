@@ -20,6 +20,7 @@ TODO:
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
 -chicken can't always get egg when close to edge of screen.  TODO: Is this true anymore?  Do I need to change 
 the bounds of egg spawn position, or did I already?
+-Instead of displays lives left, display chickens
 -scale word-graphics and arrow-graphics
 -design the about screen
 -add alligators?
