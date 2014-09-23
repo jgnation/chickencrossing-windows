@@ -5,6 +5,12 @@ using namespace cocos2d;
 bool HudLayer::init()
 {
     if (CCLayer::init()) {
+        //for the labels I am going to want to set them at a maximum size
+        //get the contentSize of that
+        //then scale it to whatever it needs to be
+        //the max size should have a scale of 1.0 (this will be for the retina screen)
+        //I could scale the margin as well, but I don't think I NEED to.
+        
         CCSize winSize = CCDirector::sharedDirector()->getWinSize();
  
         _scoreLabel = new CCLabelTTF();
@@ -16,7 +22,7 @@ bool HudLayer::init()
 		_livesLabel->setColor(ccc3(255,255,255));
 
 		_levelLabel = new CCLabelTTF();
-		_levelLabel->initWithString("Level 1", "Verdana-Bold", 18.0);
+		_levelLabel->initWithString("Level 1", "Verdana-Bold", 60.0);
 		_levelLabel->setColor(ccc3(255,255,255));
 
         int margin = 10;

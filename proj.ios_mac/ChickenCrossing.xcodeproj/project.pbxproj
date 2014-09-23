@@ -20,6 +20,24 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		425717B919D10D18000BCFF5 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B019D10D18000BCFF5 /* background4.png */; };
+		425717BA19D10D18000BCFF5 /* background5.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B119D10D18000BCFF5 /* background5.png */; };
+		425717BB19D10D18000BCFF5 /* background6.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B219D10D18000BCFF5 /* background6.png */; };
+		425717BC19D10D18000BCFF5 /* background7.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B319D10D18000BCFF5 /* background7.png */; };
+		425717BD19D10D18000BCFF5 /* background8.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B419D10D18000BCFF5 /* background8.png */; };
+		425717BE19D10D18000BCFF5 /* background9.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B519D10D18000BCFF5 /* background9.png */; };
+		425717BF19D10D18000BCFF5 /* background10.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B619D10D18000BCFF5 /* background10.png */; };
+		425717C019D10D18000BCFF5 /* background11.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B719D10D18000BCFF5 /* background11.png */; };
+		425717C119D10D18000BCFF5 /* background12.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B819D10D18000BCFF5 /* background12.png */; };
+		425717D119D10D36000BCFF5 /* level_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717C819D10D36000BCFF5 /* level_4.plist */; };
+		425717D219D10D36000BCFF5 /* level_5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717C919D10D36000BCFF5 /* level_5.plist */; };
+		425717D319D10D36000BCFF5 /* level_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CA19D10D36000BCFF5 /* level_6.plist */; };
+		425717D419D10D36000BCFF5 /* level_7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CB19D10D36000BCFF5 /* level_7.plist */; };
+		425717D519D10D36000BCFF5 /* level_8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CC19D10D36000BCFF5 /* level_8.plist */; };
+		425717D619D10D36000BCFF5 /* level_9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CD19D10D36000BCFF5 /* level_9.plist */; };
+		425717D719D10D36000BCFF5 /* level_10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CE19D10D36000BCFF5 /* level_10.plist */; };
+		425717D819D10D36000BCFF5 /* level_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CF19D10D36000BCFF5 /* level_11.plist */; };
+		425717D919D10D36000BCFF5 /* level_12.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717D019D10D36000BCFF5 /* level_12.plist */; };
 		4293E26319A5B1D700AAF21D /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24A19A5B1D700AAF21D /* Background.cpp */; };
 		4293E26419A5B1D700AAF21D /* Bus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24C19A5B1D700AAF21D /* Bus.cpp */; };
 		4293E26519A5B1D700AAF21D /* Car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24E19A5B1D700AAF21D /* Car.cpp */; };
@@ -309,6 +327,24 @@
 		1D6058910D05DD3D006BFB54 /* ChickenCrossing iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChickenCrossing iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		425717B019D10D18000BCFF5 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
+		425717B119D10D18000BCFF5 /* background5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background5.png; sourceTree = "<group>"; };
+		425717B219D10D18000BCFF5 /* background6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background6.png; sourceTree = "<group>"; };
+		425717B319D10D18000BCFF5 /* background7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background7.png; sourceTree = "<group>"; };
+		425717B419D10D18000BCFF5 /* background8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background8.png; sourceTree = "<group>"; };
+		425717B519D10D18000BCFF5 /* background9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background9.png; sourceTree = "<group>"; };
+		425717B619D10D18000BCFF5 /* background10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background10.png; sourceTree = "<group>"; };
+		425717B719D10D18000BCFF5 /* background11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background11.png; sourceTree = "<group>"; };
+		425717B819D10D18000BCFF5 /* background12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background12.png; sourceTree = "<group>"; };
+		425717C819D10D36000BCFF5 /* level_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_4.plist; sourceTree = "<group>"; };
+		425717C919D10D36000BCFF5 /* level_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_5.plist; sourceTree = "<group>"; };
+		425717CA19D10D36000BCFF5 /* level_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_6.plist; sourceTree = "<group>"; };
+		425717CB19D10D36000BCFF5 /* level_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_7.plist; sourceTree = "<group>"; };
+		425717CC19D10D36000BCFF5 /* level_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_8.plist; sourceTree = "<group>"; };
+		425717CD19D10D36000BCFF5 /* level_9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_9.plist; sourceTree = "<group>"; };
+		425717CE19D10D36000BCFF5 /* level_10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_10.plist; sourceTree = "<group>"; };
+		425717CF19D10D36000BCFF5 /* level_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_11.plist; sourceTree = "<group>"; };
+		425717D019D10D36000BCFF5 /* level_12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_12.plist; sourceTree = "<group>"; };
 		4293E24A19A5B1D700AAF21D /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Background.cpp; path = ../Classes/Background.cpp; sourceTree = "<group>"; };
 		4293E24B19A5B1D700AAF21D /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = ../Classes/Background.h; sourceTree = "<group>"; };
 		4293E24C19A5B1D700AAF21D /* Bus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bus.cpp; path = ../Classes/Bus.cpp; sourceTree = "<group>"; };
@@ -673,32 +709,46 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4293E2CD19A5B42F00AAF21D /* pig.png */,
-				4293E2CE19A5B42F00AAF21D /* red_car.png */,
-				4293E2CF19A5B42F00AAF21D /* small_chicken.png */,
-				4293E2D019A5B42F00AAF21D /* start_game_orange.png */,
-				4293E2D119A5B42F00AAF21D /* start_game_yellow.png */,
-				4293E2D219A5B42F00AAF21D /* start_game.psd */,
-				4293E2D319A5B42F00AAF21D /* white_truck.png */,
 				4293E29819A5B41500AAF21D /* about_orange.png */,
 				4293E29919A5B41500AAF21D /* about_yellow.png */,
 				4293E29A19A5B41500AAF21D /* arrow.png */,
-				4293E29B19A5B41500AAF21D /* background_layered.psd */,
 				4293E29C19A5B41500AAF21D /* background1.png */,
+				425717B619D10D18000BCFF5 /* background10.png */,
+				425717B719D10D18000BCFF5 /* background11.png */,
+				425717B819D10D18000BCFF5 /* background12.png */,
 				4293E29D19A5B41500AAF21D /* background2.png */,
 				4293E29E19A5B41500AAF21D /* background3.png */,
+				425717B019D10D18000BCFF5 /* background4.png */,
+				425717B119D10D18000BCFF5 /* background5.png */,
+				425717B219D10D18000BCFF5 /* background6.png */,
+				425717B319D10D18000BCFF5 /* background7.png */,
+				425717B419D10D18000BCFF5 /* background8.png */,
+				425717B519D10D18000BCFF5 /* background9.png */,
+				4293E29B19A5B41500AAF21D /* background_layered.psd */,
 				4293E29F19A5B41500AAF21D /* brown_egg.png */,
 				4293E2A019A5B41500AAF21D /* bus.png */,
 				4293E2A119A5B41500AAF21D /* cat.png */,
 				4293E2A219A5B41500AAF21D /* chicken_crossing_title.png */,
+				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
+				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				4293E2A319A5B41500AAF21D /* dog.png */,
 				4293E2A419A5B41500AAF21D /* egg_scramble_orange.png */,
 				4293E2A519A5B41500AAF21D /* egg_scramble_yellow.png */,
 				4293E2A619A5B41500AAF21D /* fonts */,
 				4293E2A819A5B41500AAF21D /* game_over.png */,
+				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
 				4293E2A919A5B41500AAF21D /* level_1.plist */,
+				425717CE19D10D36000BCFF5 /* level_10.plist */,
+				425717CF19D10D36000BCFF5 /* level_11.plist */,
+				425717D019D10D36000BCFF5 /* level_12.plist */,
 				4293E2AA19A5B41500AAF21D /* level_2.plist */,
 				4293E2AB19A5B41500AAF21D /* level_3.plist */,
+				425717C819D10D36000BCFF5 /* level_4.plist */,
+				425717C919D10D36000BCFF5 /* level_5.plist */,
+				425717CA19D10D36000BCFF5 /* level_6.plist */,
+				425717CB19D10D36000BCFF5 /* level_7.plist */,
+				425717CC19D10D36000BCFF5 /* level_8.plist */,
+				425717CD19D10D36000BCFF5 /* level_9.plist */,
 				4293E2AC19A5B41500AAF21D /* levels.plist */,
 				4293E2AD19A5B41500AAF21D /* log_large.png */,
 				4293E2AE19A5B41500AAF21D /* log_small.png */,
@@ -706,9 +756,13 @@
 				4293E2B019A5B41500AAF21D /* number2.png */,
 				4293E2B119A5B41500AAF21D /* number3.png */,
 				4293E2B219A5B41500AAF21D /* number4.png */,
-				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
-				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
-				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
+				4293E2CD19A5B42F00AAF21D /* pig.png */,
+				4293E2CE19A5B42F00AAF21D /* red_car.png */,
+				4293E2CF19A5B42F00AAF21D /* small_chicken.png */,
+				4293E2D219A5B42F00AAF21D /* start_game.psd */,
+				4293E2D019A5B42F00AAF21D /* start_game_orange.png */,
+				4293E2D119A5B42F00AAF21D /* start_game_yellow.png */,
+				4293E2D319A5B42F00AAF21D /* white_truck.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -907,27 +961,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				425717BC19D10D18000BCFF5 /* background7.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				425717D119D10D36000BCFF5 /* level_4.plist in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				425717D219D10D36000BCFF5 /* level_5.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				425717BF19D10D18000BCFF5 /* background10.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				425717C019D10D18000BCFF5 /* background11.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
+				425717BE19D10D18000BCFF5 /* background9.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				425717D319D10D36000BCFF5 /* level_6.plist in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				425717D919D10D36000BCFF5 /* level_12.plist in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				425717C119D10D18000BCFF5 /* background12.png in Resources */,
+				425717D719D10D36000BCFF5 /* level_10.plist in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				425717BA19D10D18000BCFF5 /* background5.png in Resources */,
 				4293E2B319A5B41500AAF21D /* about_orange.png in Resources */,
 				4293E2B419A5B41500AAF21D /* about_yellow.png in Resources */,
 				4293E2B519A5B41500AAF21D /* arrow.png in Resources */,
+				425717BB19D10D18000BCFF5 /* background6.png in Resources */,
 				4293E2B619A5B41500AAF21D /* background_layered.psd in Resources */,
 				4293E2B719A5B41500AAF21D /* background1.png in Resources */,
 				4293E2B819A5B41500AAF21D /* background2.png in Resources */,
@@ -937,27 +1003,33 @@
 				4293E2BC19A5B41500AAF21D /* cat.png in Resources */,
 				4293E2BD19A5B41500AAF21D /* chicken_crossing_title.png in Resources */,
 				4293E2BE19A5B41500AAF21D /* dog.png in Resources */,
+				425717BD19D10D18000BCFF5 /* background8.png in Resources */,
 				4293E2BF19A5B41500AAF21D /* egg_scramble_orange.png in Resources */,
 				4293E2C019A5B41500AAF21D /* egg_scramble_yellow.png in Resources */,
 				4293E2C119A5B41500AAF21D /* Marker Felt.ttf in Resources */,
 				4293E2C219A5B41500AAF21D /* game_over.png in Resources */,
 				4293E2C319A5B41500AAF21D /* level_1.plist in Resources */,
 				4293E2C419A5B41500AAF21D /* level_2.plist in Resources */,
+				425717D519D10D36000BCFF5 /* level_8.plist in Resources */,
 				4293E2C519A5B41500AAF21D /* level_3.plist in Resources */,
 				4293E2C619A5B41500AAF21D /* levels.plist in Resources */,
 				4293E2C719A5B41500AAF21D /* log_large.png in Resources */,
+				425717D419D10D36000BCFF5 /* level_7.plist in Resources */,
 				4293E2C819A5B41500AAF21D /* log_small.png in Resources */,
 				4293E2C919A5B41500AAF21D /* number1.png in Resources */,
 				4293E2CA19A5B41500AAF21D /* number2.png in Resources */,
 				4293E2CB19A5B41500AAF21D /* number3.png in Resources */,
 				4293E2CC19A5B41500AAF21D /* number4.png in Resources */,
+				425717D619D10D36000BCFF5 /* level_9.plist in Resources */,
 				4293E2D419A5B42F00AAF21D /* pig.png in Resources */,
 				4293E2D519A5B42F00AAF21D /* red_car.png in Resources */,
 				4293E2D619A5B42F00AAF21D /* small_chicken.png in Resources */,
+				425717B919D10D18000BCFF5 /* background4.png in Resources */,
 				4293E2D719A5B42F00AAF21D /* start_game_orange.png in Resources */,
 				4293E2D819A5B42F00AAF21D /* start_game_yellow.png in Resources */,
 				4293E2D919A5B42F00AAF21D /* start_game.psd in Resources */,
 				4293E2DA19A5B42F00AAF21D /* white_truck.png in Resources */,
+				425717D819D10D36000BCFF5 /* level_11.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
