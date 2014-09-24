@@ -32,6 +32,10 @@ public:
 	void setLives(int lives);
 
 	void setLevel(int level);
+
+	void createScoreLabel();
+	void createLivesLabel();
+	void createLevelLabel();
 };
  
 #endif // __HUDLAYER_H__
