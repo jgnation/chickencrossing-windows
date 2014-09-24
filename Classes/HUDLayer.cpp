@@ -21,9 +21,18 @@ bool HudLayer::init()
 		_livesLabel->initWithString("Lives: 5", "Verdana-Bold", 18.0);
 		_livesLabel->setColor(ccc3(255,255,255));
 
-		_levelLabel = new CCLabelTTF();
-		_levelLabel->initWithString("Level 1", "Verdana-Bold", 60.0);
+		/*
+		Note: If I initialize the string with "Level 1", the positioning of the label will be off.  This is because the subsequent update of the string
+		(in this->setLevel(1) will call setString(), which will do a string comparison of the current string and the string to set.  If they are the same,
+		then the label is not updated.
+		*/
+		_levelLabel = CCLabelTTF::create("Level 0", "Helvetica", 60.0);
 		_levelLabel->setColor(ccc3(255,255,255));
+		Size originalSize = _levelLabel->getContentSize();
+		float scaleRatio = (winSize.height / 19.0) / originalSize.height;
+		_levelLabel->setScale(scaleRatio);
+		_levelLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
+		
 
         int margin = 10;
 
@@ -33,8 +42,10 @@ bool HudLayer::init()
 		_livesLabel->setPosition(ccp((_livesLabel->getContentSize().width/2) + margin, winSize.height - (_livesLabel->getContentSize().height/2) - margin));
 		this->addChild(_livesLabel);
 
+		//should this be set in setLevel() instead?  What happens when I get up to double digit levels?
 		_levelLabel->setPosition(ccp(winSize.width - (_levelLabel->getContentSize().width/2) - margin, winSize.height - (_levelLabel->getContentSize().height/2) - margin));
 		this->addChild(_levelLabel);
+		//this->createLevelLabel(0123);
     }
  
     return true;
@@ -56,7 +67,36 @@ void HudLayer::setLives(int lives)
 
 void HudLayer::setLevel(int level)
 {
+	//this->removeChild(_levelLabel);
+	//do I need to do _levelLabel->release() ?
+	//this->createLevelLabel(level);
+
 	CCString * levelString = new CCString();
     levelString->initWithFormat("Level %d", level);
     _levelLabel->setString(levelString->getCString());
+
+}
+
+void HudLayer::createLevelLabel(int level)
+{
+	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+		/*
+		Note: If I initialize the string with "Level 1", the positioning of the label will be off.  This is because the subsequent update of the string
+		(in this->setLevel(1) will call setString(), which will do a string comparison of the current string and the string to set.  If they are the same,
+		then the label is not updated.
+		*/
+		CCString * levelString = new CCString();
+    levelString->initWithFormat("Level %d", level);
+
+		_levelLabel = CCLabelTTF::create(levelString->getCString(), "Helvetica", 60.0);
+		_levelLabel->setColor(ccc3(255,255,255));
+		Size originalSize = _levelLabel->getContentSize();
+		float scaleRatio = (winSize.height / 19.0) / originalSize.height;
+		_levelLabel->setScale(scaleRatio);
+		_levelLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
+
+		int margin = 10;
+
+		_levelLabel->setPosition(ccp(winSize.width - (_levelLabel->getContentSize().width/2) - margin, winSize.height - (_levelLabel->getContentSize().height/2) - margin));
+		this->addChild(_levelLabel);
 }
