@@ -268,6 +268,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\small_chicken.png" />
     <Image Include="..\Resources\start_game_orange.png" />
     <Image Include="..\Resources\start_game_yellow.png" />
+    <Image Include="..\Resources\top_scores.png" />
     <Image Include="..\Resources\white_truck.png" />
   </ItemGroup>
   <ItemGroup>

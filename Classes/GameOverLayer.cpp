@@ -3,6 +3,9 @@
  
 using namespace cocos2d;
  
+/*
+Todo, for setting the top scores, I should calculate the width of the scaled TopScores image and place the scores in the box relative to that.
+*/
 bool GameOverLayer::init(std::vector<int> highScores)
 {
     if (CCLayer::init()) {
@@ -48,7 +51,41 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 	arrow1->setVisible(false);
 	pMenu->setVisible(false);
 
-	//display scores and next button
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
+	//create the TopScores box
+	float originalWidth = 550;
+	float originalHeight = 385;
+	CCSprite * topScoresImage = CCSprite::create("top_scores.png", CCRectMake(0, 0, originalWidth, originalHeight));
+
+
+	float scaleY = (windowSize.height * .5) / topScoresImage->getContentSize().height;
+	float scaleX = (windowSize.width * .7) / topScoresImage->getContentSize().width;
+	topScoresImage->setScaleY(scaleY);
+	topScoresImage->setScaleX(scaleX);
+
+	topScoresImage->setAnchorPoint(ccp(0,1));
+	topScoresImage->setPosition(ccp(windowSize.width * .15, windowSize.height - (windowSize.height * .15)));
+	this->addChild(topScoresImage);
+	
+	//display scores
+	float yPosCoefficient = .30;
+	for (int i = 0; i < _highScores.size(); i++)
+	{
+		std::stringstream sstm;
+		sstm << (i + 1) << ". " << _highScores[i] << "\n";
+
+		CCLabelTTF* _scoreLabel = new CCLabelTTF();
+		_scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 18.0);
+		_scoreLabel->setColor(ccc3(0,0,0));
+
+		_scoreLabel->setAnchorPoint(ccp(0,1));
+		_scoreLabel->setPosition(ccp(windowSize.width * .25, windowSize.height - (windowSize.height * yPosCoefficient)));
+		this->addChild(_scoreLabel);
+		yPosCoefficient += .05;
+	}
+
+	//display next button
 	CCMenuItemImage *arrow2 = CCMenuItemImage::create(
 			"arrow.png",
 			"arrow.png",
@@ -65,20 +102,6 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 
 	// Add the menu to HelloWorld layer as a child layer.
 	this->addChild(pMenu);
-
-	//display scores
-	std::stringstream sstm;
-	for (int i = 0; i < _highScores.size(); i++)
-	{
-		sstm << (i + 1) << ". " << _highScores[i] << "\n";
-	}
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-	CCLabelTTF* _scoreLabel = new CCLabelTTF();
-	_scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 18.0);
-    _scoreLabel->setColor(ccc3(255,255,255));
-
-	_scoreLabel->setPosition(ccp(500, 300));
-    this->addChild(_scoreLabel);
 }
 
 void GameOverLayer::nextButton2Callback(CCObject* pSender)

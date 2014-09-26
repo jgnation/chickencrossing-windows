@@ -333,6 +333,9 @@
     <Image Include="..\Resources\background12.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\top_scores.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
