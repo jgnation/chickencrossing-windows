@@ -55,7 +55,7 @@ void HudLayer::createLivesLabel()
 	_livesLabel->setPosition(ccp(margin, winSize.height - margin));
 	this->addChild(_livesLabel);
 
-	this->setLives(23); //This is called for the same reason that the other values are set incorrectly.  The difference is that this isn't called from
+	this->setLives(5); //This is called for the same reason that the other values are set incorrectly.  The difference is that this isn't called from
 	//GameLayer until the chicken dies, while the others are called on start
 }
 

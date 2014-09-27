@@ -96,7 +96,7 @@ bool GameLayer::init()
 		//_levelNumber = 1;
 		this->loadLevel(_levelNumber);
 
-		_lives = 10;
+		_lives = 5;
 
 		this->scheduleUpdate();
 

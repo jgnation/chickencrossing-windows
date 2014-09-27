@@ -5,6 +5,8 @@ using namespace cocos2d;
  
 /*
 Todo, for setting the top scores, I should calculate the width of the scaled TopScores image and place the scores in the box relative to that.
+OR
+I could write the score text to the screen, and then set the top scores image such that it surrounds the text.  THAT would be easier.
 */
 bool GameOverLayer::init(std::vector<int> highScores)
 {
@@ -73,15 +75,19 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 	for (int i = 0; i < _highScores.size(); i++)
 	{
 		std::stringstream sstm;
-		sstm << (i + 1) << ". " << _highScores[i] << "\n";
+		sstm << (i + 1) << ". " << _highScores[i];
 
-		CCLabelTTF* _scoreLabel = new CCLabelTTF();
-		_scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 18.0);
-		_scoreLabel->setColor(ccc3(0,0,0));
+		CCLabelTTF* scoreLabel = new CCLabelTTF();
+		scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 50.0);
+		scoreLabel->setColor(ccc3(0,0,0));
+		Size originalSize = scoreLabel->getContentSize();
+		float scaleRatio = (windowSize.height / 22.0) / originalSize.height;
+		scoreLabel->setScale(scaleRatio);
+		scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 
-		_scoreLabel->setAnchorPoint(ccp(0,1));
-		_scoreLabel->setPosition(ccp(windowSize.width * .25, windowSize.height - (windowSize.height * yPosCoefficient)));
-		this->addChild(_scoreLabel);
+		scoreLabel->setAnchorPoint(ccp(0,1));
+		scoreLabel->setPosition(ccp(windowSize.width * .25, windowSize.height - (windowSize.height * yPosCoefficient)));
+		this->addChild(scoreLabel);
 		yPosCoefficient += .05;
 	}
 
