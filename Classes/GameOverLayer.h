@@ -30,6 +30,8 @@ public:
 	void nextButton1Callback(cocos2d::CCObject* pSender);
 
 	void nextButton2Callback(cocos2d::CCObject* pSender);
+
+	void displayTopScores();
 };
  
 #endif // __GAMEOVERLAYER_H__
