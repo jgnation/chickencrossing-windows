@@ -38,6 +38,8 @@
 		425717D719D10D36000BCFF5 /* level_10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CE19D10D36000BCFF5 /* level_10.plist */; };
 		425717D819D10D36000BCFF5 /* level_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717CF19D10D36000BCFF5 /* level_11.plist */; };
 		425717D919D10D36000BCFF5 /* level_12.plist in Resources */ = {isa = PBXBuildFile; fileRef = 425717D019D10D36000BCFF5 /* level_12.plist */; };
+		428768B819D8853800C14BE3 /* futura-48.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 428768B619D8853800C14BE3 /* futura-48.fnt */; };
+		428768B919D8853800C14BE3 /* futura-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 428768B719D8853800C14BE3 /* futura-48.png */; };
 		4293E26319A5B1D700AAF21D /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24A19A5B1D700AAF21D /* Background.cpp */; };
 		4293E26419A5B1D700AAF21D /* Bus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24C19A5B1D700AAF21D /* Bus.cpp */; };
 		4293E26519A5B1D700AAF21D /* Car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24E19A5B1D700AAF21D /* Car.cpp */; };
@@ -345,6 +347,8 @@
 		425717CE19D10D36000BCFF5 /* level_10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_10.plist; sourceTree = "<group>"; };
 		425717CF19D10D36000BCFF5 /* level_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_11.plist; sourceTree = "<group>"; };
 		425717D019D10D36000BCFF5 /* level_12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_12.plist; sourceTree = "<group>"; };
+		428768B619D8853800C14BE3 /* futura-48.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "futura-48.fnt"; sourceTree = "<group>"; };
+		428768B719D8853800C14BE3 /* futura-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "futura-48.png"; sourceTree = "<group>"; };
 		4293E24A19A5B1D700AAF21D /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Background.cpp; path = ../Classes/Background.cpp; sourceTree = "<group>"; };
 		4293E24B19A5B1D700AAF21D /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = ../Classes/Background.h; sourceTree = "<group>"; };
 		4293E24C19A5B1D700AAF21D /* Bus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bus.cpp; path = ../Classes/Bus.cpp; sourceTree = "<group>"; };
@@ -709,6 +713,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				428768B619D8853800C14BE3 /* futura-48.fnt */,
+				428768B719D8853800C14BE3 /* futura-48.png */,
 				4293E29819A5B41500AAF21D /* about_orange.png */,
 				4293E29919A5B41500AAF21D /* about_yellow.png */,
 				4293E29A19A5B41500AAF21D /* arrow.png */,
@@ -976,6 +982,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				425717C019D10D18000BCFF5 /* background11.png in Resources */,
+				428768B919D8853800C14BE3 /* futura-48.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				425717BE19D10D18000BCFF5 /* background9.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -1013,6 +1020,7 @@
 				425717D519D10D36000BCFF5 /* level_8.plist in Resources */,
 				4293E2C519A5B41500AAF21D /* level_3.plist in Resources */,
 				4293E2C619A5B41500AAF21D /* levels.plist in Resources */,
+				428768B819D8853800C14BE3 /* futura-48.fnt in Resources */,
 				4293E2C719A5B41500AAF21D /* log_large.png in Resources */,
 				425717D419D10D36000BCFF5 /* level_7.plist in Resources */,
 				4293E2C819A5B41500AAF21D /* log_small.png in Resources */,
