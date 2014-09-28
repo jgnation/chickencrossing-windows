@@ -211,6 +211,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\background_layered.psd" />
+    <None Include="..\Resources\fonts\futura-48.fnt" />
     <None Include="..\Resources\levels.plist" />
     <None Include="..\Resources\level_1.plist">
       <SubType>Designer</SubType>
@@ -255,6 +256,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\dog.png" />
     <Image Include="..\Resources\egg_scramble_orange.png" />
     <Image Include="..\Resources\egg_scramble_yellow.png" />
+    <Image Include="..\Resources\fonts\futura-48.png" />
     <Image Include="..\Resources\game_over.png" />
     <Image Include="..\Resources\HelloWorld.png" />
     <Image Include="..\Resources\log_large.png" />

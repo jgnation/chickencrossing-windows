@@ -217,6 +217,9 @@
     <None Include="..\Resources\level_12.plist">
       <Filter>resource</Filter>
     </None>
+    <None Include="..\Resources\fonts\futura-48.fnt">
+      <Filter>resource</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\background1.png">
@@ -334,6 +337,9 @@
       <Filter>resource</Filter>
     </Image>
     <Image Include="..\Resources\top_scores.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\fonts\futura-48.png">
       <Filter>resource</Filter>
     </Image>
   </ItemGroup>

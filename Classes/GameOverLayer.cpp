@@ -3,11 +3,6 @@
  
 using namespace cocos2d;
  
-/*
-Todo, for setting the top scores, I should calculate the width of the scaled TopScores image and place the scores in the box relative to that.
-OR
-I could write the score text to the screen, and then set the top scores image such that it surrounds the text.  THAT would be easier.
-*/
 bool GameOverLayer::init(std::vector<int> highScores)
 {
     if (CCLayer::init()) {
@@ -85,24 +80,15 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 	this->addChild(pMenu);
 }
 
+/*
+I originally created the top score string with the CCLabelTTF class.  The logic for positioning objects of that class is broken.  I spent
+hours trying to figure that out.  Using a CCLabelBMFont solved all my problems.
+*/
 void GameOverLayer::displayTopScores()
 {	
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
-	//create the TopScores box
-	/*float originalWidth = 550;
-	float originalHeight = 385;
-	CCSprite * topScoresImage = CCSprite::create("top_scores.png", CCRectMake(0, 0, originalWidth, originalHeight));
-
-	float scaleY = (windowSize.height * .5) / topScoresImage->getContentSize().height;
-	float scaleX = (windowSize.width * .7) / topScoresImage->getContentSize().width;
-	topScoresImage->setScaleY(scaleY);
-	topScoresImage->setScaleX(scaleX);
-
-	topScoresImage->setAnchorPoint(ccp(0,1));
-	topScoresImage->setPosition(ccp(windowSize.width * .15, windowSize.height - (windowSize.height * .15)));
-	this->addChild(topScoresImage);*/
-	
+	//create the TopScores box	
 	CCLayerColor* backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .60, windowSize.height * .35);
 	backgroundColor->setOpacity(100);
 	backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
@@ -112,20 +98,16 @@ void GameOverLayer::displayTopScores()
 	//display scores
 	float yCoefficient = 1.0;
 	Size backgroundColorSize = backgroundColor->getContentSize();
-	int numScores = _highScores.size();
-	for (int i = 0; i < numScores; i++)
+	for (int i = 0; i < _highScores.size(); i++)
 	{
 		std::stringstream sstm;
 		sstm << (i + 1) << ". " << _highScores[i];
 
-		CCLabelTTF* scoreLabel = new CCLabelTTF();
-		scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 50.0);
-		scoreLabel->setColor(ccc3(0,0,0));
+		CCLabelBMFont * scoreLabel = CCLabelBMFont::create(sstm.str().c_str(), "fonts/futura-48.fnt");
 		Size originalSize = scoreLabel->getContentSize();
 		float scaleRatio = (backgroundColorSize.height / 10.0) / originalSize.height;
 		scoreLabel->setScale(scaleRatio);
 		scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
-
 		scoreLabel->setAnchorPoint(ccp(0,1));
 		scoreLabel->setPosition(ccp(10, backgroundColorSize.height * yCoefficient));
 		backgroundColor->addChild(scoreLabel);
