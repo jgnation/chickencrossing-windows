@@ -8,7 +8,7 @@ using namespace cocos2d;
 class GameOverLayer : public cocos2d::CCLayer
 {
 private:
-	CCSprite * titleImage;
+	CCSprite * gameOverImage;
 	CCMenuItemImage *arrow1;
 	CCMenu* pMenu;
 

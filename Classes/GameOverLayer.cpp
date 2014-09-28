@@ -19,21 +19,25 @@ bool GameOverLayer::init(std::vector<int> highScores)
         //add game over image
 		float originalWidth = 576;
 		float originalHeight = 144;
-		titleImage = CCSprite::create("game_over.png", CCRectMake(0, 0, originalWidth, originalHeight));
-		//titleImage->setScale(.7);
-		titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
-		this->addChild(titleImage);
+		gameOverImage = CCSprite::create("game_over.png", CCRectMake(0, 0, originalWidth, originalHeight));
+		float scaleRatio = (winSize.width *.8) / gameOverImage->getContentSize().width;
+		gameOverImage->setScale(scaleRatio);
+		gameOverImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .6));
+		this->addChild(gameOverImage);
 
 
+		float originalWidthArrow = 300;
+		float originalHeightArrow = 228;
 		arrow1 = CCMenuItemImage::create(
 			"arrow.png",
 			"arrow.png",
 			this,
 			menu_selector(GameOverLayer::nextButton1Callback));
 
-		arrow1->setScale(.5);
+		float scaleRatioArrow = (winSize.width *.2) / arrow1->getContentSize().width;
+		arrow1->setScale(scaleRatioArrow);
 		// Place the menu item bottom-right conner.
-		arrow1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
+		arrow1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .25));
 
 		// Create a menu with the "close" menu item, it's an auto release object.
 		pMenu = CCMenu::create(arrow1, NULL);
@@ -48,23 +52,27 @@ bool GameOverLayer::init(std::vector<int> highScores)
 
 void GameOverLayer::nextButton1Callback(CCObject* pSender)
 {
+	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+
 	//remove the game over and arrow images
-	titleImage->setVisible(false);
+	gameOverImage->setVisible(false);
 	arrow1->setVisible(false);
 	pMenu->setVisible(false);
 
 	this->displayTopScores();
 
 	//display next button
+	float originalWidthArrow = 300;
+	float originalHeightArrow = 228;
 	CCMenuItemImage *arrow2 = CCMenuItemImage::create(
 			"arrow.png",
 			"arrow.png",
 			this,
 			menu_selector(GameOverLayer::nextButton2Callback));
 
-	arrow2->setScale(.5);
-	// Place the menu item bottom-right conner.
-	arrow2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
+	float scaleRatioArrow = (winSize.width *.2) / arrow2->getContentSize().width;
+	arrow2->setScale(scaleRatioArrow);
+	arrow2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .25));
 
 	// Create a menu with the "close" menu item, it's an auto release object.
 	CCMenu* pMenu = CCMenu::create(arrow2, NULL);
