@@ -12,11 +12,14 @@ bool MenuButtonLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
 		//add title image
 		float originalWidth = 576;
 		float originalHeight = 144;
 		CCSprite * titleImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
-		titleImage->setScale(.7);
+		float scaleRatio = (windowSize.width *.7) / titleImage->getContentSize().width;
+		titleImage->setScale(scaleRatio);
 		titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
 		this->addChild(titleImage);
 
@@ -92,14 +95,18 @@ void MenuButtonLayer::closeCallback(CCObject* pSender)
 
 CCMenuItemImage* MenuButtonLayer::createStartGameButton()
 {
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 576;
+	float originalHeight = 144;
+
 	CCMenuItemImage *startGameImage = CCMenuItemImage::create(
 		"start_game_orange.png",
 		"start_game_yellow.png",
 		this,
 		menu_selector(MenuButtonLayer::startGameCallback));
 
-	startGameImage->setScale(.5);
-	// Place the menu item bottom-right conner.
+	float scaleRatio = (windowSize.width *.5) / startGameImage->getContentSize().width;
+	startGameImage->setScale(scaleRatio);
 	startGameImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .5));
 
 	return startGameImage;
@@ -107,30 +114,38 @@ CCMenuItemImage* MenuButtonLayer::createStartGameButton()
 
 CCMenuItemImage* MenuButtonLayer::createEggScrambleButton()
 {
-	CCMenuItemImage *startGameImage = CCMenuItemImage::create(
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 576;
+	float originalHeight = 144;
+
+	CCMenuItemImage *eggScrambleImage = CCMenuItemImage::create(
 		"egg_scramble_orange.png",
 		"egg_scramble_yellow.png",
 		this,
 		menu_selector(MenuButtonLayer::eggScrambleCallback));
 
-	startGameImage->setScale(.5);
-	// Place the menu item bottom-right conner.
-	startGameImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
+	float scaleRatio = (windowSize.width *.5) / eggScrambleImage->getContentSize().width;
+	eggScrambleImage->setScale(scaleRatio);
+	eggScrambleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
 
-	return startGameImage;
+	return eggScrambleImage;
 }
 
 CCMenuItemImage* MenuButtonLayer::createAboutButton()
 {
-	CCMenuItemImage *startGameImage = CCMenuItemImage::create(
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 576;
+	float originalHeight = 144;
+
+	CCMenuItemImage *aboutImage = CCMenuItemImage::create(
 		"about_orange.png",
 		"about_yellow.png",
 		this,
 		menu_selector(MenuButtonLayer::aboutCallback));
 
-	startGameImage->setScale(.5);
-	// Place the menu item bottom-right conner.
-	startGameImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .3));
+	float scaleRatio = (windowSize.width *.5) / aboutImage->getContentSize().width;
+	aboutImage->setScale(scaleRatio);
+	aboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .3));
 
-	return startGameImage;
+	return aboutImage;
 }
