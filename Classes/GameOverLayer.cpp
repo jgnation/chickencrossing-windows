@@ -34,9 +34,10 @@ bool GameOverLayer::init(std::vector<int> highScores)
 			this,
 			menu_selector(GameOverLayer::nextButton1Callback));
 
-		float scaleRatioArrow = (winSize.width *.2) / arrow1->getContentSize().width;
-		arrow1->setScale(scaleRatioArrow);
-		// Place the menu item bottom-right conner.
+		float scaleRatioArrowX = (winSize.width *.2) / arrow1->getContentSize().width;
+		float scaleRatioArrowY = (winSize.height *.15) / arrow1->getContentSize().height;
+		arrow1->setScale(scaleRatioArrowX);
+		arrow1->setScale(scaleRatioArrowY);
 		arrow1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .25));
 
 		// Create a menu with the "close" menu item, it's an auto release object.
@@ -70,8 +71,10 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 			this,
 			menu_selector(GameOverLayer::nextButton2Callback));
 
-	float scaleRatioArrow = (winSize.width *.2) / arrow2->getContentSize().width;
-	arrow2->setScale(scaleRatioArrow);
+	float scaleRatioArrowX = (winSize.width *.2) / arrow2->getContentSize().width;
+	float scaleRatioArrowY = (winSize.height *.15) / arrow2->getContentSize().height;
+	arrow2->setScale(scaleRatioArrowX);
+	arrow2->setScale(scaleRatioArrowY);
 	arrow2->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .25));
 
 	// Create a menu with the "close" menu item, it's an auto release object.
@@ -82,18 +85,6 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 	this->addChild(pMenu);
 }
 
-/*
-This function is fairly terrifying to look at, but it works.  The idea is that I want to add the top scores to this, and then
-I want to add the backgroundColor layer to this using the positions of the top scores.  I want the backgroundColor layer to
-be created with a margin around the displayed scores.
-
-I chose to do it this way rather than adding the scores as a parent to the backgroundColor mostly because I was unable to
-easily add the scores to the background color layer relative to the TOP LEFT CORNER of the background color layer.
-Position (0,0) on the background color layer is the bottom left corner.  I couldn't easily calculate the needed height of
-the background color layer without adding the top scores to the screen FIRST.
-
-This method can DEFINITELY be cleaned up.
-*/
 void GameOverLayer::displayTopScores()
 {	
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
@@ -112,10 +103,15 @@ void GameOverLayer::displayTopScores()
 	topScoresImage->setPosition(ccp(windowSize.width * .15, windowSize.height - (windowSize.height * .15)));
 	this->addChild(topScoresImage);*/
 	
+	CCLayerColor* backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .60, windowSize.height * .35);
+	backgroundColor->setOpacity(100);
+	backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
+	backgroundColor->setPosition(ccp(windowSize.width / 2, windowSize.height * .55));
+	this->addChild(backgroundColor);
+
 	//display scores
-	float yPosCoefficient = .30;
-	float originalYPosCoeffient = yPosCoefficient; //used for calculating the position of the backgroundColor layer
-	float addInterval = .05;
+	float yCoefficient = 1.0;
+	Size backgroundColorSize = backgroundColor->getContentSize();
 	int numScores = _highScores.size();
 	for (int i = 0; i < numScores; i++)
 	{
@@ -126,28 +122,15 @@ void GameOverLayer::displayTopScores()
 		scoreLabel->initWithString(sstm.str().c_str(), "Verdana-Bold", 50.0);
 		scoreLabel->setColor(ccc3(0,0,0));
 		Size originalSize = scoreLabel->getContentSize();
-		float scaleRatio = (windowSize.height / 22.0) / originalSize.height;
+		float scaleRatio = (backgroundColorSize.height / 10.0) / originalSize.height;
 		scoreLabel->setScale(scaleRatio);
 		scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 
 		scoreLabel->setAnchorPoint(ccp(0,1));
-		scoreLabel->setPosition(ccp(windowSize.width * .25, windowSize.height - (windowSize.height * yPosCoefficient)));
-		this->addChild(scoreLabel);
-		yPosCoefficient += addInterval;
+		scoreLabel->setPosition(ccp(10, backgroundColorSize.height * yCoefficient));
+		backgroundColor->addChild(scoreLabel);
+		yCoefficient -= .2;
 	}
-
-	float width = windowSize.width * .60;
-	float topYPos = windowSize.height - (windowSize.height * originalYPosCoeffient);
-	float bottomYPos = windowSize.height - (windowSize.height * (originalYPosCoeffient + (addInterval * numScores)));
-	float height = topYPos - bottomYPos + (windowSize.height * .2); //at a .1 buffer to top and bottom
-
-	CCLayerColor* backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), width, height);
-	backgroundColor->setOpacity(100);
-	backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
-	backgroundColor->setAnchorPoint(ccp(0,1));
-	float yPos = (windowSize.height - (windowSize.height * originalYPosCoeffient)) + windowSize.height * .1;
-	backgroundColor->setPosition(ccp(windowSize.width * .20, yPos));
-	this->addChild(backgroundColor);
 }
 
 void GameOverLayer::nextButton2Callback(CCObject* pSender)
