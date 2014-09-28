@@ -103,7 +103,7 @@ void GameOverLayer::displayTopScores()
 		std::stringstream sstm;
 		sstm << (i + 1) << ". " << _highScores[i];
 
-		CCLabelBMFont * scoreLabel = CCLabelBMFont::create(sstm.str().c_str(), "fonts/futura-48.fnt");
+		CCLabelBMFont * scoreLabel = CCLabelBMFont::create(sstm.str().c_str(), "futura-48.fnt");
 		Size originalSize = scoreLabel->getContentSize();
 		float scaleRatio = (backgroundColorSize.height / 10.0) / originalSize.height;
 		scoreLabel->setScale(scaleRatio);
