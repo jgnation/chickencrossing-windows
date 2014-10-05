@@ -13,8 +13,8 @@ Level::Level(CCDictionary * levelData)
 	int minWaterInterval = _levelData->valueForKey("MinWaterInterval")->intValue();
 	float minStartDuration = _levelData->valueForKey("MinStartDuration")->floatValue();
 	float maxStartDuration = _levelData->valueForKey("MaxStartDuration")->floatValue();
-	float bottomDuration = _levelData->valueForKey("BottomDuration")->floatValue();
-	float topDuration = _levelData->valueForKey("TopDuration")->floatValue();
+	float maxDuration = _levelData->valueForKey("MaxDuration")->floatValue();
+	float minDuration = _levelData->valueForKey("MinDuration")->floatValue();
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
 
@@ -45,7 +45,7 @@ Level::Level(CCDictionary * levelData)
 			vehicleVector.push_back(vehicle->getCString());
 		}
 
-		_lanes.push_back(new Lane(laneNumber, laneType, interval, duration, bottomDuration, topDuration, vehicleVector));
+		_lanes.push_back(new Lane(laneNumber, laneType, interval, duration, maxDuration, minDuration, vehicleVector));
 		laneNumber++;
 	}
 }

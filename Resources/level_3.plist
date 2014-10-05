@@ -18,9 +18,9 @@
     <string>5.0</string>
     <key>MaxStartDuration</key>
     <string>10.0</string>
-    <key>BottomDuration</key>
+    <key>MaxDuration</key>
     <string>15.0</string>
-    <key>TopDuration</key>
+    <key>MinDuration</key>
     <string>2.0</string>
 	  <key>Lanes</key>
     <array>

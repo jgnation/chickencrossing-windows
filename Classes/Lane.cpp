@@ -8,15 +8,15 @@
 
 using namespace cocos2d;
 
-Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, float bottomDuration, float topDuration, std::vector<std::string> vehicles) 
+Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, float maxDuration, float minDuration, std::vector<std::string> vehicles) 
 {
 	_laneNumber = laneNumber;
 	_laneType = laneType;
 	_duration = duration;
 	_vehicles = vehicles;
 	_interval = interval;
-	_bottomDuration = bottomDuration;
-	_topDuration = topDuration;
+	_maxDuration = maxDuration;
+	_minDuration = minDuration;
 
 	//TODO, deal with these
 	_nextSpawnTime = 0;
@@ -107,19 +107,19 @@ int Lane::getSpeed()
 
 void Lane::increaseSpeed()
 {
-	if (_duration > _topDuration)
+	if (_duration > _minDuration)
 	{
-		float difference = _bottomDuration - _topDuration;
+		float difference = _maxDuration - _minDuration;
 		float newDuration = _duration - (difference * .1); //increase _duration by 10%
 
-		if (newDuration >= _topDuration)
+		if (newDuration >= _minDuration)
 		{
 			this->decreaseInterval(_interval, _duration, newDuration);	
 			_duration = newDuration; 
 		}
 		else
 		{
-			newDuration = _topDuration;
+			newDuration = _minDuration;
 			this->decreaseInterval(_interval, _duration, newDuration);
 			_duration = newDuration;
 		}
