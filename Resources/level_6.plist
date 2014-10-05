@@ -14,9 +14,9 @@
     <string>4000</string>
     <key>MinWaterInterval</key>
     <string>3500</string>
-    <key>MinDuration</key>
+    <key>MinStartDuration</key>
     <string>5.0</string>
-    <key>MaxDuration</key>
+    <key>MaxStartDuration</key>
     <string>10.0</string>
     <key>Lanes</key>
     <array>

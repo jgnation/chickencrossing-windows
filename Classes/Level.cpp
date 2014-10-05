@@ -11,8 +11,8 @@ Level::Level(CCDictionary * levelData)
 	int minRoadInterval = _levelData->valueForKey("MinRoadInterval")->intValue();
 	int maxWaterInterval = _levelData->valueForKey("MaxWaterInterval")->intValue();
 	int minWaterInterval = _levelData->valueForKey("MinWaterInterval")->intValue();
-	float minDuration = _levelData->valueForKey("MinDuration")->floatValue();
-	float maxDuration = _levelData->valueForKey("MaxDuration")->floatValue();
+	float minStartDuration = _levelData->valueForKey("MinStartDuration")->floatValue();
+	float maxStartDuration = _levelData->valueForKey("MaxStartDuration")->floatValue();
 	float bottomDuration = _levelData->valueForKey("BottomDuration")->floatValue();
 	float topDuration = _levelData->valueForKey("TopDuration")->floatValue();
 
@@ -34,7 +34,7 @@ Level::Level(CCDictionary * levelData)
 		else
 			interval = 0;
 
-		float duration = GameFunctions::randomValueBetween(minDuration, maxDuration);
+		float duration = GameFunctions::randomValueBetween(minStartDuration, maxStartDuration);
 
 		CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
 		CCObject *iter;
