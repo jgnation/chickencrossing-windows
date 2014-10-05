@@ -13,6 +13,8 @@ Level::Level(CCDictionary * levelData)
 	int minWaterInterval = _levelData->valueForKey("MinWaterInterval")->intValue();
 	float minDuration = _levelData->valueForKey("MinDuration")->floatValue();
 	float maxDuration = _levelData->valueForKey("MaxDuration")->floatValue();
+	float bottomDuration = _levelData->valueForKey("BottomDuration")->floatValue();
+	float topDuration = _levelData->valueForKey("TopDuration")->floatValue();
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
 
@@ -43,7 +45,7 @@ Level::Level(CCDictionary * levelData)
 			vehicleVector.push_back(vehicle->getCString());
 		}
 
-		_lanes.push_back(new Lane(laneNumber, laneType, interval, duration, vehicleVector));
+		_lanes.push_back(new Lane(laneNumber, laneType, interval, duration, bottomDuration, topDuration, vehicleVector));
 		laneNumber++;
 	}
 }
@@ -64,6 +66,19 @@ Lane * Level::getLane(int laneNumber)
 	//I am using 'natural indeces'
 
 	return _lanes[laneNumber];
+}
+
+void Level::increaseSpeed()
+{
+	for(std::vector<Lane *>::iterator it = _lanes.begin(); it != _lanes.end(); ++it) 
+	{
+		Lane * lane = dynamic_cast<Lane *>(*it);
+		Lane::LaneType laneType = lane->getLaneType();
+		if (laneType == Lane::LaneType::ROAD || laneType == Lane::LaneType::WATER)
+		{
+			lane->increaseSpeed();
+		}		
+	}
 }
 
 //TODO: cache the lane value so I don't have to parse the XML every time this is called

@@ -66,29 +66,12 @@ bool EggScrambleModeLayer::init(int levelNumber)
 
 void EggScrambleModeLayer::initialChecks()
 {
-	//do nothing
-
-	std::vector<Lane *> lanes = _level->getLanes(); //I shouldn't have to retrieve this every update
-	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
+	if (_score >= _numEggsToCollect)
 	{
-		Lane * lane = dynamic_cast<Lane *>(*it);
-		/*float currentTime = getTimeTick();
-		if (lane->isTimeToSpawn(currentTime))
-		{
-			Vehicle * vehicle = lane->spawnVehicle();
-			vehicleList.push_back(vehicle);
+		_score = 0; //TODO: this is a temp solution
+		_numEggsToCollect++;
 
-			vehicle->move();
-			this->addChild(vehicle->getSprite());
-
-			//set vehicle movement animation
-			//delete or release at end of animation?
-		}*/
-		float currentTime = GameFunctions::getTimeTick();
-		if (lane->isTimeToIncreaseSpeed(currentTime))
-		{
-			lane->increaseSpeed();
-		}
+		_level->increaseSpeed();
 	}
 }
 

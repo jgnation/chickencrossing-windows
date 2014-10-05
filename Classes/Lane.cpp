@@ -8,13 +8,15 @@
 
 using namespace cocos2d;
 
-Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std::vector<std::string> vehicles) 
+Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, float bottomDuration, float topDuration, std::vector<std::string> vehicles) 
 {
 	_laneNumber = laneNumber;
 	_laneType = laneType;
 	_duration = duration;
 	_vehicles = vehicles;
 	_interval = interval;
+	_bottomDuration = bottomDuration;
+	_topDuration = topDuration;
 
 	//TODO, deal with these
 	_nextSpawnTime = 0;
@@ -105,7 +107,39 @@ int Lane::getSpeed()
 
 void Lane::increaseSpeed()
 {
-	_speed = _speed + 100;
+	if (_duration > _topDuration)
+	{
+		float difference = _bottomDuration - _topDuration;
+		float newDuration = _duration - (difference * .1); //increase _duration by 10%
+
+		if (newDuration >= _topDuration)
+		{
+			this->decreaseInterval(_interval, _duration, newDuration);	
+			_duration = newDuration; 
+		}
+		else
+		{
+			newDuration = _topDuration;
+			this->decreaseInterval(_interval, _duration, newDuration);
+			_duration = newDuration;
+		}
+	}
+}
+
+void Lane::decreaseInterval(float interval, float currentDuration, float newDuration)
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	Vehicle * vehicle = this->getRandomVehicle();
+	float vehicleWidth = vehicle->getSprite()->getContentSize().width;
+	float distance = ccpDistance(ccp(0, 0), ccp(windowSize.width + vehicleWidth, 0));
+
+	float currentSpeed = distance / currentDuration;
+	float distancePerCurrentInterval = currentSpeed * interval;
+
+	float newSpeed = distance / newDuration;
+	float newInterval = distancePerCurrentInterval / newSpeed;
+
+	_interval = newInterval;
 }
 
 Lane::LaneType Lane::getLaneType()

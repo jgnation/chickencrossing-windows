@@ -24,6 +24,7 @@ public:
 	Lane * getLane(int laneNumber);
 	std::vector<Lane *> getLanes();
 	int getRandomValidLaneNumber();
+	void increaseSpeed();
 };
 
 #endif // LEVEL_H
