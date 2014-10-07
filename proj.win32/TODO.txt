@@ -17,15 +17,13 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 Egg Scramble:
--define a minimum speed and a maximum speed
--find difference = max speed - min speed
--when advancing to the next "level", increase the speed by 10% of the difference.
--eventually we will get to the max speed
--when speed increases, spawn interval must proportionally decrease.
-	-maybe this will work: if 
-	-this must be calculated so that the difference between vehicles remains constant
-		-with the given duration, find the distance that will be travelled during the current "interval".  The distance will be a constant.
-		 With the new duration value and the constant distance, the new interval can be found.
+-create a eggscramble and main mode area in each plist file.
+<key>EggScramble</key>
+<dict>a bunch of settings</dict>
+<key>MainMode</key>
+<dict>a bunch of settings</dict>
+This will allow me to tinker with the settings without jacking up the main mode.
+-Quit resetting the score
 
 
 TODO:
