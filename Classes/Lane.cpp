@@ -8,20 +8,15 @@
 
 using namespace cocos2d;
 
-Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, float maxDuration, float minDuration, std::vector<std::string> vehicles) 
+Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std::vector<std::string> vehicles) 
 {
 	_laneNumber = laneNumber;
 	_laneType = laneType;
 	_duration = duration;
 	_vehicles = vehicles;
 	_interval = interval;
-	_maxDuration = maxDuration;
-	_minDuration = minDuration;
 
-	//TODO, deal with these
 	_nextSpawnTime = 0;
-	_increaseSpeedInterval = 4000.0;	//pull this into config
-	_nextIncreaseSpeedTime = 0;
 
 	_vehicleFactory = new VehicleFactory();
 	_dimensions = new Dimensions();
@@ -36,16 +31,6 @@ bool Lane::isTimeToSpawn(float currentTime)
 			_nextSpawnTime = _interval + currentTime;
 			return true;
 		}
-	}
-	return false;
-}
-
-bool Lane::isTimeToIncreaseSpeed(float currentTime)
-{
-	if (currentTime > _nextIncreaseSpeedTime)
-	{
-		_nextIncreaseSpeedTime = _increaseSpeedInterval + currentTime;
-		return true;
 	}
 	return false;
 }
@@ -103,43 +88,6 @@ Vehicle * Lane::getRandomVehicle()
 int Lane::getSpeed()
 {
 	return _speed;
-}
-
-void Lane::increaseSpeed()
-{
-	if (_duration > _minDuration)
-	{
-		float difference = _maxDuration - _minDuration;
-		float newDuration = _duration - (difference * .1); //increase _duration by 10%
-
-		if (newDuration >= _minDuration)
-		{
-			this->decreaseInterval(_interval, _duration, newDuration);	
-			_duration = newDuration; 
-		}
-		else
-		{
-			newDuration = _minDuration;
-			this->decreaseInterval(_interval, _duration, newDuration);
-			_duration = newDuration;
-		}
-	}
-}
-
-void Lane::decreaseInterval(float interval, float currentDuration, float newDuration)
-{
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	Vehicle * vehicle = this->getRandomVehicle();
-	float vehicleWidth = vehicle->getSprite()->getContentSize().width;
-	float distance = ccpDistance(ccp(0, 0), ccp(windowSize.width + vehicleWidth, 0));
-
-	float currentSpeed = distance / currentDuration;
-	float distancePerCurrentInterval = currentSpeed * interval;
-
-	float newSpeed = distance / newDuration;
-	float newInterval = distancePerCurrentInterval / newSpeed;
-
-	_interval = newInterval;
 }
 
 Lane::LaneType Lane::getLaneType()

@@ -6,22 +6,40 @@
 	  <string>5</string>
 	  <key>Background</key>
 	  <string>background5.png</string>
-    <key>MaxRoadInterval</key>
-    <string>4000</string>
-    <key>MinRoadInterval</key>
-    <string>3500</string>
-    <key>MaxWaterInterval</key>
-    <string>4000</string>
-    <key>MinWaterInterval</key>
-    <string>3500</string>
-    <key>MinStartDuration</key>
-    <string>5.0</string>
-    <key>MaxStartDuration</key>
-    <string>10.0</string>
-    <key>MaxDuration</key>
-    <string>15.0</string>
-    <key>MinDuration</key>
-    <string>2.0</string>
+    <key>MainMode</key>
+    <dict>
+      <key>MaxRoadInterval</key>
+      <string>4000</string>
+      <key>MinRoadInterval</key>
+      <string>3500</string>
+      <key>MaxWaterInterval</key>
+      <string>4000</string>
+      <key>MinWaterInterval</key>
+      <string>3500</string>
+      <key>MinStartDuration</key>
+      <string>5.0</string>
+      <key>MaxStartDuration</key>
+      <string>10.0</string>
+    </dict>
+    <key>EggScramble</key>
+    <dict>
+      <key>MaxRoadInterval</key>
+      <string>4000</string>
+      <key>MinRoadInterval</key>
+      <string>3500</string>
+      <key>MaxWaterInterval</key>
+      <string>4000</string>
+      <key>MinWaterInterval</key>
+      <string>3500</string>
+      <key>MinStartDuration</key>
+      <string>5.0</string>
+      <key>MaxStartDuration</key>
+      <string>10.0</string>
+      <key>MaxDuration</key>
+      <string>15.0</string>
+      <key>MinDuration</key>
+      <string>2.0</string>
+    </dict>
 	  <key>Lanes</key>
 	  <array>
       <dict>

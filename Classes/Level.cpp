@@ -5,16 +5,22 @@ using namespace cocos2d;
 
 Level::Level(CCDictionary * levelData)
 {
-	_levelData = levelData;
+	_levelData = levelData;	
+}
+
+/*
+This function was created because it is not good to call virtual functions from within
+a constructor
+*/
+void Level::init()
+{
 	_background = new Background(_levelData->valueForKey("Background")->getCString());
-	int maxRoadInterval = _levelData->valueForKey("MaxRoadInterval")->intValue();
-	int minRoadInterval = _levelData->valueForKey("MinRoadInterval")->intValue();
-	int maxWaterInterval = _levelData->valueForKey("MaxWaterInterval")->intValue();
-	int minWaterInterval = _levelData->valueForKey("MinWaterInterval")->intValue();
-	float minStartDuration = _levelData->valueForKey("MinStartDuration")->floatValue();
-	float maxStartDuration = _levelData->valueForKey("MaxStartDuration")->floatValue();
-	float maxDuration = _levelData->valueForKey("MaxDuration")->floatValue();
-	float minDuration = _levelData->valueForKey("MinDuration")->floatValue();
+	int maxRoadInterval = this->getMaxRoadInterval();
+	int minRoadInterval = this->getMinRoadInterval();
+	int maxWaterInterval = this->getMaxWaterInterval();
+	int minWaterInterval = this->getMinWaterInterval();
+	float minStartDuration = this->getMinStartDuration();
+	float maxStartDuration = this->getMaxStartDuration();
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
 
@@ -45,7 +51,7 @@ Level::Level(CCDictionary * levelData)
 			vehicleVector.push_back(vehicle->getCString());
 		}
 
-		_lanes.push_back(new Lane(laneNumber, laneType, interval, duration, maxDuration, minDuration, vehicleVector));
+		_lanes.push_back(this->createNewLane(laneNumber, laneType, interval, duration, vehicleVector));
 		laneNumber++;
 	}
 }
@@ -66,19 +72,6 @@ Lane * Level::getLane(int laneNumber)
 	//I am using 'natural indeces'
 
 	return _lanes[laneNumber];
-}
-
-void Level::increaseSpeed()
-{
-	for(std::vector<Lane *>::iterator it = _lanes.begin(); it != _lanes.end(); ++it) 
-	{
-		Lane * lane = dynamic_cast<Lane *>(*it);
-		Lane::LaneType laneType = lane->getLaneType();
-		if (laneType == Lane::LaneType::ROAD || laneType == Lane::LaneType::WATER)
-		{
-			lane->increaseSpeed();
-		}		
-	}
 }
 
 //TODO: cache the lane value so I don't have to parse the XML every time this is called
@@ -105,8 +98,6 @@ Lane::LaneType Level::getLaneType(int laneNumber)
 	return laneEnumType;
 }
 
-/**blahblahblah
-*/
 int Level::getRandomValidLaneNumber()
 {
 	//this is what GameLayer currently does
@@ -130,4 +121,5 @@ int Level::getRandomValidLaneNumber()
 	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size() - 1);
 	return validLaneNumbers[randomIndex];
 }
+
 

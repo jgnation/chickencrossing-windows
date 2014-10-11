@@ -17,7 +17,7 @@ private:
 public:
 	enum LaneType { ROAD, WATER, REST, INVALID };
 
-	Lane(int laneNumber, LaneType laneType, int interval, float duration, float maxDuration, float minDuration, std::vector<std::string> vehicles);
+	Lane(int laneNumber, LaneType laneType, int interval, float duration, std::vector<std::string> vehicles);
 
 	~Lane(void);
 	LaneType _laneType;
@@ -26,13 +26,10 @@ public:
 	void setInterval(std::string interval);
 	void setSpeed(std::string speed);
 	bool isTimeToSpawn(float currentTime);
-	bool isTimeToIncreaseSpeed(float currentTime);
-	Vehicle * spawnVehicle();
+	virtual Vehicle * spawnVehicle();
 	Vehicle * getRandomVehicle();	//this should be private
 
-	int getSpeed();
-	void increaseSpeed();
-	void decreaseInterval(float interval, float oldDuration, float newDuration);
+	virtual int getSpeed();	
 
 	std::string _type;
 	std::vector<std::string> _vehicles;
@@ -40,12 +37,9 @@ public:
 	float _interval;
 	int _speed;
 	float _duration;
-	float _maxDuration;
-	float _minDuration;
+
 	float _nextSpawnTime;
 	int _laneNumber;
-	float _increaseSpeedInterval;
-	float _nextIncreaseSpeedTime;
 
 	int getLaneNumber();
 	LaneType getLaneType();

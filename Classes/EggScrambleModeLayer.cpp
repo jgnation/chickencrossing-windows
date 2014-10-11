@@ -2,7 +2,8 @@
 #include "Lane.h"
 #include "Level.h"
 #include "GameFunctions.h"
-
+#include "EggScrambleLevelFactory.h"
+#include "AcceleratingLane.h"
 
 using namespace cocos2d;
 
@@ -55,6 +56,7 @@ bool EggScrambleModeLayer::init(int levelNumber)
     do 
     {
 		_levelNumber = levelNumber;
+		_levelManager = new LevelManager(new EggScrambleLevelFactory());
 
         CC_BREAK_IF(! GameLayer::init());
 
@@ -71,7 +73,24 @@ void EggScrambleModeLayer::initialChecks()
 		_score = 0; //TODO: this is a temp solution
 		_numEggsToCollect++;
 
-		_level->increaseSpeed();
+		std::vector<Lane *> lanes = _level->getLanes();
+
+		for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
+		{
+			/*
+			I was initially getting the following error when trying to downcast the Lane to an Accelerating Lane:
+			"the operand of runtime dynamic_cast must have a polymorphic class type"
+			The operand, in this case, is *it, which is a Lane*.  To make the class polymorphic, I simply
+			made one of the methods in Lane virtual (even though I have no intention of overriding it).
+			*/
+			AcceleratingLane * lane = dynamic_cast<AcceleratingLane *>(*it);
+
+			Lane::LaneType laneType = lane->getLaneType();
+			if (laneType == Lane::LaneType::ROAD || laneType == Lane::LaneType::WATER)
+			{
+				lane->increaseSpeed();
+			}		
+		}
 	}
 }
 

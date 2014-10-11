@@ -1,4 +1,5 @@
 #include "MainModeLayer.h"
+#include "MainModeLevelFactory.h"
 
 using namespace cocos2d;
 
@@ -40,6 +41,7 @@ bool MainModeLayer::init()
     do 
     {
 		_levelNumber = 1;
+		_levelManager = new LevelManager(new MainModeLevelFactory());
 
         CC_BREAK_IF(! GameLayer::init());
 

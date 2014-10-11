@@ -3,6 +3,7 @@
 #include "MenuButtonLayer.h"
 #include "LevelManager.h"
 #include "Level.h"
+#include "MainModeLevelFactory.h"
 
 using namespace cocos2d;
 
@@ -37,10 +38,11 @@ bool MenuLayer::init()
 		menuButtonLayer->init();
 		this->addChild(menuButtonLayer, 5);	//z position is  on top, chicken is on 1
 
-		LevelManager * _levelManager = new LevelManager();
+		LevelManager * _levelManager = new LevelManager(new MainModeLevelFactory());
 		int _levelNumber = 1;
 		//this->loadLevel(_levelNumber);
 		_level = _levelManager->getLevel(_levelNumber);
+		_level->init();
 		this->addChild(_level->getBackground()->getSprite(), 0); //added 5/24
 
 		this->scheduleUpdate();

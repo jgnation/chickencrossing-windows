@@ -4,8 +4,10 @@
 
 using namespace cocos2d;
 
-LevelManager::LevelManager()
+LevelManager::LevelManager(LevelFactory * factory)
 {
+	_levelFactory = factory;
+
 	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathForFilename("levels.plist");
 	_levels = CCDictionary::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
 	_levels->retain();
@@ -19,7 +21,7 @@ Level * LevelManager::getLevel(int levelNumber)
 
 	std::string fileName = _levels->valueForKey(GameFunctions::to_string(levelNumber))->getCString();
 	std::string filePath = CCFileUtils::sharedFileUtils()->fullPathForFilename(fileName.c_str());
-	return new Level(CCDictionary::createWithContentsOfFileThreadSafe(filePath.c_str()));
+	return _levelFactory->createLevel(CCDictionary::createWithContentsOfFileThreadSafe(filePath.c_str()));
 }
 
 int LevelManager::mapLevelNumberToLevelPList(int levelNumber)

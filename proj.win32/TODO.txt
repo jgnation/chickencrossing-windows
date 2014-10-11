@@ -17,6 +17,7 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 Egg Scramble:
+-decrease log disappear time when sped up (do this in Lane/AcceleratingLane)
 -create a eggscramble and main mode area in each plist file.
 <key>EggScramble</key>
 <dict>a bunch of settings</dict>
@@ -24,6 +25,8 @@ Egg Scramble:
 <dict>a bunch of settings</dict>
 This will allow me to tinker with the settings without jacking up the main mode.
 -Quit resetting the score
+-Call levels "waves" in egg scramble?  Wave 1, Wave 2?
+-Wipe out all traffic when beating waves?
 
 
 TODO:
