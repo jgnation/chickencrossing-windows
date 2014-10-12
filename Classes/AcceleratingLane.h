@@ -9,7 +9,6 @@ public:
 	AcceleratingLane(int laneNumber, LaneType laneType, int interval, float duration, float maxDuration, float minDuration, std::vector<std::string> vehicles);
 	~AcceleratingLane(void);
 	void increaseSpeed();
-	Vehicle * spawnVehicle();
 private:
 	float _maxDuration;
 	float _minDuration;

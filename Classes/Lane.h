@@ -26,7 +26,7 @@ public:
 	void setInterval(std::string interval);
 	void setSpeed(std::string speed);
 	bool isTimeToSpawn(float currentTime);
-	virtual Vehicle * spawnVehicle();
+	Vehicle * spawnVehicle();
 	Vehicle * getRandomVehicle();	//this should be private
 
 	virtual int getSpeed();	

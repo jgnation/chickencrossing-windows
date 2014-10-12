@@ -43,19 +43,3 @@ void AcceleratingLane::decreaseInterval(float interval, float currentDuration, f
 
 	_interval = newInterval;
 }
-
-Vehicle * AcceleratingLane::spawnVehicle()
-{
-	Vehicle * vehicle = Lane::spawnVehicle();
-	/*
-	if vehicle == disappearingLog, then set the disappearing interval.
-	this disappearing interval should be a class variable set by either
-	increaseSpeed(), decreaseInterval(), or a function called from
-	one of those two functions.
-
-	OR (and this would be better), maybe this can be taken care of
-	just in DisappearingLog.  The faster the log is travelling,
-	the shorter the disappearing time.
-	*/
-	return vehicle;
-}
