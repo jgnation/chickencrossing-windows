@@ -92,7 +92,7 @@ bool GameLayer::init()
 		_hudLayer->init();
 		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
 
-		_levelManager = new LevelManager();
+
 		//_levelNumber = 1;
 		this->loadLevel(_levelNumber);
 
@@ -330,6 +330,7 @@ void GameLayer::loadLevel(int levelNumber)
 	//_lives = 5;
 	//_hudLayer->setLives(_lives);
 	_level = _levelManager->getLevel(levelNumber);
+	_level->init();
 	_actionLayer->addChild(_level->getBackground()->getSprite(), BACKGROUND_POSITION);
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();

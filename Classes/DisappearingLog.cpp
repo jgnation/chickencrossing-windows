@@ -47,11 +47,16 @@ void DisappearingLog::move()
 {
 	Vehicle::move();
 
-	//TODO should these times be dependent on the _duration of the log?
-	CCFadeTo* fadeOut = CCFadeTo::create(0.5, 0);
-	CCFadeTo* stayHidden = CCFadeTo::create(0.25, 0);
-	CCFadeTo* fadeIn = CCFadeTo::create(0.5, 255);
-	CCFadeTo* stayExposed = CCFadeTo::create(1.5, 255);
+	//these values may need to be tinkered with
+	//they may need to be configurable, and maybe different from egg scramble mode and main mode
+	float fadeDuration = _duration / 17.0;
+	float hideDuration = _duration / 10.0;
+	float showDuration = _duration / 4.0;
+
+	CCFadeTo* fadeOut = CCFadeTo::create(fadeDuration, 0);
+	CCFadeTo* stayHidden = CCFadeTo::create(hideDuration, 0);
+	CCFadeTo* fadeIn = CCFadeTo::create(fadeDuration, 255);
+	CCFadeTo* stayExposed = CCFadeTo::create(showDuration, 255);
 	CCArray * arrayOfAction = CCArray::create();
 	arrayOfAction->addObject(fadeOut);
 	arrayOfAction->addObject(stayHidden);

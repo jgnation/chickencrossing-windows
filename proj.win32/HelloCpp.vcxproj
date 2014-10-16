@@ -132,6 +132,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\AcceleratingLane.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Background.cpp" />
     <ClCompile Include="..\Classes\Bus.cpp" />
@@ -140,6 +141,8 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\Dimensions.cpp" />
     <ClCompile Include="..\Classes\DisappearingLog.cpp" />
     <ClCompile Include="..\Classes\Egg.cpp" />
+    <ClCompile Include="..\Classes\EggScrambleLevel.cpp" />
+    <ClCompile Include="..\Classes\EggScrambleLevelFactory.cpp" />
     <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp" />
     <ClCompile Include="..\Classes\GameFunctions.cpp" />
     <ClCompile Include="..\Classes\GameLayer.cpp" />
@@ -147,10 +150,13 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\HUDLayer.cpp" />
     <ClCompile Include="..\Classes\Lane.cpp" />
     <ClCompile Include="..\Classes\Level.cpp" />
+    <ClCompile Include="..\Classes\LevelFactory.cpp" />
     <ClCompile Include="..\Classes\LevelManager.cpp" />
     <ClCompile Include="..\Classes\LevelSelectLayer.cpp" />
     <ClCompile Include="..\Classes\Log.cpp" />
     <ClCompile Include="..\Classes\MainModeLayer.cpp" />
+    <ClCompile Include="..\Classes\MainModeLevel.cpp" />
+    <ClCompile Include="..\Classes\MainModeLevelFactory.cpp" />
     <ClCompile Include="..\Classes\MenuButtonLayer.cpp" />
     <ClCompile Include="..\Classes\MenuLayer.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
@@ -160,6 +166,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\AcceleratingLane.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Background.h" />
     <ClInclude Include="..\Classes\Bus.h" />
@@ -168,16 +175,21 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClInclude Include="..\Classes\Dimensions.h" />
     <ClInclude Include="..\Classes\DisappearingLog.h" />
     <ClInclude Include="..\Classes\Egg.h" />
+    <ClInclude Include="..\Classes\EggScrambleLevel.h" />
+    <ClInclude Include="..\Classes\EggScrambleLevelFactory.h" />
     <ClInclude Include="..\Classes\EggScrambleModeLayer.h" />
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameOverLayer.h" />
     <ClInclude Include="..\Classes\HUDLayer.h" />
     <ClInclude Include="..\Classes\Lane.h" />
     <ClInclude Include="..\Classes\Level.h" />
+    <ClInclude Include="..\Classes\LevelFactory.h" />
     <ClInclude Include="..\Classes\LevelManager.h" />
     <ClInclude Include="..\Classes\LevelSelectLayer.h" />
     <ClInclude Include="..\Classes\Log.h" />
     <ClInclude Include="..\Classes\MainModeLayer.h" />
+    <ClInclude Include="..\Classes\MainModeLevel.h" />
+    <ClInclude Include="..\Classes\MainModeLevelFactory.h" />
     <ClInclude Include="..\Classes\MenuButtonLayer.h" />
     <ClInclude Include="..\Classes\MenuLayer.h" />
     <ClInclude Include="..\Classes\GameFunctions.h" />

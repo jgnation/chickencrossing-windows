@@ -8,17 +8,28 @@
 
 class Level
 {
-private:
-	Level(cocos2d::CCDictionary * levelData);
-	~Level(void);
-	friend class LevelManager;	//only the LevelManager can instantiate this class
-
+protected:
 
 	cocos2d::CCDictionary * _levelData;
+
+	virtual int getMaxRoadInterval() = 0;
+	virtual int getMinRoadInterval() = 0;
+	virtual int getMinWaterInterval() = 0;
+	virtual int getMaxWaterInterval() = 0;
+	virtual float getMinStartDuration() = 0;
+	virtual float getMaxStartDuration() = 0;
+	virtual Lane * createNewLane(int laneNumber, Lane::LaneType laneType, int interval, float duration, std::vector<std::string> vehicles) = 0;
+
+	Level(cocos2d::CCDictionary * levelData);
+	//~Level(void);
+private:
+	friend class LevelManager;	//only the LevelManager can instantiate this class
+
 	Background * _background;
 	std::vector<Lane *> _lanes;
-public:
 
+public:
+	void init();
 	Background * getBackground();
 	Lane::LaneType getLaneType(int laneNumber);
 	Lane * getLane(int laneNumber);

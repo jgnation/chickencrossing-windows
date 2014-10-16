@@ -33,8 +33,6 @@ private:
 	Egg * _egg;
 	cocos2d::CCArray * vehicleList2;
 
-	LevelManager * _levelManager;
-
 	void addKeyboardSupport();
 
 	enum ActionLayerPositions {
@@ -54,6 +52,7 @@ protected:
 	int _levelNumber;
 	std::vector<Vehicle *> vehicleList;
 	Level * _level;
+	LevelManager * _levelManager;
 public:
 	int _score;
 	int _numEggsToCollect;

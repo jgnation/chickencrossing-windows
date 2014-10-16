@@ -16,10 +16,7 @@ Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std:
 	_vehicles = vehicles;
 	_interval = interval;
 
-	//TODO, deal with these
 	_nextSpawnTime = 0;
-	_increaseSpeedInterval = 4000.0;	//pull this into config
-	_nextIncreaseSpeedTime = 0;
 
 	_vehicleFactory = new VehicleFactory();
 	_dimensions = new Dimensions();
@@ -34,16 +31,6 @@ bool Lane::isTimeToSpawn(float currentTime)
 			_nextSpawnTime = _interval + currentTime;
 			return true;
 		}
-	}
-	return false;
-}
-
-bool Lane::isTimeToIncreaseSpeed(float currentTime)
-{
-	if (currentTime > _nextIncreaseSpeedTime)
-	{
-		_nextIncreaseSpeedTime = _increaseSpeedInterval + currentTime;
-		return true;
 	}
 	return false;
 }
@@ -101,11 +88,6 @@ Vehicle * Lane::getRandomVehicle()
 int Lane::getSpeed()
 {
 	return _speed;
-}
-
-void Lane::increaseSpeed()
-{
-	_speed = _speed + 100;
 }
 
 Lane::LaneType Lane::getLaneType()

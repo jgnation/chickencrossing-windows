@@ -5,14 +5,22 @@ using namespace cocos2d;
 
 Level::Level(CCDictionary * levelData)
 {
-	_levelData = levelData;
+	_levelData = levelData;	
+}
+
+/*
+This function was created because it is not good to call virtual functions from within
+a constructor
+*/
+void Level::init()
+{
 	_background = new Background(_levelData->valueForKey("Background")->getCString());
-	int maxRoadInterval = _levelData->valueForKey("MaxRoadInterval")->intValue();
-	int minRoadInterval = _levelData->valueForKey("MinRoadInterval")->intValue();
-	int maxWaterInterval = _levelData->valueForKey("MaxWaterInterval")->intValue();
-	int minWaterInterval = _levelData->valueForKey("MinWaterInterval")->intValue();
-	float minDuration = _levelData->valueForKey("MinDuration")->floatValue();
-	float maxDuration = _levelData->valueForKey("MaxDuration")->floatValue();
+	int maxRoadInterval = this->getMaxRoadInterval();
+	int minRoadInterval = this->getMinRoadInterval();
+	int maxWaterInterval = this->getMaxWaterInterval();
+	int minWaterInterval = this->getMinWaterInterval();
+	float minStartDuration = this->getMinStartDuration();
+	float maxStartDuration = this->getMaxStartDuration();
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
 
@@ -32,7 +40,7 @@ Level::Level(CCDictionary * levelData)
 		else
 			interval = 0;
 
-		float duration = GameFunctions::randomValueBetween(minDuration, maxDuration);
+		float duration = GameFunctions::randomValueBetween(minStartDuration, maxStartDuration);
 
 		CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
 		CCObject *iter;
@@ -43,7 +51,7 @@ Level::Level(CCDictionary * levelData)
 			vehicleVector.push_back(vehicle->getCString());
 		}
 
-		_lanes.push_back(new Lane(laneNumber, laneType, interval, duration, vehicleVector));
+		_lanes.push_back(this->createNewLane(laneNumber, laneType, interval, duration, vehicleVector));
 		laneNumber++;
 	}
 }
@@ -90,8 +98,6 @@ Lane::LaneType Level::getLaneType(int laneNumber)
 	return laneEnumType;
 }
 
-/**blahblahblah
-*/
 int Level::getRandomValidLaneNumber()
 {
 	//this is what GameLayer currently does
@@ -115,4 +121,5 @@ int Level::getRandomValidLaneNumber()
 	int randomIndex = GameFunctions::randomValueBetween(0, validLaneNumbers.size() - 1);
 	return validLaneNumbers[randomIndex];
 }
+
 

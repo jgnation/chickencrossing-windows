@@ -2,7 +2,8 @@
 #include "Lane.h"
 #include "Level.h"
 #include "GameFunctions.h"
-
+#include "EggScrambleLevelFactory.h"
+#include "AcceleratingLane.h"
 
 using namespace cocos2d;
 
@@ -55,6 +56,7 @@ bool EggScrambleModeLayer::init(int levelNumber)
     do 
     {
 		_levelNumber = levelNumber;
+		_levelManager = new LevelManager(new EggScrambleLevelFactory());
 
         CC_BREAK_IF(! GameLayer::init());
 
@@ -66,28 +68,28 @@ bool EggScrambleModeLayer::init(int levelNumber)
 
 void EggScrambleModeLayer::initialChecks()
 {
-	//do nothing
-
-	std::vector<Lane *> lanes = _level->getLanes(); //I shouldn't have to retrieve this every update
-	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
+	if (_score >= _numEggsToCollect)
 	{
-		Lane * lane = dynamic_cast<Lane *>(*it);
-		/*float currentTime = getTimeTick();
-		if (lane->isTimeToSpawn(currentTime))
-		{
-			Vehicle * vehicle = lane->spawnVehicle();
-			vehicleList.push_back(vehicle);
+		_score = 0; //TODO: this is a temp solution
+		_numEggsToCollect++;
 
-			vehicle->move();
-			this->addChild(vehicle->getSprite());
+		std::vector<Lane *> lanes = _level->getLanes();
 
-			//set vehicle movement animation
-			//delete or release at end of animation?
-		}*/
-		float currentTime = GameFunctions::getTimeTick();
-		if (lane->isTimeToIncreaseSpeed(currentTime))
+		for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
 		{
-			lane->increaseSpeed();
+			/*
+			I was initially getting the following error when trying to downcast the Lane to an Accelerating Lane:
+			"the operand of runtime dynamic_cast must have a polymorphic class type"
+			The operand, in this case, is *it, which is a Lane*.  To make the class polymorphic, I simply
+			made one of the methods in Lane virtual (even though I have no intention of overriding it).
+			*/
+			AcceleratingLane * lane = dynamic_cast<AcceleratingLane *>(*it);
+
+			Lane::LaneType laneType = lane->getLaneType();
+			if (laneType == Lane::LaneType::ROAD || laneType == Lane::LaneType::WATER)
+			{
+				lane->increaseSpeed();
+			}		
 		}
 	}
 }
