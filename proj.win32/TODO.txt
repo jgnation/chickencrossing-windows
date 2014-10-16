@@ -16,20 +16,15 @@ Balancing Difficulty:
 -The frequency that logs appear might need to be tweaked
 -Number of lives might need to be tweaked
 
-Egg Scramble:
--decrease log disappear time when sped up (do this in Lane/AcceleratingLane)
--create a eggscramble and main mode area in each plist file.
-<key>EggScramble</key>
-<dict>a bunch of settings</dict>
-<key>MainMode</key>
-<dict>a bunch of settings</dict>
-This will allow me to tinker with the settings without jacking up the main mode.
--Quit resetting the score
--Call levels "waves" in egg scramble?  Wave 1, Wave 2?
--Wipe out all traffic when beating waves?
-
-
 TODO:
+-add TopScores image to top scores screen
+-indicate if a top score is new (highlight it in red?)
+-get a new chicken image
+-tinker with egg scramble low/top speed settings
+-should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
+-Stop resetting the score on egg scramble mode.  I might want to stop on main mode too.
+-The disappearing logs probabilities may want to be different in egg scramble.  If so, I should probably just have
+separate config files for main mode levels and egg scramble levels
 -get rid of level 10...it can produce a shitload of spawn kills.
 -I saw a bug (on level 10, after getting spawn killed - which may or may not be related), where when I got to the game over screen, every time I hit the next button
 a new top scores screen would show up on top of the previous one.  I'm not sure if the "game over" image disappeared.  This also MAY have resulted in that score being
@@ -53,18 +48,7 @@ working first.  Yes, yes I should.
 
 
 
-TODO (Important):
--fix egg scramble mode:
-	-work on the speed increase
-	-as the traffic moves faster, the time that a log disappears should decrease (it should be a percentage of the log movement duration)
-	-as speed increases in egg scramble, the new cars should be spawning quicker
-	-should traffic steady increase as time goes on, or as eggs are collected?
--find an appropriate number of cars per level, as well as appropriate interval
--the logs shouldn't disappear right after coming onto the screen
--I saw the game crash when I beat level 2 while riding a log...whattup w/ that?
--make all road level and all water level
--pretty up the game over score screen.  Indicate if one of the scores is new.
--try out stuff on various screen sizes
+TODO:
 -logs of various lengths
 -alligators to ride
 -splash screen
@@ -132,8 +116,6 @@ Features to implement:
 	-tutorial screen for each mode
 	-About screen (movie credits text) 
 	-like on facebook kind of text?  review game button?
-------------------------------------------------------------------------------------------------------------------------------
-
 ------------------------------------------------------------------------------------------------------------------------------
 
 
