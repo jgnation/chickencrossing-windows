@@ -6,6 +6,7 @@
 #include "SimpleAudioEngine.h"
 #include "Vehicle.h"
 #include "Dimensions.h"
+#include "TopScore.h"
 
 
 //#include "GameMode.h"
@@ -99,7 +100,7 @@ public:
 	void ridingChickenHittingEdgeOfScreen();
 
 	virtual void initialChecks() = 0;
-	virtual std::vector<int> checkHighScores() = 0;
+	virtual std::vector<TopScore> checkHighScores() = 0;
 
 
 };

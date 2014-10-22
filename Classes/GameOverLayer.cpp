@@ -3,7 +3,7 @@
  
 using namespace cocos2d;
  
-bool GameOverLayer::init(std::vector<int> highScores)
+bool GameOverLayer::init(std::vector<TopScore> highScores)
 {
     if (CCLayer::init()) {
 
@@ -110,7 +110,7 @@ void GameOverLayer::displayTopScores()
 	for (int i = 0; i < _highScores.size(); i++)
 	{
 		std::stringstream sstm;
-		sstm << (i + 1) << ". " << _highScores[i];
+		sstm << (i + 1) << ". " << _highScores[i].getScore();
 
 		CCLabelBMFont * scoreLabel = CCLabelBMFont::create(sstm.str().c_str(), "futura-48.fnt");
 		Size originalSize = scoreLabel->getContentSize();
@@ -119,6 +119,10 @@ void GameOverLayer::displayTopScores()
 		scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 		scoreLabel->setAnchorPoint(ccp(0,1));
 		scoreLabel->setPosition(ccp(10, backgroundColorSize.height * yCoefficient));
+		if (_highScores[i].isScoreNew())
+		{
+			scoreLabel->setColor(ccc3(240, 40, 40)); 
+		}
 		backgroundColor->addChild(scoreLabel);
 		yCoefficient -= .2;
 	}

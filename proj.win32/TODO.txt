@@ -16,12 +16,11 @@ Balancing Difficulty:
 -The frequency that logs appear might need to be tweaked
 -Number of lives might need to be tweaked
 
-TODO:
--indicate if a top score is new (highlight it in red?)
+TODO
+-Stop resetting the score on egg scramble mode.  I might want to stop on main mode too.
 -get a new chicken image
 -tinker with egg scramble low/top speed settings
 -should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
--Stop resetting the score on egg scramble mode.  I might want to stop on main mode too.
 -The disappearing logs probabilities may want to be different in egg scramble.  If so, I should probably just have
 separate config files for main mode levels and egg scramble levels
 -get rid of level 10...it can produce a shitload of spawn kills.

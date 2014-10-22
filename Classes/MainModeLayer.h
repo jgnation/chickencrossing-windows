@@ -10,7 +10,7 @@ public:
 	~MainModeLayer(void);
 
 	void initialChecks();
-	std::vector<int> checkHighScores();
+	std::vector<TopScore> checkHighScores();
 
 	//virtual bool init();
 	static cocos2d::CCScene* scene();

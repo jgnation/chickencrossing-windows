@@ -13,6 +13,7 @@
 #include "GameOverLayer.h"
 #include "Dimensions.h"
 #include "GameFunctions.h"
+#include "TopScore.h"
 #include <string>
 
 using namespace cocos2d;
@@ -304,7 +305,7 @@ void GameLayer::gameOver()
 {
 	_chicken->getSprite()->setVisible(false);
 
-	std::vector<int> highScores = this->checkHighScores();
+	std::vector<TopScore> highScores = this->checkHighScores();
 
 	//display GameOver with a next button
 	GameOverLayer* gameOverLayer = new GameOverLayer();

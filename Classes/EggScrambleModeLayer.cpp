@@ -4,7 +4,6 @@
 #include "GameFunctions.h"
 #include "EggScrambleLevelFactory.h"
 #include "AcceleratingLane.h"
-#include "TopScore.h"
 
 using namespace cocos2d;
 
@@ -95,22 +94,22 @@ void EggScrambleModeLayer::initialChecks()
 	}
 }
 
-std::vector<int> EggScrambleModeLayer::checkHighScores()
+std::vector<TopScore> EggScrambleModeLayer::checkHighScores()
 {
 	//all of this saving functionality should be pulled into another class
-	std::vector<int> highScores;
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_1"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_2"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_3"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_4"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_5"));
+	std::vector<TopScore> highScores;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_1"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_2"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_3"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_4"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_5"), false));
 
 	bool topScore = false;
 	for (int i = 0; i < highScores.size(); i++)
 	{
-		if (_score > highScores[i])
+		if (_score > highScores[i].getScore())
 		{
-			highScores.emplace(highScores.begin() + i, _score);
+			highScores.emplace(highScores.begin() + i, TopScore(_score, true));
 			topScore = true;
 			break;
 		}
@@ -126,7 +125,7 @@ std::vector<int> EggScrambleModeLayer::checkHighScores()
 			std::stringstream sstm;
 			sstm << "esm_level_place_" << (i + 1);
 
-			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i]);
+			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i].getScore());
 		}
 		CCUserDefault::sharedUserDefault()->flush();
 	}

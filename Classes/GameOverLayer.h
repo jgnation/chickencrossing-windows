@@ -2,6 +2,7 @@
 #define __GAMEOVERLAYER_H__
  
 #include "cocos2d.h"
+#include "TopScore.h"
  
 using namespace cocos2d;
 
@@ -12,11 +13,11 @@ private:
 	CCMenuItemImage *arrow1;
 	CCMenu* pMenu;
 
-	std::vector<int> _highScores;
+	std::vector<TopScore> _highScores;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
-    virtual bool init(std::vector<int> highScores);
+    virtual bool init(std::vector<TopScore> highScores);
  
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static CCScene* scene();

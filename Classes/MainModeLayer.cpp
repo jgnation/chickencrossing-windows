@@ -58,25 +58,25 @@ void MainModeLayer::initialChecks()
 	}
 }
 
-std::vector<int> MainModeLayer::checkHighScores()
+std::vector<TopScore> MainModeLayer::checkHighScores()
 {
 	//see if current score should be saved and save it if necessary
 	int levelsBeaten = _levelNumber - 1;
 
 	//all of this saving functionality should be pulled into another class
-	std::vector<int> highScores;
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_1"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_2"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_3"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_4"));
-	highScores.push_back(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_5"));
+	std::vector<TopScore> highScores;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_1"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_2"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_3"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_4"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_5"), false));
 
 	bool topScore = false;
 	for (int i = 0; i < highScores.size(); i++)
 	{
-		if (levelsBeaten > highScores[i])
+		if (levelsBeaten > highScores[i].getScore())
 		{
-			highScores.emplace(highScores.begin() + i, levelsBeaten);
+			highScores.emplace(highScores.begin() + i, TopScore(levelsBeaten, true));
 			topScore = true;
 			break;
 		}
@@ -92,7 +92,7 @@ std::vector<int> MainModeLayer::checkHighScores()
 			std::stringstream sstm;
 			sstm << "mm_level_place_" << (i + 1);
 
-			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i]);
+			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i].getScore());
 		}
 		CCUserDefault::sharedUserDefault()->flush();
 	}
