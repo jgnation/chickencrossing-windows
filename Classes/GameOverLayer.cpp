@@ -55,6 +55,15 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 	arrow1->setVisible(false);
 	pMenu->setVisible(false);
 
+	//add top scores image
+	float originalWidth = 576;
+	float originalHeight = 144;
+	CCSprite * topScores = CCSprite::create("top_scores.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	float scaleRatio = (winSize.width *.7) / topScores->getContentSize().width;
+	topScores->setScale(scaleRatio);
+	topScores->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .85));
+	this->addChild(topScores);
+
 	this->displayTopScores();
 
 	//display next button

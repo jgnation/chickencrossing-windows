@@ -160,6 +160,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClCompile Include="..\Classes\MenuButtonLayer.cpp" />
     <ClCompile Include="..\Classes\MenuLayer.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
+    <ClCompile Include="..\Classes\TopScore.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />
     <ClCompile Include="..\Classes\Vehicle.cpp" />
     <ClCompile Include="..\Classes\VehicleFactory.cpp" />
@@ -194,6 +195,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <ClInclude Include="..\Classes\MenuLayer.h" />
     <ClInclude Include="..\Classes\GameFunctions.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
+    <ClInclude Include="..\Classes\TopScore.h" />
     <ClInclude Include="..\Classes\Truck.h" />
     <ClInclude Include="..\Classes\Vehicle.h" />
     <ClInclude Include="..\Classes\VehicleFactory.h" />

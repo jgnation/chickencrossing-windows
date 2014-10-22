@@ -4,6 +4,7 @@
 #include "GameFunctions.h"
 #include "EggScrambleLevelFactory.h"
 #include "AcceleratingLane.h"
+#include "TopScore.h"
 
 using namespace cocos2d;
 

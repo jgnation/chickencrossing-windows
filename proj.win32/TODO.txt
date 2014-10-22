@@ -17,7 +17,6 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO:
--add TopScores image to top scores screen
 -indicate if a top score is new (highlight it in red?)
 -get a new chicken image
 -tinker with egg scramble low/top speed settings
@@ -32,7 +31,6 @@ written to the saved file multiple times (ex.  I might have had 1. 10, 2. 9, 3. 
 last thing happened for sure.).  I should do some testing to determine if this is related...
 -review scaling of word images...do they need to be scaled by width and height separately?
 -design the about screen
--finish top scores screen
 -add alligators?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
 -scale chicken and egg horizontally?
