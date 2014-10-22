@@ -42,6 +42,7 @@ bool MainModeLayer::init()
     {
 		_levelNumber = 1;
 		_levelManager = new LevelManager(new MainModeLevelFactory());
+		_nextLevelScore = calculateNextLevelScore(_levelNumber);
 
         CC_BREAK_IF(! GameLayer::init());
 
@@ -52,9 +53,10 @@ bool MainModeLayer::init()
 }
 void MainModeLayer::initialChecks()
 {
-	if (_score >= _numEggsToCollect)
+	if (_score >= _nextLevelScore)
 	{
 		this->loadNextLevel();
+		_nextLevelScore = calculateNextLevelScore(_levelNumber);
 	}
 }
 

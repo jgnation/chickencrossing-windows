@@ -17,7 +17,8 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO
--Stop resetting the score on egg scramble mode.  I might want to stop on main mode too.
+-make main mode top scores display scores, not levels
+-add dates to top scores
 -get a new chicken image
 -tinker with egg scramble low/top speed settings
 -should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?

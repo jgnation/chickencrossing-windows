@@ -6,6 +6,9 @@
 
 class EggScrambleModeLayer : public GameLayer
 {
+private:
+	int _waveNumber;
+	int _nextWaveScore;
 public:
 	EggScrambleModeLayer(void);
 	~EggScrambleModeLayer(void);

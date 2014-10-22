@@ -89,12 +89,11 @@ bool GameLayer::init()
 
 		vehicleList2 = new CCArray();
 
+		_score = 0;
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
 		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
 
-
-		//_levelNumber = 1;
 		this->loadLevel(_levelNumber);
 
 		_lives = 5;
@@ -325,11 +324,9 @@ void GameLayer::loadLevel(int levelNumber)
 	this->resetChicken();
 
 	_numEggsToCollect = levelNumber;
-	_score = 0;									//I will probably not want to reset this in the future
 	_hudLayer->setLevel(levelNumber);
 	_hudLayer->setScore(_score);
-	//_lives = 5;
-	//_hudLayer->setLives(_lives);
+
 	_level = _levelManager->getLevel(levelNumber);
 	_level->init();
 	_actionLayer->addChild(_level->getBackground()->getSprite(), BACKGROUND_POSITION);
@@ -395,5 +392,14 @@ void GameLayer::addKeyboardSupport()
 	keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
 
 	EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+}
+
+int GameLayer::calculateNextLevelScore(int levelNumber)
+{
+	if (levelNumber == 0)
+	{
+		return 0;
+	}
+	return levelNumber + calculateNextLevelScore(levelNumber - 1);
 }
 

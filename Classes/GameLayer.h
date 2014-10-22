@@ -54,6 +54,7 @@ protected:
 	std::vector<Vehicle *> vehicleList;
 	Level * _level;
 	LevelManager * _levelManager;
+	int calculateNextLevelScore(int levelNumber);
 public:
 	int _score;
 	int _numEggsToCollect;

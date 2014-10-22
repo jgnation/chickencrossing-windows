@@ -57,6 +57,8 @@ bool EggScrambleModeLayer::init(int levelNumber)
     {
 		_levelNumber = levelNumber;
 		_levelManager = new LevelManager(new EggScrambleLevelFactory());
+		_waveNumber = 1;
+		_nextWaveScore = calculateNextLevelScore(_waveNumber);
 
         CC_BREAK_IF(! GameLayer::init());
 
@@ -68,10 +70,10 @@ bool EggScrambleModeLayer::init(int levelNumber)
 
 void EggScrambleModeLayer::initialChecks()
 {
-	if (_score >= _numEggsToCollect)
-	{
-		_score = 0; //TODO: this is a temp solution
-		_numEggsToCollect++;
+	if (_score >= _nextWaveScore)
+	{		
+		_waveNumber++;
+		_nextWaveScore = calculateNextLevelScore(_waveNumber);
 
 		std::vector<Lane *> lanes = _level->getLanes();
 

@@ -5,6 +5,8 @@
 
 class MainModeLayer : public GameLayer
 {
+protected:
+	int _nextLevelScore;
 public:
 	MainModeLayer(void);
 	~MainModeLayer(void);
