@@ -4,11 +4,11 @@
 
 using namespace cocos2d;
 
-LevelManager::LevelManager(LevelFactory * factory)
+LevelManager::LevelManager(LevelFactory * factory, std::string fileName)
 {
 	_levelFactory = factory;
 
-	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathForFilename("levels.plist");
+	std::string levelsFileName = CCFileUtils::sharedFileUtils()->fullPathForFilename(fileName);
 	_levels = CCDictionary::createWithContentsOfFileThreadSafe(levelsFileName.c_str());
 	_levels->retain();
 

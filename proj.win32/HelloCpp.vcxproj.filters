@@ -217,49 +217,88 @@
     <None Include="..\Resources\background_layered.psd">
       <Filter>resource</Filter>
     </None>
-    <None Include="..\Resources\level_1.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_2.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_3.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\levels.plist">
-      <Filter>resource</Filter>
-    </None>
     <None Include="..\Resources\start_game.psd">
       <Filter>resource</Filter>
     </None>
-    <None Include="..\Resources\level_4.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_5.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_6.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_7.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_8.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_9.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_10.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_11.plist">
-      <Filter>resource</Filter>
-    </None>
-    <None Include="..\Resources\level_12.plist">
-      <Filter>resource</Filter>
-    </None>
     <None Include="..\Resources\futura-48.fnt">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_levels.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_levels.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_1.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_3.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_4.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_5.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_6.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_7.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_8.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_9.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_10.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_11.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_12.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_1.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_3.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_4.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_5.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_6.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_7.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_8.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_9.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_10.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_11.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_12.plist">
       <Filter>resource</Filter>
     </None>
   </ItemGroup>

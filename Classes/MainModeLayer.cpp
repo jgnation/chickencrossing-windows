@@ -41,7 +41,7 @@ bool MainModeLayer::init()
     do 
     {
 		_levelNumber = 1;
-		_levelManager = new LevelManager(new MainModeLevelFactory());
+		_levelManager = new LevelManager(new MainModeLevelFactory(), "mm_levels.plist");
 		_nextLevelScore = calculateNextLevelScore(_levelNumber);
 
         CC_BREAK_IF(! GameLayer::init());
@@ -89,7 +89,7 @@ std::vector<TopScore> MainModeLayer::checkHighScores()
 		for (int i = 0; i < highScores.size(); i++)
 		{
 			std::stringstream sstm;
-			sstm << "mm_level_place_" << (i + 1);
+			sstm << "mm_place_" << (i + 1);
 
 			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i].getScore());
 		}

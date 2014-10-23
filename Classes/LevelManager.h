@@ -13,7 +13,7 @@ class LevelFactory;
 class LevelManager
 {
 public:
-	LevelManager(LevelFactory * factory);
+	LevelManager(LevelFactory * factory, std::string fileName);
 	~LevelManager();
 
 	Level * getLevel(int levelNumber);

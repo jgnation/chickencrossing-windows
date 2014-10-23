@@ -3,24 +3,9 @@
 <plist version="1.0">
   <dict>
     <key>Level</key>
-    <string>9</string>
+    <string>7</string>
     <key>Background</key>
-    <string>background9.png</string>
-    <key>MainMode</key>
-    <dict>
-      <key>MaxRoadInterval</key>
-      <string>4000</string>
-      <key>MinRoadInterval</key>
-      <string>3500</string>
-      <key>MaxWaterInterval</key>
-      <string>4000</string>
-      <key>MinWaterInterval</key>
-      <string>3500</string>
-      <key>MinStartDuration</key>
-      <string>5.0</string>
-      <key>MaxStartDuration</key>
-      <string>10.0</string>
-    </dict>
+    <string>background7.png</string>
     <key>EggScramble</key>
     <dict>
       <key>MaxRoadInterval</key>
@@ -52,13 +37,22 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>WATER</string>
+        <string>ROAD</string>
         <key>Vehicles</key>
         <array>
-          <string>Log</string>
-          <string>Log</string>
-          <string>Log</string>
-          <string>DisappearingLog</string>
+          <string>Car</string>
+          <string>Truck</string>
+          <string>Bus</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>ROAD</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Car</string>
+          <string>Truck</string>
+          <string>Bus</string>
         </array>
       </dict>
       <dict>
@@ -71,43 +65,6 @@
           <string>Log</string>
           <string>DisappearingLog</string>
         </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>WATER</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Log</string>
-          <string>Log</string>
-          <string>Log</string>
-          <string>DisappearingLog</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>WATER</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Log</string>
-          <string>Log</string>
-          <string>Log</string>
-          <string>DisappearingLog</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>WATER</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Log</string>
-          <string>Log</string>
-          <string>Log</string>
-          <string>DisappearingLog</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>REST</string>
       </dict>
       <dict>
         <key>Type</key>
@@ -162,6 +119,37 @@
           <string>Log</string>
           <string>Log</string>
           <string>DisappearingLog</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>WATER</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>ROAD</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Car</string>
+          <string>Truck</string>
+          <string>Bus</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>ROAD</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Car</string>
+          <string>Truck</string>
+          <string>Bus</string>
         </array>
       </dict>
       <dict>

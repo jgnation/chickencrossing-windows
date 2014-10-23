@@ -38,7 +38,7 @@ bool MenuLayer::init()
 		menuButtonLayer->init();
 		this->addChild(menuButtonLayer, 5);	//z position is  on top, chicken is on 1
 
-		LevelManager * _levelManager = new LevelManager(new MainModeLevelFactory());
+		LevelManager * _levelManager = new LevelManager(new MainModeLevelFactory(), "mm_levels.plist");
 		int _levelNumber = 1;
 		//this->loadLevel(_levelNumber);
 		_level = _levelManager->getLevel(_levelNumber);

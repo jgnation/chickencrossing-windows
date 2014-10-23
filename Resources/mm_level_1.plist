@@ -3,9 +3,9 @@
 <plist version="1.0">
   <dict>
     <key>Level</key>
-    <string>11</string>
-    <key>Background</key>
-    <string>background11.png</string>
+	  <string>1</string>
+	  <key>Background</key>
+	  <string>background1.png</string>
     <key>MainMode</key>
     <dict>
       <key>MaxRoadInterval</key>
@@ -21,40 +21,15 @@
       <key>MaxStartDuration</key>
       <string>10.0</string>
     </dict>
-    <key>EggScramble</key>
-    <dict>
-      <key>MaxRoadInterval</key>
-      <string>8000</string>
-      <key>MinRoadInterval</key>
-      <string>6000</string>
-      <key>MaxWaterInterval</key>
-      <string>6000</string>
-      <key>MinWaterInterval</key>
-      <string>4000</string>
-      <key>MinStartDuration</key>
-      <string>9.0</string>
-      <key>MaxStartDuration</key>
-      <string>12.0</string>
-      <key>MaxDuration</key>
-      <string>12.0</string>
-      <key>MinDuration</key>
-      <string>2.0</string>
-    </dict>
-    <key>Lanes</key>
-    <array>
+	  <key>Lanes</key>
+	  <array>
       <dict>
         <key>Type</key>
         <string>INVALID</string>
       </dict>
       <dict>
-        <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
+          <key>Type</key>
+          <string>REST</string>
       </dict>
       <dict>
         <key>Type</key>
@@ -108,13 +83,7 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
+        <string>REST</string>
       </dict>
       <dict>
         <key>Type</key>
@@ -168,13 +137,7 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
+        <string>REST</string>
       </dict>
       <dict>
         <key>Type</key>
@@ -184,6 +147,6 @@
         <key>Type</key>
         <string>INVALID</string>
       </dict>
-    </array>
+	</array>	
   </dict>
 </plist>

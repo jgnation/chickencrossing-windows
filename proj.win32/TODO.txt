@@ -17,10 +17,13 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
--divide egg scramble and main mode plists, less disappearing logs in egg scramble mode
 -design the about screen
+-finish egg scramble level select screen
+-make disappearing logs less frequent in egg scramble
 -get a new chicken image
 -tinker with egg scramble low/top speed settings
+-for egg scramble mode display the level number with the top scores?
+-display which mode it is with the top scores
 -get rid of level 10...it can produce a shitload of spawn kills.
 -Add chicken to the actionLayer
 -should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
@@ -33,7 +36,6 @@ TODO (fo sho!):
 
 TODO (maybe?):
 -I might want to upgrade to version 3.0 of the framework at some point.
--for egg scramble mode display the level with the top scores?
 -add dates to top scores?
 -logs of various lengths
 -alligators to ride

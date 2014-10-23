@@ -21,25 +21,6 @@
       <key>MaxStartDuration</key>
       <string>10.0</string>
     </dict>
-    <key>EggScramble</key>
-    <dict>
-      <key>MaxRoadInterval</key>
-      <string>8000</string>
-      <key>MinRoadInterval</key>
-      <string>6000</string>
-      <key>MaxWaterInterval</key>
-      <string>6000</string>
-      <key>MinWaterInterval</key>
-      <string>4000</string>
-      <key>MinStartDuration</key>
-      <string>9.0</string>
-      <key>MaxStartDuration</key>
-      <string>12.0</string>
-      <key>MaxDuration</key>
-      <string>12.0</string>
-      <key>MinDuration</key>
-      <string>2.0</string>
-    </dict>
     <key>Lanes</key>
     <array>
       <dict>

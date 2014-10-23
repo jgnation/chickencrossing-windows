@@ -56,7 +56,7 @@ bool EggScrambleModeLayer::init(int levelNumber)
     do 
     {
 		_levelNumber = levelNumber;
-		_levelManager = new LevelManager(new EggScrambleLevelFactory());
+		_levelManager = new LevelManager(new EggScrambleLevelFactory(), "esm_levels.plist");
 		_waveNumber = 1;
 		_nextWaveScore = calculateNextLevelScore(_waveNumber);
 
@@ -125,7 +125,7 @@ std::vector<TopScore> EggScrambleModeLayer::checkHighScores()
 		for (int i = 0; i < highScores.size(); i++)
 		{
 			std::stringstream sstm;
-			sstm << "esm_level_place_" << (i + 1);
+			sstm << "esm_place_" << (i + 1);
 
 			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i].getScore());
 		}
