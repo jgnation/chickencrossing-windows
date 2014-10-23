@@ -16,37 +16,25 @@ Balancing Difficulty:
 -The frequency that logs appear might need to be tweaked
 -Number of lives might need to be tweaked
 
-TODO
--make main mode top scores display scores, not levels
--add dates to top scores
+TODO (fo sho!):
+-divide egg scramble and main mode plists, less disappearing logs in egg scramble mode
+-design the about screen
 -get a new chicken image
 -tinker with egg scramble low/top speed settings
--should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
--The disappearing logs probabilities may want to be different in egg scramble.  If so, I should probably just have
-separate config files for main mode levels and egg scramble levels
 -get rid of level 10...it can produce a shitload of spawn kills.
--I saw a bug (on level 10, after getting spawn killed - which may or may not be related), where when I got to the game over screen, every time I hit the next button
-a new top scores screen would show up on top of the previous one.  I'm not sure if the "game over" image disappeared.  This also MAY have resulted in that score being
-written to the saved file multiple times (ex.  I might have had 1. 10, 2. 9, 3. 8, 4. 7, 5. 7, and then had 1. 10, 2. 10, 3. 10, 4. 10, 5. 10.  I don't know if this
-last thing happened for sure.).  I should do some testing to determine if this is related...
+-Add chicken to the actionLayer
+-should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
 -review scaling of word images...do they need to be scaled by width and height separately?
--design the about screen
--add alligators?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
 -scale chicken and egg horizontally?
--chicken can't always get egg when close to edge of screen.  TODO: Is this true anymore?  Do I need to change 
-the bounds of egg spawn position, or did I already?
--logs should disappear more slowly so the chicken has more of a chance to get out of the way
--make variable length logs?
--The minimum interval needs to be long enough to make sure the horizontally-scaled vehicles don't overlap
--get a new random interval for each lane after a vehicle spawn so that a given lane doesn't always have the same time between spawns.
--Add chicken to the actionLayer
--I might want to upgrade to version 3.0 of the framework at some point.  Maybe I should just worry about getting it all
-working first.  Yes, yes I should.
+-make the egg not spawn so close to left and right edge?
 
 
 
-TODO:
+TODO (maybe?):
+-I might want to upgrade to version 3.0 of the framework at some point.
+-for egg scramble mode display the level with the top scores?
+-add dates to top scores?
 -logs of various lengths
 -alligators to ride
 -splash screen

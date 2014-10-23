@@ -100,11 +100,11 @@ std::vector<TopScore> EggScrambleModeLayer::checkHighScores()
 {
 	//all of this saving functionality should be pulled into another class
 	std::vector<TopScore> highScores;
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_1"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_2"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_3"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_4"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_level_place_5"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_1"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_2"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_3"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_4"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_5"), false));
 
 	bool topScore = false;
 	for (int i = 0; i < highScores.size(); i++)

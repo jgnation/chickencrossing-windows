@@ -62,23 +62,20 @@ void MainModeLayer::initialChecks()
 
 std::vector<TopScore> MainModeLayer::checkHighScores()
 {
-	//see if current score should be saved and save it if necessary
-	int levelsBeaten = _levelNumber - 1;
-
 	//all of this saving functionality should be pulled into another class
 	std::vector<TopScore> highScores;
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_1"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_2"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_3"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_4"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_level_place_5"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_1"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_2"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_3"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_4"), false));
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_5"), false));
 
 	bool topScore = false;
 	for (int i = 0; i < highScores.size(); i++)
 	{
-		if (levelsBeaten > highScores[i].getScore())
+		if (_score > highScores[i].getScore())
 		{
-			highScores.emplace(highScores.begin() + i, TopScore(levelsBeaten, true));
+			highScores.emplace(highScores.begin() + i, TopScore(_score, true));
 			topScore = true;
 			break;
 		}
