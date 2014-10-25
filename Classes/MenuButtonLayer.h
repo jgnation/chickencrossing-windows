@@ -37,6 +37,10 @@ public:
 
 	CCMenuItemImage* createAboutButton();
 
+	CCMenuItemImage* createAboutExitButton();
+
+	CCMenuItemImage* createJGNationLogo();
+
 
 };
  

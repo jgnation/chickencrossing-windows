@@ -183,3 +183,10 @@ To get the build working via eclipse:
 
 NOTES:
 -I want the standard logs to spawn more frequently than the disappearing logs.  To determine the probability, I simply added more logs to a given lane in the plist file.
+
+
+
+http://www.istockphoto.com/vector/chicken-egg-23518286?st=826a7f5
+^those licenses are kinda expensive
+
+https://openclipart.org/share <- get vehicles here and numbers! or make those myself. They have a good chicken as well.

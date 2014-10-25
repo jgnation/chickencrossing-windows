@@ -423,6 +423,12 @@
     <Image Include="..\Resources\futura-48.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\jgnation_logo_high.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jgnation_logo_med.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

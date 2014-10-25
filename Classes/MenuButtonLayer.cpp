@@ -32,22 +32,22 @@ bool MenuButtonLayer::init()
 		_mainMenu->setPosition(CCPointZero);
 		this->addChild(_mainMenu);
 
-
-
-
 		//create about menu
-		CCMenuItemImage* closeAboutImage = CCMenuItemImage::create(
-			"CloseNormal.png",
-			"CloseSelected.png",
-			this,
-			menu_selector(MenuButtonLayer::closeCallback));
+		//TODO: add image for jgnation.com, url, credit to artists, etc.
+		CCMenuItemImage* logoImage = this->createJGNationLogo();
+		CCMenuItemImage* arrowImage = this->createAboutExitButton();
 
-		closeAboutImage->setScale(.5);
-		// Place the menu item bottom-right conner.
-		closeAboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
+		cocos2d::CCMenuItemFont* pCloseItem = cocos2d::CCMenuItemFont::create(
+                                            "Close",
+                                            this,
+                                            NULL);
+		pCloseItem->setFontSize(35);
+		pCloseItem->setFontName("Helvetica");
+		pCloseItem->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height / 2));
+
 
 		// Create a menu with the "close" menu item, it's an auto release object.
-		_aboutMenu = CCMenu::create(closeAboutImage, NULL);
+		_aboutMenu = CCMenu::create(pCloseItem, logoImage, arrowImage, NULL);
 		_aboutMenu->setPosition(CCPointZero);
 
 		// Add the menu to HelloWorld layer as a child layer.
@@ -148,4 +148,42 @@ CCMenuItemImage* MenuButtonLayer::createAboutButton()
 	aboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .3));
 
 	return aboutImage;
+}
+
+CCMenuItemImage* MenuButtonLayer::createAboutExitButton()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidthArrow = 300;
+	float originalHeightArrow = 228;
+	CCMenuItemImage* arrow = CCMenuItemImage::create(
+		"arrow.png",
+		"arrow.png",
+		this,
+		menu_selector(MenuButtonLayer::closeCallback));
+
+	float scaleRatioArrowX = (windowSize.width *.2) / arrow->getContentSize().width;
+	float scaleRatioArrowY = (windowSize.height *.15) / arrow->getContentSize().height;
+	arrow->setScale(scaleRatioArrowX);
+	arrow->setScale(scaleRatioArrowY);
+	arrow->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .20));
+
+	return arrow;
+}
+
+CCMenuItemImage* MenuButtonLayer::createJGNationLogo()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidthLogo = 618;
+	float originalHeightLogo = 517;
+	CCMenuItemImage* logo = CCMenuItemImage::create(
+		"jgnation_logo_med.png",
+		"jgnation_logo_med.png",
+		this, 
+		NULL
+	);
+
+	logo->setScale((windowSize.width *.2) / logo->getContentSize().width);
+	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 5, CCDirector::sharedDirector()->getWinSize().height * .45));
+
+	return logo;
 }
