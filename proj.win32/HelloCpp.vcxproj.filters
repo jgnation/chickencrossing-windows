@@ -429,6 +429,42 @@
     <Image Include="..\Resources\jgnation_logo_med.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\num_1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_3.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_4.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_5.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_6.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_7.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_9.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_10.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_11.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_12.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

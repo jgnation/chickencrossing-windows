@@ -17,10 +17,10 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
--design the about screen
 -finish egg scramble level select screen
 -make disappearing logs less frequent in egg scramble
--get a new chicken image
+-get new chicken/vehicle images
+-finish the about screen
 -tinker with egg scramble low/top speed settings
 -for egg scramble mode display the level number with the top scores?
 -display which mode it is with the top scores
