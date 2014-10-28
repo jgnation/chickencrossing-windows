@@ -17,7 +17,7 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
--finish egg scramble level select screen
+-add "select a level" image to level select screen
 -make disappearing logs less frequent in egg scramble
 -get new chicken/vehicle images
 -finish the about screen

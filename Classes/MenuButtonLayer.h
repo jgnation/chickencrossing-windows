@@ -5,10 +5,10 @@
  
 using namespace cocos2d;
 
-
 class MenuButtonLayer : public cocos2d::CCLayer
 {
 private:
+	CCSprite * _titleImage;
     CCMenu* _mainMenu;
 	CCMenu* _aboutMenu;
  

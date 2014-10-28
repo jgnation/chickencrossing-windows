@@ -10,36 +10,37 @@ bool LevelSelectLayer::init()
     do 
     {
         CC_BREAK_IF(! CCLayer::init());
-
 		
-		CCMenuItemImage* number1Image = CCMenuItemImage::create(
-			"number1.png",
-			"number1.png",
-			this,
-			menu_selector(LevelSelectLayer::number1Callback));
-		number1Image->setScale(.3);
-		// Place the menu item bottom-right conner.
-		number1Image->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width * .3, CCDirector::sharedDirector()->getWinSize().height * .5));
+		CCMenuItemImage* number1Image = this->createLevelButton(1, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .7));
+		CCMenuItemImage* number2Image = this->createLevelButton(2, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .7));
+		CCMenuItemImage* number3Image = this->createLevelButton(3, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .7));
+		CCMenuItemImage* number4Image = this->createLevelButton(4, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .7));
 
-		CCMenuItemImage* number2Image = CCMenuItemImage::create(
-			"number2.png",
-			"number2.png",
-			this,
-			menu_selector(LevelSelectLayer::number2Callback));
-		number2Image->setScale(.3);
-		// Place the menu item bottom-right conner.
-		number2Image->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width *.5, CCDirector::sharedDirector()->getWinSize().height * .5));
+		CCMenuItemImage* number5Image = this->createLevelButton(5, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .5));
+		CCMenuItemImage* number6Image = this->createLevelButton(6, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .5));
+		CCMenuItemImage* number7Image = this->createLevelButton(7, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .5));
+		CCMenuItemImage* number8Image = this->createLevelButton(8, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .5));
 
-		CCMenuItemImage* number3Image = CCMenuItemImage::create(
-			"number3.png",
-			"number3.png",
-			this,
-			menu_selector(LevelSelectLayer::number3Callback));
-		number3Image->setScale(.3);
-		// Place the menu item bottom-right conner.
-		number3Image->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width *.7, CCDirector::sharedDirector()->getWinSize().height * .5));
+		CCMenuItemImage* number9Image = this->createLevelButton(9, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .3));
+		CCMenuItemImage* number10Image = this->createLevelButton(10, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .3));
+		CCMenuItemImage* number11Image = this->createLevelButton(11, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .3));
+		CCMenuItemImage* number12Image = this->createLevelButton(12, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .3));
 
-		_mainMenu = CCMenu::create(number1Image, number2Image, number3Image, NULL);
+		_mainMenu = CCMenu::create(
+			number1Image, 
+			number2Image, 
+			number3Image, 
+			number4Image, 
+			number5Image,
+			number6Image,
+			number7Image,
+			number8Image,
+			number9Image,
+			number10Image,
+			number11Image,
+			number12Image,
+			NULL
+		);
 		_mainMenu->setPosition(CCPointZero);
 		this->addChild(_mainMenu);
 
@@ -49,27 +50,28 @@ bool LevelSelectLayer::init()
     return bRet;
 }
 
-void LevelSelectLayer::number1Callback(CCObject* pSender)
-{
-	//GameMode * gameMode = new EggScrambleMode(1);
+CCMenuItemImage* LevelSelectLayer::createLevelButton(int levelNumber, Point &position)
+{		
+	std::string fileName = "num_" + std::to_string(levelNumber) + ".png";
 
-	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(EggScrambleModeLayer::scene(1));
+	CCMenuItemImage* levelImage = CCMenuItemImage::create(
+		fileName.c_str(),
+		fileName.c_str(),
+		this,
+		menu_selector(LevelSelectLayer::levelSelectCallback));
+
+	levelImage->setScale(.3); //TODO: scale x and y independently?
+	levelImage->setTag(levelNumber);
+	levelImage->setPosition(position);
+
+	return levelImage;
 }
 
-void LevelSelectLayer::number2Callback(CCObject* pSender)
+void LevelSelectLayer::levelSelectCallback(CCObject* pSender)
 {
-	//GameMode * gameMode = new EggScrambleMode(2);
+	CCMenuItem * item = (CCMenuItem *) pSender;
+	int levelNumber = item->getTag();
 
 	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(EggScrambleModeLayer::scene(2));
+	pDirector->replaceScene(EggScrambleModeLayer::scene(levelNumber));
 }
-
-void LevelSelectLayer::number3Callback(CCObject* pSender)
-{
-	//GameMode * gameMode = new EggScrambleMode(3);
-
-	CCDirector *pDirector = CCDirector::sharedDirector();
-	pDirector->replaceScene(EggScrambleModeLayer::scene(3));
-}
-

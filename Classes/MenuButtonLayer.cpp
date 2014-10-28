@@ -17,11 +17,11 @@ bool MenuButtonLayer::init()
 		//add title image
 		float originalWidth = 576;
 		float originalHeight = 144;
-		CCSprite * titleImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
-		float scaleRatio = (windowSize.width *.7) / titleImage->getContentSize().width;
-		titleImage->setScale(scaleRatio);
-		titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
-		this->addChild(titleImage);
+		_titleImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
+		float scaleRatio = (windowSize.width *.7) / _titleImage->getContentSize().width;
+		_titleImage->setScale(scaleRatio);
+		_titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+		this->addChild(_titleImage);
 
 		//create main menu
 		//these createButton calls should return a boolean.  If it is false, call CC_BREAK_IF(! bool)
@@ -70,10 +70,8 @@ void MenuButtonLayer::startGameCallback(CCObject* pSender)
 
 void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 {
-	//CCDirector *pDirector = CCDirector::sharedDirector();
-	//pDirector->replaceScene(GameLayer::scene());
 	_mainMenu->setVisible(false);
-	//_levelSelectMenu->setVisible(true);
+	_titleImage->setVisible(false);
 
 	LevelSelectLayer* levelSelectLayer = new LevelSelectLayer();
 	levelSelectLayer->init();

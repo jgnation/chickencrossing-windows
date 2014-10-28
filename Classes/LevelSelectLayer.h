@@ -18,15 +18,12 @@ public:
  
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static CCScene* scene();
-
  
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(LevelSelectLayer);
 
-	// a selector callback
-    void number1Callback(CCObject* pSender);
-	void number2Callback(CCObject* pSender);
-	void number3Callback(CCObject* pSender);
+	void levelSelectCallback(CCObject* pSender);
+	CCMenuItemImage* createLevelButton(int levelNumber, Point &position);
 
 };
  
