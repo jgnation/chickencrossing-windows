@@ -10,21 +10,30 @@ bool LevelSelectLayer::init()
     do 
     {
         CC_BREAK_IF(! CCLayer::init());
-		
-		CCMenuItemImage* number1Image = this->createLevelButton(1, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .7));
-		CCMenuItemImage* number2Image = this->createLevelButton(2, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .7));
-		CCMenuItemImage* number3Image = this->createLevelButton(3, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .7));
-		CCMenuItemImage* number4Image = this->createLevelButton(4, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .7));
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
-		CCMenuItemImage* number5Image = this->createLevelButton(5, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .5));
-		CCMenuItemImage* number6Image = this->createLevelButton(6, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .5));
-		CCMenuItemImage* number7Image = this->createLevelButton(7, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .5));
-		CCMenuItemImage* number8Image = this->createLevelButton(8, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .5));
+		float originalWidth = 576;
+		float originalHeight = 144;
+		CCSprite* selectLevel = CCSprite::create("select_level.png", CCRectMake(0, 0, originalWidth, originalHeight));
+		float scaleRatio = (windowSize.width *.5) / selectLevel->getContentSize().width;
+		selectLevel->setScale(scaleRatio);
+		selectLevel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .8));
+		this->addChild(selectLevel);
 
-		CCMenuItemImage* number9Image = this->createLevelButton(9, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .3));
-		CCMenuItemImage* number10Image = this->createLevelButton(10, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .3));
-		CCMenuItemImage* number11Image = this->createLevelButton(11, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .3));
-		CCMenuItemImage* number12Image = this->createLevelButton(12, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .3));
+		CCMenuItemImage* number1Image = this->createLevelButton(1, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .6));
+		CCMenuItemImage* number2Image = this->createLevelButton(2, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .6));
+		CCMenuItemImage* number3Image = this->createLevelButton(3, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .6));
+		CCMenuItemImage* number4Image = this->createLevelButton(4, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .6));
+
+		CCMenuItemImage* number5Image = this->createLevelButton(5, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .4));
+		CCMenuItemImage* number6Image = this->createLevelButton(6, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .4));
+		CCMenuItemImage* number7Image = this->createLevelButton(7, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .4));
+		CCMenuItemImage* number8Image = this->createLevelButton(8, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .4));
+
+		CCMenuItemImage* number9Image = this->createLevelButton(9, ccp(CCDirector::sharedDirector()->getWinSize().width * .2, CCDirector::sharedDirector()->getWinSize().height * .2));
+		CCMenuItemImage* number10Image = this->createLevelButton(10, ccp(CCDirector::sharedDirector()->getWinSize().width * .4, CCDirector::sharedDirector()->getWinSize().height * .2));
+		CCMenuItemImage* number11Image = this->createLevelButton(11, ccp(CCDirector::sharedDirector()->getWinSize().width * .6, CCDirector::sharedDirector()->getWinSize().height * .2));
+		CCMenuItemImage* number12Image = this->createLevelButton(12, ccp(CCDirector::sharedDirector()->getWinSize().width * .8, CCDirector::sharedDirector()->getWinSize().height * .2));
 
 		_mainMenu = CCMenu::create(
 			number1Image, 

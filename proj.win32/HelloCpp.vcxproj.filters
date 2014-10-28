@@ -465,6 +465,9 @@
     <Image Include="..\Resources\num_12.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\select_level.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
