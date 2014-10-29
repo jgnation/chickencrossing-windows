@@ -12,20 +12,24 @@ Chicken::Chicken(GameLayer * gameLayer)
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
 	_dimensions = new Dimensions();
-	_xMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
-	_yMoveDistance = _xMoveDistance;
+	_yMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
+	//_xMoveDistance = _yMoveDistance; //TODO: scale this value?
+	_xMoveDistance = windowSize.width / 10;
 
 	float originalWidth = 25;
 	float originalHeight = 38;
 	_sprite = CCSprite::create("small_chicken.png", CCRectMake(0, 0, originalWidth, originalHeight));
 	_sprite->setAnchorPoint(ccp(0,0));
 
-	float scaleRatio = (windowSize.height / 20) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
+	float scaleRatioY = (windowSize.height / 20) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
 	//setScale only changes the size of the image, not the 'bounding box'
-	_sprite->setScale(scaleRatio);
+	_sprite->setScale(scaleRatioY);
 
-	float scaledWidth = originalWidth * scaleRatio;
-	float scaledHeight = originalHeight * scaleRatio;
+	float scaleRatioX = (windowSize.width / 15) / _sprite->getContentSize().width;
+	_sprite->setScaleX(scaleRatioX);
+
+	float scaledWidth = originalWidth * scaleRatioX;
+	float scaledHeight = originalHeight * scaleRatioY;
 	//setContentSize changes the size of the 'bounding box' around the image
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 

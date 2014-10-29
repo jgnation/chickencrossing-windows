@@ -17,7 +17,9 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
--add "select a level" image to level select screen
+-scale chicken and egg horizontally?
+-scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
+-review scaling of word images...do they need to be scaled by width and height separately?
 -make disappearing logs less frequent in egg scramble
 -get new chicken/vehicle images
 -finish the about screen
@@ -27,9 +29,6 @@ TODO (fo sho!):
 -get rid of level 10...it can produce a shitload of spawn kills.
 -Add chicken to the actionLayer
 -should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
--review scaling of word images...do they need to be scaled by width and height separately?
--scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
--scale chicken and egg horizontally?
 -make the egg not spawn so close to left and right edge?
 
 
