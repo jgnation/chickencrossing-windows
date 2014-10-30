@@ -270,8 +270,10 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\background7.png" />
     <Image Include="..\Resources\background8.png" />
     <Image Include="..\Resources\background9.png" />
+    <Image Include="..\Resources\beetle_small.png" />
     <Image Include="..\Resources\brown_egg.png" />
     <Image Include="..\Resources\bus.png" />
+    <Image Include="..\Resources\car_small.png" />
     <Image Include="..\Resources\chicken_crossing_title.png" />
     <Image Include="..\Resources\chicken_large.png" />
     <Image Include="..\Resources\chicken_medium.png" />
@@ -308,6 +310,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\start_game_orange.png" />
     <Image Include="..\Resources\start_game_yellow.png" />
     <Image Include="..\Resources\top_scores.png" />
+    <Image Include="..\Resources\vw_small.png" />
     <Image Include="..\Resources\white_truck.png" />
   </ItemGroup>
   <ItemGroup>

@@ -13,8 +13,8 @@ Chicken::Chicken(GameLayer * gameLayer)
 
 	_dimensions = new Dimensions();
 	_yMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
-	//_xMoveDistance = _yMoveDistance; //TODO: scale this value?
-	_xMoveDistance = windowSize.width / 10;
+	_xMoveDistance = _yMoveDistance; //TODO: scale this value?
+	//_xMoveDistance = windowSize.width / 10;
 
 	float originalWidth = 50;
 	float originalHeight = 50;

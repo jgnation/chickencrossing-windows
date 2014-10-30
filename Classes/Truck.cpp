@@ -9,9 +9,13 @@ Truck::Truck(void)
 	_origin = ccp(windowSize.width, 40);
 	_destination = ccp(0, 40);
 
-	float originalWidth = 80;
-	float originalHeight = 30;
-	_sprite = CCSprite::create("white_truck.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	//float originalWidth = 80;
+	//float originalHeight = 30;
+	//_sprite = CCSprite::create("white_truck.png", CCRectMake(0, 0, originalWidth, originalHeight));
+
+	float originalWidth = 300;
+	float originalHeight = 114;
+	_sprite = CCSprite::create("beetle_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
 	_sprite->setAnchorPoint(ccp(0,0));
 

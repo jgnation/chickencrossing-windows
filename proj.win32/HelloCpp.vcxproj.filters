@@ -465,6 +465,15 @@
     <Image Include="..\Resources\chicken_xsmall.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\beetle_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\car_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\vw_small.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
