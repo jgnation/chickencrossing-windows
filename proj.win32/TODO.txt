@@ -183,9 +183,19 @@ To get the build working via eclipse:
 NOTES:
 -I want the standard logs to spawn more frequently than the disappearing logs.  To determine the probability, I simply added more logs to a given lane in the plist file.
 
-
+this is where I got the log pictures: http://www.123rf.com/photo_7913078_wooden-planks-boards-logs-panels-timber-collection.html
+or here: http://www.canstockphoto.com/logs-and-planks-6659208.html
 
 http://www.istockphoto.com/vector/chicken-egg-23518286?st=826a7f5
 ^those licenses are kinda expensive
 
 https://openclipart.org/share <- get vehicles here and numbers! or make those myself. They have a good chicken as well.
+
+
+chicken: https://openclipart.org/detail/26012/chicken-roundcartoon-by-bloodsong
+good vehicles: https://openclipart.org/search/?query=spadassin
+check out clker.com
+
+wooden plank: https://openclipart.org/detail/162739/wooden-plank-dark-by-rdevries
+
+some cars: http://www.wpclipart.com/transportation/car/more_cars/index.html
