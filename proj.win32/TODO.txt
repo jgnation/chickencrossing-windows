@@ -17,15 +17,15 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
+-finish the about screen
 -chicken is too low-res for iPad.
--try a different log sprite
 -I might want to make sure the vehicle images don't need to be cropped
 -do sprites look like shit at lower resolutions?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
- Think about how many movements a chicken should be able to make across a log.
+ Think about how many movements a chicken should be able to make across a log.  I certainly don't want to
+ scale the movement to be greater than it is currently...only less than it is, if at all.
 -review scaling of word images...do they need to be scaled by width and height separately?
 -make disappearing logs less frequent in egg scramble
--finish the about screen
 -tinker with egg scramble low/top speed settings
 -for egg scramble mode display the level number with the top scores?
 -display which mode it is with the top scores
