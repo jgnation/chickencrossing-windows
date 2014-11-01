@@ -23,7 +23,7 @@ public:
     CREATE_FUNC(LevelSelectLayer);
 
 	void levelSelectCallback(CCObject* pSender);
-	CCMenuItemImage* createLevelButton(int levelNumber, Point &position);
+	CCMenuItemImage* createLevelButton(int levelNumber, const Point &position);
 
 };
  

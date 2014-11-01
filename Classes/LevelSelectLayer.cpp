@@ -59,7 +59,7 @@ bool LevelSelectLayer::init()
     return bRet;
 }
 
-CCMenuItemImage* LevelSelectLayer::createLevelButton(int levelNumber, Point &position)
+CCMenuItemImage* LevelSelectLayer::createLevelButton(int levelNumber, const Point &position)
 {		
 	std::string fileName = "num_" + std::to_string(levelNumber) + ".png";
 
