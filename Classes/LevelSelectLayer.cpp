@@ -60,8 +60,10 @@ bool LevelSelectLayer::init()
 }
 
 CCMenuItemImage* LevelSelectLayer::createLevelButton(int levelNumber, const Point &position)
-{		
-	std::string fileName = "num_" + std::to_string(levelNumber) + ".png";
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	
+    std::string fileName = "num_" + std::to_string(levelNumber) + ".png";
 
 	CCMenuItemImage* levelImage = CCMenuItemImage::create(
 		fileName.c_str(),
@@ -69,7 +71,8 @@ CCMenuItemImage* LevelSelectLayer::createLevelButton(int levelNumber, const Poin
 		this,
 		menu_selector(LevelSelectLayer::levelSelectCallback));
 
-	levelImage->setScale(.3); //TODO: scale x and y independently?
+    float scaleRatio = (windowSize.width * .2) / levelImage->getContentSize().width;
+	levelImage->setScale(scaleRatio); //TODO: scale x and y independently?
 	levelImage->setTag(levelNumber);
 	levelImage->setPosition(position);
 
