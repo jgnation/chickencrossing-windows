@@ -9,9 +9,13 @@ Log::Log(void)
 	_origin = ccp(windowSize.width, 40);
 	_destination = ccp(0, 40);
 
+	//float originalWidth = 300;
+	//float originalHeight = 93;
+	//_sprite = CCSprite::create("log_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
+
 	float originalWidth = 300;
-	float originalHeight = 93;
-	_sprite = CCSprite::create("log_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	float originalHeight = 103;
+	_sprite = CCSprite::create("plank_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
 	_sprite->setAnchorPoint(ccp(0,0));
 

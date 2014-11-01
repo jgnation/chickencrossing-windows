@@ -474,6 +474,9 @@
     <Image Include="..\Resources\vw_small.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\plank_small.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
