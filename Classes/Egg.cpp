@@ -12,11 +12,16 @@ Egg::Egg()
 
 	_sprite->setAnchorPoint(ccp(0,0));
 
-	float scaleRatio = (windowSize.height / 20) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
-	_sprite->setScale(scaleRatio);
+	float scaleRatioY = (windowSize.height / 20) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
+	//_sprite->setScaleY(scaleRatioY);
+	_sprite->setScale(scaleRatioY);
 
-	float scaledWidth = originalWidth * scaleRatio;
-	float scaledHeight = originalHeight * scaleRatio;
+	//float scaleRatioX = (windowSize.width / 15) / _sprite->getContentSize().width;
+	//_sprite->setScaleX(scaleRatioX);
+
+	//float scaledWidth = originalWidth * scaleRatioX;
+	float scaledWidth = originalWidth * scaleRatioY;
+	float scaledHeight = originalHeight * scaleRatioY;
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 }
 

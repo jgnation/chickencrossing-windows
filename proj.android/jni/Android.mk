@@ -7,6 +7,7 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
+					../../Classes/AcceleratingLane.cpp \
                    ../../Classes/AppDelegate.cpp \
 				   ../../Classes/Background.cpp \
 				   ../../Classes/Bus.cpp \
@@ -15,6 +16,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Dimensions.cpp \
 				   ../../Classes/DisappearingLog.cpp \
 				   ../../Classes/Egg.cpp \
+				   ../../Classes/EggScrambleLevel.cpp \
+				   ../../Classes/EggScrambleLevelFactory.cpp \
 				   ../../Classes/EggScrambleModeLayer.cpp \
 				   ../../Classes/GameFunctions.cpp \
 				   ../../Classes/GameLayer.cpp \
@@ -22,13 +25,17 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/HUDLayer.cpp \
 				   ../../Classes/Lane.cpp \
 				   ../../Classes/Level.cpp \
+				   ../../Classes/LevelFactory.cpp \
 				   ../../Classes/LevelManager.cpp \
 				   ../../Classes/LevelSelectLayer.cpp \
 				   ../../Classes/Log.cpp \
 				   ../../Classes/MainModeLayer.cpp \
+				   ../../Classes/MainModeLevel.cpp \
+				   ../../Classes/MainModeLevelFactory.cpp \
 				   ../../Classes/MenuButtonLayer.cpp \
 				   ../../Classes/MenuLayer.cpp \
 				   ../../Classes/SpriteContainer.cpp \
+				   ../../Classes/TopScore.cpp \
 				   ../../Classes/Truck.cpp \
 				   ../../Classes/Vehicle.cpp \
 				   ../../Classes/VehicleFactory.cpp

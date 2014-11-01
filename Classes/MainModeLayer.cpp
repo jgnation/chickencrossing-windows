@@ -1,5 +1,7 @@
 #include "MainModeLayer.h"
 #include "MainModeLevelFactory.h"
+#include "TopScore.h"
+
 
 using namespace cocos2d;
 

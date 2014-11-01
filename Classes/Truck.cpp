@@ -20,9 +20,9 @@ Truck::Truck(void)
 	_sprite->setAnchorPoint(ccp(0,0));
 
 	//see the chicken class for explanation
-	float scaleRatioY = (windowSize.height / 30) / _sprite->getContentSize().height;
+	float scaleRatioY = (windowSize.height / 20) / _sprite->getContentSize().height;
 	_sprite->setScaleY(scaleRatioY);
-	float scaleRatioX = (windowSize.width / 10) / _sprite->getContentSize().width;
+	float scaleRatioX = (windowSize.width / 8) / _sprite->getContentSize().width;
 	_sprite->setScaleX(scaleRatioX);
 
 	//see the chicken class for explanation

@@ -21,11 +21,11 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_sprite = CCSprite::create("chicken_xxsmall.png", CCRectMake(0, 0, originalWidth, originalHeight));
 	_sprite->setAnchorPoint(ccp(0,0));
 
-	float scaleRatioY = (windowSize.height / 18) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
+	float scaleRatioY = (windowSize.height / 17) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
 	//setScale only changes the size of the image, not the 'bounding box'
 	_sprite->setScale(scaleRatioY);
 
-	float scaleRatioX = (windowSize.width / 15) / _sprite->getContentSize().width;
+	float scaleRatioX = (windowSize.width / 12) / _sprite->getContentSize().width;
 	_sprite->setScaleX(scaleRatioX);
 
 	float scaledWidth = originalWidth * scaleRatioX;

@@ -17,11 +17,13 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
--scale chicken and egg horizontally?
+-try a different log sprite
+-make vehicles a bit taller and the chicken fatter
+-do sprites look like shit at lower resolutions?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
+ Think about how many movements a chicken should be able to make across a log.
 -review scaling of word images...do they need to be scaled by width and height separately?
 -make disappearing logs less frequent in egg scramble
--get new chicken/vehicle images
 -finish the about screen
 -tinker with egg scramble low/top speed settings
 -for egg scramble mode display the level number with the top scores?
@@ -199,3 +201,10 @@ check out clker.com
 wooden plank: https://openclipart.org/detail/162739/wooden-plank-dark-by-rdevries
 
 some cars: http://www.wpclipart.com/transportation/car/more_cars/index.html
+
+wood planks:
+http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
+http://pixabay.com/en/wood-planks-boards-lumber-plank-311940/
+
+-If I get errors like "undefined reference to" when compiling with g++ but not with Visual Studio or Xcode, it is probably because I didn't add new class definitions
+into the proj.android/jni/Android.mk file.
