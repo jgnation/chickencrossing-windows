@@ -19,7 +19,7 @@ Balancing Difficulty:
 TODO (fo sho!):
 -chicken is too low-res for iPad.
 -try a different log sprite
--make vehicles a bit taller and the chicken fatter
+-I might want to make sure the vehicle images don't need to be cropped
 -do sprites look like shit at lower resolutions?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
  Think about how many movements a chicken should be able to make across a log.

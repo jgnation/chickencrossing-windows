@@ -13,9 +13,13 @@ Car::Car(void)
 	//float originalHeight = 25;
 	//_sprite = CCSprite::create("red_car.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
+	//float originalWidth = 300;
+	//float originalHeight = 118;
+	//_sprite = CCSprite::create("car_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
+
 	float originalWidth = 300;
-	float originalHeight = 118;
-	_sprite = CCSprite::create("car_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	float originalHeight = 120;
+	_sprite = CCSprite::create("cactus.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
 	_sprite->setAnchorPoint(ccp(0,0));
 
