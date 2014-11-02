@@ -34,25 +34,49 @@ bool MenuButtonLayer::init()
 
 		//create about menu
 		//TODO: add image for jgnation.com, url, credit to artists, etc.
-		CCMenuItemImage* logoImage = this->createJGNationLogo();
-		CCMenuItemImage* arrowImage = this->createAboutExitButton();
+		_chickenCrossingAboutImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
+		float ratio = (windowSize.width *.4) / _titleImage->getContentSize().width;
+		_chickenCrossingAboutImage->setScale(ratio);
+		_chickenCrossingAboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .9));
 
-		cocos2d::CCMenuItemFont* pCloseItem = cocos2d::CCMenuItemFont::create(
-                                            "Close",
-                                            this,
-                                            NULL);
-		pCloseItem->setFontSize(35);
-		pCloseItem->setFontName("Helvetica");
-		pCloseItem->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height / 2));
+		_backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .5, windowSize.height * .45);
+		_backgroundColor->setOpacity(100);
+		_backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
+		_backgroundColor->setAnchorPoint(ccp(0,1));
+		_backgroundColor->setPosition(ccp(windowSize.width * .4, windowSize.height * .8));
+		
+		std::string info = "Developed by JGNation\n";
+		info += "www.jgnation.com\n\n";
+		info += "Chicken image by bloodsong - openclipart.org\n";
+		info += "Vehicle images by spadassin - openclipart.org\n";
+		info += "Wood plank image by Nemo - pixabay.com\n";
+		info += "All other images created by JGNation.";
+
+		CCLabelBMFont * aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
+		Size originalSize = aboutInfo->getContentSize();
+		Size backgroundColorSize = _backgroundColor->getContentSize();
+		float r = (backgroundColorSize.height / 2.0) / originalSize.height;
+		aboutInfo->setScale(r);
+		aboutInfo->setContentSize(CCSize(originalSize.width * r, originalSize.height * r));
+		aboutInfo->setAnchorPoint(ccp(0,1));
+		aboutInfo->setPosition(ccp(0 + 10, backgroundColorSize.height - 10));
+		_backgroundColor->addChild(aboutInfo);
+
+		_logoImage = this->createJGNationLogo();
+		_aboutExitImage = this->createAboutExitButton();
+		CCMenu* pMenu = CCMenu::create(_aboutExitImage, NULL);
+		pMenu->setPosition(CCPointZero);
+		this->addChild(_logoImage);
+		this->addChild(_chickenCrossingAboutImage);
+		this->addChild(pMenu);
+		this->addChild(_backgroundColor);
 
 
-		// Create a menu with the "close" menu item, it's an auto release object.
-		_aboutMenu = CCMenu::create(pCloseItem, logoImage, arrowImage, NULL);
-		_aboutMenu->setPosition(CCPointZero);
-
-		// Add the menu to HelloWorld layer as a child layer.
-		this->addChild(_aboutMenu);
-		_aboutMenu->setVisible(false);
+		//Hide the about screen stuff
+		_logoImage->setVisible(false);
+		_aboutExitImage->setVisible(false);
+		_chickenCrossingAboutImage->setVisible(false);
+		_backgroundColor->setVisible(false);
 
 		bRet = true;
     } while (0);
@@ -62,8 +86,6 @@ bool MenuButtonLayer::init()
 
 void MenuButtonLayer::startGameCallback(CCObject* pSender)
 {
-	//GameMode * gameMode = new MainMode();
-
 	CCDirector *pDirector = CCDirector::sharedDirector();
 	pDirector->replaceScene(MainModeLayer::scene());
 }
@@ -81,14 +103,23 @@ void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 void MenuButtonLayer::aboutCallback(CCObject* pSender)
 {
 	_mainMenu->setVisible(false);
-	_aboutMenu->setVisible(true);
+	_titleImage->setVisible(false);
 
+	_logoImage->setVisible(true);
+	_aboutExitImage->setVisible(true);
+	_chickenCrossingAboutImage->setVisible(true);
+	_backgroundColor->setVisible(true);
 }
 
-void MenuButtonLayer::closeCallback(CCObject* pSender)
+void MenuButtonLayer::aboutExitCallback(CCObject* pSender)
 {
-	_aboutMenu->setVisible(false);
-	_mainMenu->setVisible(true);	
+	_aboutExitImage->setVisible(false);
+	_chickenCrossingAboutImage->setVisible(false);
+	_logoImage->setVisible(false);
+	_backgroundColor->setVisible(false);
+
+	_mainMenu->setVisible(true);
+	_titleImage->setVisible(true);
 }
 
 CCMenuItemImage* MenuButtonLayer::createStartGameButton()
@@ -157,7 +188,7 @@ CCMenuItemImage* MenuButtonLayer::createAboutExitButton()
 		"arrow.png",
 		"arrow.png",
 		this,
-		menu_selector(MenuButtonLayer::closeCallback));
+		menu_selector(MenuButtonLayer::aboutExitCallback));
 
 	float scaleRatioArrowX = (windowSize.width *.2) / arrow->getContentSize().width;
 	float scaleRatioArrowY = (windowSize.height *.15) / arrow->getContentSize().height;
@@ -181,7 +212,7 @@ CCMenuItemImage* MenuButtonLayer::createJGNationLogo()
 	);
 
 	logo->setScale((windowSize.width *.2) / logo->getContentSize().width);
-	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 5, CCDirector::sharedDirector()->getWinSize().height * .45));
+	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 5, CCDirector::sharedDirector()->getWinSize().height * .55));
 
 	return logo;
 }

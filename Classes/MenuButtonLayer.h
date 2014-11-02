@@ -10,7 +10,10 @@ class MenuButtonLayer : public cocos2d::CCLayer
 private:
 	CCSprite * _titleImage;
     CCMenu* _mainMenu;
-	CCMenu* _aboutMenu;
+	CCMenuItemImage* _aboutExitImage;
+	CCMenuItemImage* _logoImage;
+	CCSprite* _chickenCrossingAboutImage;
+	CCLayerColor* _backgroundColor;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -24,7 +27,7 @@ public:
     CREATE_FUNC(MenuButtonLayer);
 
 	    // a selector callback
-    void closeCallback(CCObject* pSender);
+    void aboutExitCallback(CCObject* pSender);
 
 	// a selector callback
     void startGameCallback(CCObject* pSender);
