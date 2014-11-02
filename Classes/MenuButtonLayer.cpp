@@ -39,7 +39,7 @@ bool MenuButtonLayer::init()
 		_chickenCrossingAboutImage->setScale(ratio);
 		_chickenCrossingAboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .9));
 
-		_backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .5, windowSize.height * .45);
+		_backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .5, windowSize.height * .5);
 		_backgroundColor->setOpacity(100);
 		_backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
 		_backgroundColor->setAnchorPoint(ccp(0,1));
@@ -47,17 +47,22 @@ bool MenuButtonLayer::init()
 		
 		std::string info = "Developed by JGNation\n";
 		info += "www.jgnation.com\n\n";
-		info += "Chicken image by bloodsong - openclipart.org\n";
-		info += "Vehicle images by spadassin - openclipart.org\n";
-		info += "Wood plank image by Nemo - pixabay.com\n";
+		info += "Chicken image by bloodsong\n";
+		info += "openclipart.org\n\n";
+		info += "Vehicle images by spadassin\n";
+		info += "openclipart.org\n\n";
+		info += "Wood plank image by Nemo\n";
+		info += "pixabay.com\n\n";
 		info += "All other images created by JGNation.";
 
 		CCLabelBMFont * aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
 		Size originalSize = aboutInfo->getContentSize();
 		Size backgroundColorSize = _backgroundColor->getContentSize();
-		float r = (backgroundColorSize.height / 2.0) / originalSize.height;
-		aboutInfo->setScale(r);
-		aboutInfo->setContentSize(CCSize(originalSize.width * r, originalSize.height * r));
+		float ry = (backgroundColorSize.height * .9) / originalSize.height;
+		float rx = (backgroundColorSize.width * .9) / originalSize.width;
+		aboutInfo->setScaleY(ry);
+		aboutInfo->setScaleX(rx);
+		aboutInfo->setContentSize(CCSize(originalSize.width * rx, originalSize.height * ry));
 		aboutInfo->setAnchorPoint(ccp(0,1));
 		aboutInfo->setPosition(ccp(0 + 10, backgroundColorSize.height - 10));
 		_backgroundColor->addChild(aboutInfo);
