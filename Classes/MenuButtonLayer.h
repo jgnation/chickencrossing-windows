@@ -11,9 +11,12 @@ private:
 	CCSprite * _titleImage;
     CCMenu* _mainMenu;
 	CCMenuItemImage* _aboutExitImage;
+	CCMenuItemImage* _instructionsExitImage;
 	CCMenuItemImage* _logoImage;
 	CCSprite* _chickenCrossingAboutImage;
+	CCSprite* _chickenCrossingInstructionsImage;
 	CCLayerColor* _backgroundColor;
+	CCLayerColor* _instructionsBackgroundColor;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -26,25 +29,24 @@ public:
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(MenuButtonLayer);
 
-	    // a selector callback
-    void aboutExitCallback(CCObject* pSender);
 
-	// a selector callback
     void startGameCallback(CCObject* pSender);
 	void eggScrambleCallback(CCObject* pSender);
 	void aboutCallback(CCObject* pSender);
+	void aboutExitCallback(CCObject* pSender);
+	void instructionsCallback(CCObject* pSender);
+	void instructionsExitCallback(CCObject* pSender);
  
 	CCMenuItemImage* createStartGameButton();
-
 	CCMenuItemImage* createEggScrambleButton();
-
 	CCMenuItemImage* createAboutButton();
-
 	CCMenuItemImage* createAboutExitButton();
-
+	CCMenuItemImage* createInstructionsButton();
+	CCMenuItemImage* createInstructionsExitButton();
 	CCMenuItemImage* createJGNationLogo();
 
-
+	void createAboutScreen();
+	void createInstructionScreen();
 };
  
 #endif // __MENU_BUTTON_LAYER_H__

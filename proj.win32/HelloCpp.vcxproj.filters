@@ -480,6 +480,12 @@
     <Image Include="..\Resources\cactus.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\instructions_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\instructions_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
