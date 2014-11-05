@@ -17,8 +17,10 @@ Balancing Difficulty:
 -Number of lives might need to be tweaked
 
 TODO (fo sho!):
+-separate high scores for each level in egg scramble mode
 -finish the about screen
 -chicken is too low-res for iPad.
+-when current score exceeds high score, increment high score along with current score?
 -I might want to make sure the vehicle images don't need to be cropped
 -do sprites look like shit at lower resolutions?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?

@@ -10,6 +10,7 @@ using namespace cocos2d;
 class HudLayer : public cocos2d::CCLayer
 {
 private:
+	CCLabelTTF * _highScoreLabel;
     CCLabelTTF * _scoreLabel;
 	CCLabelTTF * _livesLabel;
 	CCLabelTTF * _levelLabel;
@@ -27,12 +28,12 @@ public:
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HudLayer);
  
+	void setHighScore(int score);
     void setScore(int score);
-
 	void setLives(int lives);
-
 	void setLevel(int level);
 
+	void createHighScoreLabel();
 	void createScoreLabel();
 	void createLivesLabel();
 	void createLevelLabel();

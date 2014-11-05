@@ -1,6 +1,7 @@
 #include "MainModeLayer.h"
 #include "MainModeLevelFactory.h"
 #include "TopScore.h"
+#include "HUDLayer.h"
 
 
 using namespace cocos2d;
@@ -45,6 +46,11 @@ bool MainModeLayer::init()
 		_levelNumber = 1;
 		_levelManager = new LevelManager(new MainModeLevelFactory(), "mm_levels.plist");
 		_nextLevelScore = calculateNextLevelScore(_levelNumber);
+
+		int topScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_1");
+		_hudLayer = new HudLayer();
+		_hudLayer->init();
+		_hudLayer->setHighScore(topScore);
 
         CC_BREAK_IF(! GameLayer::init());
 

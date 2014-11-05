@@ -90,8 +90,6 @@ bool GameLayer::init()
 		vehicleList2 = new CCArray();
 
 		_score = 0;
-		_hudLayer = new HudLayer();
-		_hudLayer->init();
 		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
 
 		this->loadLevel(_levelNumber);

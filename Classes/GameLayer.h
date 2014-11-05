@@ -29,7 +29,6 @@ private:
 
 	cocos2d::CCLayer * _actionLayer;
 	//GameMode * _mode;
-	HudLayer * _hudLayer;
 	Chicken * _chicken;
 	Egg * _egg;
 	cocos2d::CCArray * vehicleList2;
@@ -55,6 +54,7 @@ protected:
 	Level * _level;
 	LevelManager * _levelManager;
 	int calculateNextLevelScore(int levelNumber);
+	HudLayer * _hudLayer;
 public:
 	int _score;
 	int _numEggsToCollect;

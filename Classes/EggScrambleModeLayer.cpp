@@ -5,6 +5,7 @@
 #include "EggScrambleLevelFactory.h"
 #include "AcceleratingLane.h"
 #include "TopScore.h"
+#include "HUDLayer.h"
 
 using namespace cocos2d;
 
@@ -60,6 +61,11 @@ bool EggScrambleModeLayer::init(int levelNumber)
 		_levelManager = new LevelManager(new EggScrambleLevelFactory(), "esm_levels.plist");
 		_waveNumber = 1;
 		_nextWaveScore = calculateNextLevelScore(_waveNumber);
+
+		int topScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_1");
+		_hudLayer = new HudLayer();
+		_hudLayer->init();
+		_hudLayer->setHighScore(topScore);
 
         CC_BREAK_IF(! GameLayer::init());
 
