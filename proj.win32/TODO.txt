@@ -1,119 +1,96 @@
+
+*see the readme in proj.android
 To get this on my phone:
 -compile the c++ code with the following commands in cygwin:
-    $ cd cocos2d-x/samples/Cpp/TestCpp/proj.android/
-    $ export NDK_ROOT=/path/to/ndk
-    $ ./build_native.sh
--build the apk with ant in the normal Windows command prompt:
-	ant debug install
-*see the readme in proj.android
+	export NDK_ROOT=/cygdrive/c/android-ndk-r9d/
+	cd /cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android
+	./build_native.sh
+-build the apk
+	ant debug install (after this command, the phone may ask to allow usb debugging.  Press OK)
 
-export NDK_ROOT=/cygdrive/c/android-ndk-r9d/
-cd /cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android
-./build_native.sh
-ant debug install (after this command, the phone may ask to allow usb debugging.  Press OK)
+============================================================================================================
 
-Balancing Difficulty:
--The frequency that logs appear might need to be tweaked
--Number of lives might need to be tweaked
+-Possible Images:
+clker
+openclipart
+wikimedia commons
+wooden plank: https://openclipart.org/detail/162739/wooden-plank-dark-by-rdevries
+some cars: http://www.wpclipart.com/transportation/car/more_cars/index.html
+=================
+Images I am using:
+chicken: https://openclipart.org/detail/26012/chicken-roundcartoon-by-bloodsong
+vehicles: https://openclipart.org/search/?query=spadassin
+wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 
-TODO (fo sho!):
+============================================================================================================
+
+Before version 1.0 release:
+-rename game to eggscramble? rename egg scramble mode to survival?
 -separate high scores for each level in egg scramble mode
--finish the about screen
--chicken is too low-res for iPad.
--when current score exceeds high score, increment high score along with current score?
+-put JGNation logo above the words on about screen
+-chicken is too low-res for iPad
 -I might want to make sure the vehicle images don't need to be cropped
 -do sprites look like shit at lower resolutions?
+-review scaling of word images...do they need to be scaled by width and height separately?
+-get rid of level 10...it can produce a shitload of spawn kills.
+-hunt for obvious memory leaks
+-death image
+
+
+After version 1.0 release:
+-after completing 12 levels in main mode display a "congrats! keep going!" kind of image.
+-show remaining lives as chicken images
+-hunt for memory leaks
+--Is deleting field references in destructor standard practice?
+-jgnation splash screen
+-make the egg not spawn so close to left and right edge?
+-Add chicken to the actionLayer
+-should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
+-link to play/iStore on about screen?
 -scale chicken movement?  Should it take x movements to get the edge of the screen regardless of screen size?
  Think about how many movements a chicken should be able to make across a log.  I certainly don't want to
  scale the movement to be greater than it is currently...only less than it is, if at all.
--review scaling of word images...do they need to be scaled by width and height separately?
--make disappearing logs less frequent in egg scramble
+-Balancing Difficulty
+--The frequency that logs disappear might need to be tweaked (different in main mode vs egg scramble)
+--Number of lives might need to be tweaked
+-when current score exceeds high score, increment high score along with current score?
 -tinker with egg scramble low/top speed settings
 -for egg scramble mode display the level number with the top scores?
 -display which mode it is with the top scores
--get rid of level 10...it can produce a shitload of spawn kills.
--Add chicken to the actionLayer
--should I have waves in egg scramble?  Wave 1, Wave 2?  Wipe out all traffic when beating waves?
--make the egg not spawn so close to left and right edge?
-
-
-
-TODO (maybe?):
--I might want to upgrade to version 3.0 of the framework at some point.
--add dates to top scores?
+-upgrade to version 3.0 of cocos2d-x
+-add dates to top scores
 -logs of various lengths
--alligators to ride
--splash screen
--tutorial screen (or just an explanation when the mode is selected)
--link to play/iStore on about screen?
+-alligators in water
+-easy/medium/hard modes?
+-powers ups?
+--eliminate traffic
+--extra life
+-more "enemies"?
 
--------------------------------------------------------------------------------------------------------------------------------
-TODO (Cleanup):
+=========================================================================================
+Code Cleanup:
 -when to include #include declarations in .h and when in .cpp?
 -make Dimensions a singleton that can be reference like CCDirector (so I don't have to new it in every class)
 -should I have a return; after every killChicken() in the update loop?
 -figure out how to have an 'exit' button on a layer that replaces the current layer with the previous
 layer (e.g. on the Main Menu or the Game Over screens).  This might involve callbacks on the parent layer,
 or doing a "getParent" kind of thing.
--scale vehicle sprites better
 -add vehicles to CCArray instead of vector?
--Egg Scramble Mode:
-	-add a lower and upper limit on speed increases for egg scramble mode
-	-make sure cars can't run into each other due to speeding up in egg scramble mode
-	-in egg scramble mode, as the speed increases, the interval needs to decrease
-	-fix game-over-scoring for eggscramblemode (look into std::to_string(42);)
--make a plist for game settings...this might include speed increase times for easy/medium/hard
--add ability to randomize spawn interval
 -clean up disappearing log stuff:
 	-clean up the log class.  It inherits from Log...make it look like it.
--intervals should probably be different for water vs road
--------------------------------------------------------------------------------------------------------------------------
 
-
-Features:
--Timed mode
--Keep playing until you die
--Compete against self
--gain points with items to pickup?
--pick up items to eliminate traffic
--swipe option or buttons on screen option
--levels described in plist file(s).  Setting speed/interval of 0 will randomize the value.
--regular mode (go through the levels, collect the egg).  Also time attack mode and frogger mode, but levels are unlocked by completing them in regular mode.
--also have bonus levels (like the all-water level)
--survival mode...how long can you survive with faster and faster traffic?  Somehow have an incentive to collect eggs or get across the road.
--collect as many eggs as you can as traffic moves faster and faster.  record the highest number of eggs collected.
-
-
-
-
-Features to implement:
--1st level get 1 egg, second get 2, third get 3 and so on.  After the levels have been completed, go back to the first but continue incrementing the eggs.  Do this indefinitely.
-	-user gets 3 - 5 lives
-	-five levels (one will be water on both sides of a rest in the middle)
-	-the enemies will not get harder and harder....they will stay the same
-	-The incentive to keep playing will be to see what level you can get to.  Record the maximum level achieved.
-	-store highest levels achieved with date (save top 5 attempts)
-	-show high scores after dying
--store scores on device
--make a pause screen (pause button on game Layer) (actually....don't do this.  this could give the player an unfair advantage)
--create 'scramble egg' mode: scramble to get as many eggs as you can!  Traffic will gradually move faster and faster.  User can pick a level.
-	-make a level-select screen (can only select levels that have been opened in regular mode, maybe?) for other this mode
-	-this will have the same five levels as the main mode, plus a road map with no rests and a water map with no rests
-	-maybe enemies should stay consistent (and relatively easy?)
-	-store highest number of eggs collected (save top 5 attempts)
-	-HUD should show current record number of eggs collected for that given level
-	-to do this I need to add a master levels.plist that has an array that has level number and level plist (e.g. level1 -> level_1.plist)
--I need the following screens added:
-	-JGNation splash screen
-	-tutorial screen for each mode
-	-About screen (movie credits text) 
-	-like on facebook kind of text?  review game button?
-------------------------------------------------------------------------------------------------------------------------------
+===========================================================================================
 
 
 Notes:
 -don't forget to release() and/or delete all of the objects that are created that are not being managed by the cocos2d-x memory pool!
 
+NOTES:
+-I want the standard logs to spawn more frequently than the disappearing logs.  To determine the probability, I simply added more logs to a given lane in the plist file.
+
+NOTES:
+-If I get errors like "undefined reference to" when compiling with g++ but not with Visual Studio or Xcode, it is probably because I didn't add new class definitions
+into the proj.android/jni/Android.mk file.
 ----------------------------------------------------------------------------------------------------------------------------------------
 options for refactoring vehicle spawning:
 -vehicles can inherit from CCSprite.  then the CCObject * sender can be that sprite and I can easily remove it
@@ -143,71 +120,20 @@ just have to make sure that we never try to add a sprite that is already doing s
 can be sent to the callback (THIS will not work because *sender is the Sprite, not the SpriteContainer)
 ----------------------------------------------------------------------------------------------------------------------
 
--Keyboard input on version > 3.0 alpha:
-	http://www.cocos2d-x.org/forums/6/topics/39145
+-Keyboard input on version > 3.0 alpha: http://www.cocos2d-x.org/forums/6/topics/39145
 
-----------------------------------------------------------------------------------------------------------------------
-
--Images:
-clker
-openclipart
-wikimedia commons
-
----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
 Passing Parameters into CCObjects:
 http://www.cocos2d-x.org/forums/6/topics/14363
 
------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
 Other chicken game:
 http://www.flash-game.net/game/1892/chicken-road.html
--In that game, vehicles spawn at predictable intervals.  Each lane has certain vehicle(s) that spawn, but in
-no particular order.  It appears to be random (unless it is the same thing every time)
--so it looks like each lane has a list of possibilities, and an item from those possibilities is picked at random
 
-
-Solved problems:
-1.  The issue was that the distance between vehicles was different on pc vs android, even with the same speed and interval
--Figure out how to calculate speed and interval so that the player gets a similar experience regardless of screen resolution.
-OPTIONS:
-	-pick a minInterval such that the vehicles will never be too close in small resolutions.  I don't like this option
-	-I always want there to be a minimum distance between vehicles. Maybe the width of 3 scaled chickens or so.
-	-configure duration instead of speed?
-	-I want vehicles to travel the same distance in the same amount of time!  A wider screen should take longer to get across
-1. Fix!  Scale the vehicles horizontally.
-2. executing build_native.sh spits out syntax errors
-2. Fix! Open build_native.sh in Notepad++ and use menu Edit~~>EOL Conversion~~>Convert to UNIX 
-
+-----------------------------------------------------------------------------------------------------------
 
 To get the build working via eclipse:
 -do a whole bunch of crap that I don't remember
 -right click project > properties > C/C++ Build > Builder Settings
 -Uncheck "Use default build command"
 -Put this in the build command field: bash "/cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android/build_native.sh"
-
-
-NOTES:
--I want the standard logs to spawn more frequently than the disappearing logs.  To determine the probability, I simply added more logs to a given lane in the plist file.
-
-this is where I got the log pictures: http://www.123rf.com/photo_7913078_wooden-planks-boards-logs-panels-timber-collection.html
-or here: http://www.canstockphoto.com/logs-and-planks-6659208.html
-
-http://www.istockphoto.com/vector/chicken-egg-23518286?st=826a7f5
-^those licenses are kinda expensive
-
-https://openclipart.org/share <- get vehicles here and numbers! or make those myself. They have a good chicken as well.
-
-
-chicken: https://openclipart.org/detail/26012/chicken-roundcartoon-by-bloodsong
-good vehicles: https://openclipart.org/search/?query=spadassin
-check out clker.com
-
-wooden plank: https://openclipart.org/detail/162739/wooden-plank-dark-by-rdevries
-
-some cars: http://www.wpclipart.com/transportation/car/more_cars/index.html
-
-wood planks:
-http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
-http://pixabay.com/en/wood-planks-boards-lumber-plank-311940/
-
--If I get errors like "undefined reference to" when compiling with g++ but not with Visual Studio or Xcode, it is probably because I didn't add new class definitions
-into the proj.android/jni/Android.mk file.
