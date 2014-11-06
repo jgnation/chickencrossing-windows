@@ -13,7 +13,6 @@ private:
 	CCMenuItemImage* _aboutExitImage;
 	CCMenuItemImage* _instructionsExitImage;
 	CCMenuItemImage* _logoImage;
-	CCSprite* _chickenCrossingAboutImage;
 	CCSprite* _chickenCrossingInstructionsImage;
 	CCLayerColor* _backgroundColor;
 	CCLayerColor* _instructionsBackgroundColor;

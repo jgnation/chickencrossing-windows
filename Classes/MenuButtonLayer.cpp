@@ -102,19 +102,12 @@ void MenuButtonLayer::createInstructionScreen()
 void MenuButtonLayer::createAboutScreen()
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float originalWidth = 576;
-	float originalHeight = 144;
 
-	_chickenCrossingAboutImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
-	float ratio = (windowSize.width *.4) / _chickenCrossingAboutImage->getContentSize().width;
-	_chickenCrossingAboutImage->setScale(ratio);
-	_chickenCrossingAboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .9));
-
-	_backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .6, windowSize.height * .5);
+	_backgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .8, windowSize.height * .4);
 	_backgroundColor->setOpacity(200);
 	_backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
 	_backgroundColor->setAnchorPoint(ccp(0,1));
-	_backgroundColor->setPosition(ccp(windowSize.width * .35, windowSize.height * .8));
+	_backgroundColor->setPosition(ccp(windowSize.width * .1, windowSize.height * .7));
 		
 	std::string info = "Developed by JGNation\n";
 	info += "www.jgnation.com\n\n";
@@ -145,7 +138,6 @@ void MenuButtonLayer::createAboutScreen()
 	CCMenu* pMenu = CCMenu::create(_aboutExitImage, NULL);
 	pMenu->setPosition(CCPointZero);
 	this->addChild(_logoImage);
-	this->addChild(_chickenCrossingAboutImage);
 	this->addChild(pMenu);
 	this->addChild(_backgroundColor);
 
@@ -153,7 +145,6 @@ void MenuButtonLayer::createAboutScreen()
 	//Hide the about screen stuff
 	_logoImage->setVisible(false);
 	_aboutExitImage->setVisible(false);
-	_chickenCrossingAboutImage->setVisible(false);
 	_backgroundColor->setVisible(false);
 }
 
@@ -180,7 +171,6 @@ void MenuButtonLayer::aboutCallback(CCObject* pSender)
 
 	_logoImage->setVisible(true);
 	_aboutExitImage->setVisible(true);
-	_chickenCrossingAboutImage->setVisible(true);
 	_backgroundColor->setVisible(true);
 }
 
@@ -197,7 +187,6 @@ void MenuButtonLayer::instructionsCallback(CCObject* pSender)
 void MenuButtonLayer::aboutExitCallback(CCObject* pSender)
 {
 	_aboutExitImage->setVisible(false);
-	_chickenCrossingAboutImage->setVisible(false);
 	_logoImage->setVisible(false);
 	_backgroundColor->setVisible(false);
 
@@ -343,8 +332,8 @@ CCMenuItemImage* MenuButtonLayer::createJGNationLogo()
 		NULL
 	);
 
-	logo->setScale((windowSize.width *.2) / logo->getContentSize().width);
-	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 5, CCDirector::sharedDirector()->getWinSize().height * .55));
+	logo->setScale((windowSize.height * .2) / logo->getContentSize().height);
+	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .85));
 
 	return logo;
 }
