@@ -25,13 +25,13 @@ wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 ============================================================================================================
 
 Before version 1.0 release:
+-full test!
 -rename game to eggscramble? rename egg scramble mode to survival?
 -separate high scores for each level in egg scramble mode
 -chicken is too low-res for iPad
 -I might want to make sure the vehicle images don't need to be cropped
 -do sprites look like shit at lower resolutions?
 -review scaling of word images...do they need to be scaled by width and height separately?
--get rid of level 10...it can produce a shitload of spawn kills.
 -hunt for obvious memory leaks
 -death image
 

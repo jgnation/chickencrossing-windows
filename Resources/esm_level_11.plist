@@ -33,12 +33,17 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
+        <string>REST</string>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>WATER</string>
         <key>Vehicles</key>
         <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -53,12 +58,13 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
+        <string>WATER</string>
         <key>Vehicles</key>
         <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -73,12 +79,28 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
+        <string>WATER</string>
         <key>Vehicles</key>
         <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
+        </array>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>REST</string>
+      </dict>
+      <dict>
+        <key>Type</key>
+        <string>WATER</string>
+        <key>Vehicles</key>
+        <array>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -93,12 +115,13 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
+        <string>WATER</string>
         <key>Vehicles</key>
         <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
@@ -113,53 +136,18 @@
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
+        <string>WATER</string>
         <key>Vehicles</key>
         <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>Log</string>
+          <string>DisappearingLog</string>
         </array>
       </dict>
       <dict>
         <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
-      </dict>
-      <dict>
-        <key>Type</key>
-        <string>ROAD</string>
-        <key>Vehicles</key>
-        <array>
-          <string>Car</string>
-          <string>Truck</string>
-          <string>Bus</string>
-        </array>
+        <string>REST</string>
       </dict>
       <dict>
         <key>Type</key>
