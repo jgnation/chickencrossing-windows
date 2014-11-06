@@ -62,7 +62,9 @@ bool EggScrambleModeLayer::init(int levelNumber)
 		_waveNumber = 1;
 		_nextWaveScore = calculateNextLevelScore(_waveNumber);
 
-		int topScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_1");
+		std::stringstream topScoreStream;
+		topScoreStream << "esm_" << _levelNumber << "place_" << 1;
+		int topScore = CCUserDefault::sharedUserDefault()->getIntegerForKey(topScoreStream.str().c_str());
 		_hudLayer = new HudLayer();
 		_hudLayer->init();
 		_hudLayer->setHighScore(topScore);
@@ -107,11 +109,21 @@ std::vector<TopScore> EggScrambleModeLayer::checkHighScores()
 {
 	//all of this saving functionality should be pulled into another class
 	std::vector<TopScore> highScores;
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_1"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_2"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_3"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_4"), false));
-	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey("esm_place_5"), false));
+	std::stringstream place1stream;
+	place1stream << "esm_" << _levelNumber << "place_" << 1;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey(place1stream.str().c_str()), false));
+	std::stringstream place2stream;
+	place2stream << "esm_" << _levelNumber << "place_" << 2;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey(place2stream.str().c_str()), false));
+	std::stringstream place3stream;
+	place3stream << "esm_" << _levelNumber << "place_" << 3;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey(place3stream.str().c_str()), false));
+	std::stringstream place4stream;
+	place4stream << "esm_" << _levelNumber << "place_" << 4;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey(place4stream.str().c_str()), false));
+	std::stringstream place5stream;
+	place5stream << "esm_" << _levelNumber << "place_" << 5;
+	highScores.push_back(TopScore(CCUserDefault::sharedUserDefault()->getIntegerForKey(place5stream.str().c_str()), false));
 
 	bool topScore = false;
 	for (int i = 0; i < highScores.size(); i++)
@@ -132,7 +144,7 @@ std::vector<TopScore> EggScrambleModeLayer::checkHighScores()
 		for (int i = 0; i < highScores.size(); i++)
 		{
 			std::stringstream sstm;
-			sstm << "esm_place_" << (i + 1);
+			sstm << "esm_" << _levelNumber << "place_" << (i + 1);
 
 			CCUserDefault::sharedUserDefault()->setIntegerForKey(sstm.str().c_str(), highScores[i].getScore());
 		}
