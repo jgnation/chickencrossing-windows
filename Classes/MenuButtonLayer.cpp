@@ -17,7 +17,7 @@ bool MenuButtonLayer::init()
 		//add title image
 		float originalWidth = 576;
 		float originalHeight = 144;
-		_titleImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
+		_titleImage = CCSprite::create("egg_scramble_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
 		float scaleRatio = (windowSize.width *.7) / _titleImage->getContentSize().width;
 		_titleImage->setScale(scaleRatio);
 		_titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
@@ -51,7 +51,7 @@ void MenuButtonLayer::createInstructionScreen()
 	float originalWidth = 576;
 	float originalHeight = 144;
 
-	_chickenCrossingInstructionsImage = CCSprite::create("chicken_crossing_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	_chickenCrossingInstructionsImage = CCSprite::create("egg_scramble_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
 	float ratio = (windowSize.width *.4) / _chickenCrossingInstructionsImage->getContentSize().width;
 	_chickenCrossingInstructionsImage->setScale(ratio);
 	_chickenCrossingInstructionsImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .9));
@@ -68,7 +68,7 @@ void MenuButtonLayer::createInstructionScreen()
 	info += "Collect the eggs to progress through the levels.\n";
 	info += "Each level requires you to collect one more egg than the last.\n";
 	info += "\n";
-	info += "Egg Scramble mode:\n";
+	info += "Survival mode:\n";
 	info += "Collect as many eggs as possible.\n";
 	info += "Watch out for accelerating traffic!\n";
 	info += "Traffic will accelerate as your score increases.";
@@ -249,8 +249,8 @@ CCMenuItemImage* MenuButtonLayer::createEggScrambleButton()
 	float originalHeight = 144;
 
 	CCMenuItemImage *eggScrambleImage = CCMenuItemImage::create(
-		"egg_scramble_orange.png",
-		"egg_scramble_yellow.png",
+		"survival_orange.png",
+		"survival_yellow.png",
 		this,
 		menu_selector(MenuButtonLayer::eggScrambleCallback));
 

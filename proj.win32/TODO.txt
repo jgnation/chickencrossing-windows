@@ -25,17 +25,26 @@ wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 ============================================================================================================
 
 Before version 1.0 release:
+-the game has been renamed to egg scramble.  Change that wherever necessary!
+-the text on either the about screen or the instructions screen needs to be updated
 -chicken is too low-res for iPad
--rename game to eggscramble? rename egg scramble mode to survival?
 -full test!
+-audio?
+-death image
+-back button on android
+-option to rate game
 -I might want to make sure the vehicle images don't need to be cropped
 -do sprites look like shit at lower resolutions?
 -review scaling of word images...do they need to be scaled by width and height separately?
 -hunt for obvious memory leaks
--death image
+-ads
+--what kinds of ads is Super Frogger using (some sort of wall)
+
 
 
 After version 1.0 release:
+-tag the release on github
+-egg scramble mode was renamed survival.  Refactor code to reflect this.
 -after completing 12 levels in main mode display a "congrats! keep going!" kind of image.
 -show remaining lives as chicken images
 -hunt for memory leaks

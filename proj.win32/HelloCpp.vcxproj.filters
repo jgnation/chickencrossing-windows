@@ -483,6 +483,15 @@
     <Image Include="..\Resources\instructions_yellow.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\survival_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\survival_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\egg_scramble_title.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

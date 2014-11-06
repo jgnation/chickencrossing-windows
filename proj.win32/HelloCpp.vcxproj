@@ -281,6 +281,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\chicken_small.png" />
     <Image Include="..\Resources\chicken_xsmall.png" />
     <Image Include="..\Resources\egg_scramble_orange.png" />
+    <Image Include="..\Resources\egg_scramble_title.png" />
     <Image Include="..\Resources\egg_scramble_yellow.png" />
     <Image Include="..\Resources\futura-48.png" />
     <Image Include="..\Resources\game_over.png" />
@@ -312,6 +313,8 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Image Include="..\Resources\small_chicken.png" />
     <Image Include="..\Resources\start_game_orange.png" />
     <Image Include="..\Resources\start_game_yellow.png" />
+    <Image Include="..\Resources\survival_orange.png" />
+    <Image Include="..\Resources\survival_yellow.png" />
     <Image Include="..\Resources\top_scores.png" />
     <Image Include="..\Resources\vw_small.png" />
     <Image Include="..\Resources\white_truck.png" />
