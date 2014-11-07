@@ -3,7 +3,7 @@
 To get this on my phone:
 -compile the c++ code with the following commands in cygwin:
 	export NDK_ROOT=/cygdrive/c/android-ndk-r9d/
-	cd /cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android
+	cd /cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/EggScramble/proj.android
 	./build_native.sh
 -build the apk
 	ant debug install (after this command, the phone may ask to allow usb debugging.  Press OK)

@@ -1,4 +1,4 @@
-APPNAME="ChickenCrossing"
+APPNAME="EggScramble"
 # options
 buildexternalsfromsource=
 usage(){
