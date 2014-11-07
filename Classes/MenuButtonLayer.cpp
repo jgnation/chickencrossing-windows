@@ -18,6 +18,7 @@ bool MenuButtonLayer::init()
 		float originalWidth = 576;
 		float originalHeight = 144;
 		_titleImage = CCSprite::create("egg_scramble_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
+        
 		float scaleRatio = (windowSize.width *.7) / _titleImage->getContentSize().width;
 		_titleImage->setScale(scaleRatio);
 		_titleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
