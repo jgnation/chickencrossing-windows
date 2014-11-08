@@ -25,16 +25,14 @@ wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 ============================================================================================================
 
 Before version 1.0 release:
--the game has been renamed to egg scramble.  Change that wherever necessary!
--the text on either the about screen or the instructions screen needs to be updated
--chicken is too low-res for iPad
--full test!
 -audio?
 -death image
--back button on android
+-replace level 10
+-disappearing logs different color
+-full test!
 -option to rate game
 -I might want to make sure the vehicle images don't need to be cropped
--do sprites look like shit at lower resolutions?
+-do sprites look like shit at lower/higher resolutions?
 -review scaling of word images...do they need to be scaled by width and height separately?
 -hunt for obvious memory leaks
 -ads
@@ -44,10 +42,12 @@ Before version 1.0 release:
 
 After version 1.0 release:
 -tag the release on github
+-back button on android
 -egg scramble mode was renamed survival.  Refactor code to reflect this.
 -after completing 12 levels in main mode display a "congrats! keep going!" kind of image.
 -show remaining lives as chicken images
 -hunt for memory leaks
+-the text on the instruction/about screen is a slight different size
 --Is deleting field references in destructor standard practice?
 -jgnation splash screen
 -make the egg not spawn so close to left and right edge?
@@ -145,3 +145,16 @@ To get the build working via eclipse:
 -right click project > properties > C/C++ Build > Builder Settings
 -Uncheck "Use default build command"
 -Put this in the build command field: bash "/cygdrive/c/cocos2d-x-3.0alpha0/cocos2d-x-3.0alpha0/projects/ChickenCrossing/proj.android/build_native.sh"
+
+===================================================================
+http://www.cocos2d-x.org/wiki/Audio_formats_supported_by_CocosDenshion_on_different_platforms
+
+possible music:
+mp3s:
+http://indiegamemusic.com/viewtrack.php?id=1794 - 5
+http://indiegamemusic.com/viewtrack.php?id=2 - 6
+http://indiegamemusic.com/viewtrack.php?id=5 - 6
+http://indiegamemusic.com/viewtrack.php?id=6 - 8
+http://indiegamemusic.com/viewtrack.php?id=1331 - 8
+http://indiegamemusic.com/viewtrack.php?id=92 - 8
+http://indiegamemusic.com/viewtrack.php?id=752 - 4

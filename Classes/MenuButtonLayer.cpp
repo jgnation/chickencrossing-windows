@@ -123,8 +123,8 @@ void MenuButtonLayer::createAboutScreen()
 	CCLabelBMFont * aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
 	Size originalSize = aboutInfo->getContentSize();
 	Size backgroundColorSize = _backgroundColor->getContentSize();
-	float ry = (backgroundColorSize.height * .6) / originalSize.height;
-	float rx = (backgroundColorSize.width * .9) / originalSize.width;
+	float ry = (backgroundColorSize.height * .8) / originalSize.height;
+	float rx = (backgroundColorSize.width * .6) / originalSize.width;
 	aboutInfo->setScaleY(ry);
 	aboutInfo->setScaleX(rx);
 	aboutInfo->setContentSize(CCSize(originalSize.width * rx, originalSize.height * ry));
