@@ -301,6 +301,15 @@
     <None Include="..\Resources\mm_level_12.plist">
       <Filter>resource</Filter>
     </None>
+    <None Include="..\Resources\Complete.mid">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Platform.mid">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\SpaceQuest.mid">
+      <Filter>resource</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\background1.png">

@@ -36,6 +36,7 @@ bool MenuLayer::init()
     do 
     {
 		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform80kbps.mp3", true);
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform.mid", true);
 
 		MenuButtonLayer * menuButtonLayer = new MenuButtonLayer();
 		menuButtonLayer->init();

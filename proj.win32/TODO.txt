@@ -25,8 +25,10 @@ wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 ============================================================================================================
 
 Before version 1.0 release:
--audio?
+-convert midi to mp3 for compatibility?
+-preload audio?  The game now hesitates right before playing audio.
 -death image
+-highest level achieved screen (after top scores)?
 -replace level 10
 -disappearing logs different color
 -full test!

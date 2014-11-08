@@ -1,11 +1,15 @@
 #include "GameOverLayer.h"
 #include "MenuLayer.h"
+#include "SimpleAudioEngine.h"
  
 using namespace cocos2d;
  
 bool GameOverLayer::init(std::vector<TopScore> highScores)
 {
     if (CCLayer::init()) {
+
+		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("SpaceQuest-MP3.mp3", true);
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("SpaceQuest.mid", true);
 
 		_highScores = highScores;
 
@@ -130,6 +134,7 @@ void GameOverLayer::displayTopScores()
 
 void GameOverLayer::nextButton2Callback(CCObject* pSender)
 {
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	CCScene *pScene = MenuLayer::scene();
     //CCScene *s = CCTransitionSplitRows::transitionWithDuration(0.5, pScene);
     //CCDirector::sharedDirector()->replaceScene(s);

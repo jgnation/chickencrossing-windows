@@ -14,6 +14,7 @@
 #include "Dimensions.h"
 #include "GameFunctions.h"
 #include "TopScore.h"
+#include "SimpleAudioEngine.h"
 #include <string>
 
 using namespace cocos2d;
@@ -73,6 +74,9 @@ bool GameLayer::init()
     do 
     {
         CC_BREAK_IF(! CCLayer::init());
+
+		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete80kbps.mp3", true);
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete.mid", true);
 
 		this->addKeyboardSupport();
 
@@ -305,6 +309,7 @@ void GameLayer::gameOver()
 	std::vector<TopScore> highScores = this->checkHighScores();
 
 	//display GameOver with a next button
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	GameOverLayer* gameOverLayer = new GameOverLayer();
 	gameOverLayer->init(highScores);
 	this->addChild(gameOverLayer, GAME_OVER_LAYER_POSITION);

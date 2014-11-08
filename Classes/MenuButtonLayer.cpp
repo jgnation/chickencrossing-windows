@@ -152,7 +152,7 @@ void MenuButtonLayer::createAboutScreen()
 
 void MenuButtonLayer::startGameCallback(CCObject* pSender)
 {
-	//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	CCDirector *pDirector = CCDirector::sharedDirector();
 	pDirector->replaceScene(MainModeLayer::scene());
 }

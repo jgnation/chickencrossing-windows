@@ -90,7 +90,7 @@ void LevelSelectLayer::levelSelectCallback(CCObject* pSender)
 	CCMenuItem * item = (CCMenuItem *) pSender;
 	int levelNumber = item->getTag();
 
-	//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	CCDirector *pDirector = CCDirector::sharedDirector();
 	pDirector->replaceScene(EggScrambleModeLayer::scene(levelNumber));
 }
