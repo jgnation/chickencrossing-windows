@@ -2,6 +2,7 @@
 #include "GameLayer.h"
 #include "LevelSelectLayer.h"
 #include "MainModeLayer.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
  
@@ -151,6 +152,7 @@ void MenuButtonLayer::createAboutScreen()
 
 void MenuButtonLayer::startGameCallback(CCObject* pSender)
 {
+	//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	CCDirector *pDirector = CCDirector::sharedDirector();
 	pDirector->replaceScene(MainModeLayer::scene());
 }

@@ -149,12 +149,29 @@ To get the build working via eclipse:
 ===================================================================
 http://www.cocos2d-x.org/wiki/Audio_formats_supported_by_CocosDenshion_on_different_platforms
 
-possible music:
-mp3s:
-http://indiegamemusic.com/viewtrack.php?id=1794 - 5
-http://indiegamemusic.com/viewtrack.php?id=2 - 6
-http://indiegamemusic.com/viewtrack.php?id=5 - 6
-http://indiegamemusic.com/viewtrack.php?id=6 - 8
-http://indiegamemusic.com/viewtrack.php?id=1331 - 8
-http://indiegamemusic.com/viewtrack.php?id=92 - 8
-http://indiegamemusic.com/viewtrack.php?id=752 - 4
+http://indiegamemusic.com/viewtrack.php?id=6 Complete - Game
+http://indiegamemusic.com/viewtrack.php?id=1331 Platform - intro
+http://indiegamemusic.com/viewtrack.php?id=92 SpaceQuest - ending
+^I can even do those as midi
+
+chiptunes:
+http://opengameart.org/sites/default/files/A%20Journey%20Awaits.mp3 game over?  very metal gear esque.
+http://www.indiegamemusic.com/viewtrack.php?id=1432 game or intro (costs 10)
+http://freemusicarchive.org/music/Rolemusic/Pop_Singles_Compilation_2014/01_rolemusic_-_bacterial_love
+
+http://freemusicarchive.org/genre/Chiptune/?sort=track_date_published&d=1&page=4
+
+https://www.makegameswith.us/gamernews/281/top-20-best-free-music-and-sound-effect-resources
+http://videogamecaster.com/royalty-free-music-and-sounds
+http://gamedev.stackexchange.com/questions/14/where-can-i-find-free-music-for-my-game
+
+
+http://freemusicarchive.org/music/RoccoW/~/Vengaboys_-_Boom_Boom_Boom_Boom_LSDJ_Remix (hey now hey now)
+http://freemusicarchive.org/music/RoccoW/~/Chipho_instrumental
+http://freemusicarchive.org/music/RoccoW/~/Hello_Chiptune_Cover
+http://freemusicarchive.org/music/RoccoW/~/xyce_-_Quelle_Surprise_VRC6_Remix
+rolemusic and roccow
+
+http://indiegamemusic.com/diskspace/mr_lou/Action80kbps.mp3
+
+===========================================

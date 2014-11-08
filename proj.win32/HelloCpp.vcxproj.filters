@@ -496,4 +496,15 @@
   <ItemGroup>
     <Text Include="TODO.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\Complete80kbps.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform80kbps.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest-MP3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #include "LevelSelectLayer.h"
 #include "GameLayer.h"
 #include "EggScrambleModeLayer.h"
+#include "SimpleAudioEngine.h"
  
 using namespace cocos2d;
  
@@ -89,6 +90,7 @@ void LevelSelectLayer::levelSelectCallback(CCObject* pSender)
 	CCMenuItem * item = (CCMenuItem *) pSender;
 	int levelNumber = item->getTag();
 
+	//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	CCDirector *pDirector = CCDirector::sharedDirector();
 	pDirector->replaceScene(EggScrambleModeLayer::scene(levelNumber));
 }

@@ -4,6 +4,7 @@
 #include "LevelManager.h"
 #include "Level.h"
 #include "MainModeLevelFactory.h"
+#include "SimpleAudioEngine.h" 
 
 using namespace cocos2d;
 
@@ -34,6 +35,8 @@ bool MenuLayer::init()
     bool bRet = false;
     do 
     {
+		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform80kbps.mp3", true);
+
 		MenuButtonLayer * menuButtonLayer = new MenuButtonLayer();
 		menuButtonLayer->init();
 		this->addChild(menuButtonLayer, 5);	//z position is  on top, chicken is on 1
