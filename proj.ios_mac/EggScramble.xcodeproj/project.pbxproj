@@ -96,6 +96,24 @@
 		428BB6121A0C7DA300F9ED77 /* plank_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6101A0C7DA300F9ED77 /* plank_small.png */; };
 		428BB6151A0C7DB100F9ED77 /* survival_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6131A0C7DB100F9ED77 /* survival_orange.png */; };
 		428BB6161A0C7DB100F9ED77 /* survival_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6141A0C7DB100F9ED77 /* survival_yellow.png */; };
+		428C2B9D1A0E8E3900558156 /* Complete.mid in Resources */ = {isa = PBXBuildFile; fileRef = 428C2B9B1A0E8E3900558156 /* Complete.mid */; };
+		428C2B9E1A0E8E3900558156 /* Complete80kbps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2B9C1A0E8E3900558156 /* Complete80kbps.mp3 */; };
+		428C2BA71A0EE2B200558156 /* Platform.mid in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BA51A0EE2B200558156 /* Platform.mid */; };
+		428C2BA81A0EE2B200558156 /* Platform80kbps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BA61A0EE2B200558156 /* Platform80kbps.mp3 */; };
+		428C2BAB1A0EE2BE00558156 /* SpaceQuest-MP3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BA91A0EE2BE00558156 /* SpaceQuest-MP3.mp3 */; };
+		428C2BAC1A0EE2BE00558156 /* SpaceQuest.mid in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAA1A0EE2BE00558156 /* SpaceQuest.mid */; };
+		428C2BB11A0F048800558156 /* Complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAD1A0F048800558156 /* Complete.mp3 */; };
+		428C2BB21A0F048800558156 /* Complete1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAE1A0F048800558156 /* Complete1.mp3 */; };
+		428C2BB31A0F048800558156 /* Complete2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAF1A0F048800558156 /* Complete2.mp3 */; };
+		428C2BB41A0F048800558156 /* Complete3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB01A0F048800558156 /* Complete3.mp3 */; };
+		428C2BB91A0F049500558156 /* Platform.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB51A0F049500558156 /* Platform.mp3 */; };
+		428C2BBA1A0F049500558156 /* Platform1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB61A0F049500558156 /* Platform1.mp3 */; };
+		428C2BBB1A0F049500558156 /* Platform2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB71A0F049500558156 /* Platform2.mp3 */; };
+		428C2BBC1A0F049500558156 /* Platform3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB81A0F049500558156 /* Platform3.mp3 */; };
+		428C2BC11A0F04A000558156 /* SpaceQuest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BBD1A0F04A000558156 /* SpaceQuest.mp3 */; };
+		428C2BC21A0F04A000558156 /* SpaceQuest1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BBE1A0F04A000558156 /* SpaceQuest1.mp3 */; };
+		428C2BC31A0F04A000558156 /* SpaceQuest2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BBF1A0F04A000558156 /* SpaceQuest2.mp3 */; };
+		428C2BC41A0F04A000558156 /* SpaceQuest3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BC01A0F04A000558156 /* SpaceQuest3.mp3 */; };
 		4293E26319A5B1D700AAF21D /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24A19A5B1D700AAF21D /* Background.cpp */; };
 		4293E26419A5B1D700AAF21D /* Bus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24C19A5B1D700AAF21D /* Bus.cpp */; };
 		4293E26519A5B1D700AAF21D /* Car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24E19A5B1D700AAF21D /* Car.cpp */; };
@@ -454,6 +472,24 @@
 		428BB6101A0C7DA300F9ED77 /* plank_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank_small.png; sourceTree = "<group>"; };
 		428BB6131A0C7DB100F9ED77 /* survival_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survival_orange.png; sourceTree = "<group>"; };
 		428BB6141A0C7DB100F9ED77 /* survival_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survival_yellow.png; sourceTree = "<group>"; };
+		428C2B9B1A0E8E3900558156 /* Complete.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Complete.mid; sourceTree = "<group>"; };
+		428C2B9C1A0E8E3900558156 /* Complete80kbps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete80kbps.mp3; sourceTree = "<group>"; };
+		428C2BA51A0EE2B200558156 /* Platform.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Platform.mid; sourceTree = "<group>"; };
+		428C2BA61A0EE2B200558156 /* Platform80kbps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform80kbps.mp3; sourceTree = "<group>"; };
+		428C2BA91A0EE2BE00558156 /* SpaceQuest-MP3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SpaceQuest-MP3.mp3"; sourceTree = "<group>"; };
+		428C2BAA1A0EE2BE00558156 /* SpaceQuest.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = SpaceQuest.mid; sourceTree = "<group>"; };
+		428C2BAD1A0F048800558156 /* Complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete.mp3; sourceTree = "<group>"; };
+		428C2BAE1A0F048800558156 /* Complete1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete1.mp3; sourceTree = "<group>"; };
+		428C2BAF1A0F048800558156 /* Complete2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete2.mp3; sourceTree = "<group>"; };
+		428C2BB01A0F048800558156 /* Complete3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete3.mp3; sourceTree = "<group>"; };
+		428C2BB51A0F049500558156 /* Platform.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform.mp3; sourceTree = "<group>"; };
+		428C2BB61A0F049500558156 /* Platform1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform1.mp3; sourceTree = "<group>"; };
+		428C2BB71A0F049500558156 /* Platform2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform2.mp3; sourceTree = "<group>"; };
+		428C2BB81A0F049500558156 /* Platform3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform3.mp3; sourceTree = "<group>"; };
+		428C2BBD1A0F04A000558156 /* SpaceQuest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest.mp3; sourceTree = "<group>"; };
+		428C2BBE1A0F04A000558156 /* SpaceQuest1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest1.mp3; sourceTree = "<group>"; };
+		428C2BBF1A0F04A000558156 /* SpaceQuest2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest2.mp3; sourceTree = "<group>"; };
+		428C2BC01A0F04A000558156 /* SpaceQuest3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest3.mp3; sourceTree = "<group>"; };
 		4293E24A19A5B1D700AAF21D /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Background.cpp; path = ../Classes/Background.cpp; sourceTree = "<group>"; };
 		4293E24B19A5B1D700AAF21D /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = ../Classes/Background.h; sourceTree = "<group>"; };
 		4293E24C19A5B1D700AAF21D /* Bus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bus.cpp; path = ../Classes/Bus.cpp; sourceTree = "<group>"; };
@@ -850,6 +886,12 @@
 				428736311A044470004DE2C2 /* chicken_xsmall.png */,
 				428736321A044470004DE2C2 /* chicken_xxsmall.png */,
 				428BB6011A0C7D5F00F9ED77 /* chicken_xxxsmall.png */,
+				428C2B9B1A0E8E3900558156 /* Complete.mid */,
+				428C2BAD1A0F048800558156 /* Complete.mp3 */,
+				428C2BAE1A0F048800558156 /* Complete1.mp3 */,
+				428C2BAF1A0F048800558156 /* Complete2.mp3 */,
+				428C2BB01A0F048800558156 /* Complete3.mp3 */,
+				428C2B9C1A0E8E3900558156 /* Complete80kbps.mp3 */,
 				4293E2A419A5B41500AAF21D /* egg_scramble_orange.png */,
 				428BB6071A0C7D7C00F9ED77 /* egg_scramble_title.png */,
 				428BB6081A0C7D7C00F9ED77 /* egg_scramble_title.psd */,
@@ -904,9 +946,21 @@
 				4287366D1A0444BA004DE2C2 /* num_9.png */,
 				428BB60F1A0C7DA300F9ED77 /* plank_large.png */,
 				428BB6101A0C7DA300F9ED77 /* plank_small.png */,
+				428C2BA51A0EE2B200558156 /* Platform.mid */,
+				428C2BB51A0F049500558156 /* Platform.mp3 */,
+				428C2BB61A0F049500558156 /* Platform1.mp3 */,
+				428C2BB71A0F049500558156 /* Platform2.mp3 */,
+				428C2BB81A0F049500558156 /* Platform3.mp3 */,
+				428C2BA61A0EE2B200558156 /* Platform80kbps.mp3 */,
 				4293E2CE19A5B42F00AAF21D /* red_car.png */,
 				4287368A1A0444CA004DE2C2 /* select_level.png */,
 				4293E2CF19A5B42F00AAF21D /* small_chicken.png */,
+				428C2BA91A0EE2BE00558156 /* SpaceQuest-MP3.mp3 */,
+				428C2BAA1A0EE2BE00558156 /* SpaceQuest.mid */,
+				428C2BBD1A0F04A000558156 /* SpaceQuest.mp3 */,
+				428C2BBE1A0F04A000558156 /* SpaceQuest1.mp3 */,
+				428C2BBF1A0F04A000558156 /* SpaceQuest2.mp3 */,
+				428C2BC01A0F04A000558156 /* SpaceQuest3.mp3 */,
 				4293E2D219A5B42F00AAF21D /* start_game.psd */,
 				4293E2D019A5B42F00AAF21D /* start_game_orange.png */,
 				4293E2D119A5B42F00AAF21D /* start_game_yellow.png */,
@@ -1115,10 +1169,12 @@
 				4287364C1A044488004DE2C2 /* esm_level_6.plist in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				425717BC19D10D18000BCFF5 /* background7.png in Resources */,
+				428C2BC11A0F04A000558156 /* SpaceQuest.mp3 in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				428736571A04449C004DE2C2 /* jgnation_logo_med.png in Resources */,
 				4287367D1A0444BA004DE2C2 /* mm_levels.plist in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				428C2BB41A0F048800558156 /* Complete3.mp3 in Resources */,
 				428736331A044470004DE2C2 /* beetle_small.png in Resources */,
 				4287367A1A0444BA004DE2C2 /* mm_level_10.plist in Resources */,
 				428736371A044470004DE2C2 /* chicken_small.png in Resources */,
@@ -1132,8 +1188,13 @@
 				425717BF19D10D18000BCFF5 /* background10.png in Resources */,
 				428736861A0444BA004DE2C2 /* num_9.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				428C2BB91A0F049500558156 /* Platform.mp3 in Resources */,
+				428C2BAC1A0EE2BE00558156 /* SpaceQuest.mid in Resources */,
+				428C2BC21A0F04A000558156 /* SpaceQuest1.mp3 in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				428736501A044488004DE2C2 /* esm_level_10.plist in Resources */,
+				428C2BBA1A0F049500558156 /* Platform1.mp3 in Resources */,
+				428C2BBB1A0F049500558156 /* Platform2.mp3 in Resources */,
 				4287367B1A0444BA004DE2C2 /* mm_level_11.plist in Resources */,
 				425717C019D10D18000BCFF5 /* background11.png in Resources */,
 				428736341A044470004DE2C2 /* car_small.png in Resources */,
@@ -1162,11 +1223,13 @@
 				428736781A0444BA004DE2C2 /* mm_level_8.plist in Resources */,
 				4287368E1A0444CA004DE2C2 /* top_scores.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				428C2BBC1A0F049500558156 /* Platform3.mp3 in Resources */,
 				428736471A044488004DE2C2 /* esm_level_1.plist in Resources */,
 				4287367E1A0444BA004DE2C2 /* num_1.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				428BB6161A0C7DB100F9ED77 /* survival_yellow.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				428C2BA71A0EE2B200558156 /* Platform.mid in Resources */,
 				428736511A044488004DE2C2 /* esm_level_11.plist in Resources */,
 				425717C119D10D18000BCFF5 /* background12.png in Resources */,
 				4287367C1A0444BA004DE2C2 /* mm_level_12.plist in Resources */,
@@ -1182,6 +1245,7 @@
 				4293E2B519A5B41500AAF21D /* arrow.png in Resources */,
 				425717BB19D10D18000BCFF5 /* background6.png in Resources */,
 				428BB6091A0C7D7C00F9ED77 /* egg_scramble_title.png in Resources */,
+				428C2BA81A0EE2B200558156 /* Platform80kbps.mp3 in Resources */,
 				4293E2B619A5B41500AAF21D /* background_layered.psd in Resources */,
 				428736881A0444BA004DE2C2 /* num_11.png in Resources */,
 				428BB6061A0C7D6E00F9ED77 /* cactus.png in Resources */,
@@ -1190,8 +1254,11 @@
 				4293E2B919A5B41500AAF21D /* background3.png in Resources */,
 				428736851A0444BA004DE2C2 /* num_8.png in Resources */,
 				4293E2BA19A5B41500AAF21D /* brown_egg.png in Resources */,
+				428C2BB11A0F048800558156 /* Complete.mp3 in Resources */,
 				4293E2BB19A5B41500AAF21D /* bus.png in Resources */,
+				428C2B9D1A0E8E3900558156 /* Complete.mid in Resources */,
 				428736531A044488004DE2C2 /* esm_levels.plist in Resources */,
+				428C2B9E1A0E8E3900558156 /* Complete80kbps.mp3 in Resources */,
 				428736741A0444BA004DE2C2 /* mm_level_4.plist in Resources */,
 				4287364D1A044488004DE2C2 /* esm_level_7.plist in Resources */,
 				4293E2BD19A5B41500AAF21D /* chicken_crossing_title.png in Resources */,
@@ -1203,6 +1270,7 @@
 				428736841A0444BA004DE2C2 /* num_7.png in Resources */,
 				428736351A044470004DE2C2 /* chicken_large.png in Resources */,
 				4293E2C119A5B41500AAF21D /* Marker Felt.ttf in Resources */,
+				428C2BB21A0F048800558156 /* Complete1.mp3 in Resources */,
 				4293E2C219A5B41500AAF21D /* game_over.png in Resources */,
 				428768B819D8853800C14BE3 /* futura-48.fnt in Resources */,
 				4293E2C719A5B41500AAF21D /* log_large.png in Resources */,
@@ -1213,14 +1281,18 @@
 				428736801A0444BA004DE2C2 /* num_3.png in Resources */,
 				425717B919D10D18000BCFF5 /* background4.png in Resources */,
 				4287364A1A044488004DE2C2 /* esm_level_4.plist in Resources */,
+				428C2BB31A0F048800558156 /* Complete2.mp3 in Resources */,
 				4293E2D719A5B42F00AAF21D /* start_game_orange.png in Resources */,
 				4293E2D819A5B42F00AAF21D /* start_game_yellow.png in Resources */,
 				428736521A044488004DE2C2 /* esm_level_12.plist in Resources */,
 				4293E2D919A5B42F00AAF21D /* start_game.psd in Resources */,
 				428736711A0444BA004DE2C2 /* mm_level_1.plist in Resources */,
 				428736481A044488004DE2C2 /* esm_level_2.plist in Resources */,
+				428C2BAB1A0EE2BE00558156 /* SpaceQuest-MP3.mp3 in Resources */,
+				428C2BC31A0F04A000558156 /* SpaceQuest2.mp3 in Resources */,
 				4287364E1A044488004DE2C2 /* esm_level_8.plist in Resources */,
 				4287364F1A044488004DE2C2 /* esm_level_9.plist in Resources */,
+				428C2BC41A0F04A000558156 /* SpaceQuest3.mp3 in Resources */,
 				4293E2DA19A5B42F00AAF21D /* white_truck.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

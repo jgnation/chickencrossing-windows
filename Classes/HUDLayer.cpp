@@ -118,7 +118,7 @@ void HudLayer::createLevelLabel()
 void HudLayer::setHighScore(int score)
 {
 	CCString * scoreString = new CCString();
-    scoreString->initWithFormat("Score: %d", score);
+    scoreString->initWithFormat("High Score: %d", score);
     _highScoreLabel->setString(scoreString->getCString());
 }
  
