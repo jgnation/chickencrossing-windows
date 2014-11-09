@@ -33,7 +33,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	//setContentSize changes the size of the 'bounding box' around the image
 	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
-	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(5)));
+	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
 
 	_speed = .1;
 	//_speed = 1;
@@ -42,9 +42,36 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_logBeingRidden = NULL;
 
 	gameLayer->addChild(_sprite, 1);
+
+	this->createDeadChickenSprite();
 }
 
 Chicken::~Chicken(void) { }
+
+void Chicken::createDeadChickenSprite()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
+	float originalWidth = 100;
+	float originalHeight = 85;
+	_deadChickenSprite = CCSprite::create("deaths-head-xxsmall.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	_deadChickenSprite->setAnchorPoint(ccp(0,0));
+
+	float scaleRatioY = (windowSize.height / 17) / _deadChickenSprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
+	//setScale only changes the size of the image, not the 'bounding box'
+	_deadChickenSprite->setScale(scaleRatioY);
+
+	float scaleRatioX = (windowSize.width / 12) / _deadChickenSprite->getContentSize().width;
+	_deadChickenSprite->setScaleX(scaleRatioX);
+
+	float scaledWidth = originalWidth * scaleRatioX;
+	float scaledHeight = originalHeight * scaleRatioY;
+	//setContentSize changes the size of the 'bounding box' around the image
+	_deadChickenSprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+	
+	_deadChickenSprite->setVisible(false);
+	_gameLayer->addChild(_deadChickenSprite, 1);
+}
 
 CCSprite * Chicken::getSprite()
 {
@@ -186,13 +213,35 @@ void Chicken::setMoving(bool value)
 	_isMoving = value;
 }
 
-void Chicken::die()
+void Chicken::reset()
 {
-	this->endRide();	//adding this here fixed the bug where the game crashes when the riding chicken hits the edge of the screen
+	this->endRide(); //adding this here fixed the bug where the game crashes when the riding chicken hits the edge of the screen
+	_isMoving = false;
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
-	_isMoving = false;
+}
+
+void Chicken::die()
+{
+	Point curentPosition = _sprite->getPosition();
+	this->reset();
+
+	_deadChickenSprite->setPosition(curentPosition);
+	_deadChickenSprite->setVisible(true);
+	_sprite->setVisible(false);
+
+	_deadChickenSprite->setOpacity(255);
+	CCFadeTo* fadeOut = CCFadeTo::create(1.0, 0);
+	CCFiniteTimeAction * actionFade = CCFadeTo::create(1.0, 0);
+	CCFiniteTimeAction* actionFadeDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::resurrectChicken));
+	_deadChickenSprite->runAction(CCSequence::create(actionFade, actionFadeDone, NULL));
+}
+
+void Chicken::resurrectChicken(cocos2d::CCNode* sender)
+{
+	_deadChickenSprite->setVisible(false);
+	_sprite->setVisible(true);
 }
 
 void Chicken::spriteMoveFinished(CCNode* sender)

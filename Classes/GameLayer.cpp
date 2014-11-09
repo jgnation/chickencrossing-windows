@@ -307,9 +307,10 @@ void GameLayer::gameOver()
 	_chicken->getSprite()->setVisible(false);
 
 	std::vector<TopScore> highScores = this->checkHighScores();
+	
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 
 	//display GameOver with a next button
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 	GameOverLayer* gameOverLayer = new GameOverLayer();
 	gameOverLayer->init(highScores);
 	this->addChild(gameOverLayer, GAME_OVER_LAYER_POSITION);
@@ -317,7 +318,8 @@ void GameLayer::gameOver()
 
 void GameLayer::resetChicken()
 {
-	_chicken->die();
+
+	_chicken->reset();
 }
 
 void GameLayer::loadLevel(int levelNumber)

@@ -10,6 +10,8 @@ class GameLayer;	//forward declaration
 class Chicken : public SpriteContainer
 {
 private:
+	cocos2d::CCSprite * _deadChickenSprite;
+
 	Dimensions * _dimensions;
 	int _yMoveDistance;
 	int _xMoveDistance;
@@ -21,6 +23,7 @@ private:
 
 	void move(cocos2d::Point point);
 	void doneMoving(cocos2d::CCNode* sender);
+	void createDeadChickenSprite();
 public:
 	Chicken(void);
 	Chicken(GameLayer* gameScene);
@@ -40,9 +43,11 @@ public:
 	void setMoving(bool value);
 	bool isMoving();
 	void die();
+	void reset();
 	Log * getLogBeingRidden();
 
 	void spriteMoveFinished(cocos2d::CCNode* sender);
+	void resurrectChicken(cocos2d::CCNode* sender);
 };
 
 #endif

@@ -21,13 +21,17 @@ Images I am using:
 chicken: https://openclipart.org/detail/26012/chicken-roundcartoon-by-bloodsong
 vehicles: https://openclipart.org/search/?query=spadassin
 wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
+skull: http://pixabay.com/en/death-s-head-bones-crossbones-153588/
 
 ============================================================================================================
 
 Before version 1.0 release:
+-add skull and music credits
+-lives should say 0 when I am on last life
+-sound fx: chicken die (hit by car, fall in water), get egg.
+-music that plays during the level doesn't always stop when game over
 -kill music when program goes to background
 -preload audio?  The game now hesitates right before playing audio.
--death image
 -highest level achieved screen (after top scores)?
 -replace level 10
 -disappearing logs different color
@@ -43,6 +47,7 @@ Before version 1.0 release:
 
 
 After version 1.0 release:
+-don't respawn chicken after game over
 -tag the release on github
 -back button on android
 -egg scramble mode was renamed survival.  Refactor code to reflect this.
@@ -184,3 +189,14 @@ $ ./build_native.sh
 
 Then open file in notepad and do this:
 Edit>EOL Conversion>Unix
+===============================================
+good resource for media: http://www.pygame.org/wiki/resources
+
+chicken: http://www.soundsnap.com/chicken_clucking_strongly
+
+=========================================================
+skulls:
+http://pixabay.com/en/skull-and-crossbones-skull-30325/
+http://pixabay.com/en/death-s-head-bones-crossbones-153588/ (i like this one)
+http://pixabay.com/en/skull-crossbones-pirate-symbol-44535/
+http://pixabay.com/en/skull-funny-crossbones-death-145730/
