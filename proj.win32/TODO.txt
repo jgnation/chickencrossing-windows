@@ -26,9 +26,8 @@ skull: http://pixabay.com/en/death-s-head-bones-crossbones-153588/
 ============================================================================================================
 
 Before version 1.0 release:
--add skull and music credits
--lives should say 0 when I am on last life
 -sound fx: chicken die (hit by car, fall in water), get egg.
+-don't spawn eggs so close to edge of screen?
 -music that plays during the level doesn't always stop when game over
 -kill music when program goes to background
 -preload audio?  The game now hesitates right before playing audio.
@@ -37,7 +36,7 @@ Before version 1.0 release:
 -disappearing logs different color
 -full test!
 -option to rate game
--I might want to make sure the vehicle images don't need to be cropped
+-I might want to make sure the vehicle images don't need to be cropped (and the chicken!)
 -do sprites look like shit at lower/higher resolutions?
 -review scaling of word images...do they need to be scaled by width and height separately?
 -hunt for obvious memory leaks
@@ -71,6 +70,7 @@ After version 1.0 release:
 -tinker with egg scramble low/top speed settings
 -for egg scramble mode display the level number with the top scores?
 -display which mode it is with the top scores
+-lives should say 0 when I am on last life
 -upgrade to version 3.0 of cocos2d-x
 -add dates to top scores
 -logs of various lengths
@@ -195,8 +195,3 @@ good resource for media: http://www.pygame.org/wiki/resources
 chicken: http://www.soundsnap.com/chicken_clucking_strongly
 
 =========================================================
-skulls:
-http://pixabay.com/en/skull-and-crossbones-skull-30325/
-http://pixabay.com/en/death-s-head-bones-crossbones-153588/ (i like this one)
-http://pixabay.com/en/skull-crossbones-pirate-symbol-44535/
-http://pixabay.com/en/skull-funny-crossbones-death-145730/

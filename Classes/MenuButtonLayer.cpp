@@ -119,13 +119,17 @@ void MenuButtonLayer::createAboutScreen()
 	info += "openclipart.org\n\n";
 	info += "Wood plank image by Nemo\n";
 	info += "pixabay.com\n\n";
-	info += "All other images created by JGNation.";
+	info += "Skull image by OpenClips\n";
+	info += "pixabay.com\n\n";
+	info += "All other images created by JGNation.\n\n";
+	info += "Music by Roald Strauss\n";
+	info += "IndieGameMusic.com";
 
 	CCLabelBMFont * aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
 	Size originalSize = aboutInfo->getContentSize();
 	Size backgroundColorSize = _backgroundColor->getContentSize();
-	float ry = (backgroundColorSize.height * .8) / originalSize.height;
-	float rx = (backgroundColorSize.width * .6) / originalSize.width;
+	float ry = (backgroundColorSize.height * .9) / originalSize.height;
+	float rx = (backgroundColorSize.width * .5) / originalSize.width;
 	aboutInfo->setScaleY(ry);
 	aboutInfo->setScaleX(rx);
 	aboutInfo->setContentSize(CCSize(originalSize.width * rx, originalSize.height * ry));
