@@ -25,7 +25,7 @@ wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 ============================================================================================================
 
 Before version 1.0 release:
--convert midi to mp3 for compatibility?
+-kill music when program goes to background
 -preload audio?  The game now hesitates right before playing audio.
 -death image
 -highest level achieved screen (after top scores)?
@@ -177,3 +177,10 @@ rolemusic and roccow
 http://indiegamemusic.com/diskspace/mr_lou/Action80kbps.mp3
 
 ===========================================
+If you receive this error:
+$ ./build_native.sh
+./build_native.sh: line 4: syntax error near unexpected token `$'{\r''
+'/build_native.sh: line 4: `usage(){
+
+Then open file in notepad and do this:
+Edit>EOL Conversion>Unix
