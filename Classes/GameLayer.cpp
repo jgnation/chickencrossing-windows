@@ -76,7 +76,7 @@ bool GameLayer::init()
         CC_BREAK_IF(! CCLayer::init());
 
 		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete80kbps.mp3", true);
-		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete.mid", true);
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete.mp3", true);
 
 		this->addKeyboardSupport();
 

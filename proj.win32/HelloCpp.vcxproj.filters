@@ -515,5 +515,41 @@
     <Media Include="..\Resources\SpaceQuest-MP3.mp3">
       <Filter>resource</Filter>
     </Media>
+    <Media Include="..\Resources\Complete.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete1.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete2.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform1.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform2.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest1.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest2.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest3.mp3">
+      <Filter>resource</Filter>
+    </Media>
   </ItemGroup>
 </Project>

@@ -326,9 +326,21 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Text Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="..\Resources\Complete.mp3" />
+    <Media Include="..\Resources\Complete1.mp3" />
+    <Media Include="..\Resources\Complete2.mp3" />
+    <Media Include="..\Resources\Complete3.mp3" />
     <Media Include="..\Resources\Complete80kbps.mp3" />
+    <Media Include="..\Resources\Platform.mp3" />
+    <Media Include="..\Resources\Platform1.mp3" />
+    <Media Include="..\Resources\Platform2.mp3" />
+    <Media Include="..\Resources\Platform3.mp3" />
     <Media Include="..\Resources\Platform80kbps.mp3" />
     <Media Include="..\Resources\SpaceQuest-MP3.mp3" />
+    <Media Include="..\Resources\SpaceQuest.mp3" />
+    <Media Include="..\Resources\SpaceQuest1.mp3" />
+    <Media Include="..\Resources\SpaceQuest2.mp3" />
+    <Media Include="..\Resources\SpaceQuest3.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

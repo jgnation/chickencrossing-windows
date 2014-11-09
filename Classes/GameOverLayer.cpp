@@ -9,7 +9,7 @@ bool GameOverLayer::init(std::vector<TopScore> highScores)
     if (CCLayer::init()) {
 
 		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("SpaceQuest-MP3.mp3", true);
-		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("SpaceQuest.mid", true);
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("SpaceQuest3.mp3", true);
 
 		_highScores = highScores;
 
