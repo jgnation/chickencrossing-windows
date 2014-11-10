@@ -326,6 +326,10 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
     <Text Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="..\Resources\249300__suntemple__access-denied.wav" />
+    <Media Include="..\Resources\253173__suntemple__retro-falling-down-sfx.wav" />
+    <Media Include="..\Resources\253177__suntemple__retro-accomplished-sfx.wav" />
+    <Media Include="..\Resources\59105__daveincamas__splash2.wav" />
     <Media Include="..\Resources\Complete.mp3" />
     <Media Include="..\Resources\Complete1.mp3" />
     <Media Include="..\Resources\Complete2.mp3" />

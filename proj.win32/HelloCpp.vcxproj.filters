@@ -551,5 +551,17 @@
     <Media Include="..\Resources\SpaceQuest3.mp3">
       <Filter>resource</Filter>
     </Media>
+    <Media Include="..\Resources\59105__daveincamas__splash2.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\249300__suntemple__access-denied.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\253173__suntemple__retro-falling-down-sfx.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\253177__suntemple__retro-accomplished-sfx.wav">
+      <Filter>resource</Filter>
+    </Media>
   </ItemGroup>
 </Project>

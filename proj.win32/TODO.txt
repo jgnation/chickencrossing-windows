@@ -195,3 +195,25 @@ good resource for media: http://www.pygame.org/wiki/resources
 chicken: http://www.soundsnap.com/chicken_clucking_strongly
 
 =========================================================
+
+splashes:
+http://www.freesound.org/people/daveincamas/sounds/59105/ (best)
+http://www.freesound.org/people/soundscalpel.com/sounds/110393/
+http://www.freesound.org/people/qubodup/sounds/212143/
+http://www.freesound.org/people/notchfilter/sounds/43696/ (retro fall)
+
+collect egg:
+http://www.freesound.org/people/GameAudio/sounds/220173/
+http://www.freesound.org/people/suntemple/sounds/253172/
+http://www.freesound.org/people/suntemple/sounds/253177/ (best) using!
+http://www.freesound.org/people/Cabeeno%20Rossley/sounds/126412/
+
+run over:
+http://www.freesound.org/people/anechoix/sounds/72624/ (squish)
+http://www.freesound.org/people/leviclaassen/sounds/107788/ (power down)
+http://www.freesound.org/people/Rock%20Savage/sounds/81042/ (detailed splat)
+http://www.freesound.org/people/suntemple/sounds/253173/ (retro falling down) (best)
+http://www.freesound.org/people/fins/sounds/173958/
+http://www.freesound.org/people/notchfilter/sounds/43697/
+
+http://www.freesound.org/people/suntemple/sounds/249300/ (could use this for dying somehow)
