@@ -26,16 +26,17 @@ skull: http://pixabay.com/en/death-s-head-bones-crossbones-153588/
 ============================================================================================================
 
 Before version 1.0 release:
--sound fx: chicken die (hit by car, fall in water), get egg.
--don't spawn eggs so close to edge of screen?
+-sound fx should be louder than music
+--CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(.3);
 -music that plays during the level doesn't always stop when game over
 -kill music when program goes to background
 -preload audio?  The game now hesitates right before playing audio.
--highest level achieved screen (after top scores)?
--replace level 10
+-don't spawn eggs so close to edge of screen?
 -disappearing logs different color
 -full test!
 -option to rate game
+--https://github.com/drewjw81/appirater-android
+--http://stackoverflow.com/questions/22140256/how-to-ask-a-user-to-rate-your-cocos2dx-game-android
 -I might want to make sure the vehicle images don't need to be cropped (and the chicken!)
 -do sprites look like shit at lower/higher resolutions?
 -review scaling of word images...do they need to be scaled by width and height separately?
@@ -47,6 +48,7 @@ Before version 1.0 release:
 
 After version 1.0 release:
 -don't respawn chicken after game over
+-highest level achieved screen (after top scores)?
 -tag the release on github
 -back button on android
 -egg scramble mode was renamed survival.  Refactor code to reflect this.
