@@ -177,6 +177,7 @@ void GameLayer::update(float dt)
 		//TODO: move this logic to chicken? _chicken->isRidingToEdgeOfScreen
 		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > (winSize.width - _chicken->getSprite()->getContentSize().width))
 		{
+			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("253173__suntemple__retro-falling-down-sfx.wav");
 			this->killChicken();
 			return;
 		}
@@ -184,6 +185,7 @@ void GameLayer::update(float dt)
 		//see if chicken is riding a log that has disappeared
 		if (_chicken->getLogBeingRidden()->getSprite()->getOpacity() == 0)
 		{
+			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("59105__daveincamas__splash2.wav"); 
 			this->killChicken();
 			return;
 		}
@@ -218,6 +220,7 @@ void GameLayer::update(float dt)
 		if (!_chicken->isMoving() && !_chicken->isRiding())
 		{
 			//chicken is in the water
+			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("59105__daveincamas__splash2.wav");
 			this->killChicken();
 		}
 	}
@@ -232,6 +235,7 @@ void GameLayer::update(float dt)
 
 			if (_chicken->intersectsSprite(vehicle))
 			{
+				CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("253173__suntemple__retro-falling-down-sfx.wav"); 
 				this->killChicken();
 			}			
 		}
@@ -240,6 +244,8 @@ void GameLayer::update(float dt)
 	//check to see if kitchen has collected an egg
 	if (_chicken->intersectsSprite(_egg))
 	{
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("253177__suntemple__retro-accomplished-sfx.wav");
+
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
@@ -318,7 +324,6 @@ void GameLayer::gameOver()
 
 void GameLayer::resetChicken()
 {
-
 	_chicken->reset();
 }
 

@@ -217,3 +217,5 @@ http://www.freesound.org/people/fins/sounds/173958/
 http://www.freesound.org/people/notchfilter/sounds/43697/
 
 http://www.freesound.org/people/suntemple/sounds/249300/ (could use this for dying somehow)
+
+sound issues: http://discuss.cocos2d-x.org/t/sound-fx-not-playing-after-a-while/623/28
