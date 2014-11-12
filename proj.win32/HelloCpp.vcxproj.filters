@@ -563,5 +563,8 @@
     <Media Include="..\Resources\253177__suntemple__retro-accomplished-sfx.wav">
       <Filter>resource</Filter>
     </Media>
+    <Media Include="..\Resources\212143__qubodup__splash-by-blaukreuz.wav">
+      <Filter>resource</Filter>
+    </Media>
   </ItemGroup>
 </Project>

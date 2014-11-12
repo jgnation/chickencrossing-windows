@@ -75,8 +75,9 @@ bool GameLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
-		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete80kbps.mp3", true);
 		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete.mp3", true);
+		//CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(.9);
+
 
 		this->addKeyboardSupport();
 
@@ -185,7 +186,7 @@ void GameLayer::update(float dt)
 		//see if chicken is riding a log that has disappeared
 		if (_chicken->getLogBeingRidden()->getSprite()->getOpacity() == 0)
 		{
-			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("59105__daveincamas__splash2.wav"); 
+			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("212143__qubodup__splash-by-blaukreuz.wav"); 
 			this->killChicken();
 			return;
 		}
@@ -220,7 +221,7 @@ void GameLayer::update(float dt)
 		if (!_chicken->isMoving() && !_chicken->isRiding())
 		{
 			//chicken is in the water
-			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("59105__daveincamas__splash2.wav");
+			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("212143__qubodup__splash-by-blaukreuz.wav");
 			this->killChicken();
 		}
 	}
