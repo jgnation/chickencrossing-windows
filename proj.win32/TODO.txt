@@ -26,10 +26,10 @@ skull: http://pixabay.com/en/death-s-head-bones-crossbones-153588/
 ============================================================================================================
 
 Before version 1.0 release:
--sound fx should be louder than music
---CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(.3);
 -music that plays during the level doesn't always stop when game over
 -kill music when program goes to background
+-make credits scroll
+--add sound fx credits
 -preload audio?  The game now hesitates right before playing audio.
 -don't spawn eggs so close to edge of screen?
 -disappearing logs different color

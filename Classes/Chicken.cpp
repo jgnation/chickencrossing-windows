@@ -222,7 +222,7 @@ void Chicken::reset()
 	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
 }
 
-void Chicken::die()
+void Chicken::die(bool resurrect)
 {
 	Point curentPosition = _sprite->getPosition();
 	this->reset();
@@ -234,7 +234,13 @@ void Chicken::die()
 	_deadChickenSprite->setOpacity(255);
 	CCFadeTo* fadeOut = CCFadeTo::create(1.0, 0);
 	CCFiniteTimeAction * actionFade = CCFadeTo::create(1.0, 0);
-	CCFiniteTimeAction* actionFadeDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::resurrectChicken));
+
+	CCFiniteTimeAction* actionFadeDone;
+	if (resurrect)
+		actionFadeDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::resurrectChicken));
+	else
+		actionFadeDone = CCCallFuncN::create(this, callfuncN_selector(Chicken::noChickenResurrection));
+
 	_deadChickenSprite->runAction(CCSequence::create(actionFade, actionFadeDone, NULL));
 }
 
@@ -242,6 +248,11 @@ void Chicken::resurrectChicken(cocos2d::CCNode* sender)
 {
 	_deadChickenSprite->setVisible(false);
 	_sprite->setVisible(true);
+}
+
+void Chicken::noChickenResurrection(cocos2d::CCNode* sender)
+{
+	_deadChickenSprite->setVisible(false);
 }
 
 void Chicken::spriteMoveFinished(CCNode* sender)

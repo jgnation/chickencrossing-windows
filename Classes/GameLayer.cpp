@@ -300,11 +300,14 @@ void GameLayer::killChicken()
 	_lives--;
 	_hudLayer->setLives(_lives);
 
-	_chicken->die();
-
 	if (_lives <= 0)
 	{
+		_chicken->die(false);
 		this->gameOver();
+	}
+	else
+	{
+		_chicken->die(true);
 	}
 }
 

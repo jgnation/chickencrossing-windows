@@ -42,12 +42,13 @@ public:
 	void endRide();
 	void setMoving(bool value);
 	bool isMoving();
-	void die();
+	void die(bool resurrect);
 	void reset();
 	Log * getLogBeingRidden();
 
 	void spriteMoveFinished(cocos2d::CCNode* sender);
 	void resurrectChicken(cocos2d::CCNode* sender);
+	void noChickenResurrection(cocos2d::CCNode* sender);
 };
 
 #endif
