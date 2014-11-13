@@ -26,8 +26,10 @@ skull: http://pixabay.com/en/death-s-head-bones-crossbones-153588/
 ============================================================================================================
 
 Before version 1.0 release:
+-upgrade to newer version of cocos2dx
 -music that plays during the level doesn't always stop when game over
 -kill music when program goes to background
+--do something cool where coming back to game the user has to hit play to continue
 -make credits scroll
 --add sound fx credits
 -preload audio?  The game now hesitates right before playing audio.
@@ -221,3 +223,13 @@ http://www.freesound.org/people/notchfilter/sounds/43697/
 http://www.freesound.org/people/suntemple/sounds/249300/ (could use this for dying somehow)
 
 sound issues: http://discuss.cocos2d-x.org/t/sound-fx-not-playing-after-a-while/623/28
+
+normalize wavs with audacity: http://www.synthzone.com/forum/ubbthreads.php/topics/355360/Re_Best_Way_To_Normalize_Wav_F
+
+audio issues on android:
+everything seems to work fine on iOS WITHOUT manually stopping and resuming the music.
+-I was wrong.  the sound effects stop working after coming back to the foreground.
+--http://discuss.cocos2d-x.org/t/sound-fx-not-playing-after-a-while/623/7
+---The solution at the very bottom seems to work.  I'll want to test this on a variety of devices!
+resuming music after pausing: http://discuss.cocos2d-x.org/t/background-music-not-resume-after-applicationwillenterforeground-android-4-x/3872/5
+http://discuss.cocos2d-x.org/t/problems-with-simpleaudioengine-resume/5053/5
