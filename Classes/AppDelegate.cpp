@@ -1,5 +1,5 @@
 #include "cocos2d.h"
-#include "CCEGLView.h"
+//#include "CCEGLView.h"
 #include "AppDelegate.h"
 #include "MenuLayer.h"
 #include "SimpleAudioEngine.h"
@@ -48,9 +48,15 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 	// initialize director
     auto director = Director::getInstance();
-    auto eglView = EGLView::getInstance();
+	auto glview = director->getOpenGLView();
+	    if(!glview) {
+        glview = GLView::create("Egg Scramble");
+        director->setOpenGLView(glview);
+    }
+    //auto eglView = EGLView::getInstance();
 
-    director->setOpenGLView(eglView);
+    //director->setOpenGLView(eglView);
+	//director->setOpenGLView(glview);
 	
     // turn on display FPS
     //director->setDisplayStats(true);

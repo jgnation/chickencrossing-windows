@@ -2,14 +2,10 @@
 #define __MENU_LAYER_H__
 
 #include "cocos2d.h"
-
-#include "Box2D/Box2D.h"
-
 #include "SimpleAudioEngine.h"
-
 #include "Level.h"
 #include "Vehicle.h"
-
+//include "Box2D/Box2D.h"
 class MenuLayer : public cocos2d::CCLayer
 {
 private:

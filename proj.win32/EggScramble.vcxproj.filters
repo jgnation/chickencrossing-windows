@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AcceleratingLane.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Background.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bus.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Car.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Chicken.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dimensions.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DisappearingLog.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Egg.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EggScrambleLevel.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EggScrambleLevelFactory.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameFunctions.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameOverLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HUDLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lane.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Level.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LevelFactory.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LevelManager.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LevelSelectLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Log.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainModeLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainModeLevel.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainModeLevelFactory.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuButtonLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MenuLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpriteContainer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TopScore.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Truck.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Vehicle.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VehicleFactory.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AcceleratingLane.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Background.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bus.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Car.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Chicken.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dimensions.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DisappearingLog.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Egg.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EggScrambleLevel.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EggScrambleLevelFactory.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EggScrambleModeLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameFunctions.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameOverLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HUDLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lane.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Level.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelFactory.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelManager.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelSelectLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Log.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainModeLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainModeLevel.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainModeLevelFactory.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuButtonLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpriteContainer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TopScore.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Truck.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Vehicle.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VehicleFactory.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\59105__daveincamas__splash2.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\212143__qubodup__splash-by-blaukreuz.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\249300__suntemple__access-denied.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\253173__suntemple__retro-falling-down-sfx.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\253177__suntemple__retro-accomplished-sfx.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete1.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete2.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Complete80kbps.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform1.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform2.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\Platform80kbps.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest1.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest2.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Resources\SpaceQuest-MP3.mp3">
+      <Filter>resource</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\212143__qubodup__splash-by-blaukreuz.flac">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\background_layered.psd">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Complete.mid">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\egg_scramble_title.psd">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_1.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_3.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_4.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_5.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_6.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_7.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_8.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_9.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_10.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_11.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_level_12.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\esm_levels.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\futura-48.fnt">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_1.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_3.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_4.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_5.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_6.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_7.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_8.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_9.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_10.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_11.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_level_12.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\mm_levels.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\one.psd">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\plank.psd">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Platform.mid">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\SpaceQuest.mid">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\start_game.psd">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\1410788629.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\about_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\about_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background_extra1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background_extra2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background3.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background4.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background5.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background6.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background7.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background9.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background10.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background11.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\background12.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\beetle_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\brown_egg.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bus.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\c1svg.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\cactus.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\car_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_crossing_title.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_large.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_medium.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_xsmall.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_xxsmall.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\chicken_xxxsmall.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\deaths-head-153588_640.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\deaths-head-xxsmall.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\ds.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\egg_scramble_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\egg_scramble_title.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\egg_scramble_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\futura-48.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\game_over.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\instructions_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\instructions_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jgnation_logo_high.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\jgnation_logo_med.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\log_large.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\log_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_3.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_4.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_5.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_6.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_7.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_8.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_9.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_10.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_11.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\num_12.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\plank_large.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\plank_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\red_car.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\select_level.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\small_chicken.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\start_game_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\start_game_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\survival_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\survival_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\top_scores.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\type_h.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\vw_small.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\white_truck.png">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

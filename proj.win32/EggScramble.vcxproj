@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
+    <RootNamespace>test_win32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl_imp.lib;websockets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AcceleratingLane.cpp" />
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Background.cpp" />
+    <ClCompile Include="..\Classes\Bus.cpp" />
+    <ClCompile Include="..\Classes\Car.cpp" />
+    <ClCompile Include="..\Classes\Chicken.cpp" />
+    <ClCompile Include="..\Classes\Dimensions.cpp" />
+    <ClCompile Include="..\Classes\DisappearingLog.cpp" />
+    <ClCompile Include="..\Classes\Egg.cpp" />
+    <ClCompile Include="..\Classes\EggScrambleLevel.cpp" />
+    <ClCompile Include="..\Classes\EggScrambleLevelFactory.cpp" />
+    <ClCompile Include="..\Classes\EggScrambleModeLayer.cpp" />
+    <ClCompile Include="..\Classes\GameFunctions.cpp" />
+    <ClCompile Include="..\Classes\GameLayer.cpp" />
+    <ClCompile Include="..\Classes\GameOverLayer.cpp" />
+    <ClCompile Include="..\Classes\HUDLayer.cpp" />
+    <ClCompile Include="..\Classes\Lane.cpp" />
+    <ClCompile Include="..\Classes\Level.cpp" />
+    <ClCompile Include="..\Classes\LevelFactory.cpp" />
+    <ClCompile Include="..\Classes\LevelManager.cpp" />
+    <ClCompile Include="..\Classes\LevelSelectLayer.cpp" />
+    <ClCompile Include="..\Classes\Log.cpp" />
+    <ClCompile Include="..\Classes\MainModeLayer.cpp" />
+    <ClCompile Include="..\Classes\MainModeLevel.cpp" />
+    <ClCompile Include="..\Classes\MainModeLevelFactory.cpp" />
+    <ClCompile Include="..\Classes\MenuButtonLayer.cpp" />
+    <ClCompile Include="..\Classes\MenuLayer.cpp" />
+    <ClCompile Include="..\Classes\SpriteContainer.cpp" />
+    <ClCompile Include="..\Classes\TopScore.cpp" />
+    <ClCompile Include="..\Classes\Truck.cpp" />
+    <ClCompile Include="..\Classes\Vehicle.cpp" />
+    <ClCompile Include="..\Classes\VehicleFactory.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AcceleratingLane.h" />
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Background.h" />
+    <ClInclude Include="..\Classes\Bus.h" />
+    <ClInclude Include="..\Classes\Car.h" />
+    <ClInclude Include="..\Classes\Chicken.h" />
+    <ClInclude Include="..\Classes\Dimensions.h" />
+    <ClInclude Include="..\Classes\DisappearingLog.h" />
+    <ClInclude Include="..\Classes\Egg.h" />
+    <ClInclude Include="..\Classes\EggScrambleLevel.h" />
+    <ClInclude Include="..\Classes\EggScrambleLevelFactory.h" />
+    <ClInclude Include="..\Classes\EggScrambleModeLayer.h" />
+    <ClInclude Include="..\Classes\GameFunctions.h" />
+    <ClInclude Include="..\Classes\GameLayer.h" />
+    <ClInclude Include="..\Classes\GameOverLayer.h" />
+    <ClInclude Include="..\Classes\HUDLayer.h" />
+    <ClInclude Include="..\Classes\Lane.h" />
+    <ClInclude Include="..\Classes\Level.h" />
+    <ClInclude Include="..\Classes\LevelFactory.h" />
+    <ClInclude Include="..\Classes\LevelManager.h" />
+    <ClInclude Include="..\Classes\LevelSelectLayer.h" />
+    <ClInclude Include="..\Classes\Log.h" />
+    <ClInclude Include="..\Classes\MainModeLayer.h" />
+    <ClInclude Include="..\Classes\MainModeLevel.h" />
+    <ClInclude Include="..\Classes\MainModeLevelFactory.h" />
+    <ClInclude Include="..\Classes\MenuButtonLayer.h" />
+    <ClInclude Include="..\Classes\MenuLayer.h" />
+    <ClInclude Include="..\Classes\SpriteContainer.h" />
+    <ClInclude Include="..\Classes\TopScore.h" />
+    <ClInclude Include="..\Classes\Truck.h" />
+    <ClInclude Include="..\Classes\Vehicle.h" />
+    <ClInclude Include="..\Classes\VehicleFactory.h" />
+    <ClInclude Include="main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cocos2d\cocos\2d\cocos2d.vcxproj">
+      <Project>{98a51ba8-fc3a-415b-ac8f-8c7bd464e93e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\cocos\audio\proj.win32\CocosDenshion.vcxproj">
+      <Project>{f8edd7fa-9a51-4e80-baeb-860825d2eac6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\external\chipmunk\proj.win32\chipmunk.vcxproj">
+      <Project>{207bc7a9-ccf1-4f2f-a04d-45f72242ae25}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\212143__qubodup__splash-by-blaukreuz.wav" />
+    <Media Include="..\Resources\249300__suntemple__access-denied.wav" />
+    <Media Include="..\Resources\253173__suntemple__retro-falling-down-sfx.wav" />
+    <Media Include="..\Resources\253177__suntemple__retro-accomplished-sfx.wav" />
+    <Media Include="..\Resources\59105__daveincamas__splash2.wav" />
+    <Media Include="..\Resources\Complete.mp3" />
+    <Media Include="..\Resources\Complete1.mp3" />
+    <Media Include="..\Resources\Complete2.mp3" />
+    <Media Include="..\Resources\Complete3.mp3" />
+    <Media Include="..\Resources\Complete80kbps.mp3" />
+    <Media Include="..\Resources\Platform.mp3" />
+    <Media Include="..\Resources\Platform1.mp3" />
+    <Media Include="..\Resources\Platform2.mp3" />
+    <Media Include="..\Resources\Platform3.mp3" />
+    <Media Include="..\Resources\Platform80kbps.mp3" />
+    <Media Include="..\Resources\SpaceQuest-MP3.mp3" />
+    <Media Include="..\Resources\SpaceQuest.mp3" />
+    <Media Include="..\Resources\SpaceQuest1.mp3" />
+    <Media Include="..\Resources\SpaceQuest2.mp3" />
+    <Media Include="..\Resources\SpaceQuest3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\212143__qubodup__splash-by-blaukreuz.flac" />
+    <None Include="..\Resources\background_layered.psd" />
+    <None Include="..\Resources\Complete.mid" />
+    <None Include="..\Resources\egg_scramble_title.psd" />
+    <None Include="..\Resources\esm_levels.plist" />
+    <None Include="..\Resources\esm_level_1.plist" />
+    <None Include="..\Resources\esm_level_10.plist" />
+    <None Include="..\Resources\esm_level_11.plist" />
+    <None Include="..\Resources\esm_level_12.plist" />
+    <None Include="..\Resources\esm_level_2.plist" />
+    <None Include="..\Resources\esm_level_3.plist" />
+    <None Include="..\Resources\esm_level_4.plist" />
+    <None Include="..\Resources\esm_level_5.plist" />
+    <None Include="..\Resources\esm_level_6.plist" />
+    <None Include="..\Resources\esm_level_7.plist" />
+    <None Include="..\Resources\esm_level_8.plist" />
+    <None Include="..\Resources\esm_level_9.plist" />
+    <None Include="..\Resources\futura-48.fnt" />
+    <None Include="..\Resources\mm_levels.plist" />
+    <None Include="..\Resources\mm_level_1.plist" />
+    <None Include="..\Resources\mm_level_10.plist" />
+    <None Include="..\Resources\mm_level_11.plist" />
+    <None Include="..\Resources\mm_level_12.plist" />
+    <None Include="..\Resources\mm_level_2.plist" />
+    <None Include="..\Resources\mm_level_3.plist" />
+    <None Include="..\Resources\mm_level_4.plist" />
+    <None Include="..\Resources\mm_level_5.plist" />
+    <None Include="..\Resources\mm_level_6.plist" />
+    <None Include="..\Resources\mm_level_7.plist" />
+    <None Include="..\Resources\mm_level_8.plist" />
+    <None Include="..\Resources\mm_level_9.plist" />
+    <None Include="..\Resources\one.psd" />
+    <None Include="..\Resources\plank.psd" />
+    <None Include="..\Resources\Platform.mid" />
+    <None Include="..\Resources\SpaceQuest.mid" />
+    <None Include="..\Resources\start_game.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\1410788629.png" />
+    <Image Include="..\Resources\about_orange.png" />
+    <Image Include="..\Resources\about_yellow.png" />
+    <Image Include="..\Resources\arrow.png" />
+    <Image Include="..\Resources\background1.png" />
+    <Image Include="..\Resources\background10.png" />
+    <Image Include="..\Resources\background11.png" />
+    <Image Include="..\Resources\background12.png" />
+    <Image Include="..\Resources\background2.png" />
+    <Image Include="..\Resources\background3.png" />
+    <Image Include="..\Resources\background4.png" />
+    <Image Include="..\Resources\background5.png" />
+    <Image Include="..\Resources\background6.png" />
+    <Image Include="..\Resources\background7.png" />
+    <Image Include="..\Resources\background8.png" />
+    <Image Include="..\Resources\background9.png" />
+    <Image Include="..\Resources\background_extra1.png" />
+    <Image Include="..\Resources\background_extra2.png" />
+    <Image Include="..\Resources\beetle_small.png" />
+    <Image Include="..\Resources\brown_egg.png" />
+    <Image Include="..\Resources\bus.png" />
+    <Image Include="..\Resources\c1svg.png" />
+    <Image Include="..\Resources\cactus.png" />
+    <Image Include="..\Resources\car_small.png" />
+    <Image Include="..\Resources\chicken_crossing_title.png" />
+    <Image Include="..\Resources\chicken_large.png" />
+    <Image Include="..\Resources\chicken_medium.png" />
+    <Image Include="..\Resources\chicken_small.png" />
+    <Image Include="..\Resources\chicken_xsmall.png" />
+    <Image Include="..\Resources\chicken_xxsmall.png" />
+    <Image Include="..\Resources\chicken_xxxsmall.png" />
+    <Image Include="..\Resources\deaths-head-153588_640.png" />
+    <Image Include="..\Resources\deaths-head-xxsmall.png" />
+    <Image Include="..\Resources\ds.png" />
+    <Image Include="..\Resources\egg_scramble_orange.png" />
+    <Image Include="..\Resources\egg_scramble_title.png" />
+    <Image Include="..\Resources\egg_scramble_yellow.png" />
+    <Image Include="..\Resources\futura-48.png" />
+    <Image Include="..\Resources\game_over.png" />
+    <Image Include="..\Resources\instructions_orange.png" />
+    <Image Include="..\Resources\instructions_yellow.png" />
+    <Image Include="..\Resources\jgnation_logo_high.png" />
+    <Image Include="..\Resources\jgnation_logo_med.png" />
+    <Image Include="..\Resources\log_large.png" />
+    <Image Include="..\Resources\log_small.png" />
+    <Image Include="..\Resources\num_1.png" />
+    <Image Include="..\Resources\num_10.png" />
+    <Image Include="..\Resources\num_11.png" />
+    <Image Include="..\Resources\num_12.png" />
+    <Image Include="..\Resources\num_2.png" />
+    <Image Include="..\Resources\num_3.png" />
+    <Image Include="..\Resources\num_4.png" />
+    <Image Include="..\Resources\num_5.png" />
+    <Image Include="..\Resources\num_6.png" />
+    <Image Include="..\Resources\num_7.png" />
+    <Image Include="..\Resources\num_8.png" />
+    <Image Include="..\Resources\num_9.png" />
+    <Image Include="..\Resources\plank_large.png" />
+    <Image Include="..\Resources\plank_small.png" />
+    <Image Include="..\Resources\red_car.png" />
+    <Image Include="..\Resources\select_level.png" />
+    <Image Include="..\Resources\small_chicken.png" />
+    <Image Include="..\Resources\start_game_orange.png" />
+    <Image Include="..\Resources\start_game_yellow.png" />
+    <Image Include="..\Resources\survival_orange.png" />
+    <Image Include="..\Resources\survival_yellow.png" />
+    <Image Include="..\Resources\top_scores.png" />
+    <Image Include="..\Resources\type_h.png" />
+    <Image Include="..\Resources\vw_small.png" />
+    <Image Include="..\Resources\white_truck.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

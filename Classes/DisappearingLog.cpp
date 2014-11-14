@@ -61,12 +61,12 @@ void DisappearingLog::move()
 	CCFadeTo* stayHidden = CCFadeTo::create(hideDuration, 0);
 	CCFadeTo* fadeIn = CCFadeTo::create(fadeDuration, 255);
 	CCFadeTo* stayExposed = CCFadeTo::create(showDuration, 255);
-	CCArray * arrayOfAction = CCArray::create();
-	arrayOfAction->addObject(fadeOut);
-	arrayOfAction->addObject(stayHidden);
-	arrayOfAction->addObject(fadeIn);
-	arrayOfAction->addObject(stayExposed);
-	CCSequence* pulseSequence = CCSequence::create(arrayOfAction);
+	Vector<FiniteTimeAction *> allActions;
+	allActions.pushBack(fadeOut);
+	allActions.pushBack(stayHidden);
+	allActions.pushBack(fadeIn);
+	allActions.pushBack(stayExposed);
+	CCSequence* pulseSequence = CCSequence::create(allActions);
 	CCRepeatForever* repeat = CCRepeatForever::create(pulseSequence);
 	this->getSprite()->runAction(repeat);
 }

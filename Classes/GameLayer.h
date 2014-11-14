@@ -2,7 +2,7 @@
 #define __GAME_LAYER_H__
 
 #include "cocos2d.h"
-#include "Box2D/Box2D.h"
+//#include "Box2D/Box2D.h"
 #include "SimpleAudioEngine.h"
 #include "Vehicle.h"
 #include "Dimensions.h"

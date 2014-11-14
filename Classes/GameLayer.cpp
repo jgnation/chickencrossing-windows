@@ -405,7 +405,8 @@ void GameLayer::addKeyboardSupport()
 	keyboardListener->onKeyPressed = CC_CALLBACK_2(GameLayer::keyPressed, this);
 	keyboardListener->onKeyReleased = CC_CALLBACK_2(GameLayer::keyReleased, this);
 
-	EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+	//EventDispatcher::getInstance()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
 }
 
 int GameLayer::calculateNextLevelScore(int levelNumber)

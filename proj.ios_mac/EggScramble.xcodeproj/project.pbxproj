@@ -7,172 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1ACB3244164770DE00914215 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACB3243164770DE00914215 /* libcurl.a */; };
-		1AF4C2F417865DCB00122817 /* libbox2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2E317865D9500122817 /* libbox2d iOS.a */; };
-		1AF4C2F517865DCB00122817 /* libchipmunk iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2E117865D9500122817 /* libchipmunk iOS.a */; };
-		1AF4C2F617865DCB00122817 /* libcocos2dx iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2DD17865D9500122817 /* libcocos2dx iOS.a */; };
-		1AF4C2F717865DCB00122817 /* libcocos2dx-extensions iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2DF17865D9500122817 /* libcocos2dx-extensions iOS.a */; };
-		1AF4C2F817865DCB00122817 /* libCocosDenshion iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2E517865D9500122817 /* libCocosDenshion iOS.a */; };
+		1AC6FB1F180E996B004C840B /* libbox2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAFF180E9839004C840B /* libbox2d Mac.a */; };
+		1AC6FB20180E996B004C840B /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAFD180E9839004C840B /* libchipmunk Mac.a */; };
+		1AC6FB21180E996B004C840B /* libcocos2dx Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2dx Mac.a */; };
+		1AC6FB22180E996B004C840B /* libcocos2dx-extensions Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAFB180E9839004C840B /* libcocos2dx-extensions Mac.a */; };
+		1AC6FB23180E996B004C840B /* libCocosDenshion Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB01180E9839004C840B /* libCocosDenshion Mac.a */; };
+		1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0D180E9839004C840B /* libbox2d iOS.a */; };
+		1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0B180E9839004C840B /* libchipmunk iOS.a */; };
+		1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */; };
+		1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */; };
+		1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */; };
 		1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
+		1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */; };
+		1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
+		1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
+		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		425717B919D10D18000BCFF5 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B019D10D18000BCFF5 /* background4.png */; };
-		425717BA19D10D18000BCFF5 /* background5.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B119D10D18000BCFF5 /* background5.png */; };
-		425717BB19D10D18000BCFF5 /* background6.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B219D10D18000BCFF5 /* background6.png */; };
-		425717BC19D10D18000BCFF5 /* background7.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B319D10D18000BCFF5 /* background7.png */; };
-		425717BD19D10D18000BCFF5 /* background8.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B419D10D18000BCFF5 /* background8.png */; };
-		425717BE19D10D18000BCFF5 /* background9.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B519D10D18000BCFF5 /* background9.png */; };
-		425717BF19D10D18000BCFF5 /* background10.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B619D10D18000BCFF5 /* background10.png */; };
-		425717C019D10D18000BCFF5 /* background11.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B719D10D18000BCFF5 /* background11.png */; };
-		425717C119D10D18000BCFF5 /* background12.png in Resources */ = {isa = PBXBuildFile; fileRef = 425717B819D10D18000BCFF5 /* background12.png */; };
-		428736191A0443E2004DE2C2 /* AcceleratingLane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 428736171A0443E2004DE2C2 /* AcceleratingLane.cpp */; };
-		4287361E1A0443F5004DE2C2 /* EggScrambleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4287361A1A0443F5004DE2C2 /* EggScrambleLevel.cpp */; };
-		4287361F1A0443F5004DE2C2 /* EggScrambleLevelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4287361C1A0443F5004DE2C2 /* EggScrambleLevelFactory.cpp */; };
-		428736221A044402004DE2C2 /* LevelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 428736201A044402004DE2C2 /* LevelFactory.cpp */; };
-		428736271A044419004DE2C2 /* MainModeLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 428736231A044419004DE2C2 /* MainModeLevel.cpp */; };
-		428736281A044419004DE2C2 /* MainModeLevelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 428736251A044419004DE2C2 /* MainModeLevelFactory.cpp */; };
-		4287362B1A044427004DE2C2 /* TopScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 428736291A044427004DE2C2 /* TopScore.cpp */; };
-		428736331A044470004DE2C2 /* beetle_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287362C1A044470004DE2C2 /* beetle_small.png */; };
-		428736341A044470004DE2C2 /* car_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287362D1A044470004DE2C2 /* car_small.png */; };
-		428736351A044470004DE2C2 /* chicken_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287362E1A044470004DE2C2 /* chicken_large.png */; };
-		428736361A044470004DE2C2 /* chicken_medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287362F1A044470004DE2C2 /* chicken_medium.png */; };
-		428736371A044470004DE2C2 /* chicken_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736301A044470004DE2C2 /* chicken_small.png */; };
-		428736381A044470004DE2C2 /* chicken_xsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736311A044470004DE2C2 /* chicken_xsmall.png */; };
-		428736391A044470004DE2C2 /* chicken_xxsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736321A044470004DE2C2 /* chicken_xxsmall.png */; };
-		428736471A044488004DE2C2 /* esm_level_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287363A1A044488004DE2C2 /* esm_level_1.plist */; };
-		428736481A044488004DE2C2 /* esm_level_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287363B1A044488004DE2C2 /* esm_level_2.plist */; };
-		428736491A044488004DE2C2 /* esm_level_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287363C1A044488004DE2C2 /* esm_level_3.plist */; };
-		4287364A1A044488004DE2C2 /* esm_level_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287363D1A044488004DE2C2 /* esm_level_4.plist */; };
-		4287364B1A044488004DE2C2 /* esm_level_5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287363E1A044488004DE2C2 /* esm_level_5.plist */; };
-		4287364C1A044488004DE2C2 /* esm_level_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287363F1A044488004DE2C2 /* esm_level_6.plist */; };
-		4287364D1A044488004DE2C2 /* esm_level_7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736401A044488004DE2C2 /* esm_level_7.plist */; };
-		4287364E1A044488004DE2C2 /* esm_level_8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736411A044488004DE2C2 /* esm_level_8.plist */; };
-		4287364F1A044488004DE2C2 /* esm_level_9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736421A044488004DE2C2 /* esm_level_9.plist */; };
-		428736501A044488004DE2C2 /* esm_level_10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736431A044488004DE2C2 /* esm_level_10.plist */; };
-		428736511A044488004DE2C2 /* esm_level_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736441A044488004DE2C2 /* esm_level_11.plist */; };
-		428736521A044488004DE2C2 /* esm_level_12.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736451A044488004DE2C2 /* esm_level_12.plist */; };
-		428736531A044488004DE2C2 /* esm_levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736461A044488004DE2C2 /* esm_levels.plist */; };
-		428736561A04449C004DE2C2 /* jgnation_logo_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736541A04449C004DE2C2 /* jgnation_logo_high.png */; };
-		428736571A04449C004DE2C2 /* jgnation_logo_med.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736551A04449C004DE2C2 /* jgnation_logo_med.png */; };
-		428736711A0444BA004DE2C2 /* mm_level_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736581A0444BA004DE2C2 /* mm_level_1.plist */; };
-		428736721A0444BA004DE2C2 /* mm_level_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736591A0444BA004DE2C2 /* mm_level_2.plist */; };
-		428736731A0444BA004DE2C2 /* mm_level_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287365A1A0444BA004DE2C2 /* mm_level_3.plist */; };
-		428736741A0444BA004DE2C2 /* mm_level_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287365B1A0444BA004DE2C2 /* mm_level_4.plist */; };
-		428736751A0444BA004DE2C2 /* mm_level_5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287365C1A0444BA004DE2C2 /* mm_level_5.plist */; };
-		428736761A0444BA004DE2C2 /* mm_level_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287365D1A0444BA004DE2C2 /* mm_level_6.plist */; };
-		428736771A0444BA004DE2C2 /* mm_level_7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287365E1A0444BA004DE2C2 /* mm_level_7.plist */; };
-		428736781A0444BA004DE2C2 /* mm_level_8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4287365F1A0444BA004DE2C2 /* mm_level_8.plist */; };
-		428736791A0444BA004DE2C2 /* mm_level_9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736601A0444BA004DE2C2 /* mm_level_9.plist */; };
-		4287367A1A0444BA004DE2C2 /* mm_level_10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736611A0444BA004DE2C2 /* mm_level_10.plist */; };
-		4287367B1A0444BA004DE2C2 /* mm_level_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736621A0444BA004DE2C2 /* mm_level_11.plist */; };
-		4287367C1A0444BA004DE2C2 /* mm_level_12.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736631A0444BA004DE2C2 /* mm_level_12.plist */; };
-		4287367D1A0444BA004DE2C2 /* mm_levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 428736641A0444BA004DE2C2 /* mm_levels.plist */; };
-		4287367E1A0444BA004DE2C2 /* num_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736651A0444BA004DE2C2 /* num_1.png */; };
-		4287367F1A0444BA004DE2C2 /* num_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736661A0444BA004DE2C2 /* num_2.png */; };
-		428736801A0444BA004DE2C2 /* num_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736671A0444BA004DE2C2 /* num_3.png */; };
-		428736811A0444BA004DE2C2 /* num_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736681A0444BA004DE2C2 /* num_4.png */; };
-		428736821A0444BA004DE2C2 /* num_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736691A0444BA004DE2C2 /* num_5.png */; };
-		428736831A0444BA004DE2C2 /* num_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287366A1A0444BA004DE2C2 /* num_6.png */; };
-		428736841A0444BA004DE2C2 /* num_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287366B1A0444BA004DE2C2 /* num_7.png */; };
-		428736851A0444BA004DE2C2 /* num_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287366C1A0444BA004DE2C2 /* num_8.png */; };
-		428736861A0444BA004DE2C2 /* num_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287366D1A0444BA004DE2C2 /* num_9.png */; };
-		428736871A0444BA004DE2C2 /* num_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287366E1A0444BA004DE2C2 /* num_10.png */; };
-		428736881A0444BA004DE2C2 /* num_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287366F1A0444BA004DE2C2 /* num_11.png */; };
-		428736891A0444BA004DE2C2 /* num_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 428736701A0444BA004DE2C2 /* num_12.png */; };
-		4287368D1A0444CA004DE2C2 /* select_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287368A1A0444CA004DE2C2 /* select_level.png */; };
-		4287368E1A0444CA004DE2C2 /* top_scores.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287368B1A0444CA004DE2C2 /* top_scores.png */; };
-		4287368F1A0444CA004DE2C2 /* vw_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4287368C1A0444CA004DE2C2 /* vw_small.png */; };
-		428768B819D8853800C14BE3 /* futura-48.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 428768B619D8853800C14BE3 /* futura-48.fnt */; };
-		428768B919D8853800C14BE3 /* futura-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 428768B719D8853800C14BE3 /* futura-48.png */; };
-		428BB6021A0C7D5F00F9ED77 /* chicken_xxxsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6011A0C7D5F00F9ED77 /* chicken_xxxsmall.png */; };
-		428BB6051A0C7D6E00F9ED77 /* c1svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6031A0C7D6E00F9ED77 /* c1svg.png */; };
-		428BB6061A0C7D6E00F9ED77 /* cactus.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6041A0C7D6E00F9ED77 /* cactus.png */; };
-		428BB6091A0C7D7C00F9ED77 /* egg_scramble_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6071A0C7D7C00F9ED77 /* egg_scramble_title.png */; };
-		428BB60A1A0C7D7C00F9ED77 /* egg_scramble_title.psd in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6081A0C7D7C00F9ED77 /* egg_scramble_title.psd */; };
-		428BB60D1A0C7D9200F9ED77 /* instructions_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB60B1A0C7D9200F9ED77 /* instructions_orange.png */; };
-		428BB60E1A0C7D9200F9ED77 /* instructions_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB60C1A0C7D9200F9ED77 /* instructions_yellow.png */; };
-		428BB6111A0C7DA300F9ED77 /* plank_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB60F1A0C7DA300F9ED77 /* plank_large.png */; };
-		428BB6121A0C7DA300F9ED77 /* plank_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6101A0C7DA300F9ED77 /* plank_small.png */; };
-		428BB6151A0C7DB100F9ED77 /* survival_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6131A0C7DB100F9ED77 /* survival_orange.png */; };
-		428BB6161A0C7DB100F9ED77 /* survival_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 428BB6141A0C7DB100F9ED77 /* survival_yellow.png */; };
-		428C2B9D1A0E8E3900558156 /* Complete.mid in Resources */ = {isa = PBXBuildFile; fileRef = 428C2B9B1A0E8E3900558156 /* Complete.mid */; };
-		428C2B9E1A0E8E3900558156 /* Complete80kbps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2B9C1A0E8E3900558156 /* Complete80kbps.mp3 */; };
-		428C2BA71A0EE2B200558156 /* Platform.mid in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BA51A0EE2B200558156 /* Platform.mid */; };
-		428C2BA81A0EE2B200558156 /* Platform80kbps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BA61A0EE2B200558156 /* Platform80kbps.mp3 */; };
-		428C2BAB1A0EE2BE00558156 /* SpaceQuest-MP3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BA91A0EE2BE00558156 /* SpaceQuest-MP3.mp3 */; };
-		428C2BAC1A0EE2BE00558156 /* SpaceQuest.mid in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAA1A0EE2BE00558156 /* SpaceQuest.mid */; };
-		428C2BB11A0F048800558156 /* Complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAD1A0F048800558156 /* Complete.mp3 */; };
-		428C2BB21A0F048800558156 /* Complete1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAE1A0F048800558156 /* Complete1.mp3 */; };
-		428C2BB31A0F048800558156 /* Complete2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BAF1A0F048800558156 /* Complete2.mp3 */; };
-		428C2BB41A0F048800558156 /* Complete3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB01A0F048800558156 /* Complete3.mp3 */; };
-		428C2BB91A0F049500558156 /* Platform.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB51A0F049500558156 /* Platform.mp3 */; };
-		428C2BBA1A0F049500558156 /* Platform1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB61A0F049500558156 /* Platform1.mp3 */; };
-		428C2BBB1A0F049500558156 /* Platform2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB71A0F049500558156 /* Platform2.mp3 */; };
-		428C2BBC1A0F049500558156 /* Platform3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BB81A0F049500558156 /* Platform3.mp3 */; };
-		428C2BC11A0F04A000558156 /* SpaceQuest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BBD1A0F04A000558156 /* SpaceQuest.mp3 */; };
-		428C2BC21A0F04A000558156 /* SpaceQuest1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BBE1A0F04A000558156 /* SpaceQuest1.mp3 */; };
-		428C2BC31A0F04A000558156 /* SpaceQuest2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BBF1A0F04A000558156 /* SpaceQuest2.mp3 */; };
-		428C2BC41A0F04A000558156 /* SpaceQuest3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 428C2BC01A0F04A000558156 /* SpaceQuest3.mp3 */; };
-		4293E26319A5B1D700AAF21D /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24A19A5B1D700AAF21D /* Background.cpp */; };
-		4293E26419A5B1D700AAF21D /* Bus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24C19A5B1D700AAF21D /* Bus.cpp */; };
-		4293E26519A5B1D700AAF21D /* Car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E24E19A5B1D700AAF21D /* Car.cpp */; };
-		4293E26619A5B1D700AAF21D /* Chicken.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25019A5B1D700AAF21D /* Chicken.cpp */; };
-		4293E26719A5B1D700AAF21D /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25219A5B1D700AAF21D /* Dimensions.cpp */; };
-		4293E26819A5B1D700AAF21D /* DisappearingLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25419A5B1D700AAF21D /* DisappearingLog.cpp */; };
-		4293E26919A5B1D700AAF21D /* Egg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25619A5B1D700AAF21D /* Egg.cpp */; };
-		4293E26A19A5B1D700AAF21D /* EggScrambleModeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25819A5B1D700AAF21D /* EggScrambleModeLayer.cpp */; };
-		4293E26B19A5B1D700AAF21D /* GameFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25A19A5B1D700AAF21D /* GameFunctions.cpp */; };
-		4293E26C19A5B1D700AAF21D /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25C19A5B1D700AAF21D /* GameLayer.cpp */; };
-		4293E26D19A5B1D700AAF21D /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E25E19A5B1D700AAF21D /* GameOverLayer.cpp */; };
-		4293E26E19A5B1D700AAF21D /* HUDLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E26019A5B1D700AAF21D /* HUDLayer.cpp */; };
-		4293E26F19A5B1D700AAF21D /* Lane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E26219A5B1D700AAF21D /* Lane.cpp */; };
-		4293E28D19A5B20200AAF21D /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E27719A5B20200AAF21D /* Level.cpp */; };
-		4293E28E19A5B20200AAF21D /* LevelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E27919A5B20200AAF21D /* LevelManager.cpp */; };
-		4293E28F19A5B20200AAF21D /* LevelSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E27B19A5B20200AAF21D /* LevelSelectLayer.cpp */; };
-		4293E29019A5B20200AAF21D /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E27D19A5B20200AAF21D /* Log.cpp */; };
-		4293E29119A5B20200AAF21D /* MainModeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E27F19A5B20200AAF21D /* MainModeLayer.cpp */; };
-		4293E29219A5B20200AAF21D /* MenuButtonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E28119A5B20200AAF21D /* MenuButtonLayer.cpp */; };
-		4293E29319A5B20200AAF21D /* MenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E28319A5B20200AAF21D /* MenuLayer.cpp */; };
-		4293E29419A5B20200AAF21D /* SpriteContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E28519A5B20200AAF21D /* SpriteContainer.cpp */; };
-		4293E29519A5B20200AAF21D /* Truck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E28719A5B20200AAF21D /* Truck.cpp */; };
-		4293E29619A5B20200AAF21D /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E28919A5B20200AAF21D /* Vehicle.cpp */; };
-		4293E29719A5B20200AAF21D /* VehicleFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4293E28B19A5B20200AAF21D /* VehicleFactory.cpp */; };
-		4293E2B319A5B41500AAF21D /* about_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29819A5B41500AAF21D /* about_orange.png */; };
-		4293E2B419A5B41500AAF21D /* about_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29919A5B41500AAF21D /* about_yellow.png */; };
-		4293E2B519A5B41500AAF21D /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29A19A5B41500AAF21D /* arrow.png */; };
-		4293E2B619A5B41500AAF21D /* background_layered.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29B19A5B41500AAF21D /* background_layered.psd */; };
-		4293E2B719A5B41500AAF21D /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29C19A5B41500AAF21D /* background1.png */; };
-		4293E2B819A5B41500AAF21D /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29D19A5B41500AAF21D /* background2.png */; };
-		4293E2B919A5B41500AAF21D /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29E19A5B41500AAF21D /* background3.png */; };
-		4293E2BA19A5B41500AAF21D /* brown_egg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E29F19A5B41500AAF21D /* brown_egg.png */; };
-		4293E2BB19A5B41500AAF21D /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2A019A5B41500AAF21D /* bus.png */; };
-		4293E2BD19A5B41500AAF21D /* chicken_crossing_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2A219A5B41500AAF21D /* chicken_crossing_title.png */; };
-		4293E2BF19A5B41500AAF21D /* egg_scramble_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2A419A5B41500AAF21D /* egg_scramble_orange.png */; };
-		4293E2C019A5B41500AAF21D /* egg_scramble_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2A519A5B41500AAF21D /* egg_scramble_yellow.png */; };
-		4293E2C119A5B41500AAF21D /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2A719A5B41500AAF21D /* Marker Felt.ttf */; };
-		4293E2C219A5B41500AAF21D /* game_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2A819A5B41500AAF21D /* game_over.png */; };
-		4293E2C719A5B41500AAF21D /* log_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2AD19A5B41500AAF21D /* log_large.png */; };
-		4293E2C819A5B41500AAF21D /* log_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2AE19A5B41500AAF21D /* log_small.png */; };
-		4293E2D519A5B42F00AAF21D /* red_car.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2CE19A5B42F00AAF21D /* red_car.png */; };
-		4293E2D619A5B42F00AAF21D /* small_chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2CF19A5B42F00AAF21D /* small_chicken.png */; };
-		4293E2D719A5B42F00AAF21D /* start_game_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2D019A5B42F00AAF21D /* start_game_orange.png */; };
-		4293E2D819A5B42F00AAF21D /* start_game_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2D119A5B42F00AAF21D /* start_game_yellow.png */; };
-		4293E2D919A5B42F00AAF21D /* start_game.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2D219A5B42F00AAF21D /* start_game.psd */; };
-		4293E2DA19A5B42F00AAF21D /* white_truck.png in Resources */ = {isa = PBXBuildFile; fileRef = 4293E2D319A5B42F00AAF21D /* white_truck.png */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
 		503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FF17EB989F00D1A890 /* RootViewController.mm */; };
 		503AE10517EB98FF00D1A890 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 503AE10317EB98FF00D1A890 /* main.cpp */; };
 		503AE11217EB99EE00D1A890 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11117EB99EE00D1A890 /* libcurl.dylib */; };
-		503AE11317EB9C0700D1A890 /* libbox2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2D517865D9500122817 /* libbox2d Mac.a */; };
-		503AE11417EB9C0700D1A890 /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2D317865D9500122817 /* libchipmunk Mac.a */; };
-		503AE11517EB9C0700D1A890 /* libcocos2dx Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2CF17865D9500122817 /* libcocos2dx Mac.a */; };
-		503AE11617EB9C0700D1A890 /* libcocos2dx-extensions Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2D117865D9500122817 /* libcocos2dx-extensions Mac.a */; };
-		503AE11717EB9C0700D1A890 /* libCocosDenshion Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C2D717865D9500122817 /* libCocosDenshion Mac.a */; };
 		503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11A17EB9C5A00D1A890 /* IOKit.framework */; };
+		5087E75317EB910900C73F5D /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
+		5087E75417EB910900C73F5D /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
+		5087E75517EB910900C73F5D /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
+		5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */; };
 		5087E76317EB910900C73F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5087E76517EB910900C73F5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		5087E76717EB910900C73F5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -204,362 +68,194 @@
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
+		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1AF4C2CE17865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FAF8180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1551A33F158F2AB200E66CFE;
 			remoteInfo = "cocos2dx Mac";
 		};
-		1AF4C2D017865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FAFA180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A03F2FD617814595006731B9;
 			remoteInfo = "cocos2dx-extensions Mac";
 		};
-		1AF4C2D217865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FAFC180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A03F2CB81780BD04006731B9;
 			remoteInfo = "chipmunk Mac";
 		};
-		1AF4C2D417865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FAFE180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A03F2D9B1780BDF7006731B9;
 			remoteInfo = "box2d Mac";
 		};
-		1AF4C2D617865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB00180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A03F2ED617814268006731B9;
 			remoteInfo = "CocosDenshion Mac";
 		};
-		1AF4C2D817865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB02180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A03F31FD1781479B006731B9;
 			remoteInfo = "jsbindings Mac";
 		};
-		1AF4C2DA17865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB04180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1A6FB53017854BC300CDF010;
 			remoteInfo = "luabindings Mac";
 		};
-		1AF4C2DC17865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB06180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A07A4D641783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
 		};
-		1AF4C2DE17865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB08180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A07A4EFC1783867C0073F6A7;
 			remoteInfo = "cocos2dx-extensions iOS";
 		};
-		1AF4C2E017865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB0A180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A07A4F3B178387670073F6A7;
 			remoteInfo = "chipmunk iOS";
 		};
-		1AF4C2E217865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB0C180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A07A4F9E1783876B0073F6A7;
 			remoteInfo = "box2d iOS";
 		};
-		1AF4C2E417865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB0E180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A07A4FB4178387730073F6A7;
 			remoteInfo = "CocosDenshion iOS";
 		};
-		1AF4C2E617865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB10180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A07A5030178387750073F6A7;
 			remoteInfo = "jsbindings iOS";
 		};
-		1AF4C2E817865D9500122817 /* PBXContainerItemProxy */ = {
+		1AC6FB12180E9839004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1A119791178526AA00D62A44;
 			remoteInfo = "luabindings iOS";
 		};
-		1AF4C2EA17865DB400122817 /* PBXContainerItemProxy */ = {
+		1AC6FB15180E9959004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A07A4C241783777C0073F6A7;
-			remoteInfo = "cocos2dx iOS";
-		};
-		1AF4C2EC17865DB400122817 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A07A4E111783867C0073F6A7;
-			remoteInfo = "cocos2dx-extensions iOS";
-		};
-		1AF4C2EE17865DB400122817 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A07A4EFD178387670073F6A7;
-			remoteInfo = "chipmunk iOS";
-		};
-		1AF4C2F017865DB400122817 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A07A4F3C1783876B0073F6A7;
-			remoteInfo = "box2d iOS";
-		};
-		1AF4C2F217865DB400122817 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A07A4F9F178387730073F6A7;
-			remoteInfo = "CocosDenshion iOS";
-		};
-		503AE10717EB99BC00D1A890 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = "cocos2dx Mac";
 		};
-		503AE10917EB99BC00D1A890 /* PBXContainerItemProxy */ = {
+		1AC6FB17180E9959004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = A03F2FC117814595006731B9;
 			remoteInfo = "cocos2dx-extensions Mac";
 		};
-		503AE10B17EB99BC00D1A890 /* PBXContainerItemProxy */ = {
+		1AC6FB19180E9959004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = A03F2B781780BD04006731B9;
 			remoteInfo = "chipmunk Mac";
 		};
-		503AE10D17EB99BC00D1A890 /* PBXContainerItemProxy */ = {
+		1AC6FB1B180E9959004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A03F2D5D1780BDF7006731B9;
-			remoteInfo = "box2d Mac";
-		};
-		503AE10F17EB99BC00D1A890 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = A03F2E9817814268006731B9;
 			remoteInfo = "CocosDenshion Mac";
 		};
+		1AC6FB1D180E9963004C840B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A03F2D5D1780BDF7006731B9;
+			remoteInfo = "box2d Mac";
+		};
+		1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4C241783777C0073F6A7;
+			remoteInfo = "cocos2dx iOS";
+		};
+		1AC6FB26180E99E1004C840B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4E111783867C0073F6A7;
+			remoteInfo = "cocos2dx-extensions iOS";
+		};
+		1AC6FB28180E99E1004C840B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4EFD178387670073F6A7;
+			remoteInfo = "chipmunk iOS";
+		};
+		1AC6FB2A180E99E1004C840B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4F3C1783876B0073F6A7;
+			remoteInfo = "box2d iOS";
+		};
+		1AC6FB2C180E99E1004C840B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4F9F178387730073F6A7;
+			remoteInfo = "CocosDenshion iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
-		1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../../../cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1AFAF8B416D35DE700DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
+		1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
+		1AFAF8B916D35E4900DB1158 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* EggScramble iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EggScramble iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		425717B019D10D18000BCFF5 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
-		425717B119D10D18000BCFF5 /* background5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background5.png; sourceTree = "<group>"; };
-		425717B219D10D18000BCFF5 /* background6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background6.png; sourceTree = "<group>"; };
-		425717B319D10D18000BCFF5 /* background7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background7.png; sourceTree = "<group>"; };
-		425717B419D10D18000BCFF5 /* background8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background8.png; sourceTree = "<group>"; };
-		425717B519D10D18000BCFF5 /* background9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background9.png; sourceTree = "<group>"; };
-		425717B619D10D18000BCFF5 /* background10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background10.png; sourceTree = "<group>"; };
-		425717B719D10D18000BCFF5 /* background11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background11.png; sourceTree = "<group>"; };
-		425717B819D10D18000BCFF5 /* background12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background12.png; sourceTree = "<group>"; };
-		428736171A0443E2004DE2C2 /* AcceleratingLane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcceleratingLane.cpp; path = ../Classes/AcceleratingLane.cpp; sourceTree = "<group>"; };
-		428736181A0443E2004DE2C2 /* AcceleratingLane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcceleratingLane.h; path = ../Classes/AcceleratingLane.h; sourceTree = "<group>"; };
-		4287361A1A0443F5004DE2C2 /* EggScrambleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EggScrambleLevel.cpp; path = ../Classes/EggScrambleLevel.cpp; sourceTree = "<group>"; };
-		4287361B1A0443F5004DE2C2 /* EggScrambleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EggScrambleLevel.h; path = ../Classes/EggScrambleLevel.h; sourceTree = "<group>"; };
-		4287361C1A0443F5004DE2C2 /* EggScrambleLevelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EggScrambleLevelFactory.cpp; path = ../Classes/EggScrambleLevelFactory.cpp; sourceTree = "<group>"; };
-		4287361D1A0443F5004DE2C2 /* EggScrambleLevelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EggScrambleLevelFactory.h; path = ../Classes/EggScrambleLevelFactory.h; sourceTree = "<group>"; };
-		428736201A044402004DE2C2 /* LevelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelFactory.cpp; path = ../Classes/LevelFactory.cpp; sourceTree = "<group>"; };
-		428736211A044402004DE2C2 /* LevelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelFactory.h; path = ../Classes/LevelFactory.h; sourceTree = "<group>"; };
-		428736231A044419004DE2C2 /* MainModeLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainModeLevel.cpp; path = ../Classes/MainModeLevel.cpp; sourceTree = "<group>"; };
-		428736241A044419004DE2C2 /* MainModeLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainModeLevel.h; path = ../Classes/MainModeLevel.h; sourceTree = "<group>"; };
-		428736251A044419004DE2C2 /* MainModeLevelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainModeLevelFactory.cpp; path = ../Classes/MainModeLevelFactory.cpp; sourceTree = "<group>"; };
-		428736261A044419004DE2C2 /* MainModeLevelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainModeLevelFactory.h; path = ../Classes/MainModeLevelFactory.h; sourceTree = "<group>"; };
-		428736291A044427004DE2C2 /* TopScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TopScore.cpp; path = ../Classes/TopScore.cpp; sourceTree = "<group>"; };
-		4287362A1A044427004DE2C2 /* TopScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopScore.h; path = ../Classes/TopScore.h; sourceTree = "<group>"; };
-		4287362C1A044470004DE2C2 /* beetle_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beetle_small.png; sourceTree = "<group>"; };
-		4287362D1A044470004DE2C2 /* car_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_small.png; sourceTree = "<group>"; };
-		4287362E1A044470004DE2C2 /* chicken_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_large.png; sourceTree = "<group>"; };
-		4287362F1A044470004DE2C2 /* chicken_medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_medium.png; sourceTree = "<group>"; };
-		428736301A044470004DE2C2 /* chicken_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_small.png; sourceTree = "<group>"; };
-		428736311A044470004DE2C2 /* chicken_xsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_xsmall.png; sourceTree = "<group>"; };
-		428736321A044470004DE2C2 /* chicken_xxsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_xxsmall.png; sourceTree = "<group>"; };
-		4287363A1A044488004DE2C2 /* esm_level_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_1.plist; sourceTree = "<group>"; };
-		4287363B1A044488004DE2C2 /* esm_level_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_2.plist; sourceTree = "<group>"; };
-		4287363C1A044488004DE2C2 /* esm_level_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_3.plist; sourceTree = "<group>"; };
-		4287363D1A044488004DE2C2 /* esm_level_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_4.plist; sourceTree = "<group>"; };
-		4287363E1A044488004DE2C2 /* esm_level_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_5.plist; sourceTree = "<group>"; };
-		4287363F1A044488004DE2C2 /* esm_level_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_6.plist; sourceTree = "<group>"; };
-		428736401A044488004DE2C2 /* esm_level_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_7.plist; sourceTree = "<group>"; };
-		428736411A044488004DE2C2 /* esm_level_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_8.plist; sourceTree = "<group>"; };
-		428736421A044488004DE2C2 /* esm_level_9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_9.plist; sourceTree = "<group>"; };
-		428736431A044488004DE2C2 /* esm_level_10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_10.plist; sourceTree = "<group>"; };
-		428736441A044488004DE2C2 /* esm_level_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_11.plist; sourceTree = "<group>"; };
-		428736451A044488004DE2C2 /* esm_level_12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_level_12.plist; sourceTree = "<group>"; };
-		428736461A044488004DE2C2 /* esm_levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = esm_levels.plist; sourceTree = "<group>"; };
-		428736541A04449C004DE2C2 /* jgnation_logo_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jgnation_logo_high.png; sourceTree = "<group>"; };
-		428736551A04449C004DE2C2 /* jgnation_logo_med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jgnation_logo_med.png; sourceTree = "<group>"; };
-		428736581A0444BA004DE2C2 /* mm_level_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_1.plist; sourceTree = "<group>"; };
-		428736591A0444BA004DE2C2 /* mm_level_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_2.plist; sourceTree = "<group>"; };
-		4287365A1A0444BA004DE2C2 /* mm_level_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_3.plist; sourceTree = "<group>"; };
-		4287365B1A0444BA004DE2C2 /* mm_level_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_4.plist; sourceTree = "<group>"; };
-		4287365C1A0444BA004DE2C2 /* mm_level_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_5.plist; sourceTree = "<group>"; };
-		4287365D1A0444BA004DE2C2 /* mm_level_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_6.plist; sourceTree = "<group>"; };
-		4287365E1A0444BA004DE2C2 /* mm_level_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_7.plist; sourceTree = "<group>"; };
-		4287365F1A0444BA004DE2C2 /* mm_level_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_8.plist; sourceTree = "<group>"; };
-		428736601A0444BA004DE2C2 /* mm_level_9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_9.plist; sourceTree = "<group>"; };
-		428736611A0444BA004DE2C2 /* mm_level_10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_10.plist; sourceTree = "<group>"; };
-		428736621A0444BA004DE2C2 /* mm_level_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_11.plist; sourceTree = "<group>"; };
-		428736631A0444BA004DE2C2 /* mm_level_12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_level_12.plist; sourceTree = "<group>"; };
-		428736641A0444BA004DE2C2 /* mm_levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mm_levels.plist; sourceTree = "<group>"; };
-		428736651A0444BA004DE2C2 /* num_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_1.png; sourceTree = "<group>"; };
-		428736661A0444BA004DE2C2 /* num_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_2.png; sourceTree = "<group>"; };
-		428736671A0444BA004DE2C2 /* num_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_3.png; sourceTree = "<group>"; };
-		428736681A0444BA004DE2C2 /* num_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_4.png; sourceTree = "<group>"; };
-		428736691A0444BA004DE2C2 /* num_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_5.png; sourceTree = "<group>"; };
-		4287366A1A0444BA004DE2C2 /* num_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_6.png; sourceTree = "<group>"; };
-		4287366B1A0444BA004DE2C2 /* num_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_7.png; sourceTree = "<group>"; };
-		4287366C1A0444BA004DE2C2 /* num_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_8.png; sourceTree = "<group>"; };
-		4287366D1A0444BA004DE2C2 /* num_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_9.png; sourceTree = "<group>"; };
-		4287366E1A0444BA004DE2C2 /* num_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_10.png; sourceTree = "<group>"; };
-		4287366F1A0444BA004DE2C2 /* num_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_11.png; sourceTree = "<group>"; };
-		428736701A0444BA004DE2C2 /* num_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_12.png; sourceTree = "<group>"; };
-		4287368A1A0444CA004DE2C2 /* select_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_level.png; sourceTree = "<group>"; };
-		4287368B1A0444CA004DE2C2 /* top_scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_scores.png; sourceTree = "<group>"; };
-		4287368C1A0444CA004DE2C2 /* vw_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw_small.png; sourceTree = "<group>"; };
-		428768B619D8853800C14BE3 /* futura-48.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "futura-48.fnt"; sourceTree = "<group>"; };
-		428768B719D8853800C14BE3 /* futura-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "futura-48.png"; sourceTree = "<group>"; };
-		428BB6011A0C7D5F00F9ED77 /* chicken_xxxsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_xxxsmall.png; sourceTree = "<group>"; };
-		428BB6031A0C7D6E00F9ED77 /* c1svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c1svg.png; sourceTree = "<group>"; };
-		428BB6041A0C7D6E00F9ED77 /* cactus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cactus.png; sourceTree = "<group>"; };
-		428BB6071A0C7D7C00F9ED77 /* egg_scramble_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egg_scramble_title.png; sourceTree = "<group>"; };
-		428BB6081A0C7D7C00F9ED77 /* egg_scramble_title.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = egg_scramble_title.psd; sourceTree = "<group>"; };
-		428BB60B1A0C7D9200F9ED77 /* instructions_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructions_orange.png; sourceTree = "<group>"; };
-		428BB60C1A0C7D9200F9ED77 /* instructions_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructions_yellow.png; sourceTree = "<group>"; };
-		428BB60F1A0C7DA300F9ED77 /* plank_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank_large.png; sourceTree = "<group>"; };
-		428BB6101A0C7DA300F9ED77 /* plank_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank_small.png; sourceTree = "<group>"; };
-		428BB6131A0C7DB100F9ED77 /* survival_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survival_orange.png; sourceTree = "<group>"; };
-		428BB6141A0C7DB100F9ED77 /* survival_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survival_yellow.png; sourceTree = "<group>"; };
-		428C2B9B1A0E8E3900558156 /* Complete.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Complete.mid; sourceTree = "<group>"; };
-		428C2B9C1A0E8E3900558156 /* Complete80kbps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete80kbps.mp3; sourceTree = "<group>"; };
-		428C2BA51A0EE2B200558156 /* Platform.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Platform.mid; sourceTree = "<group>"; };
-		428C2BA61A0EE2B200558156 /* Platform80kbps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform80kbps.mp3; sourceTree = "<group>"; };
-		428C2BA91A0EE2BE00558156 /* SpaceQuest-MP3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SpaceQuest-MP3.mp3"; sourceTree = "<group>"; };
-		428C2BAA1A0EE2BE00558156 /* SpaceQuest.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = SpaceQuest.mid; sourceTree = "<group>"; };
-		428C2BAD1A0F048800558156 /* Complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete.mp3; sourceTree = "<group>"; };
-		428C2BAE1A0F048800558156 /* Complete1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete1.mp3; sourceTree = "<group>"; };
-		428C2BAF1A0F048800558156 /* Complete2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete2.mp3; sourceTree = "<group>"; };
-		428C2BB01A0F048800558156 /* Complete3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Complete3.mp3; sourceTree = "<group>"; };
-		428C2BB51A0F049500558156 /* Platform.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform.mp3; sourceTree = "<group>"; };
-		428C2BB61A0F049500558156 /* Platform1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform1.mp3; sourceTree = "<group>"; };
-		428C2BB71A0F049500558156 /* Platform2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform2.mp3; sourceTree = "<group>"; };
-		428C2BB81A0F049500558156 /* Platform3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Platform3.mp3; sourceTree = "<group>"; };
-		428C2BBD1A0F04A000558156 /* SpaceQuest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest.mp3; sourceTree = "<group>"; };
-		428C2BBE1A0F04A000558156 /* SpaceQuest1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest1.mp3; sourceTree = "<group>"; };
-		428C2BBF1A0F04A000558156 /* SpaceQuest2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest2.mp3; sourceTree = "<group>"; };
-		428C2BC01A0F04A000558156 /* SpaceQuest3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceQuest3.mp3; sourceTree = "<group>"; };
-		4293E24A19A5B1D700AAF21D /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Background.cpp; path = ../Classes/Background.cpp; sourceTree = "<group>"; };
-		4293E24B19A5B1D700AAF21D /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = ../Classes/Background.h; sourceTree = "<group>"; };
-		4293E24C19A5B1D700AAF21D /* Bus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bus.cpp; path = ../Classes/Bus.cpp; sourceTree = "<group>"; };
-		4293E24D19A5B1D700AAF21D /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bus.h; path = ../Classes/Bus.h; sourceTree = "<group>"; };
-		4293E24E19A5B1D700AAF21D /* Car.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Car.cpp; path = ../Classes/Car.cpp; sourceTree = "<group>"; };
-		4293E24F19A5B1D700AAF21D /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Car.h; path = ../Classes/Car.h; sourceTree = "<group>"; };
-		4293E25019A5B1D700AAF21D /* Chicken.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Chicken.cpp; path = ../Classes/Chicken.cpp; sourceTree = "<group>"; };
-		4293E25119A5B1D700AAF21D /* Chicken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chicken.h; path = ../Classes/Chicken.h; sourceTree = "<group>"; };
-		4293E25219A5B1D700AAF21D /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Dimensions.cpp; path = ../Classes/Dimensions.cpp; sourceTree = "<group>"; };
-		4293E25319A5B1D700AAF21D /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dimensions.h; path = ../Classes/Dimensions.h; sourceTree = "<group>"; };
-		4293E25419A5B1D700AAF21D /* DisappearingLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DisappearingLog.cpp; path = ../Classes/DisappearingLog.cpp; sourceTree = "<group>"; };
-		4293E25519A5B1D700AAF21D /* DisappearingLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisappearingLog.h; path = ../Classes/DisappearingLog.h; sourceTree = "<group>"; };
-		4293E25619A5B1D700AAF21D /* Egg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Egg.cpp; path = ../Classes/Egg.cpp; sourceTree = "<group>"; };
-		4293E25719A5B1D700AAF21D /* Egg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Egg.h; path = ../Classes/Egg.h; sourceTree = "<group>"; };
-		4293E25819A5B1D700AAF21D /* EggScrambleModeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EggScrambleModeLayer.cpp; path = ../Classes/EggScrambleModeLayer.cpp; sourceTree = "<group>"; };
-		4293E25919A5B1D700AAF21D /* EggScrambleModeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EggScrambleModeLayer.h; path = ../Classes/EggScrambleModeLayer.h; sourceTree = "<group>"; };
-		4293E25A19A5B1D700AAF21D /* GameFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameFunctions.cpp; path = ../Classes/GameFunctions.cpp; sourceTree = "<group>"; };
-		4293E25B19A5B1D700AAF21D /* GameFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameFunctions.h; path = ../Classes/GameFunctions.h; sourceTree = "<group>"; };
-		4293E25C19A5B1D700AAF21D /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameLayer.cpp; path = ../Classes/GameLayer.cpp; sourceTree = "<group>"; };
-		4293E25D19A5B1D700AAF21D /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = ../Classes/GameLayer.h; sourceTree = "<group>"; };
-		4293E25E19A5B1D700AAF21D /* GameOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameOverLayer.cpp; path = ../Classes/GameOverLayer.cpp; sourceTree = "<group>"; };
-		4293E25F19A5B1D700AAF21D /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverLayer.h; path = ../Classes/GameOverLayer.h; sourceTree = "<group>"; };
-		4293E26019A5B1D700AAF21D /* HUDLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HUDLayer.cpp; path = ../Classes/HUDLayer.cpp; sourceTree = "<group>"; };
-		4293E26119A5B1D700AAF21D /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUDLayer.h; path = ../Classes/HUDLayer.h; sourceTree = "<group>"; };
-		4293E26219A5B1D700AAF21D /* Lane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lane.cpp; path = ../Classes/Lane.cpp; sourceTree = "<group>"; };
-		4293E27619A5B1F100AAF21D /* Lane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lane.h; path = ../Classes/Lane.h; sourceTree = "<group>"; };
-		4293E27719A5B20200AAF21D /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = ../Classes/Level.cpp; sourceTree = "<group>"; };
-		4293E27819A5B20200AAF21D /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = ../Classes/Level.h; sourceTree = "<group>"; };
-		4293E27919A5B20200AAF21D /* LevelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelManager.cpp; path = ../Classes/LevelManager.cpp; sourceTree = "<group>"; };
-		4293E27A19A5B20200AAF21D /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelManager.h; path = ../Classes/LevelManager.h; sourceTree = "<group>"; };
-		4293E27B19A5B20200AAF21D /* LevelSelectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelSelectLayer.cpp; path = ../Classes/LevelSelectLayer.cpp; sourceTree = "<group>"; };
-		4293E27C19A5B20200AAF21D /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelectLayer.h; path = ../Classes/LevelSelectLayer.h; sourceTree = "<group>"; };
-		4293E27D19A5B20200AAF21D /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = ../Classes/Log.cpp; sourceTree = "<group>"; };
-		4293E27E19A5B20200AAF21D /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = ../Classes/Log.h; sourceTree = "<group>"; };
-		4293E27F19A5B20200AAF21D /* MainModeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainModeLayer.cpp; path = ../Classes/MainModeLayer.cpp; sourceTree = "<group>"; };
-		4293E28019A5B20200AAF21D /* MainModeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainModeLayer.h; path = ../Classes/MainModeLayer.h; sourceTree = "<group>"; };
-		4293E28119A5B20200AAF21D /* MenuButtonLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuButtonLayer.cpp; path = ../Classes/MenuButtonLayer.cpp; sourceTree = "<group>"; };
-		4293E28219A5B20200AAF21D /* MenuButtonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuButtonLayer.h; path = ../Classes/MenuButtonLayer.h; sourceTree = "<group>"; };
-		4293E28319A5B20200AAF21D /* MenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuLayer.cpp; path = ../Classes/MenuLayer.cpp; sourceTree = "<group>"; };
-		4293E28419A5B20200AAF21D /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuLayer.h; path = ../Classes/MenuLayer.h; sourceTree = "<group>"; };
-		4293E28519A5B20200AAF21D /* SpriteContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteContainer.cpp; path = ../Classes/SpriteContainer.cpp; sourceTree = "<group>"; };
-		4293E28619A5B20200AAF21D /* SpriteContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteContainer.h; path = ../Classes/SpriteContainer.h; sourceTree = "<group>"; };
-		4293E28719A5B20200AAF21D /* Truck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Truck.cpp; path = ../Classes/Truck.cpp; sourceTree = "<group>"; };
-		4293E28819A5B20200AAF21D /* Truck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Truck.h; path = ../Classes/Truck.h; sourceTree = "<group>"; };
-		4293E28919A5B20200AAF21D /* Vehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vehicle.cpp; path = ../Classes/Vehicle.cpp; sourceTree = "<group>"; };
-		4293E28A19A5B20200AAF21D /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vehicle.h; path = ../Classes/Vehicle.h; sourceTree = "<group>"; };
-		4293E28B19A5B20200AAF21D /* VehicleFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VehicleFactory.cpp; path = ../Classes/VehicleFactory.cpp; sourceTree = "<group>"; };
-		4293E28C19A5B20200AAF21D /* VehicleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleFactory.h; path = ../Classes/VehicleFactory.h; sourceTree = "<group>"; };
-		4293E29819A5B41500AAF21D /* about_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_orange.png; sourceTree = "<group>"; };
-		4293E29919A5B41500AAF21D /* about_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_yellow.png; sourceTree = "<group>"; };
-		4293E29A19A5B41500AAF21D /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		4293E29B19A5B41500AAF21D /* background_layered.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = background_layered.psd; sourceTree = "<group>"; };
-		4293E29C19A5B41500AAF21D /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
-		4293E29D19A5B41500AAF21D /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
-		4293E29E19A5B41500AAF21D /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
-		4293E29F19A5B41500AAF21D /* brown_egg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brown_egg.png; sourceTree = "<group>"; };
-		4293E2A019A5B41500AAF21D /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
-		4293E2A219A5B41500AAF21D /* chicken_crossing_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken_crossing_title.png; sourceTree = "<group>"; };
-		4293E2A419A5B41500AAF21D /* egg_scramble_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egg_scramble_orange.png; sourceTree = "<group>"; };
-		4293E2A519A5B41500AAF21D /* egg_scramble_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egg_scramble_yellow.png; sourceTree = "<group>"; };
-		4293E2A719A5B41500AAF21D /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
-		4293E2A819A5B41500AAF21D /* game_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_over.png; sourceTree = "<group>"; };
-		4293E2AD19A5B41500AAF21D /* log_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log_large.png; sourceTree = "<group>"; };
-		4293E2AE19A5B41500AAF21D /* log_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log_small.png; sourceTree = "<group>"; };
-		4293E2CE19A5B42F00AAF21D /* red_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_car.png; sourceTree = "<group>"; };
-		4293E2CF19A5B42F00AAF21D /* small_chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_chicken.png; sourceTree = "<group>"; };
-		4293E2D019A5B42F00AAF21D /* start_game_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_game_orange.png; sourceTree = "<group>"; };
-		4293E2D119A5B42F00AAF21D /* start_game_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_game_yellow.png; sourceTree = "<group>"; };
-		4293E2D219A5B42F00AAF21D /* start_game.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = start_game.psd; sourceTree = "<group>"; };
-		4293E2D319A5B42F00AAF21D /* white_truck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_truck.png; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -598,6 +294,7 @@
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,12 +302,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AF4C2F417865DCB00122817 /* libbox2d iOS.a in Frameworks */,
-				1AF4C2F517865DCB00122817 /* libchipmunk iOS.a in Frameworks */,
-				1AF4C2F617865DCB00122817 /* libcocos2dx iOS.a in Frameworks */,
-				1AF4C2F717865DCB00122817 /* libcocos2dx-extensions iOS.a in Frameworks */,
-				1AF4C2F817865DCB00122817 /* libCocosDenshion iOS.a in Frameworks */,
-				1ACB3244164770DE00914215 /* libcurl.a in Frameworks */,
+				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
+				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
+				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
+				1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */,
+				1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */,
+				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -627,11 +324,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				503AE11317EB9C0700D1A890 /* libbox2d Mac.a in Frameworks */,
-				503AE11417EB9C0700D1A890 /* libchipmunk Mac.a in Frameworks */,
-				503AE11517EB9C0700D1A890 /* libcocos2dx Mac.a in Frameworks */,
-				503AE11617EB9C0700D1A890 /* libcocos2dx-extensions Mac.a in Frameworks */,
-				503AE11717EB9C0700D1A890 /* libCocosDenshion Mac.a in Frameworks */,
+				1AC6FB1F180E996B004C840B /* libbox2d Mac.a in Frameworks */,
+				1AC6FB20180E996B004C840B /* libchipmunk Mac.a in Frameworks */,
+				1AC6FB21180E996B004C840B /* libcocos2dx Mac.a in Frameworks */,
+				1AC6FB22180E996B004C840B /* libcocos2dx-extensions Mac.a in Frameworks */,
+				1AC6FB23180E996B004C840B /* libCocosDenshion Mac.a in Frameworks */,
 				503AE11217EB99EE00D1A890 /* libcurl.dylib in Frameworks */,
 				5087E76717EB910900C73F5D /* libz.dylib in Frameworks */,
 				503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */,
@@ -667,70 +364,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				428736171A0443E2004DE2C2 /* AcceleratingLane.cpp */,
-				428736181A0443E2004DE2C2 /* AcceleratingLane.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				4293E24A19A5B1D700AAF21D /* Background.cpp */,
-				4293E24B19A5B1D700AAF21D /* Background.h */,
-				4293E24C19A5B1D700AAF21D /* Bus.cpp */,
-				4293E24D19A5B1D700AAF21D /* Bus.h */,
-				4293E24E19A5B1D700AAF21D /* Car.cpp */,
-				4293E24F19A5B1D700AAF21D /* Car.h */,
-				4293E25019A5B1D700AAF21D /* Chicken.cpp */,
-				4293E25119A5B1D700AAF21D /* Chicken.h */,
-				4293E25219A5B1D700AAF21D /* Dimensions.cpp */,
-				4293E25319A5B1D700AAF21D /* Dimensions.h */,
-				4293E25419A5B1D700AAF21D /* DisappearingLog.cpp */,
-				4293E25519A5B1D700AAF21D /* DisappearingLog.h */,
-				4293E25619A5B1D700AAF21D /* Egg.cpp */,
-				4293E25719A5B1D700AAF21D /* Egg.h */,
-				4287361A1A0443F5004DE2C2 /* EggScrambleLevel.cpp */,
-				4287361B1A0443F5004DE2C2 /* EggScrambleLevel.h */,
-				4287361C1A0443F5004DE2C2 /* EggScrambleLevelFactory.cpp */,
-				4287361D1A0443F5004DE2C2 /* EggScrambleLevelFactory.h */,
-				4293E25819A5B1D700AAF21D /* EggScrambleModeLayer.cpp */,
-				4293E25919A5B1D700AAF21D /* EggScrambleModeLayer.h */,
-				4293E25A19A5B1D700AAF21D /* GameFunctions.cpp */,
-				4293E25B19A5B1D700AAF21D /* GameFunctions.h */,
-				4293E25C19A5B1D700AAF21D /* GameLayer.cpp */,
-				4293E25D19A5B1D700AAF21D /* GameLayer.h */,
-				4293E25E19A5B1D700AAF21D /* GameOverLayer.cpp */,
-				4293E25F19A5B1D700AAF21D /* GameOverLayer.h */,
-				4293E26019A5B1D700AAF21D /* HUDLayer.cpp */,
-				4293E26119A5B1D700AAF21D /* HUDLayer.h */,
-				4293E26219A5B1D700AAF21D /* Lane.cpp */,
-				4293E27619A5B1F100AAF21D /* Lane.h */,
-				4293E27719A5B20200AAF21D /* Level.cpp */,
-				4293E27819A5B20200AAF21D /* Level.h */,
-				428736201A044402004DE2C2 /* LevelFactory.cpp */,
-				428736211A044402004DE2C2 /* LevelFactory.h */,
-				4293E27919A5B20200AAF21D /* LevelManager.cpp */,
-				4293E27A19A5B20200AAF21D /* LevelManager.h */,
-				4293E27B19A5B20200AAF21D /* LevelSelectLayer.cpp */,
-				4293E27C19A5B20200AAF21D /* LevelSelectLayer.h */,
-				4293E27D19A5B20200AAF21D /* Log.cpp */,
-				4293E27E19A5B20200AAF21D /* Log.h */,
-				4293E27F19A5B20200AAF21D /* MainModeLayer.cpp */,
-				4293E28019A5B20200AAF21D /* MainModeLayer.h */,
-				428736231A044419004DE2C2 /* MainModeLevel.cpp */,
-				428736241A044419004DE2C2 /* MainModeLevel.h */,
-				428736251A044419004DE2C2 /* MainModeLevelFactory.cpp */,
-				428736261A044419004DE2C2 /* MainModeLevelFactory.h */,
-				4293E28119A5B20200AAF21D /* MenuButtonLayer.cpp */,
-				4293E28219A5B20200AAF21D /* MenuButtonLayer.h */,
-				4293E28319A5B20200AAF21D /* MenuLayer.cpp */,
-				4293E28419A5B20200AAF21D /* MenuLayer.h */,
-				4293E28519A5B20200AAF21D /* SpriteContainer.cpp */,
-				4293E28619A5B20200AAF21D /* SpriteContainer.h */,
-				428736291A044427004DE2C2 /* TopScore.cpp */,
-				4287362A1A044427004DE2C2 /* TopScore.h */,
-				4293E28719A5B20200AAF21D /* Truck.cpp */,
-				4293E28819A5B20200AAF21D /* Truck.h */,
-				4293E28919A5B20200AAF21D /* Vehicle.cpp */,
-				4293E28A19A5B20200AAF21D /* Vehicle.h */,
-				4293E28B19A5B20200AAF21D /* VehicleFactory.cpp */,
-				4293E28C19A5B20200AAF21D /* VehicleFactory.h */,
+				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
+				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -745,23 +382,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1AF4C2BC17865D9500122817 /* Products */ = {
+		1AC6FAE6180E9839004C840B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AF4C2CF17865D9500122817 /* libcocos2dx Mac.a */,
-				1AF4C2D117865D9500122817 /* libcocos2dx-extensions Mac.a */,
-				1AF4C2D317865D9500122817 /* libchipmunk Mac.a */,
-				1AF4C2D517865D9500122817 /* libbox2d Mac.a */,
-				1AF4C2D717865D9500122817 /* libCocosDenshion Mac.a */,
-				1AF4C2D917865D9500122817 /* libjsbindings Mac.a */,
-				1AF4C2DB17865D9500122817 /* libluabindings Mac.a */,
-				1AF4C2DD17865D9500122817 /* libcocos2dx iOS.a */,
-				1AF4C2DF17865D9500122817 /* libcocos2dx-extensions iOS.a */,
-				1AF4C2E117865D9500122817 /* libchipmunk iOS.a */,
-				1AF4C2E317865D9500122817 /* libbox2d iOS.a */,
-				1AF4C2E517865D9500122817 /* libCocosDenshion iOS.a */,
-				1AF4C2E717865D9500122817 /* libjsbindings iOS.a */,
-				1AF4C2E917865D9500122817 /* libluabindings iOS.a */,
+				1AC6FAF9180E9839004C840B /* libcocos2dx Mac.a */,
+				1AC6FAFB180E9839004C840B /* libcocos2dx-extensions Mac.a */,
+				1AC6FAFD180E9839004C840B /* libchipmunk Mac.a */,
+				1AC6FAFF180E9839004C840B /* libbox2d Mac.a */,
+				1AC6FB01180E9839004C840B /* libCocosDenshion Mac.a */,
+				1AC6FB03180E9839004C840B /* libjsbindings Mac.a */,
+				1AC6FB05180E9839004C840B /* libluabindings Mac.a */,
+				1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */,
+				1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */,
+				1AC6FB0B180E9839004C840B /* libchipmunk iOS.a */,
+				1AC6FB0D180E9839004C840B /* libbox2d iOS.a */,
+				1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */,
+				1AC6FB11180E9839004C840B /* libjsbindings iOS.a */,
+				1AC6FB13180E9839004C840B /* libluabindings iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -769,7 +406,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */,
+				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
@@ -783,6 +420,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
 				503AE11117EB99EE00D1A890 /* libcurl.dylib */,
 				5087E78A17EB975400C73F5D /* OpenGL.framework */,
@@ -799,14 +437,6 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4293E2A619A5B41500AAF21D /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				4293E2A719A5B41500AAF21D /* Marker Felt.ttf */,
-			);
-			path = fonts;
 			sourceTree = "<group>";
 		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
@@ -857,118 +487,9 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4293E29819A5B41500AAF21D /* about_orange.png */,
-				4293E29919A5B41500AAF21D /* about_yellow.png */,
-				4293E29A19A5B41500AAF21D /* arrow.png */,
-				4293E29C19A5B41500AAF21D /* background1.png */,
-				425717B619D10D18000BCFF5 /* background10.png */,
-				425717B719D10D18000BCFF5 /* background11.png */,
-				425717B819D10D18000BCFF5 /* background12.png */,
-				4293E29D19A5B41500AAF21D /* background2.png */,
-				4293E29E19A5B41500AAF21D /* background3.png */,
-				425717B019D10D18000BCFF5 /* background4.png */,
-				425717B119D10D18000BCFF5 /* background5.png */,
-				425717B219D10D18000BCFF5 /* background6.png */,
-				425717B319D10D18000BCFF5 /* background7.png */,
-				425717B419D10D18000BCFF5 /* background8.png */,
-				425717B519D10D18000BCFF5 /* background9.png */,
-				4293E29B19A5B41500AAF21D /* background_layered.psd */,
-				4287362C1A044470004DE2C2 /* beetle_small.png */,
-				4293E29F19A5B41500AAF21D /* brown_egg.png */,
-				4293E2A019A5B41500AAF21D /* bus.png */,
-				428BB6031A0C7D6E00F9ED77 /* c1svg.png */,
-				428BB6041A0C7D6E00F9ED77 /* cactus.png */,
-				4287362D1A044470004DE2C2 /* car_small.png */,
-				4293E2A219A5B41500AAF21D /* chicken_crossing_title.png */,
-				4287362E1A044470004DE2C2 /* chicken_large.png */,
-				4287362F1A044470004DE2C2 /* chicken_medium.png */,
-				428736301A044470004DE2C2 /* chicken_small.png */,
-				428736311A044470004DE2C2 /* chicken_xsmall.png */,
-				428736321A044470004DE2C2 /* chicken_xxsmall.png */,
-				428BB6011A0C7D5F00F9ED77 /* chicken_xxxsmall.png */,
-				428C2B9B1A0E8E3900558156 /* Complete.mid */,
-				428C2BAD1A0F048800558156 /* Complete.mp3 */,
-				428C2BAE1A0F048800558156 /* Complete1.mp3 */,
-				428C2BAF1A0F048800558156 /* Complete2.mp3 */,
-				428C2BB01A0F048800558156 /* Complete3.mp3 */,
-				428C2B9C1A0E8E3900558156 /* Complete80kbps.mp3 */,
-				4293E2A419A5B41500AAF21D /* egg_scramble_orange.png */,
-				428BB6071A0C7D7C00F9ED77 /* egg_scramble_title.png */,
-				428BB6081A0C7D7C00F9ED77 /* egg_scramble_title.psd */,
-				4293E2A519A5B41500AAF21D /* egg_scramble_yellow.png */,
-				4287363A1A044488004DE2C2 /* esm_level_1.plist */,
-				428736431A044488004DE2C2 /* esm_level_10.plist */,
-				428736441A044488004DE2C2 /* esm_level_11.plist */,
-				428736451A044488004DE2C2 /* esm_level_12.plist */,
-				4287363B1A044488004DE2C2 /* esm_level_2.plist */,
-				4287363C1A044488004DE2C2 /* esm_level_3.plist */,
-				4287363D1A044488004DE2C2 /* esm_level_4.plist */,
-				4287363E1A044488004DE2C2 /* esm_level_5.plist */,
-				4287363F1A044488004DE2C2 /* esm_level_6.plist */,
-				428736401A044488004DE2C2 /* esm_level_7.plist */,
-				428736411A044488004DE2C2 /* esm_level_8.plist */,
-				428736421A044488004DE2C2 /* esm_level_9.plist */,
-				428736461A044488004DE2C2 /* esm_levels.plist */,
-				4293E2A619A5B41500AAF21D /* fonts */,
-				428768B619D8853800C14BE3 /* futura-48.fnt */,
-				428768B719D8853800C14BE3 /* futura-48.png */,
-				4293E2A819A5B41500AAF21D /* game_over.png */,
-				428BB60B1A0C7D9200F9ED77 /* instructions_orange.png */,
-				428BB60C1A0C7D9200F9ED77 /* instructions_yellow.png */,
-				428736541A04449C004DE2C2 /* jgnation_logo_high.png */,
-				428736551A04449C004DE2C2 /* jgnation_logo_med.png */,
-				4293E2AD19A5B41500AAF21D /* log_large.png */,
-				4293E2AE19A5B41500AAF21D /* log_small.png */,
-				428736581A0444BA004DE2C2 /* mm_level_1.plist */,
-				428736611A0444BA004DE2C2 /* mm_level_10.plist */,
-				428736621A0444BA004DE2C2 /* mm_level_11.plist */,
-				428736631A0444BA004DE2C2 /* mm_level_12.plist */,
-				428736591A0444BA004DE2C2 /* mm_level_2.plist */,
-				4287365A1A0444BA004DE2C2 /* mm_level_3.plist */,
-				4287365B1A0444BA004DE2C2 /* mm_level_4.plist */,
-				4287365C1A0444BA004DE2C2 /* mm_level_5.plist */,
-				4287365D1A0444BA004DE2C2 /* mm_level_6.plist */,
-				4287365E1A0444BA004DE2C2 /* mm_level_7.plist */,
-				4287365F1A0444BA004DE2C2 /* mm_level_8.plist */,
-				428736601A0444BA004DE2C2 /* mm_level_9.plist */,
-				428736641A0444BA004DE2C2 /* mm_levels.plist */,
-				428736651A0444BA004DE2C2 /* num_1.png */,
-				4287366E1A0444BA004DE2C2 /* num_10.png */,
-				4287366F1A0444BA004DE2C2 /* num_11.png */,
-				428736701A0444BA004DE2C2 /* num_12.png */,
-				428736661A0444BA004DE2C2 /* num_2.png */,
-				428736671A0444BA004DE2C2 /* num_3.png */,
-				428736681A0444BA004DE2C2 /* num_4.png */,
-				428736691A0444BA004DE2C2 /* num_5.png */,
-				4287366A1A0444BA004DE2C2 /* num_6.png */,
-				4287366B1A0444BA004DE2C2 /* num_7.png */,
-				4287366C1A0444BA004DE2C2 /* num_8.png */,
-				4287366D1A0444BA004DE2C2 /* num_9.png */,
-				428BB60F1A0C7DA300F9ED77 /* plank_large.png */,
-				428BB6101A0C7DA300F9ED77 /* plank_small.png */,
-				428C2BA51A0EE2B200558156 /* Platform.mid */,
-				428C2BB51A0F049500558156 /* Platform.mp3 */,
-				428C2BB61A0F049500558156 /* Platform1.mp3 */,
-				428C2BB71A0F049500558156 /* Platform2.mp3 */,
-				428C2BB81A0F049500558156 /* Platform3.mp3 */,
-				428C2BA61A0EE2B200558156 /* Platform80kbps.mp3 */,
-				4293E2CE19A5B42F00AAF21D /* red_car.png */,
-				4287368A1A0444CA004DE2C2 /* select_level.png */,
-				4293E2CF19A5B42F00AAF21D /* small_chicken.png */,
-				428C2BA91A0EE2BE00558156 /* SpaceQuest-MP3.mp3 */,
-				428C2BAA1A0EE2BE00558156 /* SpaceQuest.mid */,
-				428C2BBD1A0F04A000558156 /* SpaceQuest.mp3 */,
-				428C2BBE1A0F04A000558156 /* SpaceQuest1.mp3 */,
-				428C2BBF1A0F04A000558156 /* SpaceQuest2.mp3 */,
-				428C2BC01A0F04A000558156 /* SpaceQuest3.mp3 */,
-				4293E2D219A5B42F00AAF21D /* start_game.psd */,
-				4293E2D019A5B42F00AAF21D /* start_game_orange.png */,
-				4293E2D119A5B42F00AAF21D /* start_game_yellow.png */,
-				428BB6131A0C7DB100F9ED77 /* survival_orange.png */,
-				428BB6141A0C7DB100F9ED77 /* survival_yellow.png */,
-				4287368B1A0444CA004DE2C2 /* top_scores.png */,
-				4287368C1A0444CA004DE2C2 /* vw_small.png */,
-				4293E2D319A5B42F00AAF21D /* white_truck.png */,
+				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
+				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
+				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -988,11 +509,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				1AF4C2EB17865DB400122817 /* PBXTargetDependency */,
-				1AF4C2ED17865DB400122817 /* PBXTargetDependency */,
-				1AF4C2EF17865DB400122817 /* PBXTargetDependency */,
-				1AF4C2F117865DB400122817 /* PBXTargetDependency */,
-				1AF4C2F317865DB400122817 /* PBXTargetDependency */,
+				1AC6FB25180E99E1004C840B /* PBXTargetDependency */,
+				1AC6FB27180E99E1004C840B /* PBXTargetDependency */,
+				1AC6FB29180E99E1004C840B /* PBXTargetDependency */,
+				1AC6FB2B180E99E1004C840B /* PBXTargetDependency */,
+				1AC6FB2D180E99E1004C840B /* PBXTargetDependency */,
 			);
 			name = "EggScramble iOS";
 			productName = iphone;
@@ -1010,11 +531,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				503AE10817EB99BC00D1A890 /* PBXTargetDependency */,
-				503AE10A17EB99BC00D1A890 /* PBXTargetDependency */,
-				503AE10C17EB99BC00D1A890 /* PBXTargetDependency */,
-				503AE10E17EB99BC00D1A890 /* PBXTargetDependency */,
-				503AE11017EB99BC00D1A890 /* PBXTargetDependency */,
+				1AC6FB1E180E9963004C840B /* PBXTargetDependency */,
+				1AC6FB16180E9959004C840B /* PBXTargetDependency */,
+				1AC6FB18180E9959004C840B /* PBXTargetDependency */,
+				1AC6FB1A180E9959004C840B /* PBXTargetDependency */,
+				1AC6FB1C180E9959004C840B /* PBXTargetDependency */,
 			);
 			name = "EggScramble Mac";
 			productName = iphone;
@@ -1048,8 +569,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1AF4C2BC17865D9500122817 /* Products */;
-					ProjectRef = 1AF4C2BB17865D9500122817 /* cocos2d_libs.xcodeproj */;
+					ProductGroup = 1AC6FAE6180E9839004C840B /* Products */;
+					ProjectRef = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1061,102 +582,102 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1AF4C2CF17865D9500122817 /* libcocos2dx Mac.a */ = {
+		1AC6FAF9180E9839004C840B /* libcocos2dx Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libcocos2dx Mac.a";
-			remoteRef = 1AF4C2CE17865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FAF8180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2D117865D9500122817 /* libcocos2dx-extensions Mac.a */ = {
+		1AC6FAFB180E9839004C840B /* libcocos2dx-extensions Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libcocos2dx-extensions Mac.a";
-			remoteRef = 1AF4C2D017865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FAFA180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2D317865D9500122817 /* libchipmunk Mac.a */ = {
+		1AC6FAFD180E9839004C840B /* libchipmunk Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libchipmunk Mac.a";
-			remoteRef = 1AF4C2D217865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FAFC180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2D517865D9500122817 /* libbox2d Mac.a */ = {
+		1AC6FAFF180E9839004C840B /* libbox2d Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libbox2d Mac.a";
-			remoteRef = 1AF4C2D417865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FAFE180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2D717865D9500122817 /* libCocosDenshion Mac.a */ = {
+		1AC6FB01180E9839004C840B /* libCocosDenshion Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libCocosDenshion Mac.a";
-			remoteRef = 1AF4C2D617865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB00180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2D917865D9500122817 /* libjsbindings Mac.a */ = {
+		1AC6FB03180E9839004C840B /* libjsbindings Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libjsbindings Mac.a";
-			remoteRef = 1AF4C2D817865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB02180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2DB17865D9500122817 /* libluabindings Mac.a */ = {
+		1AC6FB05180E9839004C840B /* libluabindings Mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libluabindings Mac.a";
-			remoteRef = 1AF4C2DA17865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB04180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2DD17865D9500122817 /* libcocos2dx iOS.a */ = {
+		1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libcocos2dx iOS.a";
-			remoteRef = 1AF4C2DC17865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2DF17865D9500122817 /* libcocos2dx-extensions iOS.a */ = {
+		1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libcocos2dx-extensions iOS.a";
-			remoteRef = 1AF4C2DE17865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB08180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2E117865D9500122817 /* libchipmunk iOS.a */ = {
+		1AC6FB0B180E9839004C840B /* libchipmunk iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libchipmunk iOS.a";
-			remoteRef = 1AF4C2E017865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB0A180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2E317865D9500122817 /* libbox2d iOS.a */ = {
+		1AC6FB0D180E9839004C840B /* libbox2d iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libbox2d iOS.a";
-			remoteRef = 1AF4C2E217865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB0C180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2E517865D9500122817 /* libCocosDenshion iOS.a */ = {
+		1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libCocosDenshion iOS.a";
-			remoteRef = 1AF4C2E417865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB0E180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2E717865D9500122817 /* libjsbindings iOS.a */ = {
+		1AC6FB11180E9839004C840B /* libjsbindings iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libjsbindings iOS.a";
-			remoteRef = 1AF4C2E617865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB10180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AF4C2E917865D9500122817 /* libluabindings iOS.a */ = {
+		1AC6FB13180E9839004C840B /* libluabindings iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libluabindings iOS.a";
-			remoteRef = 1AF4C2E817865D9500122817 /* PBXContainerItemProxy */;
+			remoteRef = 1AC6FB12180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1166,134 +687,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4287364C1A044488004DE2C2 /* esm_level_6.plist in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				425717BC19D10D18000BCFF5 /* background7.png in Resources */,
-				428C2BC11A0F04A000558156 /* SpaceQuest.mp3 in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
-				428736571A04449C004DE2C2 /* jgnation_logo_med.png in Resources */,
-				4287367D1A0444BA004DE2C2 /* mm_levels.plist in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
-				428C2BB41A0F048800558156 /* Complete3.mp3 in Resources */,
-				428736331A044470004DE2C2 /* beetle_small.png in Resources */,
-				4287367A1A0444BA004DE2C2 /* mm_level_10.plist in Resources */,
-				428736371A044470004DE2C2 /* chicken_small.png in Resources */,
-				4287368D1A0444CA004DE2C2 /* select_level.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
-				428BB60A1A0C7D7C00F9ED77 /* egg_scramble_title.psd in Resources */,
-				428BB6121A0C7DA300F9ED77 /* plank_small.png in Resources */,
-				425717BF19D10D18000BCFF5 /* background10.png in Resources */,
-				428736861A0444BA004DE2C2 /* num_9.png in Resources */,
+				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
-				428C2BB91A0F049500558156 /* Platform.mp3 in Resources */,
-				428C2BAC1A0EE2BE00558156 /* SpaceQuest.mid in Resources */,
-				428C2BC21A0F04A000558156 /* SpaceQuest1.mp3 in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
-				428736501A044488004DE2C2 /* esm_level_10.plist in Resources */,
-				428C2BBA1A0F049500558156 /* Platform1.mp3 in Resources */,
-				428C2BBB1A0F049500558156 /* Platform2.mp3 in Resources */,
-				4287367B1A0444BA004DE2C2 /* mm_level_11.plist in Resources */,
-				425717C019D10D18000BCFF5 /* background11.png in Resources */,
-				428736341A044470004DE2C2 /* car_small.png in Resources */,
-				428736491A044488004DE2C2 /* esm_level_3.plist in Resources */,
-				428BB6111A0C7DA300F9ED77 /* plank_large.png in Resources */,
-				428BB6021A0C7D5F00F9ED77 /* chicken_xxxsmall.png in Resources */,
-				428736791A0444BA004DE2C2 /* mm_level_9.plist in Resources */,
-				428BB6151A0C7DB100F9ED77 /* survival_orange.png in Resources */,
-				428736731A0444BA004DE2C2 /* mm_level_3.plist in Resources */,
-				428736761A0444BA004DE2C2 /* mm_level_6.plist in Resources */,
-				428768B919D8853800C14BE3 /* futura-48.png in Resources */,
-				428BB60E1A0C7D9200F9ED77 /* instructions_yellow.png in Resources */,
-				428736871A0444BA004DE2C2 /* num_10.png in Resources */,
-				4287364B1A044488004DE2C2 /* esm_level_5.plist in Resources */,
-				428736831A0444BA004DE2C2 /* num_6.png in Resources */,
-				428736361A044470004DE2C2 /* chicken_medium.png in Resources */,
-				425717BE19D10D18000BCFF5 /* background9.png in Resources */,
-				428BB60D1A0C7D9200F9ED77 /* instructions_orange.png in Resources */,
-				428BB6051A0C7D6E00F9ED77 /* c1svg.png in Resources */,
-				4287367F1A0444BA004DE2C2 /* num_2.png in Resources */,
-				428736771A0444BA004DE2C2 /* mm_level_7.plist in Resources */,
+				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				428736721A0444BA004DE2C2 /* mm_level_2.plist in Resources */,
-				428736391A044470004DE2C2 /* chicken_xxsmall.png in Resources */,
-				428736751A0444BA004DE2C2 /* mm_level_5.plist in Resources */,
-				428736781A0444BA004DE2C2 /* mm_level_8.plist in Resources */,
-				4287368E1A0444CA004DE2C2 /* top_scores.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
-				428C2BBC1A0F049500558156 /* Platform3.mp3 in Resources */,
-				428736471A044488004DE2C2 /* esm_level_1.plist in Resources */,
-				4287367E1A0444BA004DE2C2 /* num_1.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
-				428BB6161A0C7DB100F9ED77 /* survival_yellow.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
-				428C2BA71A0EE2B200558156 /* Platform.mid in Resources */,
-				428736511A044488004DE2C2 /* esm_level_11.plist in Resources */,
-				425717C119D10D18000BCFF5 /* background12.png in Resources */,
-				4287367C1A0444BA004DE2C2 /* mm_level_12.plist in Resources */,
-				428736891A0444BA004DE2C2 /* num_12.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
-				428736821A0444BA004DE2C2 /* num_5.png in Resources */,
-				428736561A04449C004DE2C2 /* jgnation_logo_high.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
-				425717BA19D10D18000BCFF5 /* background5.png in Resources */,
-				4293E2B319A5B41500AAF21D /* about_orange.png in Resources */,
-				4293E2B419A5B41500AAF21D /* about_yellow.png in Resources */,
-				4293E2B519A5B41500AAF21D /* arrow.png in Resources */,
-				425717BB19D10D18000BCFF5 /* background6.png in Resources */,
-				428BB6091A0C7D7C00F9ED77 /* egg_scramble_title.png in Resources */,
-				428C2BA81A0EE2B200558156 /* Platform80kbps.mp3 in Resources */,
-				4293E2B619A5B41500AAF21D /* background_layered.psd in Resources */,
-				428736881A0444BA004DE2C2 /* num_11.png in Resources */,
-				428BB6061A0C7D6E00F9ED77 /* cactus.png in Resources */,
-				4293E2B719A5B41500AAF21D /* background1.png in Resources */,
-				4293E2B819A5B41500AAF21D /* background2.png in Resources */,
-				4293E2B919A5B41500AAF21D /* background3.png in Resources */,
-				428736851A0444BA004DE2C2 /* num_8.png in Resources */,
-				4293E2BA19A5B41500AAF21D /* brown_egg.png in Resources */,
-				428C2BB11A0F048800558156 /* Complete.mp3 in Resources */,
-				4293E2BB19A5B41500AAF21D /* bus.png in Resources */,
-				428C2B9D1A0E8E3900558156 /* Complete.mid in Resources */,
-				428736531A044488004DE2C2 /* esm_levels.plist in Resources */,
-				428C2B9E1A0E8E3900558156 /* Complete80kbps.mp3 in Resources */,
-				428736741A0444BA004DE2C2 /* mm_level_4.plist in Resources */,
-				4287364D1A044488004DE2C2 /* esm_level_7.plist in Resources */,
-				4293E2BD19A5B41500AAF21D /* chicken_crossing_title.png in Resources */,
-				428736811A0444BA004DE2C2 /* num_4.png in Resources */,
-				425717BD19D10D18000BCFF5 /* background8.png in Resources */,
-				4287368F1A0444CA004DE2C2 /* vw_small.png in Resources */,
-				4293E2BF19A5B41500AAF21D /* egg_scramble_orange.png in Resources */,
-				4293E2C019A5B41500AAF21D /* egg_scramble_yellow.png in Resources */,
-				428736841A0444BA004DE2C2 /* num_7.png in Resources */,
-				428736351A044470004DE2C2 /* chicken_large.png in Resources */,
-				4293E2C119A5B41500AAF21D /* Marker Felt.ttf in Resources */,
-				428C2BB21A0F048800558156 /* Complete1.mp3 in Resources */,
-				4293E2C219A5B41500AAF21D /* game_over.png in Resources */,
-				428768B819D8853800C14BE3 /* futura-48.fnt in Resources */,
-				4293E2C719A5B41500AAF21D /* log_large.png in Resources */,
-				4293E2C819A5B41500AAF21D /* log_small.png in Resources */,
-				428736381A044470004DE2C2 /* chicken_xsmall.png in Resources */,
-				4293E2D519A5B42F00AAF21D /* red_car.png in Resources */,
-				4293E2D619A5B42F00AAF21D /* small_chicken.png in Resources */,
-				428736801A0444BA004DE2C2 /* num_3.png in Resources */,
-				425717B919D10D18000BCFF5 /* background4.png in Resources */,
-				4287364A1A044488004DE2C2 /* esm_level_4.plist in Resources */,
-				428C2BB31A0F048800558156 /* Complete2.mp3 in Resources */,
-				4293E2D719A5B42F00AAF21D /* start_game_orange.png in Resources */,
-				4293E2D819A5B42F00AAF21D /* start_game_yellow.png in Resources */,
-				428736521A044488004DE2C2 /* esm_level_12.plist in Resources */,
-				4293E2D919A5B42F00AAF21D /* start_game.psd in Resources */,
-				428736711A0444BA004DE2C2 /* mm_level_1.plist in Resources */,
-				428736481A044488004DE2C2 /* esm_level_2.plist in Resources */,
-				428C2BAB1A0EE2BE00558156 /* SpaceQuest-MP3.mp3 in Resources */,
-				428C2BC31A0F04A000558156 /* SpaceQuest2.mp3 in Resources */,
-				4287364E1A044488004DE2C2 /* esm_level_8.plist in Resources */,
-				4287364F1A044488004DE2C2 /* esm_level_9.plist in Resources */,
-				428C2BC41A0F04A000558156 /* SpaceQuest3.mp3 in Resources */,
-				4293E2DA19A5B42F00AAF21D /* white_truck.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,7 +713,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
+				5087E75517EB910900C73F5D /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,37 +731,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				4293E26319A5B1D700AAF21D /* Background.cpp in Sources */,
-				4293E26419A5B1D700AAF21D /* Bus.cpp in Sources */,
-				4293E26519A5B1D700AAF21D /* Car.cpp in Sources */,
-				428736281A044419004DE2C2 /* MainModeLevelFactory.cpp in Sources */,
-				4293E26619A5B1D700AAF21D /* Chicken.cpp in Sources */,
-				4293E26719A5B1D700AAF21D /* Dimensions.cpp in Sources */,
-				4293E26819A5B1D700AAF21D /* DisappearingLog.cpp in Sources */,
-				4293E26919A5B1D700AAF21D /* Egg.cpp in Sources */,
-				4293E26A19A5B1D700AAF21D /* EggScrambleModeLayer.cpp in Sources */,
-				4293E26B19A5B1D700AAF21D /* GameFunctions.cpp in Sources */,
-				4293E26C19A5B1D700AAF21D /* GameLayer.cpp in Sources */,
-				4287362B1A044427004DE2C2 /* TopScore.cpp in Sources */,
-				4293E26D19A5B1D700AAF21D /* GameOverLayer.cpp in Sources */,
-				4293E26E19A5B1D700AAF21D /* HUDLayer.cpp in Sources */,
-				4293E26F19A5B1D700AAF21D /* Lane.cpp in Sources */,
-				428736221A044402004DE2C2 /* LevelFactory.cpp in Sources */,
-				4293E28D19A5B20200AAF21D /* Level.cpp in Sources */,
-				4293E28E19A5B20200AAF21D /* LevelManager.cpp in Sources */,
-				4293E28F19A5B20200AAF21D /* LevelSelectLayer.cpp in Sources */,
-				4293E29019A5B20200AAF21D /* Log.cpp in Sources */,
-				4287361F1A0443F5004DE2C2 /* EggScrambleLevelFactory.cpp in Sources */,
-				428736191A0443E2004DE2C2 /* AcceleratingLane.cpp in Sources */,
-				4293E29119A5B20200AAF21D /* MainModeLayer.cpp in Sources */,
-				4287361E1A0443F5004DE2C2 /* EggScrambleLevel.cpp in Sources */,
-				4293E29219A5B20200AAF21D /* MenuButtonLayer.cpp in Sources */,
-				4293E29319A5B20200AAF21D /* MenuLayer.cpp in Sources */,
-				4293E29419A5B20200AAF21D /* SpriteContainer.cpp in Sources */,
-				4293E29519A5B20200AAF21D /* Truck.cpp in Sources */,
-				428736271A044419004DE2C2 /* MainModeLevel.cpp in Sources */,
-				4293E29619A5B20200AAF21D /* Vehicle.cpp in Sources */,
-				4293E29719A5B20200AAF21D /* VehicleFactory.cpp in Sources */,
+				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1355,6 +740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
+				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1362,55 +748,55 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1AF4C2EB17865DB400122817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "cocos2dx iOS";
-			targetProxy = 1AF4C2EA17865DB400122817 /* PBXContainerItemProxy */;
-		};
-		1AF4C2ED17865DB400122817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "cocos2dx-extensions iOS";
-			targetProxy = 1AF4C2EC17865DB400122817 /* PBXContainerItemProxy */;
-		};
-		1AF4C2EF17865DB400122817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "chipmunk iOS";
-			targetProxy = 1AF4C2EE17865DB400122817 /* PBXContainerItemProxy */;
-		};
-		1AF4C2F117865DB400122817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "box2d iOS";
-			targetProxy = 1AF4C2F017865DB400122817 /* PBXContainerItemProxy */;
-		};
-		1AF4C2F317865DB400122817 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CocosDenshion iOS";
-			targetProxy = 1AF4C2F217865DB400122817 /* PBXContainerItemProxy */;
-		};
-		503AE10817EB99BC00D1A890 /* PBXTargetDependency */ = {
+		1AC6FB16180E9959004C840B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "cocos2dx Mac";
-			targetProxy = 503AE10717EB99BC00D1A890 /* PBXContainerItemProxy */;
+			targetProxy = 1AC6FB15180E9959004C840B /* PBXContainerItemProxy */;
 		};
-		503AE10A17EB99BC00D1A890 /* PBXTargetDependency */ = {
+		1AC6FB18180E9959004C840B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "cocos2dx-extensions Mac";
-			targetProxy = 503AE10917EB99BC00D1A890 /* PBXContainerItemProxy */;
+			targetProxy = 1AC6FB17180E9959004C840B /* PBXContainerItemProxy */;
 		};
-		503AE10C17EB99BC00D1A890 /* PBXTargetDependency */ = {
+		1AC6FB1A180E9959004C840B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "chipmunk Mac";
-			targetProxy = 503AE10B17EB99BC00D1A890 /* PBXContainerItemProxy */;
+			targetProxy = 1AC6FB19180E9959004C840B /* PBXContainerItemProxy */;
 		};
-		503AE10E17EB99BC00D1A890 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "box2d Mac";
-			targetProxy = 503AE10D17EB99BC00D1A890 /* PBXContainerItemProxy */;
-		};
-		503AE11017EB99BC00D1A890 /* PBXTargetDependency */ = {
+		1AC6FB1C180E9959004C840B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CocosDenshion Mac";
-			targetProxy = 503AE10F17EB99BC00D1A890 /* PBXContainerItemProxy */;
+			targetProxy = 1AC6FB1B180E9959004C840B /* PBXContainerItemProxy */;
+		};
+		1AC6FB1E180E9963004C840B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "box2d Mac";
+			targetProxy = 1AC6FB1D180E9963004C840B /* PBXContainerItemProxy */;
+		};
+		1AC6FB25180E99E1004C840B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "cocos2dx iOS";
+			targetProxy = 1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */;
+		};
+		1AC6FB27180E99E1004C840B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "cocos2dx-extensions iOS";
+			targetProxy = 1AC6FB26180E99E1004C840B /* PBXContainerItemProxy */;
+		};
+		1AC6FB29180E99E1004C840B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "chipmunk iOS";
+			targetProxy = 1AC6FB28180E99E1004C840B /* PBXContainerItemProxy */;
+		};
+		1AC6FB2B180E99E1004C840B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "box2d iOS";
+			targetProxy = 1AC6FB2A180E99E1004C840B /* PBXContainerItemProxy */;
+		};
+		1AC6FB2D180E99E1004C840B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CocosDenshion iOS";
+			targetProxy = 1AC6FB2C180E99E1004C840B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1418,8 +804,8 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = jgnation;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1433,26 +819,13 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../CocosDenshion/include",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../external\"",
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/include\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/ios\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
+					"$(inherited)",
+					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
+					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
-					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
-				);
-				OTHER_CODE_SIGN_FLAGS = "-gta";
-				PRODUCT_NAME = "EggScramble iOS";
+				LIBRARY_SEARCH_PATHS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1462,8 +835,8 @@
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = jgnation;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1475,26 +848,13 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../CocosDenshion/include",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../external\"",
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/include\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/ios\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
+					"$(inherited)",
+					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
+					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
-					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
-				);
-				OTHER_CODE_SIGN_FLAGS = "-gta";
-				PRODUCT_NAME = "EggScramble iOS";
+				LIBRARY_SEARCH_PATHS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1504,7 +864,7 @@
 		5087E76D17EB910900C73F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1520,23 +880,12 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../CocosDenshion/include",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../external\"",
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/include\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/mac\"",
+					"$(inherited)",
+					"$(SRCROOT)/../cocos2d/cocos/platform/mac",
+					"$(SRCROOT)/../cocos2d/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"",
-					"\"$(SRCROOT)/../../../external/libwebsockets/mac/lib\"",
-				);
-				PRODUCT_NAME = "EggScramble Mac";
+				LIBRARY_SEARCH_PATHS = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -1544,7 +893,7 @@
 		5087E76E17EB910900C73F5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1558,23 +907,12 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../../CocosDenshion/include",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../external\"",
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/include\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/mac\"",
+					"$(inherited)",
+					"$(SRCROOT)/../cocos2d/cocos/platform/mac",
+					"$(SRCROOT)/../cocos2d/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"",
-					"\"$(SRCROOT)/../../../external/libwebsockets/mac/lib\"",
-				);
-				PRODUCT_NAME = "EggScramble Mac";
+				LIBRARY_SEARCH_PATHS = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
@@ -1588,6 +926,22 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../cocos2d",
+					"$(SRCROOT)/../cocos2d/cocos",
+					"$(SRCROOT)/../cocos2d/cocos/base",
+					"$(SRCROOT)/../cocos2d/cocos/physics",
+					"$(SRCROOT)/../cocos2d/cocos/math",
+					"$(SRCROOT)/../cocos2d/cocos/2d",
+					"$(SRCROOT)/../cocos2d/cocos/ui",
+					"$(SRCROOT)/../cocos2d/cocos/network",
+					"$(SRCROOT)/../cocos2d/cocos/audio/include",
+					"$(SRCROOT)/../cocos2d/cocos/editor-support",
+					"$(SRCROOT)/../cocos2d/extensions",
+					"$(SRCROOT)/../cocos2d/external",
+					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1601,6 +955,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../cocos2d",
+					"$(SRCROOT)/../cocos2d/cocos",
+					"$(SRCROOT)/../cocos2d/cocos/base",
+					"$(SRCROOT)/../cocos2d/cocos/physics",
+					"$(SRCROOT)/../cocos2d/cocos/math",
+					"$(SRCROOT)/../cocos2d/cocos/2d",
+					"$(SRCROOT)/../cocos2d/cocos/ui",
+					"$(SRCROOT)/../cocos2d/cocos/network",
+					"$(SRCROOT)/../cocos2d/cocos/audio/include",
+					"$(SRCROOT)/../cocos2d/cocos/editor-support",
+					"$(SRCROOT)/../cocos2d/extensions",
+					"$(SRCROOT)/../cocos2d/external",
+					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
