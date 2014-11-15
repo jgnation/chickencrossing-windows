@@ -31,7 +31,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	float scaledWidth = originalWidth * scaleRatioX;
 	float scaledHeight = originalHeight * scaleRatioY;
 	//setContentSize changes the size of the 'bounding box' around the image
-	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+	//_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
 	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
 

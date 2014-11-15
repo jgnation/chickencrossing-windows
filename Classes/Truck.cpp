@@ -28,7 +28,7 @@ Truck::Truck(void)
 	//see the chicken class for explanation
 	float scaledWidth = originalWidth * scaleRatioX;
 	float scaledHeight = originalHeight * scaleRatioY;
-	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+	//_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
 	_sprite->retain();
 	_speed = 100;

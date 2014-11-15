@@ -22,7 +22,7 @@ Egg::Egg()
 	//float scaledWidth = originalWidth * scaleRatioX;
 	float scaledWidth = originalWidth * scaleRatioY;
 	float scaledHeight = originalHeight * scaleRatioY;
-	_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+	//_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 }
 
 void Egg::setPosition(float x, float y)
