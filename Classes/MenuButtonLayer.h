@@ -16,6 +16,7 @@ private:
 	CCSprite* _chickenCrossingInstructionsImage;
 	CCLayerColor* _backgroundColor;
 	CCLayerColor* _instructionsBackgroundColor;
+	CCLabelBMFont * _aboutInfo;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -45,6 +46,7 @@ public:
 	CCMenuItemImage* createJGNationLogo();
 
 	void createAboutScreen();
+	void createAboutScreenInfo();
 	void createInstructionScreen();
 };
  

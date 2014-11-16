@@ -3,6 +3,7 @@
 #include "LevelSelectLayer.h"
 #include "MainModeLayer.h"
 #include "SimpleAudioEngine.h"
+#include "2d/CCClippingNode.h"
 
 using namespace cocos2d;
  
@@ -110,8 +111,40 @@ void MenuButtonLayer::createAboutScreen()
 	_backgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
 	_backgroundColor->setAnchorPoint(ccp(0,1));
 	_backgroundColor->setPosition(ccp(windowSize.width * .1, windowSize.height * .7));
-		
-	std::string info = "Developed by JGNation\n";
+
+	_logoImage = this->createJGNationLogo();
+	_aboutExitImage = this->createAboutExitButton();
+	CCMenu* pMenu = CCMenu::create(_aboutExitImage, NULL);
+	pMenu->setPosition(CCPointZero);
+	this->addChild(_logoImage);
+	this->addChild(pMenu);
+	this->addChild(_backgroundColor);
+
+	this->createAboutScreenInfo();
+
+	//Hide the about screen stuff
+	_logoImage->setVisible(false);
+	_aboutExitImage->setVisible(false);
+	_backgroundColor->setVisible(false);
+}
+
+void MenuButtonLayer::createAboutScreenInfo()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
+	CCDrawNode * stencil = CCDrawNode::create();
+	CCPoint rectangle[4];
+    rectangle[0] = ccp(windowSize.width * .1, windowSize.height * .3); //bottom left
+    rectangle[1] = ccp(windowSize.width * .9, windowSize.height * .3); //bottom right
+    rectangle[2] = ccp(windowSize.width * .9, windowSize.height * .7); //top right
+	rectangle[3] = ccp(windowSize.width * .1, windowSize.height * .7); //top left
+	ccColor4F white(255, 255, 255, 255);
+	ccColor4F black(1, 1, 1, 1);
+	stencil->drawPolygon(rectangle, 4, white, 1, black);
+
+	CCClippingNode* clippingNode = CCClippingNode::create(stencil);
+
+	std::string info = "Developed by JGNationaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!!\n";
 	info += "www.jgnation.com\n\n";
 	info += "Chicken image by bloodsong\n";
 	info += "openclipart.org\n\n";
@@ -124,34 +157,16 @@ void MenuButtonLayer::createAboutScreen()
 	info += "All other images created by JGNation.\n\n";
 	info += "Music by Roald Strauss\n";
 	info += "IndieGameMusic.com";
-
-	CCLabelBMFont * aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
-	Size originalSize = aboutInfo->getContentSize();
-	Size backgroundColorSize = _backgroundColor->getContentSize();
-	float ry = (backgroundColorSize.height * .9) / originalSize.height;
-	float rx = (backgroundColorSize.width * .5) / originalSize.width;
-	aboutInfo->setScaleY(ry);
-	aboutInfo->setScaleX(rx);
-	aboutInfo->setContentSize(CCSize(originalSize.width * rx, originalSize.height * ry));
-	aboutInfo->setAnchorPoint(ccp(0,1));
-	aboutInfo->setPosition(ccp(0 + 10, backgroundColorSize.height - 10));
-	//aboutInfo->setColor(ccc3(240, 40, 40));
-	aboutInfo->setColor(ccc3(40, 40, 40));
-	_backgroundColor->addChild(aboutInfo);
-
-	_logoImage = this->createJGNationLogo();
-	_aboutExitImage = this->createAboutExitButton();
-	CCMenu* pMenu = CCMenu::create(_aboutExitImage, NULL);
-	pMenu->setPosition(CCPointZero);
-	this->addChild(_logoImage);
-	this->addChild(pMenu);
-	this->addChild(_backgroundColor);
-
-
-	//Hide the about screen stuff
-	_logoImage->setVisible(false);
-	_aboutExitImage->setVisible(false);
-	_backgroundColor->setVisible(false);
+	_aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
+	Size originalSize = _aboutInfo->getContentSize();
+	float scale = (windowSize.width * .8) / originalSize.width;
+	_aboutInfo->setAnchorPoint(ccp(0,1));
+	_aboutInfo->setPosition(ccp(windowSize.width * .1, windowSize.height * .3)); //set below bottom left corner
+	_aboutInfo->setScale(scale);
+	_aboutInfo->setColor(ccc3(40, 40, 40));
+	clippingNode->addChild(_aboutInfo);
+	this->addChild(clippingNode);
+	_aboutInfo->setVisible(false);
 }
 
 void MenuButtonLayer::startGameCallback(CCObject* pSender)
@@ -173,6 +188,26 @@ void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 
 void MenuButtonLayer::aboutCallback(CCObject* pSender)
 {
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	_aboutInfo->setPosition(ccp(windowSize.width * .1, windowSize.height * .3)); //set below bottom left corner
+
+	Size originalSize = _aboutInfo->getContentSize();
+	float scale = (windowSize.width * .8) / originalSize.width;
+	float scaledHeight = originalSize.height * scale;
+	float targetHeight = (windowSize.height * .7) + scaledHeight;
+
+	CCFiniteTimeAction * actionMove1 = CCMoveTo::create(10.0, ccp(windowSize.width * .1, targetHeight));
+	CCFiniteTimeAction * actionMove2 = CCMoveTo::create(0.0, ccp(windowSize.width * .1, windowSize.height * .3));
+	CCFiniteTimeAction * actionMove3 = CCMoveTo::create(0.5, ccp(windowSize.width * .1, windowSize.height * .3)); //pause in this position
+	Vector<FiniteTimeAction *> allActions;
+	allActions.pushBack(actionMove1);
+	allActions.pushBack(actionMove2);
+	allActions.pushBack(actionMove3);
+	CCSequence* pulseSequence = CCSequence::create(allActions);
+	CCRepeatForever* repeat = CCRepeatForever::create(pulseSequence);
+	_aboutInfo->setVisible(true);
+	_aboutInfo->runAction(repeat);
+
 	_mainMenu->setVisible(false);
 	_titleImage->setVisible(false);
 
@@ -193,6 +228,9 @@ void MenuButtonLayer::instructionsCallback(CCObject* pSender)
 
 void MenuButtonLayer::aboutExitCallback(CCObject* pSender)
 {
+	_aboutInfo->stopAllActions();
+	_aboutInfo->setVisible(false);
+
 	_aboutExitImage->setVisible(false);
 	_logoImage->setVisible(false);
 	_backgroundColor->setVisible(false);
