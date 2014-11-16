@@ -77,14 +77,13 @@ void MenuButtonLayer::createInstructionScreen()
 	info += "Traffic will accelerate as your score increases.";
 
 	CCLabelBMFont * aboutInfo = CCLabelBMFont::create(info.c_str(), "futura-48.fnt");
+	aboutInfo->setAnchorPoint(ccp(0,1));
 	Size originalSize = aboutInfo->getContentSize();
 	Size backgroundColorSize = _instructionsBackgroundColor->getContentSize();
 	float ry = (backgroundColorSize.height * .6) / originalSize.height;
 	float rx = (backgroundColorSize.width * .9) / originalSize.width;
 	aboutInfo->setScaleY(ry);
 	aboutInfo->setScaleX(rx);
-	aboutInfo->setContentSize(CCSize(originalSize.width * rx, originalSize.height * ry));
-	aboutInfo->setAnchorPoint(ccp(0,1));
 	aboutInfo->setPosition(ccp(0 + 10, backgroundColorSize.height - 10));
 	aboutInfo->setColor(ccc3(40, 40, 40));
 	_instructionsBackgroundColor->addChild(aboutInfo);

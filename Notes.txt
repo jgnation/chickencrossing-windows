@@ -1,0 +1,7 @@
+Notes:
+-On upgrading from 3.0alpha1 to 3.2, there were a few problems with the game.
+--There were the obvious API changes, none of which were hard to fix.
+--Text was positioned differently
+--The vehicles were disappearing before hitting the edge of the screen (and the fix required changing the handling
+  for collission detection).
+The last two problems were both a result of using setContentSize().  So, in 3.2, setContentSize() is bad!
