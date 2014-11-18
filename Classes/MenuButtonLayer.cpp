@@ -143,7 +143,7 @@ void MenuButtonLayer::createAboutScreenInfo()
 
 	CCClippingNode* clippingNode = CCClippingNode::create(stencil);
 
-	std::string info = "Developed by JGNationaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!!\n";
+	std::string info = "Developed by JGNation\n";
 	info += "www.jgnation.com\n\n";
 	info += "Chicken image by bloodsong\n";
 	info += "openclipart.org\n\n";

@@ -27,6 +27,16 @@ THE SOFTWARE.
 package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 public class AppActivity extends Cocos2dxActivity {
+	//this was overriden to fix the ClippingNode creating a white sreen
+	//http://discuss.cocos2d-x.org/t/clippingnode-to-mask/15953/4
+	//https://github.com/cocos2d/cocos2d-js/commit/da18d27379330ff9a150f7c79674aa0a3e3a4a54
+	@Override
+	public Cocos2dxGLSurfaceView onCreateView() {
+		Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
+		glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
+		return glSurfaceView;
+	}
 }
