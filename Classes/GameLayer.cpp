@@ -7,6 +7,7 @@
 #include "Bus.h"
 #include "Egg.h"
 #include "HUDLayer.h"
+#include "PauseLayer.h"
 #include "LevelManager.h"
 #include "Log.h"
 #include "DisappearingLog.h"
@@ -78,7 +79,6 @@ bool GameLayer::init()
 		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete.mp3", true);
 		//CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(.9);
 
-
 		this->addKeyboardSupport();
 
 		this->setTouchEnabled(true);
@@ -100,6 +100,11 @@ bool GameLayer::init()
 		this->loadLevel(_levelNumber);
 
 		_lives = 5;
+		_isGameOver = false;
+		_pauseLayer = new PauseLayer();
+		_pauseLayer->init();
+		_pauseLayer->setVisible(false);
+		this->addChild(_pauseLayer, PAUSE_LAYER_POSITION);
 
 		this->scheduleUpdate();
 
@@ -314,6 +319,7 @@ void GameLayer::killChicken()
 
 void GameLayer::gameOver()
 {
+	_isGameOver = true;
 	_chicken->getSprite()->setVisible(false);
 
 	std::vector<TopScore> highScores = this->checkHighScores();
@@ -419,7 +425,17 @@ int GameLayer::calculateNextLevelScore(int levelNumber)
 }
 
 void GameLayer::pauseGame()
+{ 
+	//should I return a value and unpause in appdelegate
+	if (!_isGameOver)
+	{
+		_pauseLayer->setVisible(true);
+	}
+}
+
+void GameLayer::resumeGame(CCObject* pSender)
 {
-	//unhide 
+	_pauseLayer->setVisible(false);
+	//resume music and fx
 }
 

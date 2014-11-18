@@ -13,6 +13,7 @@ class Egg;
 class HudLayer;
 class Level;
 class LevelManager;
+class PauseLayer;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
@@ -20,6 +21,7 @@ private:
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;
+	bool _isGameOver;
 
 	int _lives;
 
@@ -40,7 +42,8 @@ private:
 		ACTION_LAYER_POSITION = 0, 
 		CHICKEN_POSITION = 1, 
 		GAME_OVER_LAYER_POSITION = 3,
-		HUD_LAYER_POSITION = 4
+		HUD_LAYER_POSITION = 4,
+		PAUSE_LAYER_POSITION = 5
 	};
 
 protected:
@@ -50,6 +53,7 @@ protected:
 	LevelManager * _levelManager;
 	int calculateNextLevelScore(int levelNumber);
 	HudLayer * _hudLayer;
+	PauseLayer * _pauseLayer;
 public:
 	int _score;
 	int _numEggsToCollect;
@@ -99,7 +103,7 @@ public:
 	virtual std::vector<TopScore> checkHighScores() = 0;
 
 	void pauseGame();
-
+	void resumeGame(cocos2d::CCObject* pSender);
 
 };
 

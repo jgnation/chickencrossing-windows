@@ -160,13 +160,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\MainModeLevelFactory.cpp" />
     <ClCompile Include="..\Classes\MenuButtonLayer.cpp" />
     <ClCompile Include="..\Classes\MenuLayer.cpp" />
+    <ClCompile Include="..\Classes\PauseLayer.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
     <ClCompile Include="..\Classes\TopScore.cpp" />
     <ClCompile Include="..\Classes\Truck.cpp" />
     <ClCompile Include="..\Classes\Vehicle.cpp" />
     <ClCompile Include="..\Classes\VehicleFactory.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PauseLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AcceleratingLane.h" />
@@ -196,13 +196,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\MainModeLevelFactory.h" />
     <ClInclude Include="..\Classes\MenuButtonLayer.h" />
     <ClInclude Include="..\Classes\MenuLayer.h" />
+    <ClInclude Include="..\Classes\PauseLayer.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />
     <ClInclude Include="..\Classes\TopScore.h" />
     <ClInclude Include="..\Classes\Truck.h" />
     <ClInclude Include="..\Classes\Vehicle.h" />
     <ClInclude Include="..\Classes\VehicleFactory.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="PauseLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cocos2d\cocos\2d\cocos2d.vcxproj">
@@ -337,6 +337,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\plank_large.png" />
     <Image Include="..\Resources\plank_small.png" />
     <Image Include="..\Resources\red_car.png" />
+    <Image Include="..\Resources\resume.png" />
     <Image Include="..\Resources\select_level.png" />
     <Image Include="..\Resources\small_chicken.png" />
     <Image Include="..\Resources\start_game_orange.png" />

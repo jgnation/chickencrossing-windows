@@ -111,7 +111,9 @@
     <ClCompile Include="..\Classes\VehicleFactory.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="PauseLayer.cpp" />
+    <ClCompile Include="..\Classes\PauseLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -213,7 +215,9 @@
     <ClInclude Include="..\Classes\VehicleFactory.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="PauseLayer.h" />
+    <ClInclude Include="..\Classes\PauseLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\Resources\59105__daveincamas__splash2.wav">
@@ -596,6 +600,9 @@
       <Filter>resource</Filter>
     </Image>
     <Image Include="..\Resources\white_truck.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\resume.png">
       <Filter>resource</Filter>
     </Image>
   </ItemGroup>

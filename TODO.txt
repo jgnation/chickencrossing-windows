@@ -8,6 +8,10 @@ To get this on my phone:
 -build the apk
 	ant debug install (after this command, the phone may ask to allow usb debugging.  Press OK)
 
+Updated for 3.2:
+in game folder do the following:
+python build_native.py
+ant debug install
 ============================================================================================================
 
 -Possible Images:
@@ -37,6 +41,7 @@ Before version 1.0 release:
 -kill music when program goes to background
 --do something cool where coming back to game the user has to hit play to continue
 -preload audio?  The game now hesitates right before playing audio.
+-make game apk smaller
 -option to rate game
 --https://github.com/drewjw81/appirater-android
 --http://stackoverflow.com/questions/22140256/how-to-ask-a-user-to-rate-your-cocos2dx-game-android
