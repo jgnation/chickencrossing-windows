@@ -19,3 +19,4 @@ proj.ios_mac/EggScramble.xcodeproj/xcuserdata/elmariachi.xcuserdatad/xcdebugger/
 #other
 bin/*
 cocos2d/*
+publish/*
