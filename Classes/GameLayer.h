@@ -2,21 +2,17 @@
 #define __GAME_LAYER_H__
 
 #include "cocos2d.h"
-//#include "Box2D/Box2D.h"
 #include "SimpleAudioEngine.h"
 #include "Vehicle.h"
 #include "Dimensions.h"
 #include "TopScore.h"
 
 
-//#include "GameMode.h"
-
 class Chicken;		//forward declation //can I just include the libraries?
 class Egg;
 class HudLayer;
 class Level;
 class LevelManager;
-//class GameMode;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
@@ -28,7 +24,6 @@ private:
 	int _lives;
 
 	cocos2d::CCLayer * _actionLayer;
-	//GameMode * _mode;
 	Chicken * _chicken;
 	Egg * _egg;
 	cocos2d::CCArray * vehicleList2;
@@ -102,6 +97,8 @@ public:
 
 	virtual void initialChecks() = 0;
 	virtual std::vector<TopScore> checkHighScores() = 0;
+
+	void pauseGame();
 
 
 };

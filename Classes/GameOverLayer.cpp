@@ -120,7 +120,7 @@ void GameOverLayer::displayTopScores()
 		Size originalSize = scoreLabel->getContentSize();
 		float scaleRatio = (backgroundColorSize.height / 10.0) / originalSize.height;
 		scoreLabel->setScale(scaleRatio);
-		scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
+		//scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 		scoreLabel->setAnchorPoint(ccp(0,1));
 		scoreLabel->setPosition(ccp(10, backgroundColorSize.height * yCoefficient));
 		if (_highScores[i].isScoreNew())

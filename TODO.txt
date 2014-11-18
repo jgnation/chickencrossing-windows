@@ -23,32 +23,38 @@ vehicles: https://openclipart.org/search/?query=spadassin
 wood plank: http://pixabay.com/en/strip-of-wood-wood-border-wood-41011/
 skull: http://pixabay.com/en/death-s-head-bones-crossbones-153588/
 
+Music I am using:
+
+Sound FX:
+(CC0 licensed, I don't _have_ to cite the source)
+http://www.freesound.org/people/suntemple/sounds/253177/ (collect egg)
+http://www.freesound.org/people/suntemple/sounds/253173/ (hit by car)
+http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
+
 ============================================================================================================
 
 Before version 1.0 release:
--upgrade to newer version of cocos2dx
--music that plays during the level doesn't always stop when game over
 -kill music when program goes to background
 --do something cool where coming back to game the user has to hit play to continue
--make credits scroll
---add sound fx credits
 -preload audio?  The game now hesitates right before playing audio.
--don't spawn eggs so close to edge of screen?
--disappearing logs different color
--full test!
 -option to rate game
 --https://github.com/drewjw81/appirater-android
 --http://stackoverflow.com/questions/22140256/how-to-ask-a-user-to-rate-your-cocos2dx-game-android
 -I might want to make sure the vehicle images don't need to be cropped (and the chicken!)
 -do sprites look like shit at lower/higher resolutions?
 -review scaling of word images...do they need to be scaled by width and height separately?
+-full test!
 -hunt for obvious memory leaks
 -ads
 --what kinds of ads is Super Frogger using (some sort of wall)
 
+Pre 1.0 release testing:
+-music that plays during the level doesn't always stop when game over (especially when app goes to background)
 
 
 After version 1.0 release:
+-disappearing logs different color
+-don't spawn eggs so close to edge of screen?
 -don't respawn chicken after game over
 -highest level achieved screen (after top scores)?
 -tag the release on github

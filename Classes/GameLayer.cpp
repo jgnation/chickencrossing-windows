@@ -418,3 +418,8 @@ int GameLayer::calculateNextLevelScore(int levelNumber)
 	return levelNumber + calculateNextLevelScore(levelNumber - 1);
 }
 
+void GameLayer::pauseGame()
+{
+	//unhide 
+}
+

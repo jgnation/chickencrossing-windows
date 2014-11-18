@@ -1,8 +1,8 @@
 #include "cocos2d.h"
-//#include "CCEGLView.h"
 #include "AppDelegate.h"
 #include "MenuLayer.h"
 #include "SimpleAudioEngine.h"
+#include "GameLayer.h"
 
 using namespace CocosDenshion;
 
@@ -53,13 +53,6 @@ bool AppDelegate::applicationDidFinishLaunching()
         glview = GLView::create("Egg Scramble");
         director->setOpenGLView(glview);
     }
-    //auto eglView = EGLView::getInstance();
-
-    //director->setOpenGLView(eglView);
-	//director->setOpenGLView(glview);
-	
-    // turn on display FPS
-    //director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
@@ -76,6 +69,13 @@ bool AppDelegate::applicationDidFinishLaunching()
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
+
+	Scene* scene = Director::getInstance()->getRunningScene();
+	GameLayer* gameLayer = dynamic_cast<GameLayer*>(scene);
+	if (gameLayer != 0)
+	{
+		gameLayer->pauseGame();
+	}
 
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
