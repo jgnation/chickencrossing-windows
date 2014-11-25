@@ -6,7 +6,7 @@ using namespace cocos2d;
 bool PauseLayer::init()
 {
     if (CCLayer::init()) {     
-  
+        this->createResumeButton();
     }
  
     return true;
@@ -22,18 +22,31 @@ void PauseLayer::createResumeButton()
 		"resume.png",
 		"resume.png",
 		this,
-		menu_selector(GameLayer::resumeGame));
+		menu_selector(PauseLayer::resume));
 
 	float scaleRatioArrowX = (windowSize.width *.2) / arrow1->getContentSize().width;
 	arrow1->setScale(scaleRatioArrowX);
 	arrow1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height / 2));
 
-	CCMenu* pMenu = CCMenu::create(arrow1, NULL);
-	pMenu->setPosition(CCPointZero);
+	_buttonMenu = CCMenu::create(arrow1, NULL);
+	_buttonMenu->setPosition(CCPointZero);
 
-	this->addChild(pMenu);
+    _buttonMenu->setVisible(false);
+	this->addChild(_buttonMenu);
+}
+
+void PauseLayer::pause()
+{
+    _buttonMenu->setVisible(true);
 }
 
 void PauseLayer::resume(CCObject* pSender)
 {
+    _buttonMenu->setVisible(false);
+    
+    Node* parent = this->getParent();
+    GameLayer* gameLayer = dynamic_cast<GameLayer*>(parent);
+    gameLayer->resumeGame();
+    
 }
+

@@ -101,9 +101,9 @@ bool GameLayer::init()
 
 		_lives = 5;
 		_isGameOver = false;
+        _isPaused = false;
 		_pauseLayer = new PauseLayer();
 		_pauseLayer->init();
-		_pauseLayer->setVisible(false);
 		this->addChild(_pauseLayer, PAUSE_LAYER_POSITION);
 
 		this->scheduleUpdate();
@@ -116,7 +116,7 @@ bool GameLayer::init()
 
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
 {
-	if (_chicken->getSprite()->isVisible() && !_chicken->isMoving())
+	if (!_isPaused && _chicken->getSprite()->isVisible() && !_chicken->isMoving())
 	{
 		_chicken->setMoving(true);
 
@@ -170,8 +170,16 @@ void GameLayer::spriteMoveFinished3(CCNode* sender)
 	sprite->setVisible(false);
 }
 
+void GameLayer::update(float dt)
+{
+    if (!_isPaused)
+    {
+        doUpdate(dt);
+    }
+}
+
 //this is a template method
-void GameLayer::update(float dt) 
+void GameLayer::doUpdate(float dt)
 {
 	this->initialChecks();
 
@@ -373,7 +381,7 @@ void GameLayer::loadNextLevel()
 
 void GameLayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
 {
-	if (_chicken->getSprite()->isVisible())
+	if (!_isPaused && _chicken->getSprite()->isVisible() && !_chicken->isMoving())
 	{
 		if (!_chicken->isMoving())
 		{
@@ -425,17 +433,28 @@ int GameLayer::calculateNextLevelScore(int levelNumber)
 }
 
 void GameLayer::pauseGame()
-{ 
-	//should I return a value and unpause in appdelegate
+{
 	if (!_isGameOver)
 	{
-		_pauseLayer->setVisible(true);
+        _isPaused = true;
+        Vector<Node*> children = _actionLayer->getChildren();
+        for (auto child : children)
+        {
+            child->pauseSchedulerAndActions();
+        }
+		_pauseLayer->pause();
 	}
 }
 
-void GameLayer::resumeGame(CCObject* pSender)
+void GameLayer::resumeGame()
 {
-	_pauseLayer->setVisible(false);
-	//resume music and fx
+    Vector<Node*> children = _actionLayer->getChildren();
+    for (auto child : children)
+    {
+        child->resumeSchedulerAndActions();
+    }
+    _isPaused = false;
+    //Director::getInstance()->startAnimation();
+    //CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
 

@@ -15,6 +15,9 @@ public:
 	CREATE_FUNC(PauseLayer);
 	void createResumeButton();
 	void resume(CCObject* pSender);
+    void pause();
+private:
+    CCMenu* _buttonMenu;
 };
 
 #endif

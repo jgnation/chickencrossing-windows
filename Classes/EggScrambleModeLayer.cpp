@@ -26,11 +26,12 @@ CCScene* EggScrambleModeLayer::scene(int levelNumber)
         // 'scene' is an autorelease object
         scene = CCScene::create();
         CC_BREAK_IF(! scene);
-
+        
         // 'layer' is an autorelease object
         GameLayer *layer = EggScrambleModeLayer::create(levelNumber);
         CC_BREAK_IF(! layer);
-
+        layer->setName("GameLayer");
+        
         // add layer as a child to scene
         scene->addChild(layer);
     } while (0);

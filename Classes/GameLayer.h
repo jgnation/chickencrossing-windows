@@ -22,6 +22,7 @@ private:
 	float _nextVehicleSpawn;
 	static bool _isMoving;
 	bool _isGameOver;
+    bool _isPaused;
 
 	int _lives;
 
@@ -79,6 +80,7 @@ public:
 	void spriteMoveFinished3(cocos2d::CCNode* sender);
 
 	void update(float dt);
+    void doUpdate(float dt);
 	void setInvisible(cocos2d::CCNode * node);
 	float randomValueBetween( float low , float high );
 	void onTouchesEnded(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event);
@@ -103,7 +105,7 @@ public:
 	virtual std::vector<TopScore> checkHighScores() = 0;
 
 	void pauseGame();
-	void resumeGame(cocos2d::CCObject* pSender);
+	void resumeGame();
 
 };
 

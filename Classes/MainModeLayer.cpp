@@ -27,6 +27,7 @@ CCScene* MainModeLayer::scene()
         // 'layer' is an autorelease object
         GameLayer *layer = MainModeLayer::create();
         CC_BREAK_IF(! layer);
+        layer->setName("GameLayer");
 
         // add layer as a child to scene
         scene->addChild(layer);

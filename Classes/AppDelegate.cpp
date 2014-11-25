@@ -66,19 +66,19 @@ bool AppDelegate::applicationDidFinishLaunching()
     return true;
 }
 
+
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
+    //SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 
 	Scene* scene = Director::getInstance()->getRunningScene();
-	GameLayer* gameLayer = dynamic_cast<GameLayer*>(scene);
+    GameLayer* gameLayer = scene->getChildByName<GameLayer*>("GameLayer");
 	if (gameLayer != 0)
 	{
 		gameLayer->pauseGame();
 	}
-
-    // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    
+    Director::getInstance()->stopAnimation();
 }
 
 // this function will be called when the app is active again
