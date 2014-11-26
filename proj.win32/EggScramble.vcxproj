@@ -218,31 +218,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\Resources\212143__qubodup__splash-by-blaukreuz.wav" />
-    <Media Include="..\Resources\249300__suntemple__access-denied.wav" />
     <Media Include="..\Resources\253173__suntemple__retro-falling-down-sfx.wav" />
     <Media Include="..\Resources\253177__suntemple__retro-accomplished-sfx.wav" />
-    <Media Include="..\Resources\59105__daveincamas__splash2.wav" />
     <Media Include="..\Resources\Complete.mp3" />
-    <Media Include="..\Resources\Complete1.mp3" />
-    <Media Include="..\Resources\Complete2.mp3" />
-    <Media Include="..\Resources\Complete3.mp3" />
-    <Media Include="..\Resources\Complete80kbps.mp3" />
     <Media Include="..\Resources\Platform.mp3" />
-    <Media Include="..\Resources\Platform1.mp3" />
-    <Media Include="..\Resources\Platform2.mp3" />
-    <Media Include="..\Resources\Platform3.mp3" />
-    <Media Include="..\Resources\Platform80kbps.mp3" />
-    <Media Include="..\Resources\SpaceQuest-MP3.mp3" />
-    <Media Include="..\Resources\SpaceQuest.mp3" />
-    <Media Include="..\Resources\SpaceQuest1.mp3" />
-    <Media Include="..\Resources\SpaceQuest2.mp3" />
     <Media Include="..\Resources\SpaceQuest3.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\212143__qubodup__splash-by-blaukreuz.flac" />
-    <None Include="..\Resources\background_layered.psd" />
-    <None Include="..\Resources\Complete.mid" />
-    <None Include="..\Resources\egg_scramble_title.psd" />
     <None Include="..\Resources\esm_levels.plist" />
     <None Include="..\Resources\esm_level_1.plist" />
     <None Include="..\Resources\esm_level_10.plist" />
@@ -270,14 +252,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <None Include="..\Resources\mm_level_7.plist" />
     <None Include="..\Resources\mm_level_8.plist" />
     <None Include="..\Resources\mm_level_9.plist" />
-    <None Include="..\Resources\one.psd" />
-    <None Include="..\Resources\plank.psd" />
-    <None Include="..\Resources\Platform.mid" />
-    <None Include="..\Resources\SpaceQuest.mid" />
-    <None Include="..\Resources\start_game.psd" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resources\1410788629.png" />
     <Image Include="..\Resources\about_orange.png" />
     <Image Include="..\Resources\about_yellow.png" />
     <Image Include="..\Resources\arrow.png" />
@@ -293,35 +269,18 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\background7.png" />
     <Image Include="..\Resources\background8.png" />
     <Image Include="..\Resources\background9.png" />
-    <Image Include="..\Resources\background_extra1.png" />
-    <Image Include="..\Resources\background_extra2.png" />
     <Image Include="..\Resources\beetle_small.png" />
     <Image Include="..\Resources\brown_egg.png" />
-    <Image Include="..\Resources\bus.png" />
-    <Image Include="..\Resources\c1svg.png" />
     <Image Include="..\Resources\cactus.png" />
-    <Image Include="..\Resources\car_small.png" />
     <Image Include="..\Resources\chicken_crossing_title.png" />
-    <Image Include="..\Resources\chicken_large.png" />
-    <Image Include="..\Resources\chicken_medium.png" />
-    <Image Include="..\Resources\chicken_small.png" />
-    <Image Include="..\Resources\chicken_xsmall.png" />
     <Image Include="..\Resources\chicken_xxsmall.png" />
-    <Image Include="..\Resources\chicken_xxxsmall.png" />
-    <Image Include="..\Resources\deaths-head-153588_640.png" />
     <Image Include="..\Resources\deaths-head-xxsmall.png" />
-    <Image Include="..\Resources\ds.png" />
-    <Image Include="..\Resources\egg_scramble_orange.png" />
     <Image Include="..\Resources\egg_scramble_title.png" />
-    <Image Include="..\Resources\egg_scramble_yellow.png" />
     <Image Include="..\Resources\futura-48.png" />
     <Image Include="..\Resources\game_over.png" />
     <Image Include="..\Resources\instructions_orange.png" />
     <Image Include="..\Resources\instructions_yellow.png" />
-    <Image Include="..\Resources\jgnation_logo_high.png" />
     <Image Include="..\Resources\jgnation_logo_med.png" />
-    <Image Include="..\Resources\log_large.png" />
-    <Image Include="..\Resources\log_small.png" />
     <Image Include="..\Resources\num_1.png" />
     <Image Include="..\Resources\num_10.png" />
     <Image Include="..\Resources\num_11.png" />
@@ -334,20 +293,15 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\num_7.png" />
     <Image Include="..\Resources\num_8.png" />
     <Image Include="..\Resources\num_9.png" />
-    <Image Include="..\Resources\plank_large.png" />
     <Image Include="..\Resources\plank_small.png" />
-    <Image Include="..\Resources\red_car.png" />
     <Image Include="..\Resources\resume.png" />
     <Image Include="..\Resources\select_level.png" />
-    <Image Include="..\Resources\small_chicken.png" />
     <Image Include="..\Resources\start_game_orange.png" />
     <Image Include="..\Resources\start_game_yellow.png" />
     <Image Include="..\Resources\survival_orange.png" />
     <Image Include="..\Resources\survival_yellow.png" />
     <Image Include="..\Resources\top_scores.png" />
-    <Image Include="..\Resources\type_h.png" />
     <Image Include="..\Resources\vw_small.png" />
-    <Image Include="..\Resources\white_truck.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
