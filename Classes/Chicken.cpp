@@ -16,8 +16,8 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_xMoveDistance = _yMoveDistance; //TODO: scale this value?
 	//_xMoveDistance = windowSize.width / 10;
 
-	float originalWidth = 100;
-	float originalHeight = 100;
+	float originalWidth = 79;
+	float originalHeight = 98;
 	_sprite = CCSprite::create("chicken_xxsmall.png", CCRectMake(0, 0, originalWidth, originalHeight));
 	_sprite->setAnchorPoint(ccp(0,0));
 

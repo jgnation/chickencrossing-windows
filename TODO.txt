@@ -45,9 +45,7 @@ Before version 1.0 release:
 -option to rate game
 --https://github.com/drewjw81/appirater-android
 --http://stackoverflow.com/questions/22140256/how-to-ask-a-user-to-rate-your-cocos2dx-game-android
--I might want to make sure the vehicle images don't need to be cropped (and the chicken!)
 -do sprites look like shit at lower/higher resolutions?
--review scaling of word images...do they need to be scaled by width and height separately?
 -full test!
 -hunt for obvious memory leaks
 -ads
@@ -58,6 +56,7 @@ Pre 1.0 release testing:
 
 
 After version 1.0 release:
+-review scaling of word images...do they need to be scaled by width and height separately?
 -disappearing logs different color
 -don't spawn eggs so close to edge of screen?
 -don't respawn chicken after game over
