@@ -40,11 +40,8 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 Before version 1.0 release:
 -kill music when program goes to background
 --this seems to be done automatically with cocos2d-x 3.2.  verify!
--still seeing clipping with logs on ipad.
--make sure touchable buttons have a separate image for the "touched" version
 -get rid of deprecated calls
 -preload audio?  The game now hesitates right before playing audio.
--make game apk smaller
 -option to rate game
 --https://github.com/drewjw81/appirater-android
 --http://stackoverflow.com/questions/22140256/how-to-ask-a-user-to-rate-your-cocos2dx-game-android
