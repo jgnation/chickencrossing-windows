@@ -15,7 +15,7 @@ Bus::Bus(void)
 
 	float originalWidth = 300;
 	float originalHeight = 161;
-	_sprite = CCSprite::create("vw_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
+	_sprite = Sprite::create("vw_small.png", CCRectMake(0, 0, originalWidth, originalHeight));
 
 	_sprite->setAnchorPoint(ccp(0,0));
 
