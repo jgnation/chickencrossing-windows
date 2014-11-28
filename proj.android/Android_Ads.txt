@@ -1,0 +1,25 @@
+https://developer.android.com/google/play-services/setup.html
+=============================================
+from http://www.strnet.com/admob-into-android/:
+cd ~/apps/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib/
+android update project --target 1 --path ~/repos/proj.android --library ~/apps/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib 
+
+what I did:
+C:\cocos2d-x-3.2\cocos2d-x-3.2\projects\EggScramble\proj.android> android update
+project --target 1 --path C:\cocos2d-x-3.2\cocos2d-x-3.2\projects\EggScramble\pr
+oj.android --library C:\cocos2d-x-3.2\cocos2d-x-3.2\projects\EggScramble\proj.an
+droid\google-play-services_lib
+Resolved location of library project to: C:\cocos2d-x-3.2\cocos2d-x-3.2\projects
+\EggScramble\proj.android\google-play-services_lib
+Updated project.properties
+Updated local.properties
+Updated file C:\cocos2d-x-3.2\cocos2d-x-3.2\projects\EggScramble\proj.android\pr
+oguard-project.txt
+It seems that there are sub-projects. If you want to update them
+please use the --subprojects parameter.
+
+===========================================================================
+http://discuss.cocos2d-x.org/t/cocos3-0-tutorial-integrate-admob-google-play-services-with-cocos2d-x-v3-0-final/12798
+===========================================================================
+fixed "failed to resolve library path: google .... " with this:
+https://codepatching.wordpress.com/
