@@ -12,6 +12,7 @@ proj.android/obj/
 proj.android/.settings/
 proj.android/assets/
 proj.android/local.properties
+proj.android/google-play-services_lib/bin
 
 #xcode
 proj.ios_mac/EggScramble.xcodeproj/xcuserdata/elmariachi.xcuserdatad/xcdebugger/*
