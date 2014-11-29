@@ -64,12 +64,21 @@
     
     bannerFrame.origin.x = (contentFrame.size.width - bannerFrame.size.width) / 2;
     
+    //display banner on top
+    if (_bannerLoaded) {
+        bannerFrame.origin.y = 0;
+    } else {
+        bannerFrame.origin.y = -bannerFrame.size.height;
+    }
+    
+    /*
+    //display banner on bottom
     if (_bannerLoaded) {
         //contentFrame.size.height -= bannerFrame.size.height;
         bannerFrame.origin.y = contentFrame.size.height - bannerFrame.size.height;
     } else {
         bannerFrame.origin.y = contentFrame.size.height;
-    }
+    }*/
     
     _contentController.view.frame = contentFrame;
     _bannerView.frame = bannerFrame;
