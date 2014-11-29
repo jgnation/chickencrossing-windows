@@ -20,6 +20,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		4220B0201A2A6001002CCFAE /* AdmobHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */; };
 		42E1759C1A2257D40075AF14 /* AcceleratingLane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */; };
 		42E1759D1A2257D40075AF14 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755C1A2257D40075AF14 /* AppDelegate.cpp */; };
 		42E1759E1A2257D40075AF14 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755E1A2257D40075AF14 /* Background.cpp */; };
@@ -325,6 +326,8 @@
 		1D6058910D05DD3D006BFB54 /* EggScramble iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EggScramble iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdmobHelper.cpp; path = ../Classes/AdmobHelper.cpp; sourceTree = "<group>"; };
+		4220B01F1A2A6001002CCFAE /* AdmobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdmobHelper.h; path = ../Classes/AdmobHelper.h; sourceTree = "<group>"; };
 		42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcceleratingLane.cpp; path = ../Classes/AcceleratingLane.cpp; sourceTree = "<group>"; };
 		42E1755B1A2257D40075AF14 /* AcceleratingLane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcceleratingLane.h; path = ../Classes/AcceleratingLane.h; sourceTree = "<group>"; };
 		42E1755C1A2257D40075AF14 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
@@ -580,6 +583,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */,
+				4220B01F1A2A6001002CCFAE /* AdmobHelper.h */,
 				42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */,
 				42E1755B1A2257D40075AF14 /* AcceleratingLane.h */,
 				42E1755C1A2257D40075AF14 /* AppDelegate.cpp */,
@@ -1129,6 +1134,7 @@
 				42E175A91A2257D40075AF14 /* GameLayer.cpp in Sources */,
 				42E175AB1A2257D40075AF14 /* HUDLayer.cpp in Sources */,
 				42E175B61A2257D40075AF14 /* MenuLayer.cpp in Sources */,
+				4220B0201A2A6001002CCFAE /* AdmobHelper.cpp in Sources */,
 				42E175A61A2257D40075AF14 /* EggScrambleLevelFactory.cpp in Sources */,
 				42E175AD1A2257D40075AF14 /* Level.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
