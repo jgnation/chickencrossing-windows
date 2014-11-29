@@ -105,7 +105,7 @@ public class AppActivity extends Cocos2dxActivity {
 				width, LinearLayout.LayoutParams.WRAP_CONTENT);
 
 		adView = new AdView(this);
-		adView.setAdSize(AdSize.BANNER);
+		adView.setAdSize(AdSize.SMART_BANNER);
 		adView.setAdUnitId(AD_UNIT_ID);
 
 		final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);

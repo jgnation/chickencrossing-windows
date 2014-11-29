@@ -3,6 +3,7 @@
 #include "MenuLayer.h"
 #include "SimpleAudioEngine.h"
 #include "GameLayer.h"
+#include "AdmobHelper.h"
 
 using namespace CocosDenshion;
 
@@ -62,7 +63,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // run
     director->runWithScene(scene);
-
+	AdmobHelper::showAd();
     return true;
 }
 
