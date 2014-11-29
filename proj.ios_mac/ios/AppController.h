@@ -7,6 +7,8 @@
 }
 
 @property(nonatomic, readonly) RootViewController* viewController;
+- (void) hideAdmobBanner;
+- (void) showAdmobBanner;
 
 @end
 

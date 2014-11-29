@@ -27,6 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "BannerViewController.h"
 
 @implementation AppController
 
@@ -35,6 +36,7 @@
 
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
+BannerViewController *_bannerViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
@@ -56,17 +58,19 @@ static AppDelegate s_sharedApplication;
     _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     _viewController.wantsFullScreenLayout = YES;
     _viewController.view = eaglView;
-
+    
+    _bannerViewController = [[BannerViewController alloc] initWithContentViewController:_viewController];
+    
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
         // warning: addSubView doesn't work on iOS6
-        [window addSubview: _viewController.view];
+        [window addSubview: _bannerViewController.view];
     }
     else
     {
         // use this method on ios6
-        [window setRootViewController:_viewController];
+        [window setRootViewController:_bannerViewController];
     }
 
     [window makeKeyAndVisible];
@@ -82,6 +86,13 @@ static AppDelegate s_sharedApplication;
     return YES;
 }
 
+- (void) hideAdmobBanner{
+    [_bannerViewController hideBanner];
+}
+
+- (void) showAdmobBanner{
+    [_bannerViewController showBanner];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
