@@ -12,6 +12,7 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
 					../../Classes/AcceleratingLane.cpp \
+                   ../../Classes/AdmobHelper.cpp \
                    ../../Classes/AppDelegate.cpp \
 				   ../../Classes/Background.cpp \
 				   ../../Classes/Bus.cpp \
