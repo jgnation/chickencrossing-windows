@@ -38,6 +38,7 @@
 		4220B0831A2A6852002CCFAE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4220B0821A2A6852002CCFAE /* CoreMotion.framework */; };
 		4220B0851A2A6875002CCFAE /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4220B0841A2A6875002CCFAE /* EventKitUI.framework */; };
 		4220B0881A2A691C002CCFAE /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220B0871A2A691C002CCFAE /* BannerViewController.m */; };
+		422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 422668821A2ABF1100FC2D82 /* iOSHelper.mm */; };
 		42E1759C1A2257D40075AF14 /* AcceleratingLane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */; };
 		42E1759D1A2257D40075AF14 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755C1A2257D40075AF14 /* AppDelegate.cpp */; };
 		42E1759E1A2257D40075AF14 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755E1A2257D40075AF14 /* Background.cpp */; };
@@ -374,6 +375,8 @@
 		4220B0841A2A6875002CCFAE /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/EventKitUI.framework; sourceTree = DEVELOPER_DIR; };
 		4220B0861A2A691C002CCFAE /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerViewController.h; path = ios/BannerViewController.h; sourceTree = SOURCE_ROOT; };
 		4220B0871A2A691C002CCFAE /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerViewController.m; path = ios/BannerViewController.m; sourceTree = SOURCE_ROOT; };
+		422668821A2ABF1100FC2D82 /* iOSHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = iOSHelper.mm; path = ios/iOSHelper.mm; sourceTree = SOURCE_ROOT; };
+		422668831A2ABF1100FC2D82 /* iOSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSHelper.h; path = ios/iOSHelper.h; sourceTree = SOURCE_ROOT; };
 		42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcceleratingLane.cpp; path = ../Classes/AcceleratingLane.cpp; sourceTree = "<group>"; };
 		42E1755B1A2257D40075AF14 /* AcceleratingLane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcceleratingLane.h; path = ../Classes/AcceleratingLane.h; sourceTree = "<group>"; };
 		42E1755C1A2257D40075AF14 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
@@ -635,6 +638,8 @@
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
+				422668821A2ABF1100FC2D82 /* iOSHelper.mm */,
+				422668831A2ABF1100FC2D82 /* iOSHelper.h */,
 			);
 			name = ios;
 			path = Classes;
@@ -1246,6 +1251,7 @@
 				4220B0201A2A6001002CCFAE /* AdmobHelper.cpp in Sources */,
 				42E175A61A2257D40075AF14 /* EggScrambleLevelFactory.cpp in Sources */,
 				42E175AD1A2257D40075AF14 /* Level.cpp in Sources */,
+				422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				42E175AF1A2257D40075AF14 /* LevelManager.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,

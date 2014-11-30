@@ -9,6 +9,7 @@
 @property(nonatomic, readonly) RootViewController* viewController;
 - (void) hideAdmobBanner;
 - (void) showAdmobBanner;
+- (void) showInterstitial;
 
 @end
 

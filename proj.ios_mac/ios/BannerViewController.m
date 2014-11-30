@@ -1,5 +1,7 @@
 #import "BannerViewController.h"
 #import "GADBannerView.h"
+#import "GADInterstitial.h"
+#import "GADInterstitialDelegate.h"
 
 @interface BannerViewController ()
 
@@ -15,6 +17,8 @@
 {
     self = [super init];
     if (self != nil) {
+        self.interstitial = [self createAndLoadInterstitial];
+        
         _bannerView = [[GADBannerView alloc] initWithAdSize: kGADAdSizeSmartBannerLandscape];
         _bannerView.adUnitID = @"ca-app-pub-8133410011148346/8294688315"; //REPLACE WITH YOUR OWN PUBLISHER ID
         _bannerView.delegate = self;
@@ -22,6 +26,24 @@
         _bannerLoaded = NO;
     }
     return self;
+}
+
+- (GADInterstitial *)createAndLoadInterstitial {
+    GADInterstitial *interstitial = [[GADInterstitial alloc] init];
+    interstitial.adUnitID = @"ca-app-pub-8133410011148346/7897735510";
+    interstitial.delegate = self;
+    [interstitial loadRequest:[GADRequest request]];
+    return interstitial;
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    self.interstitial = [self createAndLoadInterstitial];
+}
+
+- (void) showInterstitial {
+    if ([self.interstitial isReady]) {
+        [self.interstitial presentFromRootViewController:self];
+    }
 }
 
 - (void)loadView
@@ -115,11 +137,14 @@
 }
 
 - (void) hideBanner{
-    //TODO:
+    [_bannerView removeFromSuperview];
 }
 
 - (void) showBanner{
-    //TODO:
+    [self.view addSubview:_bannerView];
+    
+    GADRequest *request = [GADRequest request];
+    [_bannerView loadRequest:request];
 }
 
 - (void)dealloc {

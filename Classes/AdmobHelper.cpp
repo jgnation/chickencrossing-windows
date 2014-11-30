@@ -53,6 +53,27 @@ void AdmobHelper::showInterstitial()
 	}
 }
 
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "iOSHelper.h"
+
+void AdmobHelper::hideAd()
+{
+	CCLOG("hideAd() called");
+	isAdShowing = false;
+	return; //nothing
+}
+
+void AdmobHelper::showAd()
+{
+	CCLOG("showAd() called");
+	isAdShowing = true;
+	return; //nothing;
+}
+
+void AdmobHelper::showInterstitial()
+{
+    iOSHelper::showInterstitial();
+}
 
 #else
 

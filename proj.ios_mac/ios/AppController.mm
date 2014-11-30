@@ -29,6 +29,7 @@
 #import "RootViewController.h"
 #import "BannerViewController.h"
 
+
 @implementation AppController
 
 #pragma mark -
@@ -92,6 +93,10 @@ BannerViewController *_bannerViewController;
 
 - (void) showAdmobBanner{
     [_bannerViewController showBanner];
+}
+
+- (void) showInterstitial{
+    [_bannerViewController showInterstitial];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
