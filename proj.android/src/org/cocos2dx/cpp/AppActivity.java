@@ -30,9 +30,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
-import org.cocos2dx.lib.Cocos2dxEditText;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
-import org.cocos2dx.lib.Cocos2dxRenderer;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -44,59 +42,32 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class AppActivity extends Cocos2dxActivity {
 	private AdView adView;
-	private static final String AD_UNIT_ID = "ca-app-pub-8133410011148346/2441787914";	
-	private static AppActivity _appActiviy;
-
-	// Helper get display screen to avoid deprecated function use
-	private Point getDisplaySize(Display d) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            return getDisplaySizeGE11(d);
-        }
-        return getDisplaySizeLT11(d);
-    }
-
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private Point getDisplaySizeGE11(Display d) {
-        Point p = new Point(0, 0);
-        d.getSize(p);
-        return p;
-    }
-    
-    private Point getDisplaySizeLT11(Display d) {
-        try {
-            Method getWidth = Display.class.getMethod("getWidth", new Class[] {});
-            Method getHeight = Display.class.getMethod("getHeight", new Class[] {});
-            return new Point(((Integer) getWidth.invoke(d, (Object[]) null)).intValue(), ((Integer) getHeight.invoke(d, (Object[]) null)).intValue());
-        }
-        catch (NoSuchMethodException e2) { // None of these exceptions should ever occur. 
-            return new Point(-1, -1);
-        }
-        catch (IllegalArgumentException e2) {
-            return new Point(-2, -2);
-        }
-        catch (IllegalAccessException e2) {
-            return new Point(-3, -3);
-        }
-        catch (InvocationTargetException e2) {
-            return new Point(-4, -4);
-        }
-    }
+	private static final String AD_UNIT_ID_BANNER = "ca-app-pub-8133410011148346/2441787914";
+	private static final String AD_UNIT_ID_INTERSTITIAL = "ca-app-pub-8133410011148346/9374468716";	
+	private static AppActivity _appActivity;
+	private static InterstitialAd interstitial;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
+    	
+    	setupBannerAd();
+        setupInterstitial();
+        
+        _appActivity = this;
+    }
+    
+    private void setupBannerAd() {
     	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     	int width = getDisplaySize(getWindowManager().getDefaultDisplay()).x;
@@ -106,7 +77,7 @@ public class AppActivity extends Cocos2dxActivity {
 
 		adView = new AdView(this);
 		adView.setAdSize(AdSize.SMART_BANNER);
-		adView.setAdUnitId(AD_UNIT_ID);
+		adView.setAdUnitId(AD_UNIT_ID_BANNER);
 
 		final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
 		String deviceid = tm.getDeviceId();
@@ -116,35 +87,60 @@ public class AppActivity extends Cocos2dxActivity {
 			.build();
 
 		adView.loadAd(adRequest);
-            adView.setBackgroundColor(Color.BLACK);
-            adView.setBackgroundColor(0);
-            addContentView(adView,adParams);
-
-            _appActiviy = this;
-	    }
-
+        adView.setBackgroundColor(Color.BLACK);
+        adView.setBackgroundColor(0);
+        addContentView(adView,adParams);
+    }
+    
+    private void setupInterstitial() {
+    	interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId(AD_UNIT_ID_INTERSTITIAL);
+        AdRequest adRequest = new AdRequest.Builder()
+    		.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+    		.build();
+        interstitial.loadAd(adRequest);
+    }
+    
+    public static void showInterstitial() {
+		_appActivity.runOnUiThread(new Runnable() {
+		    @Override
+		    public void run() {
+		    	if (interstitial.isLoaded()) {
+                    interstitial.show();
+                } else {
+                	Log.v("ME!", "Ad not loaded.");
+                }
+		    	
+		        AdRequest adRequest = new AdRequest.Builder()
+		        	.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+		        	.build();
+		        //TODO: sometimes this loadAd call fails. why?
+		        //set onFailedToReceiveAd listener and do another loadAd?
+		        interstitial.loadAd(adRequest);
+		    }
+		});
+    }
 
     public static void hideAd() {
-    	_appActiviy.runOnUiThread(new Runnable() {
+    	_appActivity.runOnUiThread(new Runnable() {
     		@Override
     		public void run() {
-    			if (_appActiviy.adView.isEnabled())
-    				_appActiviy.adView.setEnabled(false);
-    			if (_appActiviy.adView.getVisibility() != 4 )
-    				_appActiviy.adView.setVisibility(View.INVISIBLE);
+    			if (_appActivity.adView.isEnabled())
+    				_appActivity.adView.setEnabled(false);
+    			if (_appActivity.adView.getVisibility() != 4 )
+    				_appActivity.adView.setVisibility(View.INVISIBLE);
     		}
     	});
     }
 
-
     public static void showAd() {
-    	_appActiviy.runOnUiThread(new Runnable() {
+    	_appActivity.runOnUiThread(new Runnable() {
     		@Override
     		public void run() {	
-    			if (!_appActiviy.adView.isEnabled())
-    				_appActiviy.adView.setEnabled(true);
-    			if (_appActiviy.adView.getVisibility() == 4 )
-    				_appActiviy.adView.setVisibility(View.VISIBLE);	
+    			if (!_appActivity.adView.isEnabled())
+    				_appActivity.adView.setEnabled(true);
+    			if (_appActivity.adView.getVisibility() == 4 )
+    				_appActivity.adView.setVisibility(View.VISIBLE);	
     		}
     	});
     }
@@ -170,6 +166,41 @@ public class AppActivity extends Cocos2dxActivity {
     	adView.destroy();
         super.onDestroy();
     }
+    
+    // Helper get display screen to avoid deprecated function use
+ 	private Point getDisplaySize(Display d) {
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+             return getDisplaySizeGE11(d);
+         }
+         return getDisplaySizeLT11(d);
+     }
+
+     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+     private Point getDisplaySizeGE11(Display d) {
+         Point p = new Point(0, 0);
+         d.getSize(p);
+         return p;
+     }
+     
+     private Point getDisplaySizeLT11(Display d) {
+         try {
+             Method getWidth = Display.class.getMethod("getWidth", new Class[] {});
+             Method getHeight = Display.class.getMethod("getHeight", new Class[] {});
+             return new Point(((Integer) getWidth.invoke(d, (Object[]) null)).intValue(), ((Integer) getHeight.invoke(d, (Object[]) null)).intValue());
+         }
+         catch (NoSuchMethodException e2) { // None of these exceptions should ever occur. 
+             return new Point(-1, -1);
+         }
+         catch (IllegalArgumentException e2) {
+             return new Point(-2, -2);
+         }
+         catch (IllegalAccessException e2) {
+             return new Point(-3, -3);
+         }
+         catch (InvocationTargetException e2) {
+             return new Point(-4, -4);
+         }
+     }
 	
 	//this was overriden to fix the ClippingNode creating a white screen
 	//http://discuss.cocos2d-x.org/t/clippingnode-to-mask/15953/4

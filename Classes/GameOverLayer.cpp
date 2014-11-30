@@ -1,6 +1,7 @@
 #include "GameOverLayer.h"
 #include "MenuLayer.h"
 #include "SimpleAudioEngine.h"
+#include "AdmobHelper.h"
  
 using namespace cocos2d;
  
@@ -135,9 +136,10 @@ void GameOverLayer::displayTopScores()
 void GameOverLayer::nextButton2Callback(CCObject* pSender)
 {
 	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
+	AdmobHelper::showInterstitial();
+
 	CCScene *pScene = MenuLayer::scene();
     //CCScene *s = CCTransitionSplitRows::transitionWithDuration(0.5, pScene);
     //CCDirector::sharedDirector()->replaceScene(s);
-
 	CCDirector::sharedDirector()->replaceScene(pScene);
 }

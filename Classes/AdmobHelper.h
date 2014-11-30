@@ -13,7 +13,7 @@ public:
 	static void hideAd();
 	static void showAd();
 	static bool isAdShowing;
-
+	static void showInterstitial();
 };
 
 

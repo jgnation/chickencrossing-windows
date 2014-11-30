@@ -25,18 +25,14 @@ void AdmobHelper::hideAd()
 	cocos2d::JniMethodInfo t;
 	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "hideAd", "()V"))
 	{
-
 		t.env->CallStaticVoidMethod(t.classID, t.methodID);
 		t.env->DeleteLocalRef(t.classID);
 		isAdShowing = false;
 	}
 }
 
-
-
 void AdmobHelper::showAd()
 {
-
 	cocos2d::JniMethodInfo t;
 	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "showAd", "()V"))
 	{
@@ -45,7 +41,16 @@ void AdmobHelper::showAd()
 		t.env->DeleteLocalRef(t.classID);
 		isAdShowing = true;
 	}
+}
 
+void AdmobHelper::showInterstitial()
+{
+	cocos2d::JniMethodInfo t;
+	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "showInterstitial", "()V"))
+	{
+		t.env->CallStaticVoidMethod(t.classID, t.methodID);
+	    t.env->DeleteLocalRef(t.classID);
+	}
 }
 
 
@@ -59,13 +64,17 @@ void AdmobHelper::hideAd()
 	return; //nothing
 }
 
-
 void AdmobHelper::showAd()
 {
 	CCLOG("showAd() called");
 	isAdShowing = true;
 	return; //nothing;
+}
 
+void AdmobHelper::showInterstitial()
+{
+	CCLOG("showInterstitial() called");
+	return; //nothing;
 }
 
 #endif
