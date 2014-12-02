@@ -40,6 +40,13 @@
     self.interstitial = [self createAndLoadInterstitial];
 }
 
+//http://stackoverflow.com/questions/21108617/google-admob-ios-request-error-no-ad-to-show
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    //I have not tested this
+    self.interstitial = [self createAndLoadInterstitial];
+}
+
 - (void) showInterstitial {
     if ([self.interstitial isReady]) {
         [self.interstitial presentFromRootViewController:self];
