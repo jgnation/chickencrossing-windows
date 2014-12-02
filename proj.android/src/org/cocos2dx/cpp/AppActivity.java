@@ -33,18 +33,16 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -79,11 +77,8 @@ public class AppActivity extends Cocos2dxActivity {
 		adView.setAdSize(AdSize.SMART_BANNER);
 		adView.setAdUnitId(AD_UNIT_ID_BANNER);
 
-		final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
-		String deviceid = tm.getDeviceId();
 		AdRequest adRequest = new AdRequest.Builder()
-			.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-			.addTestDevice(deviceid)
+			.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
 			.build();
 
 		adView.loadAd(adRequest);
@@ -95,9 +90,31 @@ public class AppActivity extends Cocos2dxActivity {
     private void setupInterstitial() {
     	interstitial = new InterstitialAd(this);
         interstitial.setAdUnitId(AD_UNIT_ID_INTERSTITIAL);
+        
         AdRequest adRequest = new AdRequest.Builder()
     		.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
     		.build();
+        
+        interstitial.setAdListener(new AdListener() {
+        	//TODO: sometimes these loadAd call fails. why?
+        	
+        	@Override
+        	public void onAdFailedToLoad(int errorCode) {
+        		AdRequest adRequest = new AdRequest.Builder()
+        			.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+        			.build();
+        		interstitial.loadAd(adRequest);
+        	}
+        	
+        	@Override
+        	public void onAdClosed() {
+        		AdRequest adRequest = new AdRequest.Builder()
+    				.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+    				.build();
+        		interstitial.loadAd(adRequest);
+        	}
+        });
+        
         interstitial.loadAd(adRequest);
     }
     
@@ -107,16 +124,7 @@ public class AppActivity extends Cocos2dxActivity {
 		    public void run() {
 		    	if (interstitial.isLoaded()) {
                     interstitial.show();
-                } else {
-                	Log.v("ME!", "Ad not loaded.");
                 }
-		    	
-		        AdRequest adRequest = new AdRequest.Builder()
-		        	.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
-		        	.build();
-		        //TODO: sometimes this loadAd call fails. why?
-		        //set onFailedToReceiveAd listener and do another loadAd?
-		        interstitial.loadAd(adRequest);
 		    }
 		});
     }
