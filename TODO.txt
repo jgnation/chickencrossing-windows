@@ -38,9 +38,8 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 ============================================================================================================
 
 Before version 1.0 release:
--kill music when program goes to background
---this seems to be done automatically with cocos2d-x 3.2.  verify!
--get rid of deprecated calls
+-do I need to pause sound effects?
+-fix logo on about screen
 -preload audio?  The game now hesitates right before playing audio.
 -option to rate game
 --https://github.com/drewjw81/appirater-android
@@ -54,6 +53,7 @@ Pre 1.0 release testing:
 
 
 After version 1.0 release:
+-get rid of deprecated calls
 -review scaling of word images...do they need to be scaled by width and height separately?
 -disappearing logs different color
 -don't spawn eggs so close to edge of screen?
