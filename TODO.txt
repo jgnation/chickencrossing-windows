@@ -48,8 +48,6 @@ Before version 1.0 release:
 -do sprites look like shit at lower/higher resolutions?
 -full test!
 -hunt for obvious memory leaks
--ads
---what kinds of ads is Super Frogger using (some sort of wall)
 
 Pre 1.0 release testing:
 -music that plays during the level doesn't always stop when game over (especially when app goes to background)

@@ -30,15 +30,17 @@ void HudLayer::createHighScoreLabel()
     _highScoreLabel = CCLabelTTF::create("High Score: X", "Verdana-Bold", 60.0); 
     _highScoreLabel->setColor(ccc3(255,255,255));
 	Size originalSize = _highScoreLabel->getContentSize();
-	float laneHeight = winSize.height / 19.0;
+	float laneHeight = (winSize.height / 19.0) / 2; //this /2 is so I can fit two labels in one lane
 	float laneMargin = laneHeight * .05;
 	float desiredLabelHeight = laneHeight - (laneMargin + laneMargin);
 	float scaleRatio = desiredLabelHeight / originalSize.height;
 	_highScoreLabel->setScale(scaleRatio);
 	_highScoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 
-	_highScoreLabel->setAnchorPoint(ccp(1,1));
-	_highScoreLabel->setPosition(ccp(winSize.width - laneMargin, winSize.height - laneMargin));
+	//_highScoreLabel->setAnchorPoint(ccp(1,1));
+	//_highScoreLabel->setPosition(ccp(winSize.width - laneMargin, winSize.height - laneMargin));
+	_highScoreLabel->setAnchorPoint(ccp(1,0));
+	_highScoreLabel->setPosition(ccp(winSize.width - laneMargin, laneHeight + laneMargin));
     this->addChild(_highScoreLabel);
 
 	this->setHighScore(234);
@@ -55,15 +57,17 @@ void HudLayer::createScoreLabel()
     _scoreLabel = CCLabelTTF::create("Score: X", "Verdana-Bold", 60.0); 
     _scoreLabel->setColor(ccc3(255,255,255));
 	Size originalSize = _scoreLabel->getContentSize();
-	float laneHeight = winSize.height / 19.0;
+	float laneHeight = (winSize.height / 19.0) / 2;
 	float laneMargin = laneHeight * .05;
 	float desiredLabelHeight = laneHeight - (laneMargin + laneMargin);
 	float scaleRatio = desiredLabelHeight / originalSize.height;
 	_scoreLabel->setScale(scaleRatio);
 	_scoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 
-	_scoreLabel->setAnchorPoint(ccp(1,1));
-	_scoreLabel->setPosition(ccp(winSize.width - laneMargin, winSize.height - laneHeight - laneMargin));
+	//_scoreLabel->setAnchorPoint(ccp(1,1));
+	//_scoreLabel->setPosition(ccp(winSize.width - laneMargin, winSize.height - laneHeight - laneMargin));
+	_scoreLabel->setAnchorPoint(ccp(1,0));
+	_scoreLabel->setPosition(ccp(winSize.width - laneMargin, laneMargin));
     this->addChild(_scoreLabel);
 }
 
@@ -75,15 +79,17 @@ void HudLayer::createLivesLabel()
 	_livesLabel = CCLabelTTF::create("Lives: X", "Verdana-Bold", 60.0);
 	_livesLabel->setColor(ccc3(255,255,255));
 	Size originalSize = _livesLabel->getContentSize();
-	float laneHeight = winSize.height / 19.0;
+	float laneHeight = (winSize.height / 19.0) / 2;
 	float laneMargin = laneHeight * .05;
 	float desiredLabelHeight = laneHeight - (laneMargin + laneMargin);
 	float scaleRatio = desiredLabelHeight / originalSize.height;
 	_livesLabel->setScale(scaleRatio);
 	_livesLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 
-	_livesLabel->setAnchorPoint(ccp(0,1));
-	_livesLabel->setPosition(ccp(laneMargin, winSize.height - laneMargin));
+	//_livesLabel->setAnchorPoint(ccp(0,1));
+	//_livesLabel->setPosition(ccp(laneMargin, winSize.height - laneMargin));
+	_livesLabel->setAnchorPoint(ccp(0,0));
+	_livesLabel->setPosition(ccp(laneMargin, laneMargin));
 	this->addChild(_livesLabel);
 
 	this->setLives(5); //This is called for the same reason that the other values are set incorrectly.  The difference is that this isn't called from
@@ -103,15 +109,17 @@ void HudLayer::createLevelLabel()
 	_levelLabel = CCLabelTTF::create("Level 0", "Helvetica", 60.0);
 	_levelLabel->setColor(ccc3(255,255,255));
 	Size originalSize = _levelLabel->getContentSize();
-	float laneHeight = winSize.height / 19.0;
+	float laneHeight = (winSize.height / 19.0) / 2;
 	float laneMargin = laneHeight * .05;
 	float desiredLabelHeight = laneHeight - (laneMargin + laneMargin);
 	float scaleRatio = desiredLabelHeight / originalSize.height;
 	_levelLabel->setScale(scaleRatio);
 	_levelLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
 
-	_levelLabel->setAnchorPoint(ccp(1,0));
-	_levelLabel->setPosition(ccp(winSize.width - laneMargin, laneMargin));
+	//_levelLabel->setAnchorPoint(ccp(1,0));
+	//_levelLabel->setPosition(ccp(winSize.width - laneMargin, laneMargin));
+	_levelLabel->setAnchorPoint(ccp(0,0));
+	_levelLabel->setPosition(ccp(laneMargin, laneHeight + laneMargin));
 	this->addChild(_levelLabel);
 }
 

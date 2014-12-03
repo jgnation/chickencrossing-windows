@@ -69,7 +69,8 @@ void MenuButtonLayer::createInstructionScreen()
 	info += "\n";
 	info += "Main mode:\n";
 	info += "Collect the eggs to progress through the levels.\n";
-	info += "Each level requires you to collect one more egg than the last.\n";
+	info += "Each level requires you to collect one more egg\n";
+	info += "than the last.\n";
 	info += "\n";
 	info += "Survival mode:\n";
 	info += "Collect as many eggs as possible.\n";
