@@ -47,6 +47,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.sbstrm.appirater.Appirater;
 
 public class AppActivity extends Cocos2dxActivity {
 	private AdView adView;
@@ -61,6 +62,7 @@ public class AppActivity extends Cocos2dxActivity {
     	
     	setupBannerAd();
         setupInterstitial();
+        Appirater.appLaunched(this);
         
         _appActivity = this;
     }
