@@ -67,6 +67,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     return true;
 }
 
+void AppDelegate::applicationWillEnterForeground() {
+    Director::getInstance()->startAnimation();
+    
+    SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+}
+
 void AppDelegate::applicationDidEnterBackground() {
     SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 
@@ -80,8 +86,4 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 }
 
-void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
 
-    SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
-}

@@ -28,6 +28,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "BannerViewController.h"
+#import "Appirater.h"
 
 
 @implementation AppController
@@ -77,7 +78,16 @@ BannerViewController *_bannerViewController;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
-
+    
+    //Appirater stuff
+    [Appirater setAppId:@"770699556"];
+    [Appirater setDaysUntilPrompt:5];
+    [Appirater setUsesUntilPrompt:0];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    [Appirater setDebug:YES];
+    [Appirater appLaunched:YES];
+    
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);

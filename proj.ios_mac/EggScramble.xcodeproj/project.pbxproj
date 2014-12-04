@@ -153,6 +153,8 @@
 		42E176D01A2257FF0075AF14 /* survival_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E176451A2257FE0075AF14 /* survival_yellow.png */; };
 		42E176D11A2257FF0075AF14 /* top_scores.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E176461A2257FE0075AF14 /* top_scores.png */; };
 		42E176D31A2257FF0075AF14 /* vw_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E176481A2257FE0075AF14 /* vw_small.png */; };
+		42F658501A301E8C00DCB2C1 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F6584F1A301E8B00DCB2C1 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		42F658941A30201000DCB2C1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F658931A30201000DCB2C1 /* CFNetwork.framework */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -524,6 +526,10 @@
 		42E176451A2257FE0075AF14 /* survival_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survival_yellow.png; sourceTree = "<group>"; };
 		42E176461A2257FE0075AF14 /* top_scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_scores.png; sourceTree = "<group>"; };
 		42E176481A2257FE0075AF14 /* vw_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw_small.png; sourceTree = "<group>"; };
+		42F6584C1A301E7700DCB2C1 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = SOURCE_ROOT; };
+		42F6584F1A301E8B00DCB2C1 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = SOURCE_ROOT; };
+		42F658921A301EBF00DCB2C1 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = SOURCE_ROOT; };
+		42F658931A30201000DCB2C1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -570,6 +576,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F658941A30201000DCB2C1 /* CFNetwork.framework in Frameworks */,
 				4220B0851A2A6875002CCFAE /* EventKitUI.framework in Frameworks */,
 				4220B0831A2A6852002CCFAE /* CoreMotion.framework in Frameworks */,
 				4220B0811A2A6836002CCFAE /* EventKit.framework in Frameworks */,
@@ -631,15 +638,18 @@
 			children = (
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
+				42F6584C1A301E7700DCB2C1 /* Appirater.h */,
+				42F6584F1A301E8B00DCB2C1 /* Appirater.m */,
+				42F658921A301EBF00DCB2C1 /* AppiraterDelegate.h */,
 				4220B0861A2A691C002CCFAE /* BannerViewController.h */,
 				4220B0871A2A691C002CCFAE /* BannerViewController.m */,
 				5087E77117EB970100C73F5D /* Icons */,
+				422668831A2ABF1100FC2D82 /* iOSHelper.h */,
+				422668821A2ABF1100FC2D82 /* iOSHelper.mm */,
 				503AE0FC17EB989F00D1A890 /* main.m */,
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
-				422668821A2ABF1100FC2D82 /* iOSHelper.mm */,
-				422668831A2ABF1100FC2D82 /* iOSHelper.h */,
 			);
 			name = ios;
 			path = Classes;
@@ -766,6 +776,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42F658931A30201000DCB2C1 /* CFNetwork.framework */,
 				4220B0841A2A6875002CCFAE /* EventKitUI.framework */,
 				4220B0821A2A6852002CCFAE /* CoreMotion.framework */,
 				4220B0801A2A6836002CCFAE /* EventKit.framework */,
@@ -1251,6 +1262,7 @@
 				4220B0201A2A6001002CCFAE /* AdmobHelper.cpp in Sources */,
 				42E175A61A2257D40075AF14 /* EggScrambleLevelFactory.cpp in Sources */,
 				42E175AD1A2257D40075AF14 /* Level.cpp in Sources */,
+				42F658501A301E8C00DCB2C1 /* Appirater.m in Sources */,
 				422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				42E175AF1A2257D40075AF14 /* LevelManager.cpp in Sources */,
