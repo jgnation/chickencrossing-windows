@@ -57,7 +57,7 @@ void MenuButtonLayer::createInstructionScreen()
 	_chickenCrossingInstructionsImage = CCSprite::create("egg_scramble_title.png", CCRectMake(0, 0, originalWidth, originalHeight));
 	float ratio = (windowSize.width *.4) / _chickenCrossingInstructionsImage->getContentSize().width;
 	_chickenCrossingInstructionsImage->setScale(ratio);
-	_chickenCrossingInstructionsImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .9));
+	_chickenCrossingInstructionsImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .85));
 
 	_instructionsBackgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), windowSize.width * .8, windowSize.height * .5);
 	_instructionsBackgroundColor->setOpacity(200);
@@ -377,8 +377,8 @@ CCMenuItemImage* MenuButtonLayer::createJGNationLogo()
 		NULL
 	);
 
-	logo->setScale((windowSize.height * .2) / logo->getContentSize().height);
-	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .85));
+	logo->setScale((windowSize.height * .15) / logo->getContentSize().height);
+	logo->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .80));
 
 	return logo;
 }
