@@ -58,6 +58,14 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+	//preload audio
+	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("Complete.mp3");
+	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("SpaceQuest3.mp3");
+	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("Platform.mp3");
+	SimpleAudioEngine::sharedEngine()->preloadEffect("212143__qubodup__splash-by-blaukreuz.wav");
+	SimpleAudioEngine::sharedEngine()->preloadEffect("253173__suntemple__retro-falling-down-sfx.wav");
+	SimpleAudioEngine::sharedEngine()->preloadEffect("253177__suntemple__retro-accomplished-sfx.wav");
+
     // create a scene. it's an autorelease object
     auto scene = MenuLayer::scene();
 
