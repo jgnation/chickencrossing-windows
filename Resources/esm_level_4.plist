@@ -9,13 +9,13 @@
     <key>EggScramble</key>
     <dict>
       <key>MaxRoadInterval</key>
-      <string>8000</string>
+      <string>5500</string>
       <key>MinRoadInterval</key>
-      <string>6000</string>
-      <key>MaxWaterInterval</key>
-      <string>6000</string>
-      <key>MinWaterInterval</key>
       <string>4000</string>
+      <key>MaxWaterInterval</key>
+      <string>5500</string>
+      <key>MinWaterInterval</key>
+      <string>3500</string>
       <key>MinStartDuration</key>
       <string>9.0</string>
       <key>MaxStartDuration</key>
