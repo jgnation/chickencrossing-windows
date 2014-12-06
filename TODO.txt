@@ -39,12 +39,14 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
+-contact music author
 -do I need to pause sound effects?
 -randomize level background at menu screen?
 -alter appirater settings (when to show, Apple App Id, etc.)
 -do sprites look like shit at lower/higher resolutions?
 -full test!
 -hunt for obvious memory leaks
+-after making vehicles travel further to fix clipping, maybe I should've just reduced speed (rather than decreasing interval)
 
 Pre 1.0 release testing:
 -music that plays during the level doesn't always stop when game over (especially when app goes to background)
