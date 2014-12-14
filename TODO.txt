@@ -51,6 +51,8 @@ Before version 1.0 release:
 	-http://simonvt.net/2012/02/07/what-api-level-should-i-target/ - set targetSdkVersion
 	-http://developer.android.com/guide/topics/manifest/uses-sdk-element.html
 	-test on old phone (4.0.4, ICS) and emulator
+	-https://developer.android.com/about/dashboards/index.html
+	-I can't run on Gingerbread in the emulator...it would probably be safest to say oldest version allowed is ICS.  I would miss out on roughly 10% of android versions, but that is ok.
 -show interstitial less often?
 -alter appirater settings (when to show, Apple App Id, etc.)
 -do sprites look like shit at lower/higher resolutions?
