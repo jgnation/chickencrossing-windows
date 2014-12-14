@@ -47,12 +47,15 @@ Before version 1.0 release:
 	-after I downloaded "Piggy dig", then the admob ads on mine began to show up
 	-right after installing Piggy Dig, I received a "Google Play Services crashed" error on the old phone.
 	-somehow, downloading Piggy Dig updated Google Play Services on my phone.  I have no idea how.
--targets
+-android targets
 	-http://simonvt.net/2012/02/07/what-api-level-should-i-target/ - set targetSdkVersion
 	-http://developer.android.com/guide/topics/manifest/uses-sdk-element.html
 	-test on old phone (4.0.4, ICS) and emulator
 	-https://developer.android.com/about/dashboards/index.html
 	-I can't run on Gingerbread in the emulator...it would probably be safest to say oldest version allowed is ICS.  I would miss out on roughly 10% of android versions, but that is ok.
+-iOS target
+	-https://developer.apple.com/support/appstore/
+	-according the above link, 96% of devices are using iOS 7 or above
 -show interstitial less often?
 -alter appirater settings (when to show, Apple App Id, etc.)
 -do sprites look like shit at lower/higher resolutions?
