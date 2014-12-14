@@ -242,18 +242,38 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <None Include="..\Resources\esm_level_9.plist" />
     <None Include="..\Resources\futura-48.fnt" />
     <None Include="..\Resources\mm_levels.plist" />
-    <None Include="..\Resources\mm_level_1.plist" />
-    <None Include="..\Resources\mm_level_10.plist" />
+    <None Include="..\Resources\mm_level_1.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_10.plist">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Resources\mm_level_11.plist" />
     <None Include="..\Resources\mm_level_12.plist" />
-    <None Include="..\Resources\mm_level_2.plist" />
-    <None Include="..\Resources\mm_level_3.plist" />
-    <None Include="..\Resources\mm_level_4.plist" />
-    <None Include="..\Resources\mm_level_5.plist" />
-    <None Include="..\Resources\mm_level_6.plist" />
-    <None Include="..\Resources\mm_level_7.plist" />
-    <None Include="..\Resources\mm_level_8.plist" />
-    <None Include="..\Resources\mm_level_9.plist" />
+    <None Include="..\Resources\mm_level_2.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_3.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_4.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_5.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_6.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_7.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_8.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Resources\mm_level_9.plist">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\about_orange.png" />

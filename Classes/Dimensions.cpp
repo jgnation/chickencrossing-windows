@@ -25,7 +25,8 @@ bool Dimensions::moveIsInPlayableArea(CCPoint point, Chicken * chicken)
 {
 	//TODO: this method may belong in Chicken, not in Dimensions.
 	//initialize this only once
-	static CCRect * _playableArea = new CCRect(0, _laneWidth, (_windowSize.width - chicken->getSprite()->getContentSize().width), _windowSize.height - (_laneWidth * 4));
+	float width = chicken->getSprite()->getBoundingBox().size.width;
+	static CCRect * _playableArea = new CCRect(0, _laneWidth, (_windowSize.width - width), _windowSize.height - (_laneWidth * 4));
 	if (_playableArea->containsPoint(point))
 	{
 		return true;

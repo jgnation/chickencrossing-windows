@@ -189,7 +189,7 @@ void GameLayer::doUpdate(float dt)
 	if (_chicken->isRiding())
 	{
 		//TODO: move this logic to chicken? _chicken->isRidingToEdgeOfScreen
-		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > (winSize.width - _chicken->getSprite()->getContentSize().width))
+		if (_chicken->getSprite()->getPositionX() < 0 || _chicken->getSprite()->getPositionX() > (winSize.width - _chicken->getSprite()->getBoundingBox().size.width))
 		{
 			CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("253173__suntemple__retro-falling-down-sfx.wav");
 			this->killChicken();

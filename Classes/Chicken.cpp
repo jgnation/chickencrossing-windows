@@ -67,7 +67,7 @@ void Chicken::createDeadChickenSprite()
 	float scaledWidth = originalWidth * scaleRatioX;
 	float scaledHeight = originalHeight * scaleRatioY;
 	//setContentSize changes the size of the 'bounding box' around the image
-	_deadChickenSprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+	//_deadChickenSprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 	
 	_deadChickenSprite->setVisible(false);
 	_gameLayer->addChild(_deadChickenSprite, 1);
@@ -131,8 +131,8 @@ void Chicken::moveRight()
 	}
 	else
 	{
-		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();		
-		float xPos = windowSize.width - _sprite->getContentSize().width;
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();	
+		float xPos = windowSize.width - _sprite->getBoundingBox().size.width;
 		move(ccp(xPos, _sprite->getPositionY()));
 		//this->setMoving(false); //this is set because setMoving(true) is called in GameLayer
 		//maybe GameLayer shouldn't be calling that?
