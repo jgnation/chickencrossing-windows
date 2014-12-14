@@ -9,9 +9,9 @@
     <key>MainMode</key>
     <dict>
       <key>MaxRoadInterval</key>
-      <string>8000</string>
+      <string>3500</string>
       <key>MinRoadInterval</key>
-      <string>6000</string>
+      <string>3000</string>
       <key>MaxWaterInterval</key>
       <string>6000</string>
       <key>MinWaterInterval</key>
