@@ -56,7 +56,6 @@ Before version 1.0 release:
 -iOS target
 	-https://developer.apple.com/support/appstore/
 	-according the above link, 96% of devices are using iOS 7 or above
--show interstitial less often?
 -alter appirater settings (when to show, Apple App Id, etc.)
 -do sprites look like shit at lower/higher resolutions?
 -full test!
@@ -70,6 +69,7 @@ Pre 1.0 release testing:
 
 After version 1.0 release:
 -randomize level background at menu screen?
+-show interstitial less often?
 -exit button?
 -get rid of deprecated calls
 -review scaling of word images...do they need to be scaled by width and height separately?
