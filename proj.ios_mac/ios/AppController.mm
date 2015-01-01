@@ -81,11 +81,11 @@ BannerViewController *_bannerViewController;
     
     //Appirater stuff
     [Appirater setAppId:@"955093478"];
-    [Appirater setDaysUntilPrompt:5];
-    [Appirater setUsesUntilPrompt:0];
+    [Appirater setDaysUntilPrompt:3];
+    [Appirater setUsesUntilPrompt:5];
     [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:2];
-    [Appirater setDebug:YES];
+    [Appirater setDebug:NO];
     [Appirater appLaunched:YES];
     
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
