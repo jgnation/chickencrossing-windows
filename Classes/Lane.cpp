@@ -43,7 +43,7 @@ Vehicle * Lane::spawnVehicle()
 	Vehicle * vehicle = this->getRandomVehicle();
 	CCSprite * vehicleSprite = vehicle->getSprite();
 	float y = _dimensions->getLanePixelValue(_laneNumber);
-	float vehicleWidth = vehicleSprite->getContentSize().width;
+	float vehicleWidth = vehicleSprite->getBoundingBox().size.width;
 
 	if (_laneNumber % 2 == 0) //move to the left
 	{
