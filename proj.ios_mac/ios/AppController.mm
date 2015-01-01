@@ -80,7 +80,7 @@ BannerViewController *_bannerViewController;
     [[UIApplication sharedApplication] setStatusBarHidden:true];
     
     //Appirater stuff
-    [Appirater setAppId:@"770699556"];
+    [Appirater setAppId:@"955093478"];
     [Appirater setDaysUntilPrompt:5];
     [Appirater setUsesUntilPrompt:0];
     [Appirater setSignificantEventsUntilPrompt:-1];
