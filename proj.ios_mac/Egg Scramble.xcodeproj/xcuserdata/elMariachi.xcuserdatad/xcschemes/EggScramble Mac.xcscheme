@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5087E73D17EB910900C73F5D"
                BuildableName = "EggScramble Mac.app"
-               BlueprintName = "EggScramble Mac"
-               ReferencedContainer = "container:EggScramble.xcodeproj">
+               BlueprintName = "Egg Scramble Mac"
+               ReferencedContainer = "container:Egg Scramble.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5087E73D17EB910900C73F5D"
             BuildableName = "EggScramble Mac.app"
-            BlueprintName = "EggScramble Mac"
-            ReferencedContainer = "container:EggScramble.xcodeproj">
+            BlueprintName = "Egg Scramble Mac"
+            ReferencedContainer = "container:Egg Scramble.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5087E73D17EB910900C73F5D"
             BuildableName = "EggScramble Mac.app"
-            BlueprintName = "EggScramble Mac"
-            ReferencedContainer = "container:EggScramble.xcodeproj">
+            BlueprintName = "Egg Scramble Mac"
+            ReferencedContainer = "container:Egg Scramble.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5087E73D17EB910900C73F5D"
             BuildableName = "EggScramble Mac.app"
-            BlueprintName = "EggScramble Mac"
-            ReferencedContainer = "container:EggScramble.xcodeproj">
+            BlueprintName = "Egg Scramble Mac"
+            ReferencedContainer = "container:Egg Scramble.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
