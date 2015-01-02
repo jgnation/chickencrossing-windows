@@ -163,13 +163,6 @@ void GameLayer::spriteMoveFinished(CCNode* sender)
 	this->removeChild(sprite, true);
 }
 
-void GameLayer::spriteMoveFinished3(CCNode* sender)
-{
-	CCSprite *sprite = (CCSprite *)sender;
-	this->removeChild(sprite, true);
-	sprite->setVisible(false);
-}
-
 void GameLayer::update(float dt)
 {
     if (!_isPaused)
@@ -181,6 +174,20 @@ void GameLayer::update(float dt)
 //this is a template method
 void GameLayer::doUpdate(float dt)
 {
+	//This loop is not very elegant. This removes any vehicles from the list whose sprites have completed thier movement and were
+	//removed from the parent layer.
+	std::vector<Vehicle *>::iterator it = _vehicleList.begin();
+	while (it != _vehicleList.end())
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		if (vehicle->isDoneMoving())
+		{
+			it = _vehicleList.erase(it);
+			vehicle->release();
+		}
+		else ++it;
+	}
+
 	this->initialChecks();
 
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
@@ -212,7 +219,7 @@ void GameLayer::doUpdate(float dt)
 	if (laneType == Lane::LaneType::WATER)
 	{
 		//bool intersectsLog = false;
-		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
+		for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
 		{
 			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
 
@@ -243,7 +250,7 @@ void GameLayer::doUpdate(float dt)
 	//If I had a CCArray of CCObjects, I could use CCARRAY_FOREACH here
 	if (laneType == Lane::LaneType::ROAD)
 	{
-		for(std::vector<Vehicle *>::iterator it = vehicleList.begin(); it != vehicleList.end(); ++it) 
+		for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
 		{
 			Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
 
@@ -280,7 +287,8 @@ void GameLayer::doUpdate(float dt)
 		if (lane->isTimeToSpawn(currentTime))
 		{
 			Vehicle * vehicle = lane->spawnVehicle();
-			vehicleList.push_back(vehicle);
+			vehicle->retain();
+			_vehicleList.push_back(vehicle);
 
 			vehicle->move();
 			_actionLayer->addChild(vehicle->getSprite(), VEHICLES_POSITION);
@@ -288,21 +296,6 @@ void GameLayer::doUpdate(float dt)
 			//set vehicle movement animation
 			//delete or release at end of animation?
 		}
-	}
-
-	//This loop exists to delete Vehicle objects whose sprites are finished moving across the screen.
-	//I don't know if this stuff is really doing what it should be...investigate sometime.
-	std::vector<Vehicle *>::iterator it = vehicleList.begin();
-	while (it != vehicleList.end())
-	{
-		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
-		if (!vehicle->getSprite()->isVisible())
-		{
-			it = vehicleList.erase(it);
-			//also, delete vehicle to free up memory
-			//delete vehicle; <- this causes an error when I close the program for some reason.
-		}
-		else ++it;
 	}
 }
 
@@ -347,7 +340,7 @@ void GameLayer::resetChicken()
 
 void GameLayer::loadLevel(int levelNumber)
 {
-	_actionLayer->removeAllChildren(); //remove all with cleanup?
+	_actionLayer->removeAllChildrenWithCleanup(true);
 
 	this->resetChicken();
 
@@ -368,9 +361,14 @@ void GameLayer::loadLevel(int levelNumber)
 	_actionLayer->addChild(_egg->getSprite(), EGG_POSITION);
 
 	//this fixes the bug where at the beginning of the second level, if the chicken moved
-	//up quickly, it would randomly die.  I think this might also be creating memory leaks.
-	vehicleList.clear(); 
-	//random_shuffle(vehicleList.begin, vehicleList.end);
+	//up quickly, it would randomly die.
+	for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		//vehicle->finishMovement(); //this isn't necessary because of the _actionLayer->removeAllChildrenWithCleanup(true) call
+		vehicle->release();
+	}
+	_vehicleList.clear(); 
 }
 
 void GameLayer::loadNextLevel()

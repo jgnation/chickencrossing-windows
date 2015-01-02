@@ -10,6 +10,8 @@ class DisappearingLog :	public Log
 public:
 	DisappearingLog(void);
 	~DisappearingLog(void);
+	virtual bool init();
+	CREATE_FUNC(DisappearingLog);
 
 	float getTimeTick();
 

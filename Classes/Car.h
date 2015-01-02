@@ -9,6 +9,8 @@ class Car : public Vehicle
 public:
 	Car(void);
 	~Car(void);
+	CREATE_FUNC(Car);
+	virtual bool init();
 };
 
 #endif

@@ -9,6 +9,8 @@ class Log : public Vehicle
 public:
 	Log(void);
 	~Log(void);
+	virtual bool init();
+	CREATE_FUNC(Log);
 };
 
 #endif

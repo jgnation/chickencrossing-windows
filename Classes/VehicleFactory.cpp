@@ -13,23 +13,23 @@ Vehicle * VehicleFactory::createVehicle(std::string vehicleType)
 {
 	if (vehicleType == "Car")
 	{
-		return new Car();
+		return Car::create();
 	}
 	else if (vehicleType == "Bus")
 	{
-		return new Bus();
+		return Bus::create();
 	}
 	else if (vehicleType == "Truck")
 	{
-		return new Truck();
+		return Truck::create();
 	}
 	else if (vehicleType == "Log")
 	{
-		return new Log();
+		return Log::create();
 	}
 	else if (vehicleType == "DisappearingLog")
 	{
-		return new DisappearingLog();
+		return DisappearingLog::create();
 	}
 	else
 	{

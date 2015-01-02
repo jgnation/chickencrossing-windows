@@ -49,7 +49,7 @@ private:
 
 protected:
 	int _levelNumber;
-	std::vector<Vehicle *> vehicleList;
+	std::vector<Vehicle *> _vehicleList;
 	Level * _level;
 	LevelManager * _levelManager;
 	int calculateNextLevelScore(int levelNumber);
@@ -76,8 +76,6 @@ public:
 	void addDog();
 	void startMovement(Vehicle * vehicle);
 	void spriteMoveFinished(cocos2d::CCNode* sender);
-	void spriteMoveFinished2(cocos2d::CCNode* sender);
-	void spriteMoveFinished3(cocos2d::CCNode* sender);
 
 	void update(float dt);
     void doUpdate(float dt);

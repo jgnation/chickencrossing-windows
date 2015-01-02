@@ -10,7 +10,7 @@ class MenuLayer : public cocos2d::CCLayer
 {
 private:
 	Level * _level;
-	std::vector<Vehicle *> vehicleList;
+	std::vector<Vehicle *> _vehicleList;
 public:
 	~MenuLayer();
 

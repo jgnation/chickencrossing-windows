@@ -64,6 +64,20 @@ MenuLayer::~MenuLayer(void)
 
 void MenuLayer::update(float dt) 
 {
+	//This loop is not very elegant. This removes any vehicles from the list whose sprites have completed thier movement and were
+	//removed from the parent layer.
+	std::vector<Vehicle *>::iterator it = _vehicleList.begin();
+	while (it != _vehicleList.end())
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		if (vehicle->isDoneMoving())
+		{
+			it = _vehicleList.erase(it);
+			vehicle->release();
+		}
+		else ++it;
+	}
+
 	//spawn vehicles for each lane
 	std::vector<Lane *> lanes = _level->getLanes(); //I shouldn't have to retrieve this every update
 	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
@@ -73,29 +87,12 @@ void MenuLayer::update(float dt)
 		if (lane->isTimeToSpawn(currentTime))
 		{
 			Vehicle * vehicle = lane->spawnVehicle();
-			vehicleList.push_back(vehicle);
+			vehicle->retain();
+			_vehicleList.push_back(vehicle);
 
 			vehicle->move();
 			this->addChild(vehicle->getSprite(), 1);
-
-			//set vehicle movement animation
-			//delete or release at end of animation?
 		}
-	}
-
-	//This loop exists to delete Vehicle objects whose sprites are finished moving across the screen.
-	//I don't know if this stuff is really doing what it should be...investigate sometime.
-	std::vector<Vehicle *>::iterator it = vehicleList.begin();
-	while (it != vehicleList.end())
-	{
-		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
-		if (!vehicle->getSprite()->isVisible())
-		{
-			it = vehicleList.erase(it);
-			//also, delete vehicle to free up memory
-			//delete vehicle; <- this causes an error when I close the program for some reason.
-		}
-		else ++it;
 	}
 }
 

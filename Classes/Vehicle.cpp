@@ -5,6 +5,7 @@ using namespace cocos2d;
 
 Vehicle::Vehicle(void)
 {
+	_isDoneMoving = false;
 }
 
 Vehicle::~Vehicle(void)
@@ -19,6 +20,11 @@ int Vehicle::getSpeed()
 float Vehicle::getDuration()
 {
 	return _duration;
+}
+
+bool Vehicle::isDoneMoving()
+{
+	return _isDoneMoving;
 }
 
 void Vehicle::setDuration(float duration)
@@ -69,14 +75,18 @@ void Vehicle::move()
 
 	_speed = distance / _duration; //set speed through a private function?
 	CCFiniteTimeAction * actionMove = CCMoveTo::create(_duration, _destination);
-	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(GameLayer::spriteMoveFinished3));
+	CCFiniteTimeAction* actionMoveDone = CCCallFuncN::create(this, callfuncN_selector(Vehicle::spriteMoveFinished));
 	this->getSprite()->runAction(CCSequence::create(actionMove, actionMoveDone, NULL));
 }
 
 void Vehicle::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
-	//_gameLayer->removeChild(sprite, true);
+	this->finishMovement();
+}
 
-	delete this;
+void Vehicle::finishMovement()
+{
+	_sprite->removeFromParentAndCleanup(true);
+	_isDoneMoving = true;
 }
