@@ -331,8 +331,7 @@ void GameLayer::gameOver()
 	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
 
 	//display GameOver with a next button
-	GameOverLayer* gameOverLayer = new GameOverLayer();
-	gameOverLayer->init(highScores);
+	GameOverLayer* gameOverLayer = GameOverLayer::create(highScores);
 	this->addChild(gameOverLayer, GAME_OVER_LAYER_POSITION);
 }
 

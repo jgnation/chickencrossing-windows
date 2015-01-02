@@ -4,7 +4,18 @@
 #include "AdmobHelper.h"
  
 using namespace cocos2d;
- 
+
+GameOverLayer* GameOverLayer::create(std::vector<TopScore> highScores)
+{
+    GameOverLayer *pGOL = new GameOverLayer();
+    if (pGOL && pGOL->init(highScores)) {
+        pGOL->autorelease();
+        return pGOL;
+    }
+    CC_SAFE_DELETE(pGOL);
+    return NULL;
+}
+
 bool GameOverLayer::init(std::vector<TopScore> highScores)
 {
     if (CCLayer::init()) {
