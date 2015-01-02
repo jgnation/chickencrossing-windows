@@ -5,8 +5,6 @@ MainModeLevel::MainModeLevel(CCDictionary * levelData) : Level(levelData)
 	_mainModeData = (CCDictionary*) levelData->objectForKey("MainMode");
 }
 
-//MainModeLevel::~MainModeLevel() {}
-
 int MainModeLevel::getMaxRoadInterval()
 {
 	return _mainModeData->valueForKey("MaxRoadInterval")->intValue();

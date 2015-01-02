@@ -6,8 +6,6 @@ EggScrambleLevel::EggScrambleLevel(CCDictionary * levelData) : Level(levelData)
 	_eggScrambleData = (CCDictionary*) levelData->objectForKey("EggScramble");
 }
 
-//EggScrambleLevel::~EggScrambleLevel() {}
-
 int EggScrambleLevel::getMaxRoadInterval()
 {
 	return _eggScrambleData->valueForKey("MaxRoadInterval")->intValue();

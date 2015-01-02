@@ -10,6 +10,7 @@ Level::Level(CCDictionary * levelData)
 
 Level::~Level(void)
 {
+	_levelData->release();
 	_background->release();
 
 	for(std::vector<Lane *>::iterator it = _lanes.begin(); it != _lanes.end(); ++it) 

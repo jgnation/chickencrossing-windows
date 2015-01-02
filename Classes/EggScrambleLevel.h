@@ -21,7 +21,6 @@ private:
 	cocos2d::CCDictionary * _eggScrambleData;
 public:
 	EggScrambleLevel(cocos2d::CCDictionary * levelData);
-	//~EggScrambleLevel(void);
 };
 
 #endif
