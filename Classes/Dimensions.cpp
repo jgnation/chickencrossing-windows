@@ -22,13 +22,11 @@ float Dimensions::getLaneWidth()
 
 bool Dimensions::moveIsInPlayableArea(CCPoint point, Chicken * chicken)
 {
-	//TODO: this method may belong in Chicken, not in Dimensions.
-	//initialize this only once
 	Size windowSize = CCDirector::sharedDirector()->getWinSize();
 	float chickenWidth = chicken->getSprite()->getBoundingBox().size.width;
 	float laneWidth = Dimensions::getLaneWidth();
-	static CCRect * _playableArea = new CCRect(0, laneWidth, (windowSize.width - chickenWidth), windowSize.height - (laneWidth * 4));
-	if (_playableArea->containsPoint(point))
+	static Rect playableArea(0, laneWidth, (windowSize.width - chickenWidth), windowSize.height - (laneWidth * 4));
+	if (playableArea.containsPoint(point))
 	{
 		return true;
 	}

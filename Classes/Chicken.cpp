@@ -274,6 +274,7 @@ void Chicken::noChickenResurrection(cocos2d::CCNode* sender)
 
 void Chicken::spriteMoveFinished(CCNode* sender)
 {
+	//TODO: I don't think this function is ever called, due to the chicken being killed when hitting the edge of the screen
 	CCSprite *sprite = (CCSprite *)sender;
 	_gameLayer->removeChild(sprite, true);
 }
