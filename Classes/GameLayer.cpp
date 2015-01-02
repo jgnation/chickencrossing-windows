@@ -117,6 +117,7 @@ GameLayer::~GameLayer(void)
 {
 	_chicken->release();
 	_egg->release();
+	delete _level;
 }
 
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
@@ -373,7 +374,8 @@ void GameLayer::loadLevel(int levelNumber)
 
 void GameLayer::loadNextLevel()
 {
-	//I should probably call a method here to clean up dynamically allocated objects, and add a 'you win!' capation
+	//TODO: I should move some stuff from loadLevel to this method
+	delete _level; //delete old level reference
 	this->loadLevel(++_levelNumber);
 }
 

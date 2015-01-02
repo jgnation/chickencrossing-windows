@@ -8,13 +8,20 @@ Level::Level(CCDictionary * levelData)
 	_levelData = levelData;	
 }
 
+Level::~Level(void)
+{
+	_background->release();
+}
+
 /*
 This function was created because it is not good to call virtual functions from within
 a constructor
 */
 void Level::init()
 {
-	_background = new Background(_levelData->valueForKey("Background")->getCString());
+	_background = Background::create(_levelData->valueForKey("Background")->getCString());
+	_background->retain();
+
 	int maxRoadInterval = this->getMaxRoadInterval();
 	int minRoadInterval = this->getMinRoadInterval();
 	int maxWaterInterval = this->getMaxWaterInterval();

@@ -7,8 +7,10 @@
 class Background : public SpriteContainer
 {
 public:
-	Background(std::string backgroundFileName);
+	Background();
 	~Background(void);
+	static Background* create(std::string backgroundFileName);
+	virtual bool init(std::string backgroundFileName);
 };
 
 #endif

@@ -21,7 +21,6 @@ protected:
 	virtual Lane * createNewLane(int laneNumber, Lane::LaneType laneType, int interval, float duration, std::vector<std::string> vehicles) = 0;
 
 	Level(cocos2d::CCDictionary * levelData);
-	//~Level(void);
 private:
 	friend class LevelManager;	//only the LevelManager can instantiate this class
 
@@ -29,6 +28,7 @@ private:
 	std::vector<Lane *> _lanes;
 
 public:
+	~Level(void);
 	void init();
 	Background * getBackground();
 	Lane::LaneType getLaneType(int laneNumber);

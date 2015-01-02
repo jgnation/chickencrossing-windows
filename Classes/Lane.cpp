@@ -17,8 +17,6 @@ Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std:
 	_interval = interval;
 
 	_nextSpawnTime = 0;
-
-	_vehicleFactory = new VehicleFactory();
 }
 
 bool Lane::isTimeToSpawn(float currentTime)
@@ -81,7 +79,8 @@ Vehicle * Lane::getRandomVehicle()
 	int randomIndex = GameFunctions::randomValueBetween(0, _vehicles.size() - 1);
 	std::string vehicle = _vehicles.at(randomIndex);
 
-	return _vehicleFactory->createVehicle(vehicle);
+	VehicleFactory vehicleFactory;
+	return vehicleFactory.createVehicle(vehicle);
 }
 
 int Lane::getSpeed()

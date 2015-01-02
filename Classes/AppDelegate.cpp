@@ -50,7 +50,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 	// initialize director
     auto director = Director::getInstance();
 	auto glview = director->getOpenGLView();
-	    if(!glview) {
+	if(!glview) 
+	{
         glview = GLView::create("Egg Scramble");
         director->setOpenGLView(glview);
     }
@@ -75,13 +76,14 @@ bool AppDelegate::applicationDidFinishLaunching()
     return true;
 }
 
-void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
-    
+void AppDelegate::applicationWillEnterForeground() 
+{
+    Director::getInstance()->startAnimation();    
     SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
 
-void AppDelegate::applicationDidEnterBackground() {
+void AppDelegate::applicationDidEnterBackground() 
+{
     SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 
 	Scene* scene = Director::getInstance()->getRunningScene();

@@ -11,7 +11,6 @@ using namespace cocos2d;
 class Lane
 {
 private:
-	VehicleFactory *_vehicleFactory;
 
 public:
 	enum LaneType { ROAD, WATER, REST, INVALID };
