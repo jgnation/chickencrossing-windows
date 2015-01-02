@@ -15,6 +15,12 @@ LevelManager::LevelManager(LevelFactory * factory, std::string fileName)
 	_numOfLevels = _levels->count();
 }
 
+LevelManager::~LevelManager()
+{
+	delete _levelFactory;
+	_levels->release();
+}
+
 Level * LevelManager::getLevel(int levelNumber)
 {
 	levelNumber = this->mapLevelNumberToLevelPList(levelNumber);

@@ -10,11 +10,12 @@ using namespace cocos2d;
 
 class Level; // <- why is this necessary?  Maybe it has to do with the 'friend' thing
 class LevelFactory;
-class LevelManager
+class LevelManager  : public cocos2d::CCNode
 {
 public:
 	LevelManager(LevelFactory * factory, std::string fileName);
 	~LevelManager();
+	//TODO: create static create method
 
 	Level * getLevel(int levelNumber);
 	int mapLevelNumberToLevelPList(int levelNumber);

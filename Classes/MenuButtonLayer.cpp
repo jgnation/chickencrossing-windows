@@ -182,8 +182,7 @@ void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 	_mainMenu->setVisible(false);
 	_titleImage->setVisible(false);
 
-	LevelSelectLayer* levelSelectLayer = new LevelSelectLayer();
-	levelSelectLayer->init();
+	LevelSelectLayer* levelSelectLayer = LevelSelectLayer::create();
 	this->addChild(levelSelectLayer);
 }
 

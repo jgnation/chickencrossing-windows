@@ -38,14 +38,13 @@ bool MenuLayer::init()
 		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform80kbps.mp3", true);
 		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform.mp3", true);
 
-		MenuButtonLayer * menuButtonLayer = new MenuButtonLayer();
-		menuButtonLayer->init();
+		MenuButtonLayer * menuButtonLayer = MenuButtonLayer::create();
 		this->addChild(menuButtonLayer, 5);	//z position is  on top, chicken is on 1
 
-		LevelManager * _levelManager = new LevelManager(new MainModeLevelFactory(), "mm_levels.plist");
-		int _levelNumber = 1;
-		//this->loadLevel(_levelNumber);
-		_level = _levelManager->getLevel(_levelNumber);
+		LevelManager levelManager(new MainModeLevelFactory(), "mm_levels.plist");
+
+		int levelNumber = 1;
+		_level = levelManager.getLevel(levelNumber);
 		_level->init();
 		this->addChild(_level->getBackground()->getSprite(), 0); //added 5/24
 
@@ -55,6 +54,12 @@ bool MenuLayer::init()
     } while (0);
 
     return bRet;
+}
+
+MenuLayer::~MenuLayer(void)
+{
+	delete _level;
+	//TODO: delete vehicles? lanes?
 }
 
 void MenuLayer::update(float dt) 
