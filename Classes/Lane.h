@@ -12,7 +12,6 @@ class Lane
 {
 private:
 	VehicleFactory *_vehicleFactory;
-	Dimensions * _dimensions;
 
 public:
 	enum LaneType { ROAD, WATER, REST, INVALID };

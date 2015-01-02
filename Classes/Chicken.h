@@ -12,7 +12,6 @@ class Chicken : public SpriteContainer
 private:
 	cocos2d::CCSprite * _deadChickenSprite;
 
-	Dimensions * _dimensions;
 	int _yMoveDistance;
 	int _xMoveDistance;
 	int _speed;

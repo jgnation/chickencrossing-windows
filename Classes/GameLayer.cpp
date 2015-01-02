@@ -77,15 +77,12 @@ bool GameLayer::init()
         CC_BREAK_IF(! CCLayer::init());
 
 		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Complete.mp3", true);
-		//CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(.9);
 
 		this->addKeyboardSupport();
 
 		this->setTouchEnabled(true);
 
 		srand(time(NULL)); //seed the random number generator
-
-		_dimensions = new Dimensions();
 
 		_actionLayer = CCLayer::create();
 		this->addChild(_actionLayer, ACTION_LAYER_POSITION);
@@ -213,7 +210,7 @@ void GameLayer::doUpdate(float dt)
 	}
 
 	//getPositionY is returning a bad value after the chicken dies by running into the side of the wall
-	Lane::LaneType laneType = _level->getLaneType(_dimensions->getLaneNumber(_chicken->getSprite()->getPositionY()));
+	Lane::LaneType laneType = _level->getLaneType(Dimensions::getLaneNumber(_chicken->getSprite()->getPositionY()));
 
 	//check to see if a chicken is jumping on a log or into the water
 	if (laneType == Lane::LaneType::WATER)
@@ -270,7 +267,7 @@ void GameLayer::doUpdate(float dt)
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 		float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
-		float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
+		float y = Dimensions::getLanePixelValue(_level->getRandomValidLaneNumber());
 		_egg->setPosition(x, y);
 
 		//increment the score
@@ -356,7 +353,7 @@ void GameLayer::loadLevel(int levelNumber)
 
 	_egg = new Egg();
 	float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
-	float y = _dimensions->getLanePixelValue(_level->getRandomValidLaneNumber());
+	float y = Dimensions::getLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg->setPosition(x, y);
 	_actionLayer->addChild(_egg->getSprite(), EGG_POSITION);
 

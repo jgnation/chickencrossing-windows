@@ -8,8 +8,6 @@ using namespace cocos2d;
 //or as a static singleton object like CCdirector
 Dimensions::Dimensions(void)
 {
-	_windowSize = CCDirector::sharedDirector()->getWinSize();
-	_laneWidth = _windowSize.height / NUM_OF_LANES;
 }
 
 Dimensions::~Dimensions(void)
@@ -18,15 +16,18 @@ Dimensions::~Dimensions(void)
 
 float Dimensions::getLaneWidth()
 {
-	return _laneWidth;
+	Size windowSize = CCDirector::sharedDirector()->getWinSize();
+	return windowSize.height / NUM_OF_LANES;;
 }
 
 bool Dimensions::moveIsInPlayableArea(CCPoint point, Chicken * chicken)
 {
 	//TODO: this method may belong in Chicken, not in Dimensions.
 	//initialize this only once
-	float width = chicken->getSprite()->getBoundingBox().size.width;
-	static CCRect * _playableArea = new CCRect(0, _laneWidth, (_windowSize.width - width), _windowSize.height - (_laneWidth * 4));
+	Size windowSize = CCDirector::sharedDirector()->getWinSize();
+	float chickenWidth = chicken->getSprite()->getBoundingBox().size.width;
+	float laneWidth = Dimensions::getLaneWidth();
+	static CCRect * _playableArea = new CCRect(0, laneWidth, (windowSize.width - chickenWidth), windowSize.height - (laneWidth * 4));
 	if (_playableArea->containsPoint(point))
 	{
 		return true;
@@ -34,22 +35,17 @@ bool Dimensions::moveIsInPlayableArea(CCPoint point, Chicken * chicken)
 	return false;
 }
 
-float Dimensions::getCenterOfLanePixelValue(int laneNumber)
-{
-	//I no longer have to use this method after setting the vehicle sprite's anchor points to (0,0)
-	float lanePosition = (_laneWidth) * laneNumber;
-	return lanePosition - (_laneWidth / 2); //return the center of the lane
-}
-
 float Dimensions::getLanePixelValue(int laneNumber)
 {
-	float lanePosition = (_laneWidth) * laneNumber;
-	return lanePosition - (_laneWidth); //return the center of the lane
+	float laneWidth = Dimensions::getLaneWidth();
+	float lanePosition = (laneWidth) * laneNumber;
+	return lanePosition - (laneWidth); //return the center of the lane
 }
 
 int Dimensions::getLaneNumber(float pixelPosition)
 {
-	float lane = pixelPosition / _laneWidth; //this will return the lane in indexes from 0
+	float laneWidth = Dimensions::getLaneWidth();
+	float lane = pixelPosition / laneWidth; //this will return the lane in indexes from 0
 	lane++; //add 1 to get the lane in natural index (from 1)
 	int laneNumber = static_cast <int> (std::floor(lane)); //is this fragile?
 	return laneNumber;

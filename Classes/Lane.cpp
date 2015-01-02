@@ -19,7 +19,6 @@ Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std:
 	_nextSpawnTime = 0;
 
 	_vehicleFactory = new VehicleFactory();
-	_dimensions = new Dimensions();
 }
 
 bool Lane::isTimeToSpawn(float currentTime)
@@ -42,7 +41,7 @@ Vehicle * Lane::spawnVehicle()
 
 	Vehicle * vehicle = this->getRandomVehicle();
 	CCSprite * vehicleSprite = vehicle->getSprite();
-	float y = _dimensions->getLanePixelValue(_laneNumber);
+	float y = Dimensions::getLanePixelValue(_laneNumber);
 	float vehicleWidth = vehicleSprite->getBoundingBox().size.width;
 
 	if (_laneNumber % 2 == 0) //move to the left

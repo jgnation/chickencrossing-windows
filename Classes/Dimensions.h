@@ -7,19 +7,18 @@ class Chicken; //foward declaration
 class Dimensions
 {
 private:
-	static const int NUM_OF_LANES = 16;
-	cocos2d::CCSize _windowSize;
-
-	float _laneWidth;
-public:
 	Dimensions(void);
 	~Dimensions(void);
 
-	float getLaneWidth();
-	bool moveIsInPlayableArea(cocos2d::CCPoint, Chicken * chicken);
-	float getLanePixelValue(int laneNumber);
-	float getCenterOfLanePixelValue(int laneNumber);
-	int getLaneNumber(float pixelPosition);
+	static const int NUM_OF_LANES = 16;
+public:
+	//Dimensions(void);
+	//~Dimensions(void);
+
+	static float getLaneWidth();
+	static bool moveIsInPlayableArea(cocos2d::CCPoint, Chicken * chicken);
+	static float getLanePixelValue(int laneNumber);
+	static int getLaneNumber(float pixelPosition);
 };
 
 #endif

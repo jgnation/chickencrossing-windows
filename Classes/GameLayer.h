@@ -17,7 +17,6 @@ class PauseLayer;
 class GameLayer : public cocos2d::CCLayer
 {
 private:
-	Dimensions * _dimensions;
 	int _nextVehicle;
 	float _nextVehicleSpawn;
 	static bool _isMoving;

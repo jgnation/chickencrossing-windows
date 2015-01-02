@@ -11,7 +11,6 @@ Chicken::Chicken(GameLayer * gameLayer)
 	_gameLayer = gameLayer;
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
 
-	_dimensions = new Dimensions();
 	_yMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
 	_xMoveDistance = _yMoveDistance; //TODO: scale this value?
 	//_xMoveDistance = windowSize.width / 10;
@@ -33,7 +32,7 @@ Chicken::Chicken(GameLayer * gameLayer)
 	//setContentSize changes the size of the 'bounding box' around the image
 	//_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
 
-	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
+	_sprite->setPosition(ccp(windowSize.width / 2, Dimensions::getLanePixelValue(2)));
 
 	_speed = .1;
 	//_speed = 1;
@@ -81,7 +80,7 @@ CCSprite * Chicken::getSprite()
 void Chicken::moveUp()
 {
 	Point point = ccp(_sprite->getPositionX(), _sprite->getPositionY() + _yMoveDistance);
-	if (_dimensions->moveIsInPlayableArea(point, this))
+	if (Dimensions::moveIsInPlayableArea(point, this))
 	{
 		move(point);
 	}
@@ -95,7 +94,7 @@ void Chicken::moveUp()
 void Chicken::moveDown()
 {
 	Point point = ccp(_sprite->getPositionX(), _sprite->getPositionY() - _yMoveDistance);
-	if (_dimensions->moveIsInPlayableArea(point, this))
+	if (Dimensions::moveIsInPlayableArea(point, this))
 	{
 		move(point);
 	}
@@ -109,7 +108,7 @@ void Chicken::moveDown()
 void Chicken::moveLeft()
 {
 	Point point = ccp(_sprite->getPositionX() - _xMoveDistance, _sprite->getPositionY());
-	if (_dimensions->moveIsInPlayableArea(point, this))
+	if (Dimensions::moveIsInPlayableArea(point, this))
 	{
 		move(point);
 		//if moving left and not in playable area, I'm pretty sure I can just set the chicken at the left edge of the screen.
@@ -125,7 +124,7 @@ void Chicken::moveLeft()
 void Chicken::moveRight()
 {
 	Point point = ccp(_sprite->getPositionX() + _xMoveDistance, _sprite->getPositionY());
-	if (_dimensions->moveIsInPlayableArea(point, this))
+	if (Dimensions::moveIsInPlayableArea(point, this))
 	{
 		move(point);
 	}
@@ -219,7 +218,7 @@ void Chicken::reset()
 	_isMoving = false;
 
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	_sprite->setPosition(ccp(windowSize.width / 2, _dimensions->getLanePixelValue(2)));
+	_sprite->setPosition(ccp(windowSize.width / 2, Dimensions::getLanePixelValue(2)));
 }
 
 void Chicken::die(bool resurrect)
