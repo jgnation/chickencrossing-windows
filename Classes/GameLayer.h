@@ -28,7 +28,6 @@ private:
 	cocos2d::CCLayer * _actionLayer;
 	Chicken * _chicken;
 	Egg * _egg;
-	cocos2d::CCArray * vehicleList2;
 
 	void addKeyboardSupport();
 
@@ -55,6 +54,8 @@ protected:
 	HudLayer * _hudLayer;
 	PauseLayer * _pauseLayer;
 public:
+	~GameLayer(void);
+
 	int _score;
 	int _numEggsToCollect;
 

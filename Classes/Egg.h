@@ -11,6 +11,8 @@ private:
 public:
 	Egg(void);
 	~Egg(void);
+	CREATE_FUNC(Egg);
+	virtual bool init();
 	void setPosition(float x, float y);
 };
 

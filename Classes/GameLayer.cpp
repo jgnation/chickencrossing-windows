@@ -89,18 +89,19 @@ bool GameLayer::init()
 
 		_chicken = new Chicken(this);
 
-		vehicleList2 = new CCArray();
-
 		_score = 0;
 		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
 
-		this->loadLevel(_levelNumber);
+		_egg = Egg::create();
+		_egg->retain();
+		_actionLayer->addChild(_egg->getSprite(), EGG_POSITION);
+
+		this->loadLevel(_levelNumber);		
 
 		_lives = 5;
 		_isGameOver = false;
         _isPaused = false;
-		_pauseLayer = new PauseLayer();
-		_pauseLayer->init();
+		_pauseLayer = PauseLayer::create();
 		this->addChild(_pauseLayer, PAUSE_LAYER_POSITION);
 
 		this->scheduleUpdate();
@@ -109,6 +110,11 @@ bool GameLayer::init()
     } while (0);
 
     return bRet;
+}
+
+GameLayer::~GameLayer(void)
+{
+	_egg->release();
 }
 
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)
@@ -266,7 +272,7 @@ void GameLayer::doUpdate(float dt)
 
 		//move the egg
 		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-		float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
+		float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getBoundingBox().size.width));
 		float y = Dimensions::getLanePixelValue(_level->getRandomValidLaneNumber());
 		_egg->setPosition(x, y);
 
@@ -337,7 +343,15 @@ void GameLayer::resetChicken()
 
 void GameLayer::loadLevel(int levelNumber)
 {
-	_actionLayer->removeAllChildrenWithCleanup(true);
+	for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		_actionLayer->removeChild(vehicle->getSprite(), true);
+		//vehicle->finishMovement(); //this isn't necessary because of the _actionLayer->removeChild(vehicle, true) call
+		//TODO: should I remove the background sprite as well?
+		vehicle->release();
+	}
+	_vehicleList.clear(); 
 
 	this->resetChicken();
 
@@ -349,23 +363,11 @@ void GameLayer::loadLevel(int levelNumber)
 	_level->init();
 	_actionLayer->addChild(_level->getBackground()->getSprite(), BACKGROUND_POSITION);
 
+	//set a new egg position
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-
-	_egg = new Egg();
-	float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getContentSize().width));
+	float x = GameFunctions::randomValueBetween((float)0, (windowSize.width - _egg->getSprite()->getBoundingBox().size.width));
 	float y = Dimensions::getLanePixelValue(_level->getRandomValidLaneNumber());
 	_egg->setPosition(x, y);
-	_actionLayer->addChild(_egg->getSprite(), EGG_POSITION);
-
-	//this fixes the bug where at the beginning of the second level, if the chicken moved
-	//up quickly, it would randomly die.
-	for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
-	{
-		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
-		//vehicle->finishMovement(); //this isn't necessary because of the _actionLayer->removeAllChildrenWithCleanup(true) call
-		vehicle->release();
-	}
-	_vehicleList.clear(); 
 }
 
 void GameLayer::loadNextLevel()
