@@ -25,8 +25,9 @@ private:
 	void createDeadChickenSprite();
 public:
 	Chicken(void);
-	Chicken(GameLayer* gameScene);
 	~Chicken(void);
+	static Chicken* create(GameLayer* gameScene);
+	virtual bool init(GameLayer* gameScene);
 
 	cocos2d::CCSprite * getSprite();
 	void moveUp();

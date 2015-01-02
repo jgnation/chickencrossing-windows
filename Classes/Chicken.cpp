@@ -3,47 +3,65 @@
 
 using namespace cocos2d;
 
-//constructor
-Chicken::Chicken(void) { }
-
-Chicken::Chicken(GameLayer * gameLayer)
+Chicken* Chicken::create(GameLayer * gameLayer)
 {
-	_gameLayer = gameLayer;
-	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-
-	_yMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
-	_xMoveDistance = _yMoveDistance; //TODO: scale this value?
-	//_xMoveDistance = windowSize.width / 10;
-
-	float originalWidth = 79;
-	float originalHeight = 98;
-	_sprite = CCSprite::create("chicken_xxsmall.png", CCRectMake(0, 0, originalWidth, originalHeight));
-	_sprite->setAnchorPoint(ccp(0,0));
-
-	float scaleRatioY = (windowSize.height / 17) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
-	//setScale only changes the size of the image, not the 'bounding box'
-	_sprite->setScale(scaleRatioY);
-
-	float scaleRatioX = (windowSize.width / 12) / _sprite->getContentSize().width;
-	_sprite->setScaleX(scaleRatioX);
-
-	float scaledWidth = originalWidth * scaleRatioX;
-	float scaledHeight = originalHeight * scaleRatioY;
-	//setContentSize changes the size of the 'bounding box' around the image
-	//_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
-
-	_sprite->setPosition(ccp(windowSize.width / 2, Dimensions::getLanePixelValue(2)));
-
-	_speed = .1;
-	//_speed = 1;
-	_isRiding = false;
-	_isMoving = false;
-	_logBeingRidden = NULL;
-
-	gameLayer->addChild(_sprite, 1);
-
-	this->createDeadChickenSprite();
+    Chicken *pGOL = new Chicken();
+    if (pGOL && pGOL->init(gameLayer)) {
+        pGOL->autorelease();
+        return pGOL;
+    }
+    CC_SAFE_DELETE(pGOL);
+    return NULL;
 }
+
+bool Chicken::init(GameLayer * gameLayer)
+{
+    bool bRet = false;
+    do 
+    {
+		_gameLayer = gameLayer;
+		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
+		_yMoveDistance = windowSize.height / 16; //16 because there are 16 lanes on the background image
+		_xMoveDistance = _yMoveDistance; //TODO: scale this value?
+		//_xMoveDistance = windowSize.width / 10;
+
+		float originalWidth = 79;
+		float originalHeight = 98;
+		_sprite = CCSprite::create("chicken_xxsmall.png", CCRectMake(0, 0, originalWidth, originalHeight));
+		_sprite->setAnchorPoint(ccp(0,0));
+
+		float scaleRatioY = (windowSize.height / 17) / _sprite->getContentSize().height; //20 because I want the image to be quite a bit smaller than the lane.
+		//setScale only changes the size of the image, not the 'bounding box'
+		_sprite->setScale(scaleRatioY);
+
+		float scaleRatioX = (windowSize.width / 12) / _sprite->getContentSize().width;
+		_sprite->setScaleX(scaleRatioX);
+
+		float scaledWidth = originalWidth * scaleRatioX;
+		float scaledHeight = originalHeight * scaleRatioY;
+		//setContentSize changes the size of the 'bounding box' around the image
+		//_sprite->setContentSize(CCSize(scaledWidth, scaledHeight));
+
+		_sprite->setPosition(ccp(windowSize.width / 2, Dimensions::getLanePixelValue(2)));
+
+		_speed = .1;
+		//_speed = 1;
+		_isRiding = false;
+		_isMoving = false;
+		_logBeingRidden = NULL;
+
+		gameLayer->addChild(_sprite, 1);
+
+		this->createDeadChickenSprite();
+
+		bRet = true;
+    } while (0);
+
+    return bRet;
+}
+
+Chicken::Chicken(void) { }
 
 Chicken::~Chicken(void) { }
 

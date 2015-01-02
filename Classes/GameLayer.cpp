@@ -87,7 +87,8 @@ bool GameLayer::init()
 		_actionLayer = CCLayer::create();
 		this->addChild(_actionLayer, ACTION_LAYER_POSITION);
 
-		_chicken = new Chicken(this);
+		_chicken = Chicken::create(this);
+		_chicken->retain();
 
 		_score = 0;
 		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
@@ -114,6 +115,7 @@ bool GameLayer::init()
 
 GameLayer::~GameLayer(void)
 {
+	_chicken->release();
 	_egg->release();
 }
 
