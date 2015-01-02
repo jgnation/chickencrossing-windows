@@ -39,7 +39,8 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
--contact music author
+-pay music author
+-turn off debugging mode for ads and appirater
 -tinker with speeds/intervals (may need to make vehicles travel further off the screen)
 	-after making vehicles travel further to fix clipping, maybe I should've just reduced speed (rather than decreasing interval)
 -admob ads not showing on old phone?
