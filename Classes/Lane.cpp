@@ -19,6 +19,10 @@ Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std:
 	_nextSpawnTime = 0;
 }
 
+Lane::~Lane(void)
+{
+}
+
 bool Lane::isTimeToSpawn(float currentTime)
 {
 	if (_laneType == LaneType::WATER || _laneType == LaneType::ROAD)

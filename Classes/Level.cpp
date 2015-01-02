@@ -11,6 +11,13 @@ Level::Level(CCDictionary * levelData)
 Level::~Level(void)
 {
 	_background->release();
+
+	for(std::vector<Lane *>::iterator it = _lanes.begin(); it != _lanes.end(); ++it) 
+	{
+		Lane * lane = dynamic_cast<Lane *>(*it);
+		delete lane;
+	}
+	_lanes.clear();
 }
 
 /*
