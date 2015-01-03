@@ -6,6 +6,13 @@ EggScrambleLevel::EggScrambleLevel(CCDictionary * levelData) : Level(levelData)
 	_eggScrambleData = (CCDictionary*) levelData->objectForKey("EggScramble");
 }
 
+EggScrambleLevel::~EggScrambleLevel(void)
+{
+	//TODO: for some reason, releasing this causes a runtime heap deallocation error
+	//Maybe the _level->release() in LevelManager takes care of this?
+	//_eggScrambleData->release();
+}
+
 int EggScrambleLevel::getMaxRoadInterval()
 {
 	return _eggScrambleData->valueForKey("MaxRoadInterval")->intValue();

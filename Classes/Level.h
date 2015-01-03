@@ -28,7 +28,7 @@ private:
 	std::vector<Lane *> _lanes;
 
 public:
-	~Level(void);
+	virtual ~Level(void);
 	void init();
 	Background * getBackground();
 	Lane::LaneType getLaneType(int laneNumber);

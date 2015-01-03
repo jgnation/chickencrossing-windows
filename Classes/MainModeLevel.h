@@ -20,7 +20,8 @@ private:
 	
 	cocos2d::CCDictionary * _mainModeData;
 public:
-	MainModeLevel(cocos2d::CCDictionary * levelData);	
+	MainModeLevel(cocos2d::CCDictionary * levelData);
+	~MainModeLevel(void);
 };
 
 #endif

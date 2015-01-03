@@ -5,6 +5,13 @@ MainModeLevel::MainModeLevel(CCDictionary * levelData) : Level(levelData)
 	_mainModeData = (CCDictionary*) levelData->objectForKey("MainMode");
 }
 
+MainModeLevel::~MainModeLevel(void)
+{
+	//TODO: for some reason, releasing this causes a runtime heap deallocation error
+	//Maybe the _level->release() in LevelManager takes care of this?
+	//_mainModeData->release();
+}
+
 int MainModeLevel::getMaxRoadInterval()
 {
 	return _mainModeData->valueForKey("MaxRoadInterval")->intValue();
