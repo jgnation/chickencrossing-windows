@@ -91,7 +91,7 @@ bool GameLayer::init()
 		_chicken->retain();
 
 		_score = 0;
-		this->addChild(_hudLayer, HUD_LAYER_POSITION);	//z position is  on top, chicken is on 1
+
 
 		_egg = Egg::create();
 		_egg->retain();
@@ -118,6 +118,7 @@ GameLayer::~GameLayer(void)
 	_chicken->release();
 	_egg->release();
 	delete _level;
+	delete _levelManager;
 }
 
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)

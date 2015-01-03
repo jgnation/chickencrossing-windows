@@ -66,9 +66,9 @@ bool EggScrambleModeLayer::init(int levelNumber)
 		std::stringstream topScoreStream;
 		topScoreStream << "esm_" << _levelNumber << "place_" << 1;
 		int topScore = CCUserDefault::sharedUserDefault()->getIntegerForKey(topScoreStream.str().c_str());
-		_hudLayer = new HudLayer();
-		_hudLayer->init();
+		_hudLayer = HudLayer::create();
 		_hudLayer->setHighScore(topScore);
+		this->addChild(_hudLayer, HUD_LAYER_POSITION);
 
         CC_BREAK_IF(! GameLayer::init());
 

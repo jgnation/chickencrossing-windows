@@ -31,6 +31,15 @@ private:
 
 	void addKeyboardSupport();
 
+protected:
+	int _levelNumber;
+	std::vector<Vehicle *> _vehicleList;
+	Level * _level;
+	LevelManager * _levelManager;
+	int calculateNextLevelScore(int levelNumber);
+	HudLayer * _hudLayer;
+	PauseLayer * _pauseLayer;
+
 	enum ActionLayerPositions {
 		BACKGROUND_POSITION = 0, 
 		VEHICLES_POSITION = 1, 
@@ -44,15 +53,6 @@ private:
 		HUD_LAYER_POSITION = 4,
 		PAUSE_LAYER_POSITION = 5
 	};
-
-protected:
-	int _levelNumber;
-	std::vector<Vehicle *> _vehicleList;
-	Level * _level;
-	LevelManager * _levelManager;
-	int calculateNextLevelScore(int levelNumber);
-	HudLayer * _hudLayer;
-	PauseLayer * _pauseLayer;
 public:
 	~GameLayer(void);
 

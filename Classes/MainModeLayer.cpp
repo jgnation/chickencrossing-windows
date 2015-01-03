@@ -49,9 +49,9 @@ bool MainModeLayer::init()
 		_nextLevelScore = calculateNextLevelScore(_levelNumber);
 
 		int topScore = CCUserDefault::sharedUserDefault()->getIntegerForKey("mm_place_1");
-		_hudLayer = new HudLayer();
-		_hudLayer->init();
+		_hudLayer = HudLayer::create();
 		_hudLayer->setHighScore(topScore);
+		this->addChild(_hudLayer, HUD_LAYER_POSITION);
 
         CC_BREAK_IF(! GameLayer::init());
 
