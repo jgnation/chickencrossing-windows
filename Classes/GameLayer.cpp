@@ -34,38 +34,6 @@ GameLayer
 	gameoverlayer
 */
 
-/*CCScene* GameLayer::scene()
-{
-    CCScene * scene = NULL;
-    do 
-    {
-        // 'scene' is an autorelease object
-        scene = CCScene::create();
-        CC_BREAK_IF(! scene);
-
-        // 'layer' is an autorelease object
-        GameLayer *layer = GameLayer::create();
-        CC_BREAK_IF(! layer);
-
-        // add layer as a child to scene
-        scene->addChild(layer);
-    } while (0);
-
-    // return the scene
-    return scene;
-}*/
-
-/*GameLayer* GameLayer::create(GameMode* mode)
-{
-    GameLayer *pGOL = new GameLayer();
-    if (pGOL && pGOL->init(mode)) {
-        pGOL->autorelease();
-        return pGOL;
-    }
-    CC_SAFE_DELETE(pGOL);
-    return NULL;
-}*/
-
 //don't do initialization logic in the constructor, instead, do it here
 bool GameLayer::init()
 {
@@ -91,7 +59,6 @@ bool GameLayer::init()
 		_chicken->retain();
 
 		_score = 0;
-
 
 		_egg = Egg::create();
 		_egg->retain();

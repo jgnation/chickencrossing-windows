@@ -125,28 +125,24 @@ void HudLayer::createLevelLabel()
 
 void HudLayer::setHighScore(int score)
 {
-	CCString * scoreString = new CCString();
-    scoreString->initWithFormat("High Score: %d", score);
+	CCString * scoreString = CCString::createWithFormat("High Score: %d", score);
     _highScoreLabel->setString(scoreString->getCString());
 }
  
 void HudLayer::setScore(int score)
 {
-    CCString * scoreString = new CCString();
-    scoreString->initWithFormat("Score: %d", score);
+	CCString * scoreString = CCString::createWithFormat("Score: %d", score);
     _scoreLabel->setString(scoreString->getCString());
 }
 
 void HudLayer::setLives(int lives)
 {
-	CCString * livesString = new CCString();
-    livesString->initWithFormat("Lives: %d", lives);
+	CCString * livesString = CCString::createWithFormat("Lives: %d", lives);
     _livesLabel->setString(livesString->getCString());
 }
 
 void HudLayer::setLevel(int level)
 {
-	CCString * levelString = new CCString();
-    levelString->initWithFormat("Level %d", level);
+	CCString * levelString = CCString::createWithFormat("Level %d", level);
     _levelLabel->setString(levelString->getCString());
 }
