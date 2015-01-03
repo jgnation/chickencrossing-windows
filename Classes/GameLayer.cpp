@@ -86,6 +86,13 @@ GameLayer::~GameLayer(void)
 	_egg->release();
 	delete _level;
 	delete _levelManager;
+
+	for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		vehicle->release();
+	}
+	_vehicleList.clear();
 }
 
 void GameLayer::onTouchesEnded(const std::vector<Touch*>& touches, cocos2d::Event *unused_event)

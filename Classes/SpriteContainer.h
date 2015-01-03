@@ -3,7 +3,6 @@
 
 #include "cocos2d.h"
 
-//class SpriteContainer : public cocos2d::CCObject //should this be CCObject or CCNode?
 class SpriteContainer : public cocos2d::CCNode
 {
 protected:

@@ -9,7 +9,7 @@ EggScrambleLevel::EggScrambleLevel(CCDictionary * levelData) : Level(levelData)
 EggScrambleLevel::~EggScrambleLevel(void)
 {
 	//TODO: for some reason, releasing this causes a runtime heap deallocation error
-	//Maybe the _level->release() in LevelManager takes care of this?
+	//Maybe the _levelData->release() in Level takes care of this?
 	//_eggScrambleData->release();
 }
 

@@ -35,7 +35,6 @@ bool MenuLayer::init()
     bool bRet = false;
     do 
     {
-		//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform80kbps.mp3", true);
 		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Platform.mp3", true);
 
 		MenuButtonLayer * menuButtonLayer = MenuButtonLayer::create();
@@ -59,7 +58,13 @@ bool MenuLayer::init()
 MenuLayer::~MenuLayer(void)
 {
 	delete _level;
-	//TODO: delete vehicles? lanes?
+
+	for(std::vector<Vehicle *>::iterator it = _vehicleList.begin(); it != _vehicleList.end(); ++it) 
+	{
+		Vehicle * vehicle = dynamic_cast<Vehicle *>(*it);
+		vehicle->release();
+	}
+	_vehicleList.clear(); 
 }
 
 void MenuLayer::update(float dt) 
