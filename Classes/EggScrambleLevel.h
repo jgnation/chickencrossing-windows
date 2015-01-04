@@ -8,12 +8,14 @@
 class EggScrambleLevel : public Level
 {
 protected:
-		int getMaxRoadInterval();
+	int getMaxRoadInterval();
 	int getMinRoadInterval();
 	int getMinWaterInterval();
 	int getMaxWaterInterval();
-	float getMinStartDuration();
-	float getMaxStartDuration();
+	float getMinStartDurationRoad();
+	float getMaxStartDurationRoad();
+	float getMinStartDurationWater();
+	float getMaxStartDurationWater();
 	Lane * createNewLane(int laneNumber, Lane::LaneType laneType, int interval, float duration, std::vector<std::string> vehicles);
 private:
 

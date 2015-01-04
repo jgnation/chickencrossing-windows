@@ -34,8 +34,10 @@ void Level::init()
 	int minRoadInterval = this->getMinRoadInterval();
 	int maxWaterInterval = this->getMaxWaterInterval();
 	int minWaterInterval = this->getMinWaterInterval();
-	float minStartDuration = this->getMinStartDuration();
-	float maxStartDuration = this->getMaxStartDuration();
+	float minStartDurationRoad = this->getMinStartDurationRoad();
+	float maxStartDurationRoad = this->getMaxStartDurationRoad();
+	float minStartDurationWater = this->getMinStartDurationWater();
+	float maxStartDurationWater = this->getMaxStartDurationWater();
 
 	CCArray * lanes = (CCArray *) _levelData->objectForKey("Lanes");
 
@@ -55,7 +57,14 @@ void Level::init()
 		else
 			interval = 0;
 
-		float duration = GameFunctions::randomValueBetween(minStartDuration, maxStartDuration);
+		float duration;
+		if (laneType == Lane::LaneType::ROAD)
+			duration = GameFunctions::randomValueBetween(minStartDurationRoad, maxStartDurationRoad);
+		else if (laneType == Lane::LaneType::WATER)
+			duration = GameFunctions::randomValueBetween(minStartDurationWater, maxStartDurationWater);
+		else
+			duration = 0;
+
 
 		CCArray * vehicles = (CCArray *) lane->objectForKey("Vehicles");
 		CCObject *iter;

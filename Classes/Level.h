@@ -16,8 +16,10 @@ protected:
 	virtual int getMinRoadInterval() = 0;
 	virtual int getMinWaterInterval() = 0;
 	virtual int getMaxWaterInterval() = 0;
-	virtual float getMinStartDuration() = 0;
-	virtual float getMaxStartDuration() = 0;
+	virtual float getMinStartDurationRoad() = 0;
+	virtual float getMaxStartDurationRoad() = 0;
+	virtual float getMinStartDurationWater() = 0;
+	virtual float getMaxStartDurationWater() = 0;
 	virtual Lane * createNewLane(int laneNumber, Lane::LaneType laneType, int interval, float duration, std::vector<std::string> vehicles) = 0;
 
 	Level(cocos2d::CCDictionary * levelData);

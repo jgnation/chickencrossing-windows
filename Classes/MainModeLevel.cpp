@@ -32,14 +32,24 @@ int MainModeLevel::getMaxWaterInterval()
 	return _mainModeData->valueForKey("MaxWaterInterval")->intValue();
 }
 
-float MainModeLevel::getMinStartDuration()
+float MainModeLevel::getMinStartDurationRoad()
 {
-	return _mainModeData->valueForKey("MinStartDuration")->floatValue();
+	return _mainModeData->valueForKey("MinStartDurationRoad")->floatValue();
 }
 
-float MainModeLevel::getMaxStartDuration()
+float MainModeLevel::getMaxStartDurationRoad()
 {
-	return _mainModeData->valueForKey("MaxStartDuration")->floatValue();
+	return _mainModeData->valueForKey("MaxStartDurationRoad")->floatValue();
+}
+
+float MainModeLevel::getMinStartDurationWater()
+{
+	return _mainModeData->valueForKey("MinStartDurationWater")->floatValue();
+}
+
+float MainModeLevel::getMaxStartDurationWater()
+{
+	return _mainModeData->valueForKey("MaxStartDurationWater")->floatValue();
 }
 
 Lane * MainModeLevel::createNewLane(int laneNumber, Lane::LaneType laneType, int interval, float duration, std::vector<std::string> vehicles)

@@ -16,9 +16,13 @@
       <string>5500</string>
       <key>MinWaterInterval</key>
       <string>3500</string>
-      <key>MinStartDuration</key>
+      <key>MinStartDurationRoad</key>
       <string>9.0</string>
-      <key>MaxStartDuration</key>
+      <key>MaxStartDurationRoad</key>
+      <string>12.0</string>
+      <key>MinStartDurationWater</key>
+      <string>9.0</string>
+      <key>MaxStartDurationWater</key>
       <string>12.0</string>
       <key>MaxDuration</key>
       <string>12.0</string>

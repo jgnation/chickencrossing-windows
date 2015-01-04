@@ -33,14 +33,24 @@ int EggScrambleLevel::getMaxWaterInterval()
 	return _eggScrambleData->valueForKey("MaxWaterInterval")->intValue();
 }
 
-float EggScrambleLevel::getMinStartDuration()
+float EggScrambleLevel::getMinStartDurationRoad()
 {
-	return _eggScrambleData->valueForKey("MinStartDuration")->floatValue();
+	return _eggScrambleData->valueForKey("MinStartDurationRoad")->floatValue();
 }
 
-float EggScrambleLevel::getMaxStartDuration()
+float EggScrambleLevel::getMaxStartDurationRoad()
 {
-	return _eggScrambleData->valueForKey("MaxStartDuration")->floatValue();
+	return _eggScrambleData->valueForKey("MaxStartDurationRoad")->floatValue();
+}
+
+float EggScrambleLevel::getMinStartDurationWater()
+{
+	return _eggScrambleData->valueForKey("MinStartDurationWater")->floatValue();
+}
+
+float EggScrambleLevel::getMaxStartDurationWater()
+{
+	return _eggScrambleData->valueForKey("MaxStartDurationWater")->floatValue();
 }
 
 Lane * EggScrambleLevel::createNewLane(int laneNumber, Lane::LaneType laneType, int interval, float duration, std::vector<std::string> vehicles)
