@@ -4,6 +4,7 @@
 #include "MainModeLayer.h"
 #include "SimpleAudioEngine.h"
 #include "2d/CCClippingNode.h"
+#include "PurchaseHelper.h"
 
 using namespace cocos2d;
  
@@ -32,6 +33,7 @@ bool MenuButtonLayer::init()
 		CCMenuItemImage* eggScrambleImage = this->createEggScrambleButton();
 		CCMenuItemImage* instructionsImage = this->createInstructionsButton();
 		CCMenuItemImage* aboutImage = this->createAboutButton();
+		CCMenuItemImage* purchaseImage = this->createPurchaseButton();
 		_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, instructionsImage, aboutImage, NULL);
 		_mainMenu->setPosition(CCPointZero);
 		this->addChild(_mainMenu);
@@ -186,6 +188,11 @@ void MenuButtonLayer::eggScrambleCallback(CCObject* pSender)
 	this->addChild(levelSelectLayer);
 }
 
+void MenuButtonLayer::purchaseCallback(CCObject* pSender)
+{
+	PurchaseHelper::makePurchase();
+}
+
 void MenuButtonLayer::aboutCallback(CCObject* pSender)
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
@@ -323,6 +330,25 @@ CCMenuItemImage* MenuButtonLayer::createAboutButton()
 	aboutImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .2));
 
 	return aboutImage;
+}
+
+CCMenuItemImage* MenuButtonLayer::createPurchaseButton()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 576;
+	float originalHeight = 144;
+
+	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
+		"about_orange.png",	//TODO: change this image!
+		"about_yellow.png",
+		this,
+		menu_selector(MenuButtonLayer::purchaseCallback));
+
+	float scaleRatio = (windowSize.width *.5) / purchaseImage->getContentSize().width;
+	purchaseImage->setScale(scaleRatio);
+	purchaseImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .1));
+
+	return purchaseImage;
 }
 
 CCMenuItemImage* MenuButtonLayer::createInstructionsExitButton()

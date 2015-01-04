@@ -31,6 +31,7 @@ public:
 	void aboutExitCallback(CCObject* pSender);
 	void instructionsCallback(CCObject* pSender);
 	void instructionsExitCallback(CCObject* pSender);
+	void purchaseCallback(CCObject* pSender);
  
 	CCMenuItemImage* createStartGameButton();
 	CCMenuItemImage* createEggScrambleButton();
@@ -39,6 +40,7 @@ public:
 	CCMenuItemImage* createInstructionsButton();
 	CCMenuItemImage* createInstructionsExitButton();
 	CCMenuItemImage* createJGNationLogo();
+	CCMenuItemImage* createPurchaseButton();
 
 	void createAboutScreen();
 	void createAboutScreenInfo();

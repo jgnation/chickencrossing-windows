@@ -154,6 +154,14 @@ public class AppActivity extends Cocos2dxActivity {
     		}
     	});
     }
+    
+    public static void makePurchase() {
+    	
+    }
+    
+    public static void isPremium() {
+    	
+    }
 
 	@Override
 	protected void onResume() {
