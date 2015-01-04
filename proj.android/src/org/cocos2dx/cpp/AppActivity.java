@@ -37,6 +37,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -55,10 +56,55 @@ public class AppActivity extends Cocos2dxActivity {
 	private static final String AD_UNIT_ID_INTERSTITIAL = "ca-app-pub-8133410011148346/9374468716";	
 	private static AppActivity _appActivity;
 	private static InterstitialAd interstitial;
+	private static IabHelper mHelper;
+	private static IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener;
+	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
+	private boolean isPremium;
+	private String SKU_PREMIUM = "blah";
 
     @Override
 	protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
+    	isPremium = false;
+    	isPremium();
+    	
+    	//TODO: check out sample project for tips on how to compute/hide this value rather than store it literally
+    	String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqi7eaTzatZp2aUpbzH8LN3R6R1HeVkap4NyPguST0JuBHZCIBWx0Z/IWy8XgP1ikL+Hrz9by+xXp+TUqrtpRD49hII5LASZ1fBiTu3qh12QvjuJjEMTYFBdVVH/2UXGHNA18Ei6lAbx8yJBEDhGPeyNqPetnArJwJb+D/79MRdUtOHRBqH6kkJe3stHlykyhmwpi8ZcTEVw1wzbuBGNSqCEDd0fmJ79w7jZYY7DT3/6YpRPaOe2p+/FezPrUlKDI9o/y9uKEtXivotoy3KukryeTlHIoMLJEdgnTbDGZckK41DRlpUpH0qkG/tiDPqEkcalSbKJhqbctroJm6QF7yQIDAQAB";
+    	mHelper = new IabHelper(this, base64EncodedPublicKey);
+    	mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+    		public void onIabSetupFinished(IabResult result) {
+    			if (!result.isSuccess()) {
+    				// Oh noes, there was a problem.
+    				Log.d(TAG, "Problem setting up In-app Billing: " + result);
+    			}
+    			Log.d(TAG, "In-app Billing successfully set up.");
+    			// Hooray, IAB is fully set up!
+			}
+		});
+    	
+    	mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+    		public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+    			if (result.isFailure()) {
+    				Log.d(TAG, "Error purchasing: " + result);
+    				return;
+    			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
+    				// give user access to premium content and update the UI
+    			}
+    		}
+    	};
+    	
+		mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
+			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+				if (result.isFailure()) {
+					// handle error here
+				}
+				else {
+					// does the user have the premium upgrade?
+					isPremium = inventory.hasPurchase(SKU_PREMIUM);        
+					// update UI accordingly
+				}
+			}
+    	};
     	
     	setupBannerAd();
         setupInterstitial();
@@ -155,12 +201,14 @@ public class AppActivity extends Cocos2dxActivity {
     	});
     }
     
+    //maybe this shouldn't be static?
     public static void makePurchase() {
-    	
+    	//call must be made on main thread
+    	mHelper.launchPurchaseFlow(this, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
     }
     
     public static void isPremium() {
-    	
+    	mHelper.queryInventoryAsync(mGotInventoryListener);
     }
 
 	@Override
@@ -182,6 +230,12 @@ public class AppActivity extends Cocos2dxActivity {
     @Override
     protected void onDestroy() {
     	adView.destroy();
+    	
+    	if (mHelper != null) {
+    		mHelper.dispose();
+    	}
+    	mHelper = null;
+
         super.onDestroy();
     }
     
