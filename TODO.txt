@@ -60,7 +60,6 @@ Before version 1.0 release:
 -alter appirater settings (when to show, Apple App Id, etc.)
 -do sprites look like shit at lower/higher resolutions?
 -full test!
--hunt for obvious memory leaks
 
 
 Pre 1.0 release testing:
