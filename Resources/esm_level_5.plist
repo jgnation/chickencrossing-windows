@@ -17,7 +17,7 @@
       <key>MinWaterInterval</key>
       <string>3500</string>
       <key>MinStartDurationRoad</key>
-      <string>9.0</string>
+      <string>8.0</string>
       <key>MaxStartDurationRoad</key>
       <string>12.0</string>
       <key>MinStartDurationWater</key>
