@@ -40,10 +40,17 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 Before version 1.0 release:
 
 -pay music author
+-add option to disable ads for $0.99
+	-soomla?
+	-android: http://developer.android.com/training/in-app-billing/preparing-iab-app.html#GetSample
+	-iOS: 
+		- https://developer.apple.com/in-app-purchase/
+		- Look at: plugin/samples/HelloPlugins/Classes for the TestIAP example code.
+		- http://www.plungeinteractive.com/blog/2012/09/12/implement-iap-in-app-purchases-ios-cocos2d-x/
 -if chicken is riding and then app goes to background, the chicken keeps moving.
 -turn off debugging mode for ads and appirater
--tinker with speeds/intervals (may need to make vehicles travel further off the screen)
-	-after making vehicles travel further to fix clipping, maybe I should've just reduced speed (rather than decreasing interval)
+-alter appirater settings (when to show, Apple App Id, etc.)
+-full test!
 -admob ads not showing on old phone?
 	-google play services was out of date on the old phone
 	-after I downloaded "Piggy dig", then the admob ads on mine began to show up
@@ -58,9 +65,6 @@ Before version 1.0 release:
 -iOS target
 	-https://developer.apple.com/support/appstore/
 	-according the above link, 96% of devices are using iOS 7 or above
--alter appirater settings (when to show, Apple App Id, etc.)
--do sprites look like shit at lower/higher resolutions?
--full test!
 
 
 Pre 1.0 release testing:
@@ -69,6 +73,8 @@ Pre 1.0 release testing:
 
 
 After version 1.0 release:
+-do sprites look like shit at lower/higher resolutions?
+	-the log sprite looks like shit at lower resolution (galaxy s2)
 -randomize level background at menu screen?
 -show interstitial less often?
 -exit button?
