@@ -40,6 +40,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/MenuButtonLayer.cpp \
 				   ../../Classes/MenuLayer.cpp \
 				   ../../Classes/PauseLayer.cpp \
+				   ../../Classes/PurchaseCallback.cpp \
+				   ../../Classes/PurchaseHelper.cpp \
 				   ../../Classes/SpriteContainer.cpp \
 				   ../../Classes/TopScore.cpp \
 				   ../../Classes/Truck.cpp \

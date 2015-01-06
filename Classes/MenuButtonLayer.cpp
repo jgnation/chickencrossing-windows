@@ -33,8 +33,17 @@ bool MenuButtonLayer::init()
 		CCMenuItemImage* eggScrambleImage = this->createEggScrambleButton();
 		CCMenuItemImage* instructionsImage = this->createInstructionsButton();
 		CCMenuItemImage* aboutImage = this->createAboutButton();
-		CCMenuItemImage* purchaseImage = this->createPurchaseButton();
-		_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, instructionsImage, aboutImage, NULL);
+		
+		if(CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium"))
+		{
+			_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, instructionsImage, aboutImage, NULL);
+		}
+		else
+		{
+			CCMenuItemImage* purchaseImage = this->createPurchaseButton();
+			_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, instructionsImage, aboutImage, purchaseImage, NULL);
+		}
+
 		_mainMenu->setPosition(CCPointZero);
 		this->addChild(_mainMenu);
 

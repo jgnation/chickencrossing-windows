@@ -33,6 +33,7 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
@@ -60,11 +61,14 @@ public class AppActivity extends Cocos2dxActivity {
 	private static IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener;
 	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
 	private boolean isPremium;
-	private String SKU_PREMIUM = "blah";
+	private static String SKU_PREMIUM = "blah";
+	private static Activity thisActivity;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
+    	thisActivity = this;
+    	
     	isPremium = false;
     	isPremium();
     	
@@ -88,7 +92,7 @@ public class AppActivity extends Cocos2dxActivity {
     				Log.d(TAG, "Error purchasing: " + result);
     				return;
     			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
-    				// give user access to premium content and update the UI
+    				makePurchaseCallback(true);
     			}
     		}
     	};
@@ -204,12 +208,14 @@ public class AppActivity extends Cocos2dxActivity {
     //maybe this shouldn't be static?
     public static void makePurchase() {
     	//call must be made on main thread
-    	mHelper.launchPurchaseFlow(this, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+    	mHelper.launchPurchaseFlow(thisActivity, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
     }
+    public static native void makePurchaseCallback(boolean isSuccessful);
     
     public static void isPremium() {
     	mHelper.queryInventoryAsync(mGotInventoryListener);
-    }
+    }    
+    public static native void isPremiumCallback(boolean isPremium);
 
 	@Override
 	protected void onResume() {
