@@ -34,6 +34,7 @@ import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
@@ -44,6 +45,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.android.iap.util.IabHelper;
+import com.android.iap.util.IabResult;
+import com.android.iap.util.Inventory;
+import com.android.iap.util.Purchase;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdRequest;
@@ -61,7 +66,9 @@ public class AppActivity extends Cocos2dxActivity {
 	private static IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener;
 	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
 	private boolean isPremium;
-	private static String SKU_PREMIUM = "android.test.purchased";
+	private static String SKU_PREMIUM = "asfdsadf";
+	private static String SKU_TEST = "android.test.purchased";
+	//http://stackoverflow.com/questions/26641052/error-refreshing-inventory-in-app-billing
 	private static Activity thisActivity;
 
     @Override
@@ -70,7 +77,6 @@ public class AppActivity extends Cocos2dxActivity {
     	thisActivity = this;
     	
     	isPremium = false;
-    	//isPremium();
     	
     	//TODO: check out sample project for tips on how to compute/hide this value rather than store it literally
     	String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqi7eaTzatZp2aUpbzH8LN3R6R1HeVkap4NyPguST0JuBHZCIBWx0Z/IWy8XgP1ikL+Hrz9by+xXp+TUqrtpRD49hII5LASZ1fBiTu3qh12QvjuJjEMTYFBdVVH/2UXGHNA18Ei6lAbx8yJBEDhGPeyNqPetnArJwJb+D/79MRdUtOHRBqH6kkJe3stHlykyhmwpi8ZcTEVw1wzbuBGNSqCEDd0fmJ79w7jZYY7DT3/6YpRPaOe2p+/FezPrUlKDI9o/y9uKEtXivotoy3KukryeTlHIoMLJEdgnTbDGZckK41DRlpUpH0qkG/tiDPqEkcalSbKJhqbctroJm6QF7yQIDAQAB";
@@ -90,8 +96,17 @@ public class AppActivity extends Cocos2dxActivity {
     		public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
     			if (result.isFailure()) {
     				Log.d(TAG, "Error purchasing: " + result);
+    				
+    				//result can be a FAILURE even if the test purchase was successful.
+    				if (purchase.getSku().equals(SKU_TEST)) {
+    					mHelper.consumeAsync(purchase, null);
+        				makePurchaseCallback(true);
+    				}
     				return;
     			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
+    				makePurchaseCallback(true);
+    			} else if (purchase.getSku().equals(SKU_TEST)) {
+    				mHelper.consumeAsync(purchase, null);
     				makePurchaseCallback(true);
     			}
     		}
@@ -103,9 +118,11 @@ public class AppActivity extends Cocos2dxActivity {
 					// handle error here
 				}
 				else {
-					// does the user have the premium upgrade?
-					isPremium = inventory.hasPurchase(SKU_PREMIUM);        
+					// does the user have the premium upgrade?       
 					// update UI accordingly
+					if (inventory.hasPurchase(SKU_TEST)) {
+			            mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
+			        }
 				}
 			}
     	};
@@ -115,7 +132,28 @@ public class AppActivity extends Cocos2dxActivity {
         Appirater.appLaunched(this);
         
         _appActivity = this;
+    }    
+    
+    public static void makePurchase() {
+    	//isPremium();
+    	
+    	//Purchase real item
+    	//mHelper.launchPurchaseFlow(thisActivity, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+    	
+    	//Purchase test item
+    	mHelper.launchPurchaseFlow(thisActivity, SKU_TEST, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
     }
+    public static native void makePurchaseCallback(boolean isSuccessful);
+    
+    public static void isPremium() {
+    	_appActivity.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				mHelper.queryInventoryAsync(mGotInventoryListener);				
+			}    		
+    	});    	
+    }    
+    public static native void isPremiumCallback(boolean isPremium);
     
     private void setupBannerAd() {
     	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -204,18 +242,6 @@ public class AppActivity extends Cocos2dxActivity {
     		}
     	});
     }
-    
-    //maybe this shouldn't be static?
-    public static void makePurchase() {
-    	//call must be made on main thread
-    	mHelper.launchPurchaseFlow(thisActivity, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
-    }
-    public static native void makePurchaseCallback(boolean isSuccessful);
-    
-    public static void isPremium() {
-    	mHelper.queryInventoryAsync(mGotInventoryListener);
-    }    
-    public static native void isPremiumCallback(boolean isPremium);
 
 	@Override
 	protected void onResume() {
@@ -288,5 +314,23 @@ public class AppActivity extends Cocos2dxActivity {
 		Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
 		glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
 		return glSurfaceView;
+	}
+	
+	//I need this method to kick off the purchase callback as per this: 
+    //http://stackoverflow.com/questions/14800286/oniabpurchasefinished-never-called
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
+	
+	    // Pass on the activity result to the helper for handling
+	    if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+	        // not handled, so handle it ourselves (here's where you'd
+	        // perform any handling of activity results not related to in-app
+	        // billing...
+	        super.onActivityResult(requestCode, resultCode, data);
+	    }
+	    else {
+	        Log.d(TAG, "onActivityResult handled by IABUtil.");
+	    }
 	}
 }

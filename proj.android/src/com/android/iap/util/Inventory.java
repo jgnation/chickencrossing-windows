@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package org.cocos2dx.cpp;
+package com.android.iap.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;

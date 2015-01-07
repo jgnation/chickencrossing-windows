@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package org.cocos2dx.cpp;
+package com.android.iap.util;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -29,7 +29,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.cocos2dx.cpp.IInAppBillingService;
+import com.android.vending.billing.IInAppBillingService;
 
 import org.json.JSONException;
 

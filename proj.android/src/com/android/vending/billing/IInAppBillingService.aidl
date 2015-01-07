@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.cocos2dx.cpp;
+package com.android.vending.billing;
 
 import android.os.Bundle;
 
