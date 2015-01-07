@@ -7,12 +7,12 @@
 #include <jni.h>
 //#include <android/log.h>
 
-const char* AppActivityClassName = "org/cocos2dx/cpp/AppActivity";
+const char* AppActivityClassName2 = "org/cocos2dx/cpp/AppActivity";
 
 bool PurchaseHelper::isPremium()
 {
 	cocos2d::JniMethodInfo t;
-	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "isPremium", "()V"))
+	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName2, "isPremium", "()V"))
 	{
 		t.env->CallStaticVoidMethod(t.classID, t.methodID);
 		t.env->DeleteLocalRef(t.classID);
@@ -22,7 +22,7 @@ bool PurchaseHelper::isPremium()
 void PurchaseHelper::makePurchase()
 {
 	cocos2d::JniMethodInfo t;
-	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "makePurchase", "()V"))
+	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName2, "makePurchase", "()V"))
 	{
 		t.env->CallStaticVoidMethod(t.classID, t.methodID);
 		t.env->DeleteLocalRef(t.classID);

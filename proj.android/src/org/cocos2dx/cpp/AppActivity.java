@@ -61,7 +61,7 @@ public class AppActivity extends Cocos2dxActivity {
 	private static IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener;
 	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
 	private boolean isPremium;
-	private static String SKU_PREMIUM = "blah";
+	private static String SKU_PREMIUM = "android.test.purchased";
 	private static Activity thisActivity;
 
     @Override
@@ -70,7 +70,7 @@ public class AppActivity extends Cocos2dxActivity {
     	thisActivity = this;
     	
     	isPremium = false;
-    	isPremium();
+    	//isPremium();
     	
     	//TODO: check out sample project for tips on how to compute/hide this value rather than store it literally
     	String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqi7eaTzatZp2aUpbzH8LN3R6R1HeVkap4NyPguST0JuBHZCIBWx0Z/IWy8XgP1ikL+Hrz9by+xXp+TUqrtpRD49hII5LASZ1fBiTu3qh12QvjuJjEMTYFBdVVH/2UXGHNA18Ei6lAbx8yJBEDhGPeyNqPetnArJwJb+D/79MRdUtOHRBqH6kkJe3stHlykyhmwpi8ZcTEVw1wzbuBGNSqCEDd0fmJ79w7jZYY7DT3/6YpRPaOe2p+/FezPrUlKDI9o/y9uKEtXivotoy3KukryeTlHIoMLJEdgnTbDGZckK41DRlpUpH0qkG/tiDPqEkcalSbKJhqbctroJm6QF7yQIDAQAB";
