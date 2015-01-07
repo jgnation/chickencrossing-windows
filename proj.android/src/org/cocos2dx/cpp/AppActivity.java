@@ -99,8 +99,9 @@ public class AppActivity extends Cocos2dxActivity {
     				Log.d(TAG, "Error purchasing: " + result);
     				
     				//result can be a FAILURE even if the test purchase was successful.
+    				//comment this block out when not debugging
     				if (purchase.getSku().equals(SKU_TEST)) {
-    					mHelper.consumeAsync(purchase, null);
+    					mHelper.consumeAsync(purchase, null); 
         				makePurchaseCallback(true);
     				}
     				return;
