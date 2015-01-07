@@ -68,9 +68,10 @@ public class AppActivity extends Cocos2dxActivity {
 	private boolean isPremium;
 	private static String SKU_PREMIUM = "asfdsadf";
 	private static String SKU_TEST = "android.test.purchased";
-	//http://stackoverflow.com/questions/26641052/error-refreshing-inventory-in-app-billing
 	private static Activity thisActivity;
 
+	//http://stackoverflow.com/questions/26641052/error-refreshing-inventory-in-app-billing
+	
     @Override
 	protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
