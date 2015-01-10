@@ -155,6 +155,8 @@
 		42E176D31A2257FF0075AF14 /* vw_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E176481A2257FE0075AF14 /* vw_small.png */; };
 		42EC073E1A61ACF1006624E5 /* purchase_ad_removal_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EC073C1A61ACF1006624E5 /* purchase_ad_removal_orange.png */; };
 		42EC073F1A61ACF1006624E5 /* purchase_ad_removal_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EC073D1A61ACF1006624E5 /* purchase_ad_removal_yellow.png */; };
+		42EC07461A61B120006624E5 /* PurchaseCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42EC07421A61B120006624E5 /* PurchaseCallback.cpp */; };
+		42EC07471A61B120006624E5 /* PurchaseHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42EC07441A61B120006624E5 /* PurchaseHelper.cpp */; };
 		42F658501A301E8C00DCB2C1 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F6584F1A301E8B00DCB2C1 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		42F658941A30201000DCB2C1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F658931A30201000DCB2C1 /* CFNetwork.framework */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -530,6 +532,10 @@
 		42E176481A2257FE0075AF14 /* vw_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw_small.png; sourceTree = "<group>"; };
 		42EC073C1A61ACF1006624E5 /* purchase_ad_removal_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_ad_removal_orange.png; sourceTree = "<group>"; };
 		42EC073D1A61ACF1006624E5 /* purchase_ad_removal_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_ad_removal_yellow.png; sourceTree = "<group>"; };
+		42EC07421A61B120006624E5 /* PurchaseCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PurchaseCallback.cpp; path = ../Classes/PurchaseCallback.cpp; sourceTree = "<group>"; };
+		42EC07431A61B120006624E5 /* PurchaseCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchaseCallback.h; path = ../Classes/PurchaseCallback.h; sourceTree = "<group>"; };
+		42EC07441A61B120006624E5 /* PurchaseHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PurchaseHelper.cpp; path = ../Classes/PurchaseHelper.cpp; sourceTree = "<group>"; };
+		42EC07451A61B120006624E5 /* PurchaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchaseHelper.h; path = ../Classes/PurchaseHelper.h; sourceTree = "<group>"; };
 		42F6584C1A301E7700DCB2C1 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = SOURCE_ROOT; };
 		42F6584F1A301E8B00DCB2C1 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = SOURCE_ROOT; };
 		42F658921A301EBF00DCB2C1 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -662,10 +668,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */,
-				4220B01F1A2A6001002CCFAE /* AdmobHelper.h */,
 				42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */,
 				42E1755B1A2257D40075AF14 /* AcceleratingLane.h */,
+				4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */,
+				4220B01F1A2A6001002CCFAE /* AdmobHelper.h */,
 				42E1755C1A2257D40075AF14 /* AppDelegate.cpp */,
 				42E1755D1A2257D40075AF14 /* AppDelegate.h */,
 				42E1755E1A2257D40075AF14 /* Background.cpp */,
@@ -720,6 +726,10 @@
 				42E1758F1A2257D40075AF14 /* MenuLayer.h */,
 				42E175901A2257D40075AF14 /* PauseLayer.cpp */,
 				42E175911A2257D40075AF14 /* PauseLayer.h */,
+				42EC07421A61B120006624E5 /* PurchaseCallback.cpp */,
+				42EC07431A61B120006624E5 /* PurchaseCallback.h */,
+				42EC07441A61B120006624E5 /* PurchaseHelper.cpp */,
+				42EC07451A61B120006624E5 /* PurchaseHelper.h */,
 				42E175921A2257D40075AF14 /* SpriteContainer.cpp */,
 				42E175931A2257D40075AF14 /* SpriteContainer.h */,
 				42E175941A2257D40075AF14 /* TopScore.cpp */,
@@ -1265,6 +1275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E175A91A2257D40075AF14 /* GameLayer.cpp in Sources */,
+				42EC07461A61B120006624E5 /* PurchaseCallback.cpp in Sources */,
 				42E175AB1A2257D40075AF14 /* HUDLayer.cpp in Sources */,
 				42E175B61A2257D40075AF14 /* MenuLayer.cpp in Sources */,
 				4220B0201A2A6001002CCFAE /* AdmobHelper.cpp in Sources */,
@@ -1293,6 +1304,7 @@
 				42E1759D1A2257D40075AF14 /* AppDelegate.cpp in Sources */,
 				42E175BC1A2257D40075AF14 /* VehicleFactory.cpp in Sources */,
 				42E1759E1A2257D40075AF14 /* Background.cpp in Sources */,
+				42EC07471A61B120006624E5 /* PurchaseHelper.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				42E175A11A2257D40075AF14 /* Chicken.cpp in Sources */,
 				42E175B51A2257D40075AF14 /* MenuButtonLayer.cpp in Sources */,
