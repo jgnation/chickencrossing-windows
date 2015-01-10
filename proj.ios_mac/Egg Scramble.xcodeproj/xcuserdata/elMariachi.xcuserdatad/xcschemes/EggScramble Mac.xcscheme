@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-               BuildableName = "EggScramble Mac.app"
+               BuildableName = "Egg Scramble Mac.app"
                BlueprintName = "Egg Scramble Mac"
                ReferencedContainer = "container:Egg Scramble.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-            BuildableName = "EggScramble Mac.app"
+            BuildableName = "Egg Scramble Mac.app"
             BlueprintName = "Egg Scramble Mac"
             ReferencedContainer = "container:Egg Scramble.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-            BuildableName = "EggScramble Mac.app"
+            BuildableName = "Egg Scramble Mac.app"
             BlueprintName = "Egg Scramble Mac"
             ReferencedContainer = "container:Egg Scramble.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5087E73D17EB910900C73F5D"
-            BuildableName = "EggScramble Mac.app"
+            BuildableName = "Egg Scramble Mac.app"
             BlueprintName = "Egg Scramble Mac"
             ReferencedContainer = "container:Egg Scramble.xcodeproj">
          </BuildableReference>
