@@ -344,16 +344,16 @@ CCMenuItemImage* MenuButtonLayer::createAboutButton()
 CCMenuItemImage* MenuButtonLayer::createPurchaseButton()
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
-	float originalWidth = 576;
+	float originalWidth = 670;
 	float originalHeight = 144;
 
 	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
-		"about_orange.png",	//TODO: change this image!
-		"about_yellow.png",
+		"purchase_ad_removal_orange.png",	//TODO: change this image!
+		"purchase_ad_removal_yellow.png",
 		this,
 		menu_selector(MenuButtonLayer::purchaseCallback));
 
-	float scaleRatio = (windowSize.width *.5) / purchaseImage->getContentSize().width;
+	float scaleRatio = (windowSize.width *.6) / purchaseImage->getContentSize().width;
 	purchaseImage->setScale(scaleRatio);
 	purchaseImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .1));
 

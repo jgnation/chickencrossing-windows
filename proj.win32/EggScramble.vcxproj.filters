@@ -482,5 +482,11 @@
     <Image Include="..\Resources\resume.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\purchase_ad_removal_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\purchase_ad_removal_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>

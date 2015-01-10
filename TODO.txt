@@ -39,7 +39,7 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
--pay music author
+-the start screen buttons are different colors!  fix that!
 -add option to disable ads for $0.99
 	-soomla?
 	-android: http://developer.android.com/training/in-app-billing/preparing-iab-app.html#GetSample
