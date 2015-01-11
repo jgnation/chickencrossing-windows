@@ -11,6 +11,9 @@ public:
     static void hideAdmobBanner();
     static void showAdmobBanner();
     static void showInterstitial();
+    
+    //App store
+    static void getAvailableItems();
 };
 
 #endif

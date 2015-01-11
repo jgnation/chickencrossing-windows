@@ -1387,8 +1387,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iOS Development: Jeremy Gustine (8F87UVA7Y3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Development: Jeremy Gustine (8F87UVA7Y3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1414,7 +1414,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Egg Scramble iOS";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "91fef6bc-ff3e-4739-8eb0-9020099c8fbc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1425,8 +1425,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iOS Development: Jeremy Gustine (8F87UVA7Y3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Development: Jeremy Gustine (8F87UVA7Y3)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1450,7 +1450,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Egg Scramble iOS";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "91fef6bc-ff3e-4739-8eb0-9020099c8fbc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

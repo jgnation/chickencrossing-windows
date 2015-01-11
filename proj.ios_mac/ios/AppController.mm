@@ -97,6 +97,46 @@ BannerViewController *_bannerViewController;
     return YES;
 }
 
+- (void)validateProductIdentifiers:(NSArray *)productIdentifiers
+{
+    SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
+                                          initWithProductIdentifiers:[NSSet setWithArray:productIdentifiers]];
+    productsRequest.delegate = self;
+    [productsRequest start];
+}
+
+- (void)validateProductIdentifiers {
+    NSArray  * myArray = [NSArray arrayWithObject:@"com.jgnation.eggscramble.adremoval"];
+    
+    SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
+                                          initWithProductIdentifiers:[NSSet setWithArray:myArray]];
+    
+    productsRequest.delegate = self;
+    [productsRequest start];
+}
+
+// SKProductsRequestDelegate protocol method
+- (void)productsRequest:(SKProductsRequest *)request
+     didReceiveResponse:(SKProductsResponse *)response
+{
+    //self.products = response.products;
+    NSLog(@"The ProductIdentifiers are:%@",[response.products description]);
+    NSArray * skProducts = response.products;
+    for (SKProduct * skProduct in skProducts) {
+        NSLog(@"Found product: %@ %@ %0.2f",
+              skProduct.productIdentifier,
+              skProduct.localizedTitle,
+              skProduct.price.floatValue);
+    }
+    
+    NSLog(@"The invalidProductIdentifiers are:%@",[response.invalidProductIdentifiers description]);
+    for (NSString *invalidIdentifier in response.invalidProductIdentifiers) {
+        // Handle any invalid product identifiers.
+    }
+    
+    //[self displayStoreUI]; // Custom method
+}
+
 - (void) hideAdmobBanner{
     [_bannerViewController hideBanner];
 }

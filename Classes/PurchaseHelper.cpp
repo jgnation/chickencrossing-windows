@@ -30,6 +30,7 @@ void PurchaseHelper::makePurchase()
 }
 
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "iOSHelper.h"
 
 bool PurchaseHelper::isPremium()
 {
@@ -37,6 +38,7 @@ bool PurchaseHelper::isPremium()
 
 void PurchaseHelper::makePurchase()
 {
+    iOSHelper::getAvailableItems();
 }
 
 #else

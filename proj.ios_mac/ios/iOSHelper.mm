@@ -15,3 +15,8 @@ void iOSHelper::showInterstitial(){
     AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
     [appDelegate showInterstitial];
 }
+
+void iOSHelper::getAvailableItems() {
+    AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appDelegate validateProductIdentifiers];
+}
