@@ -19,6 +19,8 @@
 		1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		421D7EE61A64C4C900E8EFDD /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D7EE51A64C4C900E8EFDD /* IAPHelper.m */; };
+		421D7EEC1A64C6B200E8EFDD /* EggScrambleIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 421D7EEB1A64C6B200E8EFDD /* EggScrambleIAPHelper.m */; };
 		4220B0201A2A6001002CCFAE /* AdmobHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */; };
 		4220B0631A2A6562002CCFAE /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4220B0611A2A6562002CCFAE /* libGoogleAdMobAds.a */; };
 		4220B0641A2A6562002CCFAE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4220B0621A2A6562002CCFAE /* README.txt */; };
@@ -348,6 +350,10 @@
 		1D6058910D05DD3D006BFB54 /* Egg Scramble iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Egg Scramble iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		421D7EE51A64C4C900E8EFDD /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAPHelper.m; path = ios/IAPHelper.m; sourceTree = SOURCE_ROOT; };
+		421D7EEA1A64C59B00E8EFDD /* IAPHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IAPHelper.h; path = ios/IAPHelper.h; sourceTree = SOURCE_ROOT; };
+		421D7EEB1A64C6B200E8EFDD /* EggScrambleIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EggScrambleIAPHelper.m; path = ios/EggScrambleIAPHelper.m; sourceTree = SOURCE_ROOT; };
+		421D7EED1A64C6D500E8EFDD /* EggScrambleIAPHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EggScrambleIAPHelper.h; path = ios/EggScrambleIAPHelper.h; sourceTree = SOURCE_ROOT; };
 		4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdmobHelper.cpp; path = ../Classes/AdmobHelper.cpp; sourceTree = "<group>"; };
 		4220B01F1A2A6001002CCFAE /* AdmobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdmobHelper.h; path = ../Classes/AdmobHelper.h; sourceTree = "<group>"; };
 		4220B0551A2A6562002CCFAE /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
@@ -653,6 +659,10 @@
 				42F658921A301EBF00DCB2C1 /* AppiraterDelegate.h */,
 				4220B0861A2A691C002CCFAE /* BannerViewController.h */,
 				4220B0871A2A691C002CCFAE /* BannerViewController.m */,
+				421D7EED1A64C6D500E8EFDD /* EggScrambleIAPHelper.h */,
+				421D7EEB1A64C6B200E8EFDD /* EggScrambleIAPHelper.m */,
+				421D7EEA1A64C59B00E8EFDD /* IAPHelper.h */,
+				421D7EE51A64C4C900E8EFDD /* IAPHelper.m */,
 				5087E77117EB970100C73F5D /* Icons */,
 				422668831A2ABF1100FC2D82 /* iOSHelper.h */,
 				422668821A2ABF1100FC2D82 /* iOSHelper.mm */,
@@ -1285,6 +1295,7 @@
 				422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				42E175AF1A2257D40075AF14 /* LevelManager.cpp in Sources */,
+				421D7EE61A64C4C900E8EFDD /* IAPHelper.m in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				42E175B41A2257D40075AF14 /* MainModeLevelFactory.cpp in Sources */,
 				42E175BB1A2257D40075AF14 /* Vehicle.cpp in Sources */,
@@ -1296,6 +1307,7 @@
 				42E175B11A2257D40075AF14 /* Log.cpp in Sources */,
 				42E175A31A2257D40075AF14 /* DisappearingLog.cpp in Sources */,
 				42E175AC1A2257D40075AF14 /* Lane.cpp in Sources */,
+				421D7EEC1A64C6B200E8EFDD /* EggScrambleIAPHelper.m in Sources */,
 				42E175A51A2257D40075AF14 /* EggScrambleLevel.cpp in Sources */,
 				4220B0881A2A691C002CCFAE /* BannerViewController.m in Sources */,
 				42E175AA1A2257D40075AF14 /* GameOverLayer.cpp in Sources */,

@@ -29,6 +29,7 @@
 #import "RootViewController.h"
 #import "BannerViewController.h"
 #import "Appirater.h"
+#import "EggScrambleIAPHelper.h"
 
 
 @implementation AppController
@@ -41,7 +42,8 @@ static AppDelegate s_sharedApplication;
 BannerViewController *_bannerViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-
+    [EggScrambleIAPHelper sharedInstance]; //create singleton
+    
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
