@@ -9,5 +9,6 @@ typedef void (^RequestProductsCompletionHandler)(BOOL success, NSArray * product
 - (void)buyProduct:(SKProduct *)product;
 - (void)buyProductWithIdentifier:(NSString *)productIdentifier;
 - (BOOL)productPurchased:(NSString *)productIdentifier;
+- (void)restoreCompletedTransactions;
 
 @end

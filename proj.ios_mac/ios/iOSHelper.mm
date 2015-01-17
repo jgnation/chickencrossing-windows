@@ -43,3 +43,7 @@ void iOSHelper::buyAdRemoval() {
     AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
     [appDelegate buyAdRemoval];
 }
+
+void iOSHelper::restorePurchases() {
+    [[EggScrambleIAPHelper sharedInstance] restoreCompletedTransactions];
+}
