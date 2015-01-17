@@ -30,7 +30,7 @@
 #import "BannerViewController.h"
 #import "Appirater.h"
 #import "EggScrambleIAPHelper.h"
-
+#import "ObjCToCpp.h"
 
 @implementation AppController
 
@@ -41,8 +41,9 @@
 static AppDelegate s_sharedApplication;
 BannerViewController *_bannerViewController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    [EggScrambleIAPHelper sharedInstance]; //create singleton
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //initialize IAP handlers
+    [self initializeIAP];
     
     // Override point for customization after application launch.
 
@@ -99,8 +100,49 @@ BannerViewController *_bannerViewController;
     return YES;
 }
 
-- (void)validateProductIdentifiers:(NSArray *)productIdentifiers
-{
+- (void)initializeIAP {
+    [EggScrambleIAPHelper sharedInstance]; //create singleton
+    
+    [[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            _products = products;
+            [_products retain]; //why do I need to do this?
+            
+            //self.products = response.products;
+            NSLog(@"The ProductIdentifiers are:%@",[_products description]);
+            NSArray * skProducts = _products;
+            for (SKProduct * skProduct in skProducts) {
+                NSLog(@"Found product: %@ %@ %0.2f",
+                      skProduct.productIdentifier,
+                      skProduct.localizedTitle,
+                      skProduct.price.floatValue);
+            }
+            
+        }
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+}
+
+- (void)productPurchased:(NSNotification *)notification {
+    /*NSString * productIdentifier = notification.object;
+    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            *stop = YES;
+        }
+    }]; */
+    [ObjCToCpp purchaseSuccessful];
+}
+
+- (void) buyAdRemoval {
+    //TODO: make sure products is not NULL and that it has an item at index zero
+    //OR, get item with idenitfier = "com.jgnation.eggscramble.adremoval"
+    SKProduct * removeAdProduct = (SKProduct *) _products[0]; //I only have one product available currently
+    [[EggScrambleIAPHelper sharedInstance] buyProduct: removeAdProduct];
+}
+
+- (void)validateProductIdentifiers:(NSArray *)productIdentifiers {
     SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
                                           initWithProductIdentifiers:[NSSet setWithArray:productIdentifiers]];
     productsRequest.delegate = self;

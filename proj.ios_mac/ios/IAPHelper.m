@@ -1,7 +1,6 @@
 // 1
 #import "IAPHelper.h"
 #import <StoreKit/StoreKit.h>
-#include "ObjCToCpp.h"
 
 // 2
 @interface IAPHelper () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
@@ -120,7 +119,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     NSLog(@"completeTransaction...");
-    [ObjCToCpp purchaseSuccessful]; //TODO: I should register for a notification instead of calling this
     
     [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
@@ -128,7 +126,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
     NSLog(@"restoreTransaction...");
-    [ObjCToCpp purchaseSuccessful]; //TODO: I should register for a notification instead of calling this
     
     [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];

@@ -34,11 +34,12 @@ void PurchaseHelper::makePurchase()
 
 bool PurchaseHelper::isPremium()
 {
+    return false; //TODO
 }
 
 void PurchaseHelper::makePurchase()
 {
-    iOSHelper::getAvailableItems();
+    iOSHelper::buyAdRemoval();
 }
 
 #else

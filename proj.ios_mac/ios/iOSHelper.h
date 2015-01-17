@@ -14,6 +14,7 @@ public:
     
     //App store
     static void getAvailableItems();
+    static void buyAdRemoval();
 };
 
 #endif

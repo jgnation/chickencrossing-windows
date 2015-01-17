@@ -36,6 +36,10 @@ void iOSHelper::getAvailableItems() {
             }
 
         }
-    }];*/
-    [[EggScrambleIAPHelper sharedInstance] buyProductWithIdentifier:@"com.jgnation.eggscramble.adremoval"];
+    }];*/    
+}
+
+void iOSHelper::buyAdRemoval() {
+    AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appDelegate buyAdRemoval];
 }

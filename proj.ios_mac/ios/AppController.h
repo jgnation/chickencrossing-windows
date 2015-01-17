@@ -5,14 +5,16 @@
 
 @interface AppController : NSObject <UIApplicationDelegate, SKProductsRequestDelegate> {
     UIWindow *window;
+    NSArray *_products;
 }
 
 @property(nonatomic, readonly) RootViewController* viewController;
 - (void) hideAdmobBanner;
 - (void) showAdmobBanner;
 - (void) showInterstitial;
-
 - (void) validateProductIdentifiers;
+- (void) initializeIAP;
+- (void) buyAdRemoval;
 
 @end
 
