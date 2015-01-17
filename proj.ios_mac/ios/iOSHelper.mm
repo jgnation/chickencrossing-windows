@@ -21,7 +21,7 @@ void iOSHelper::getAvailableItems() {
     //AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
     //[appDelegate validateProductIdentifiers];
     
-    [[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+    /*[[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
         if (success) {
             NSArray * _products = products;
             
@@ -36,5 +36,6 @@ void iOSHelper::getAvailableItems() {
             }
 
         }
-    }];
+    }];*/
+    [[EggScrambleIAPHelper sharedInstance] buyProductWithIdentifier:@"com.jgnation.eggscramble.adremoval"];
 }

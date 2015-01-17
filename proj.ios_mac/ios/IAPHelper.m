@@ -1,6 +1,7 @@
 // 1
 #import "IAPHelper.h"
 #import <StoreKit/StoreKit.h>
+#include "ObjCToCpp.h"
 
 // 2
 @interface IAPHelper () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
@@ -27,6 +28,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         
         // Check for previously purchased products
         _purchasedProductIdentifiers = [NSMutableSet set];
+        [_purchasedProductIdentifiers retain]; //why do I need to do this?
         for (NSString * productIdentifier in _productIdentifiers) {
             BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
             if (productPurchased) {
@@ -90,6 +92,13 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [[SKPaymentQueue defaultQueue] addPayment:payment];
 }
 
+- (void)buyProductWithIdentifier:(NSString *)productIdentifier {
+    NSLog(@"Buying %@...", productIdentifier);
+    
+    SKPayment *payment = [SKPayment paymentWithProductIdentifier:productIdentifier];
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
     for (SKPaymentTransaction * transaction in transactions) {
@@ -111,6 +120,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     NSLog(@"completeTransaction...");
+    [ObjCToCpp purchaseSuccessful]; //TODO: I should register for a notification instead of calling this
     
     [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
@@ -118,6 +128,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
     NSLog(@"restoreTransaction...");
+    [ObjCToCpp purchaseSuccessful]; //TODO: I should register for a notification instead of calling this
     
     [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];

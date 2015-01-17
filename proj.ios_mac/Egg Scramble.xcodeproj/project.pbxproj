@@ -41,6 +41,8 @@
 		4220B0851A2A6875002CCFAE /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4220B0841A2A6875002CCFAE /* EventKitUI.framework */; };
 		4220B0881A2A691C002CCFAE /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220B0871A2A691C002CCFAE /* BannerViewController.m */; };
 		422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 422668821A2ABF1100FC2D82 /* iOSHelper.mm */; };
+		42510FCE1A6AD71A005B013B /* ObjCToCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */; };
+		42510FD11A6ADA28005B013B /* PurchaseCallbackIOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42510FD01A6ADA28005B013B /* PurchaseCallbackIOS.cpp */; };
 		42E1759C1A2257D40075AF14 /* AcceleratingLane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */; };
 		42E1759D1A2257D40075AF14 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755C1A2257D40075AF14 /* AppDelegate.cpp */; };
 		42E1759E1A2257D40075AF14 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755E1A2257D40075AF14 /* Background.cpp */; };
@@ -389,6 +391,10 @@
 		4220B0871A2A691C002CCFAE /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerViewController.m; path = ios/BannerViewController.m; sourceTree = SOURCE_ROOT; };
 		422668821A2ABF1100FC2D82 /* iOSHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = iOSHelper.mm; path = ios/iOSHelper.mm; sourceTree = SOURCE_ROOT; };
 		422668831A2ABF1100FC2D82 /* iOSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSHelper.h; path = ios/iOSHelper.h; sourceTree = SOURCE_ROOT; };
+		42510FCA1A6AD6F3005B013B /* ObjCToCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjCToCpp.h; path = ios/ObjCToCpp.h; sourceTree = SOURCE_ROOT; };
+		42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ObjCToCpp.mm; path = ios/ObjCToCpp.mm; sourceTree = SOURCE_ROOT; };
+		42510FCF1A6AD9FB005B013B /* PurchaseCallbackIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PurchaseCallbackIOS.h; path = ../Classes/PurchaseCallbackIOS.h; sourceTree = "<group>"; };
+		42510FD01A6ADA28005B013B /* PurchaseCallbackIOS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PurchaseCallbackIOS.cpp; path = ../Classes/PurchaseCallbackIOS.cpp; sourceTree = "<group>"; };
 		42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcceleratingLane.cpp; path = ../Classes/AcceleratingLane.cpp; sourceTree = "<group>"; };
 		42E1755B1A2257D40075AF14 /* AcceleratingLane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcceleratingLane.h; path = ../Classes/AcceleratingLane.h; sourceTree = "<group>"; };
 		42E1755C1A2257D40075AF14 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
@@ -670,6 +676,8 @@
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
+				42510FCA1A6AD6F3005B013B /* ObjCToCpp.h */,
+				42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */,
 			);
 			name = ios;
 			path = Classes;
@@ -738,6 +746,8 @@
 				42E175911A2257D40075AF14 /* PauseLayer.h */,
 				42EC07421A61B120006624E5 /* PurchaseCallback.cpp */,
 				42EC07431A61B120006624E5 /* PurchaseCallback.h */,
+				42510FD01A6ADA28005B013B /* PurchaseCallbackIOS.cpp */,
+				42510FCF1A6AD9FB005B013B /* PurchaseCallbackIOS.h */,
 				42EC07441A61B120006624E5 /* PurchaseHelper.cpp */,
 				42EC07451A61B120006624E5 /* PurchaseHelper.h */,
 				42E175921A2257D40075AF14 /* SpriteContainer.cpp */,
@@ -1285,6 +1295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E175A91A2257D40075AF14 /* GameLayer.cpp in Sources */,
+				42510FD11A6ADA28005B013B /* PurchaseCallbackIOS.cpp in Sources */,
 				42EC07461A61B120006624E5 /* PurchaseCallback.cpp in Sources */,
 				42E175AB1A2257D40075AF14 /* HUDLayer.cpp in Sources */,
 				42E175B61A2257D40075AF14 /* MenuLayer.cpp in Sources */,
@@ -1328,6 +1339,7 @@
 				42E175A01A2257D40075AF14 /* Car.cpp in Sources */,
 				42E175B81A2257D40075AF14 /* SpriteContainer.cpp in Sources */,
 				42E1759C1A2257D40075AF14 /* AcceleratingLane.cpp in Sources */,
+				42510FCE1A6AD71A005B013B /* ObjCToCpp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

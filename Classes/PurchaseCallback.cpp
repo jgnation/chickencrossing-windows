@@ -23,4 +23,5 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_makePurchaseCallback(JN
 //{
 //}
 
+
 #endif
