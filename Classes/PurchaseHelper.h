@@ -6,6 +6,7 @@ class PurchaseHelper
 public:
 	static void makePurchase();
 	static bool isPremium();
+	static void getStoreData();
 };
 
 #endif

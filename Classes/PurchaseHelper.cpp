@@ -29,6 +29,10 @@ void PurchaseHelper::makePurchase()
 	}
 }
 
+void PurchaseHelper::getStoreData()
+{
+}
+
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "iOSHelper.h"
 
@@ -40,6 +44,10 @@ bool PurchaseHelper::isPremium()
 void PurchaseHelper::makePurchase()
 {
     iOSHelper::buyAdRemoval();
+}
+
+void PurchaseHelper::getStoreData()
+{
 }
 
 #else
@@ -54,6 +62,20 @@ void PurchaseHelper::makePurchase()
 {
 	CCLOG("makePurchase() called");
 	//do nothing
+}
+
+void PurchaseHelper::getStoreData()
+{
+	CCLOG("getStoreData() called");
+	//get running scene
+	/*cocos2d::Scene * scene = cocos2d::CCDirector::sharedDirector()->getRunningScene();
+	auto children = scene->getChildren();
+	for(auto it = children.begin(); it != children.end(); ++it)
+	{
+		//do I need to get children's children?
+		int a = 43;
+		a = 54;
+	}*/
 }
 
 #endif
