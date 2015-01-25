@@ -8,7 +8,12 @@ using namespace cocos2d;
 class MenuStoreLayer : public cocos2d::Layer
 {
 private:
-	CCMenu* _mainMenu;
+	CCMenu* _buyMenu;
+	CCMenu* _exitMenu;
+	CCMenu* _retryMenu;
+	CCSprite* _loadingSprite;
+	CCSprite* _purchaseTitleImage;
+	CCLabelTTF* _failureLabel;
 public:
 	CREATE_FUNC(MenuStoreLayer);
 	virtual bool init();
@@ -18,9 +23,7 @@ public:
 	void exit(CCObject* pSender);
 
 	void getStoreData();
-	void storeDataCallback(std::string price);
 
-	void createLoadingLabel();
 	void createPurchaseTitleImage();
 	CCMenuItemImage* createBuyButton();
 	CCMenuItemImage* createRestoreButton();
@@ -29,6 +32,12 @@ public:
     void loadStore();
     void loadStoreSuccessCallback();
     void loadStoreFailureCallback();
+
+	void createLoadingSprite();
+
+	void createLoadingFailureLabel();
+	CCMenuItemImage* createRetryButton();
+	void retry(CCObject* pSender);
 };
 
 #endif

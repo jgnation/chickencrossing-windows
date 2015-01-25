@@ -521,5 +521,11 @@
     <Image Include="..\Resources\Restore.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\requesting_store_data.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Retry.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>

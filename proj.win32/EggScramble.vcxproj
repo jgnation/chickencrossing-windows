@@ -331,8 +331,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\plank_small.png" />
     <Image Include="..\Resources\purchase_ad_removal_orange.png" />
     <Image Include="..\Resources\purchase_ad_removal_yellow.png" />
+    <Image Include="..\Resources\requesting_store_data.png" />
     <Image Include="..\Resources\Restore.png" />
     <Image Include="..\Resources\resume.png" />
+    <Image Include="..\Resources\Retry.png" />
     <Image Include="..\Resources\select_level.png" />
     <Image Include="..\Resources\start_game_orange.png" />
     <Image Include="..\Resources\start_game_yellow.png" />

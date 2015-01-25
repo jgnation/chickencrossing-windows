@@ -11,23 +11,38 @@ bool MenuStoreLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
-        //display loading image
-        //hide the rest of this stuff
-		this->createPurchaseTitleImage();
-		
-		CCMenuItemImage * buyImage = this->createBuyButton();
-		CCMenuItemImage * restoreImage = this->createRestoreButton();
-		CCMenuItemImage * exitImage = this->createExitButton();
-		CCMenu * menu = CCMenu::create(
-			buyImage,
-			restoreImage,
-			exitImage,
-			NULL
-		);
-		menu->setPosition(CCPointZero);
-		this->addChild(menu);
+		this->createLoadingSprite();
 
-		//this->createLoadingLabel();
+		//create exit button
+		CCMenuItemImage * exitImage = this->createExitButton();
+		_exitMenu = CCMenu::create(exitImage, NULL);
+		_exitMenu->setPosition(CCPointZero);
+		this->addChild(_exitMenu);
+
+        //create and hide this stuff
+		//this->createPurchaseTitleImage();
+		//_purchaseTitleImage->setVisible(false);
+		
+		//create buy/restore buttons
+		CCMenuItemImage * buyImage = this->createBuyButton();
+		CCMenuItemImage * restoreImage = this->createRestoreButton();		
+		_buyMenu = CCMenu::create(buyImage,	restoreImage, NULL);
+		_buyMenu->setPosition(CCPointZero);
+		this->addChild(_buyMenu);
+		_buyMenu->setVisible(false);
+
+		//create failed label
+		this->createLoadingFailureLabel();
+		//_failureLabel->setVisible(false);
+
+		//create retry menu
+		CCMenuItemImage * retryImage = this->createRetryButton();
+		_retryMenu = CCMenu::create(retryImage, NULL);
+		_retryMenu->setPosition(CCPointZero);
+		this->addChild(_retryMenu);
+		//_retryMenu->setVisible(true);
+
+		
 
 		if(CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium"))
 		{
@@ -61,17 +76,17 @@ void MenuStoreLayer::loadStore()
 
 void MenuStoreLayer::loadStoreSuccessCallback()
 {
-    int x = 43;
-    x = 46;
-    //set loaded to true
-    //
+    //TODO: set loaded to true
+    
+	_loadingSprite->setVisible(false);
+	_buyMenu->setVisible(true);
+	_purchaseTitleImage->setVisible(true);
 }
 
 void MenuStoreLayer::loadStoreFailureCallback()
 {
-    int x = 43;
-    x = 46;
     //display error and retry button
+	_loadingSprite->setVisible(false);
 }
 
 void MenuStoreLayer::createPurchaseTitleImage()
@@ -80,11 +95,11 @@ void MenuStoreLayer::createPurchaseTitleImage()
 
 	float originalWidth = 670;
 	float originalHeight = 144;
-	CCSprite * purchase_title_image = CCSprite::create("purchase_ad_removal_orange.png", CCRectMake(0, 0, originalWidth, originalHeight));        
-	float scaleRatio = (windowSize.width *.6) / purchase_title_image->getContentSize().width;
-	purchase_title_image->setScale(scaleRatio);
-	purchase_title_image->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
-	this->addChild(purchase_title_image);
+	_purchaseTitleImage = CCSprite::create("purchase_ad_removal_orange.png", CCRectMake(0, 0, originalWidth, originalHeight));        
+	float scaleRatio = (windowSize.width *.6) / _purchaseTitleImage->getContentSize().width;
+	_purchaseTitleImage->setScale(scaleRatio);
+	_purchaseTitleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+	this->addChild(_purchaseTitleImage);
 }
 
 CCMenuItemImage* MenuStoreLayer::createBuyButton()
@@ -166,6 +181,31 @@ void MenuStoreLayer::exit(CCObject* pSender)
 	}
 }
 
+CCMenuItemImage* MenuStoreLayer::createRetryButton()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 400;
+	float originalHeight = 200;
+
+	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
+		"Retry.png",
+		"Retry.png",
+		this,
+		menu_selector(MenuStoreLayer::retry));
+
+	float scaleRatio = (windowSize.width *.3) / purchaseImage->getContentSize().width;
+	purchaseImage->setScale(scaleRatio);
+	purchaseImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .4));
+
+	return purchaseImage;
+}
+
+void MenuStoreLayer::retry(CCObject* pSender)
+{
+	_buyMenu->setVisible(false);
+	_loadingSprite->setVisible(true);
+}
+
 /*
 I envision this calling into iOS/Android and getting the formatted price back eventually.
 The iOS/Android controller/activity can make the request and store the data.
@@ -176,33 +216,30 @@ void MenuStoreLayer::getStoreData()
 	PurchaseHelper::getStoreData();
 }
 
-void MenuStoreLayer::storeDataCallback(std::string price)
+void MenuStoreLayer::createLoadingSprite()
 {
-	//hide the loading...image
-	//create and display a string with the price
-	//display purchase button
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
+	//add title image
+	float originalWidth = 670;
+	float originalHeight = 144;
+	_loadingSprite = CCSprite::create("requesting_store_data.png", CCRectMake(0, 0, originalWidth, originalHeight));
+        
+	float scaleRatio = (windowSize.width *.7) / _loadingSprite->getContentSize().width;
+	_loadingSprite->setScale(scaleRatio);
+	_loadingSprite->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+	this->addChild(_loadingSprite);
 }
 
-void MenuStoreLayer::createLoadingLabel()
+void MenuStoreLayer::createLoadingFailureLabel()
 {
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+	
+    _failureLabel = CCLabelTTF::create("Failed to load store data.\nCheck your network connection.", "Verdana-Bold", 60.0); 
+    _failureLabel->setColor(ccc3(255,0,0));
 
-	/*
-	The score value must be set incorrectly at first.  See createLevelLabel() for an explanation.  This should be fixed.
-	*/
-    CCLabelTTF * _highScoreLabel = CCLabelTTF::create("Loading...", "Verdana-Bold", 60.0); 
-    _highScoreLabel->setColor(ccc3(255,255,255));
-	Size originalSize = _highScoreLabel->getContentSize();
-	float laneHeight = (winSize.height / 19.0) / 2; //this /2 is so I can fit two labels in one lane
-	float laneMargin = laneHeight * .05;
-	float desiredLabelHeight = laneHeight - (laneMargin + laneMargin);
-	float scaleRatio = desiredLabelHeight / originalSize.height;
-	_highScoreLabel->setScale(scaleRatio);
-	_highScoreLabel->setContentSize(CCSize(originalSize.width * scaleRatio, originalSize.height * scaleRatio));
-
-	//_highScoreLabel->setAnchorPoint(ccp(1,1));
-	//_highScoreLabel->setPosition(ccp(winSize.width - laneMargin, winSize.height - laneMargin));
-	_highScoreLabel->setAnchorPoint(ccp(1,0));
-	_highScoreLabel->setPosition(ccp(winSize.width - laneMargin, laneHeight + laneMargin));
-    this->addChild(_highScoreLabel);
+	float scaleRatio = (winSize.width *.7) / _failureLabel->getContentSize().width;
+	_failureLabel->setScale(scaleRatio);
+	_failureLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+    this->addChild(_failureLabel);
 }
