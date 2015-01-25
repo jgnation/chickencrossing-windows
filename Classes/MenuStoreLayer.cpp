@@ -1,5 +1,6 @@
 #include "MenuStoreLayer.h"
 #include "PurchaseHelper.h"
+#include "MenuButtonLayer.h"
 
 using namespace cocos2d;
 
@@ -10,9 +11,23 @@ bool MenuStoreLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
-		CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+		this->createPurchaseTitleImage();
 
-		this->createLoadingLabel();
+
+		
+		CCMenuItemImage * buyImage = this->createBuyButton();
+		CCMenuItemImage * restoreImage = this->createRestoreButton();
+		CCMenuItemImage * exitImage = this->createExitButton();
+		CCMenu * menu = CCMenu::create(
+			buyImage,
+			restoreImage,
+			exitImage,
+			NULL
+		);
+		menu->setPosition(CCPointZero);
+		this->addChild(menu);
+
+		//this->createLoadingLabel();
 
 		if(CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium"))
 		{
@@ -32,28 +47,96 @@ bool MenuStoreLayer::init()
     return bRet;
 }
 
-CCMenuItemImage* MenuStoreLayer::createPurchaseButton()
+void MenuStoreLayer::createPurchaseTitleImage()
 {
 	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+
 	float originalWidth = 670;
 	float originalHeight = 144;
+	CCSprite * purchase_title_image = CCSprite::create("purchase_ad_removal_orange.png", CCRectMake(0, 0, originalWidth, originalHeight));        
+	float scaleRatio = (windowSize.width *.6) / purchase_title_image->getContentSize().width;
+	purchase_title_image->setScale(scaleRatio);
+	purchase_title_image->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+	this->addChild(purchase_title_image);
+}
+
+CCMenuItemImage* MenuStoreLayer::createBuyButton()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 400;
+	float originalHeight = 200;
 
 	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
-		"purchase_ad_removal_orange.png",	//TODO: change this image!
-		"purchase_ad_removal_yellow.png",
+		"Buy.png",
+		"Buy.png",
 		this,
-		menu_selector(MenuStoreLayer::makePurchase));
+		menu_selector(MenuStoreLayer::buy));
 
-	float scaleRatio = (windowSize.width *.6) / purchaseImage->getContentSize().width;
+	float scaleRatio = (windowSize.width *.3) / purchaseImage->getContentSize().width;
 	purchaseImage->setScale(scaleRatio);
-	purchaseImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .1));
+	purchaseImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width * .3, CCDirector::sharedDirector()->getWinSize().height * .4));
 
 	return purchaseImage;
 }
 
-void MenuStoreLayer::makePurchase(CCObject* pSender)
+void MenuStoreLayer::buy(CCObject* pSender)
 {
 	PurchaseHelper::makePurchase();
+}
+
+CCMenuItemImage* MenuStoreLayer::createRestoreButton()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 400;
+	float originalHeight = 200;
+
+	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
+		"Restore.png",
+		"Restore.png",
+		this,
+		menu_selector(MenuStoreLayer::restore));
+
+	float scaleRatio = (windowSize.width *.3) / purchaseImage->getContentSize().width;
+	purchaseImage->setScale(scaleRatio);
+	purchaseImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width * .7, CCDirector::sharedDirector()->getWinSize().height * .4));
+
+	return purchaseImage;
+}
+
+void MenuStoreLayer::restore(CCObject* pSender)
+{
+	//PurchaseHelper::makePurchase();
+}
+
+CCMenuItemImage* MenuStoreLayer::createExitButton()
+{
+	CCSize windowSize = CCDirector::sharedDirector()->getWinSize();
+	float originalWidth = 300;
+	float originalHeigh = 228;
+
+	CCMenuItemImage * arrow = CCMenuItemImage::create(
+		"arrow_left.png",
+		"arrow_left.png",
+		this,
+		menu_selector(MenuStoreLayer::exit));
+
+	float scaleRatioArrowX = (windowSize.width *.2) / arrow->getContentSize().width;
+	float scaleRatioArrowY = (windowSize.height *.15) / arrow->getContentSize().height;
+	arrow->setScale(scaleRatioArrowX);
+	arrow->setScale(scaleRatioArrowY);
+	arrow->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .20));
+
+	return arrow;
+}
+
+void MenuStoreLayer::exit(CCObject* pSender)
+{
+	Node * parent = this->getParent();
+	MenuButtonLayer* menuButtonLayer = dynamic_cast<MenuButtonLayer*>(parent);
+	if(menuButtonLayer != 0)
+	{
+		menuButtonLayer->resetDisplay();
+	}
 }
 
 /*

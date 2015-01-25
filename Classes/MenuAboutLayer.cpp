@@ -110,8 +110,8 @@ CCMenuItemImage* MenuAboutLayer::createAboutExitButton()
 	float originalWidthArrow = 300;
 	float originalHeightArrow = 228;
 	CCMenuItemImage* arrow = CCMenuItemImage::create(
-		"arrow.png",
-		"arrow.png",
+		"arrow_left.png",
+		"arrow_left.png",
 		this,
 		menu_selector(MenuAboutLayer::aboutExitCallback));
 

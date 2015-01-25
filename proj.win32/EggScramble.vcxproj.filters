@@ -512,5 +512,14 @@
     <Image Include="..\Resources\purchase_ad_removal_yellow.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\arrow_left.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Buy.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Restore.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>

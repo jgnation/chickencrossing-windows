@@ -61,6 +61,7 @@ void MenuButtonLayer::resetDisplay()
 	//hide all child layers
 	_menuAboutLayer->setVisible(false);
 	_menuInstructionsLayer->setVisible(false);
+	_menuStoreLayer->setVisible(false);
 
 	//display this layer's stuff
 	_mainMenu->setVisible(true);

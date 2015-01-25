@@ -13,13 +13,18 @@ public:
 	CREATE_FUNC(MenuStoreLayer);
 	virtual bool init();
 
-	CCMenuItemImage* createPurchaseButton();
-	void makePurchase(CCObject* pSender);
+	void buy(CCObject* pSender);
+	void restore(CCObject* pSender);
+	void exit(CCObject* pSender);
 
 	void getStoreData();
 	void storeDataCallback(std::string price);
 
 	void createLoadingLabel();
+	void createPurchaseTitleImage();
+	CCMenuItemImage* createBuyButton();
+	CCMenuItemImage* createRestoreButton();
+	CCMenuItemImage* createExitButton();
 };
 
 #endif
