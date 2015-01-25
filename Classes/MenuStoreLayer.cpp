@@ -20,8 +20,8 @@ bool MenuStoreLayer::init()
 		this->addChild(_exitMenu);
 
         //create and hide this stuff
-		//this->createPurchaseTitleImage();
-		//_purchaseTitleImage->setVisible(false);
+		this->createPurchaseTitleImage();
+		_purchaseTitleImage->setVisible(false);
 		
 		//create buy/restore buttons
 		CCMenuItemImage * buyImage = this->createBuyButton();
@@ -33,14 +33,14 @@ bool MenuStoreLayer::init()
 
 		//create failed label
 		this->createLoadingFailureLabel();
-		//_failureLabel->setVisible(false);
+		_failureLabel->setVisible(false);
 
 		//create retry menu
 		CCMenuItemImage * retryImage = this->createRetryButton();
 		_retryMenu = CCMenu::create(retryImage, NULL);
 		_retryMenu->setPosition(CCPointZero);
 		this->addChild(_retryMenu);
-		//_retryMenu->setVisible(true);
+		_retryMenu->setVisible(true);
 
 		
 
