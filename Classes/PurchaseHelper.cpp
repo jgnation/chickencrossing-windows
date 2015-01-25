@@ -29,6 +29,11 @@ void PurchaseHelper::makePurchase()
 	}
 }
 
+void PurchaseHelper::restorePurchase()
+{
+
+}
+
 void PurchaseHelper::getStoreData()
 {
 }
@@ -46,8 +51,14 @@ void PurchaseHelper::makePurchase()
     iOSHelper::buyAdRemoval();
 }
 
+void PurchaseHelper::restorePurchase()
+{
+    iOSHelper::restorePurchases();
+}
+
 void PurchaseHelper::getStoreData()
 {
+    iOSHelper::getAvailableItems();
 }
 
 #else
@@ -61,21 +72,16 @@ bool PurchaseHelper::isPremium()
 void PurchaseHelper::makePurchase()
 {
 	CCLOG("makePurchase() called");
-	//do nothing
 }
 
 void PurchaseHelper::getStoreData()
 {
 	CCLOG("getStoreData() called");
-	//get running scene
-	/*cocos2d::Scene * scene = cocos2d::CCDirector::sharedDirector()->getRunningScene();
-	auto children = scene->getChildren();
-	for(auto it = children.begin(); it != children.end(); ++it)
-	{
-		//do I need to get children's children?
-		int a = 43;
-		a = 54;
-	}*/
+}
+
+void PurchaseHelper::restorePurchase()
+{
+    CCLOG("restorePurchase() called");
 }
 
 #endif

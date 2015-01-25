@@ -11,9 +11,9 @@ bool MenuStoreLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
+        //display loading image
+        //hide the rest of this stuff
 		this->createPurchaseTitleImage();
-
-
 		
 		CCMenuItemImage * buyImage = this->createBuyButton();
 		CCMenuItemImage * restoreImage = this->createRestoreButton();
@@ -45,6 +45,33 @@ bool MenuStoreLayer::init()
     } while (0);
 
     return bRet;
+}
+
+void MenuStoreLayer::loadStore()
+{
+    PurchaseHelper::getStoreData();
+    //if !loaded
+    //send request to ObjC to get products
+    //ObjC should store the products after a single request is made, so only one will ever be needed
+    //if products sucessfully load (or already exist in Objc code), hit a callback in here
+    //in callabck, hide loading... and display store
+    
+    //if loaded, hide loading... and display store
+}
+
+void MenuStoreLayer::loadStoreSuccessCallback()
+{
+    int x = 43;
+    x = 46;
+    //set loaded to true
+    //
+}
+
+void MenuStoreLayer::loadStoreFailureCallback()
+{
+    int x = 43;
+    x = 46;
+    //display error and retry button
 }
 
 void MenuStoreLayer::createPurchaseTitleImage()
@@ -105,7 +132,7 @@ CCMenuItemImage* MenuStoreLayer::createRestoreButton()
 
 void MenuStoreLayer::restore(CCObject* pSender)
 {
-	//PurchaseHelper::makePurchase();
+    PurchaseHelper::restorePurchase();
 }
 
 CCMenuItemImage* MenuStoreLayer::createExitButton()

@@ -89,6 +89,7 @@ void MenuButtonLayer::purchaseCallback(CCObject* pSender)
 	_mainMenu->setVisible(false);
 	_titleImage->setVisible(false);
 
+    _menuStoreLayer->loadStore();
 	_menuStoreLayer->setVisible(true);
 }
 

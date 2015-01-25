@@ -15,6 +15,8 @@
 //- (void)anInstanceMethod;
 
 +(void) purchaseSuccessful;
++(void) storeDataLoadedSuccess;
++(void) storeDataLoadedFailure;
 
 @end
 

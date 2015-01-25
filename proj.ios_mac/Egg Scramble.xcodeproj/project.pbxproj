@@ -44,6 +44,9 @@
 		42223C9B1A73F794006147B6 /* MenuInstructionsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C961A73F794006147B6 /* MenuInstructionsLayer.cpp */; };
 		42223C9C1A73F794006147B6 /* MenuStoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C981A73F794006147B6 /* MenuStoreLayer.cpp */; };
 		422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 422668821A2ABF1100FC2D82 /* iOSHelper.mm */; };
+		4230057F1A7498810053FB1B /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057C1A7498810053FB1B /* arrow_left.png */; };
+		423005801A7498810053FB1B /* Buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057D1A7498810053FB1B /* Buy.png */; };
+		423005811A7498810053FB1B /* Restore.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057E1A7498810053FB1B /* Restore.png */; };
 		42510FCE1A6AD71A005B013B /* ObjCToCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */; };
 		42510FD11A6ADA28005B013B /* PurchaseCallbackIOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42510FD01A6ADA28005B013B /* PurchaseCallbackIOS.cpp */; };
 		42E1759C1A2257D40075AF14 /* AcceleratingLane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */; };
@@ -400,6 +403,9 @@
 		42223C991A73F794006147B6 /* MenuStoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuStoreLayer.h; path = ../Classes/MenuStoreLayer.h; sourceTree = "<group>"; };
 		422668821A2ABF1100FC2D82 /* iOSHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = iOSHelper.mm; path = ios/iOSHelper.mm; sourceTree = SOURCE_ROOT; };
 		422668831A2ABF1100FC2D82 /* iOSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSHelper.h; path = ios/iOSHelper.h; sourceTree = SOURCE_ROOT; };
+		4230057C1A7498810053FB1B /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
+		4230057D1A7498810053FB1B /* Buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buy.png; sourceTree = "<group>"; };
+		4230057E1A7498810053FB1B /* Restore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore.png; sourceTree = "<group>"; };
 		42510FCA1A6AD6F3005B013B /* ObjCToCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjCToCpp.h; path = ios/ObjCToCpp.h; sourceTree = SOURCE_ROOT; };
 		42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ObjCToCpp.mm; path = ios/ObjCToCpp.mm; sourceTree = SOURCE_ROOT; };
 		42510FCF1A6AD9FB005B013B /* PurchaseCallbackIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PurchaseCallbackIOS.h; path = ../Classes/PurchaseCallbackIOS.h; sourceTree = "<group>"; };
@@ -943,11 +949,9 @@
 				42E175C21A2257FE0075AF14 /* 253177__suntemple__retro-accomplished-sfx.wav */,
 				42E175C41A2257FE0075AF14 /* about_orange.png */,
 				42E175C51A2257FE0075AF14 /* about_yellow.png */,
+				4230057C1A7498810053FB1B /* arrow_left.png */,
 				42E175C61A2257FE0075AF14 /* arrow.png */,
 				42E175CA1A2257FE0075AF14 /* background1.png */,
-				42E175D31A2257FE0075AF14 /* background10.png */,
-				42E175D41A2257FE0075AF14 /* background11.png */,
-				42E175D51A2257FE0075AF14 /* background12.png */,
 				42E175CB1A2257FE0075AF14 /* background2.png */,
 				42E175CC1A2257FE0075AF14 /* background3.png */,
 				42E175CD1A2257FE0075AF14 /* background4.png */,
@@ -956,8 +960,12 @@
 				42E175D01A2257FE0075AF14 /* background7.png */,
 				42E175D11A2257FE0075AF14 /* background8.png */,
 				42E175D21A2257FE0075AF14 /* background9.png */,
+				42E175D31A2257FE0075AF14 /* background10.png */,
+				42E175D41A2257FE0075AF14 /* background11.png */,
+				42E175D51A2257FE0075AF14 /* background12.png */,
 				42E175D61A2257FE0075AF14 /* beetle_small.png */,
 				42E175D71A2257FE0075AF14 /* brown_egg.png */,
+				4230057D1A7498810053FB1B /* Buy.png */,
 				42E175DA1A2257FE0075AF14 /* cactus.png */,
 				42E175DC1A2257FE0075AF14 /* chicken_crossing_title.png */,
 				42E175E11A2257FE0075AF14 /* chicken_xxsmall.png */,
@@ -965,9 +973,6 @@
 				42E175EA1A2257FE0075AF14 /* deaths-head-xxsmall.png */,
 				42E175ED1A2257FE0075AF14 /* egg_scramble_title.png */,
 				42E175F01A2257FE0075AF14 /* esm_level_1.plist */,
-				42E175F91A2257FE0075AF14 /* esm_level_10.plist */,
-				42E175FA1A2257FE0075AF14 /* esm_level_11.plist */,
-				42E175FB1A2257FE0075AF14 /* esm_level_12.plist */,
 				42E175F11A2257FE0075AF14 /* esm_level_2.plist */,
 				42E175F21A2257FE0075AF14 /* esm_level_3.plist */,
 				42E175F31A2257FE0075AF14 /* esm_level_4.plist */,
@@ -976,6 +981,9 @@
 				42E175F61A2257FE0075AF14 /* esm_level_7.plist */,
 				42E175F71A2257FE0075AF14 /* esm_level_8.plist */,
 				42E175F81A2257FE0075AF14 /* esm_level_9.plist */,
+				42E175F91A2257FE0075AF14 /* esm_level_10.plist */,
+				42E175FA1A2257FE0075AF14 /* esm_level_11.plist */,
+				42E175FB1A2257FE0075AF14 /* esm_level_12.plist */,
 				42E175FC1A2257FE0075AF14 /* esm_levels.plist */,
 				42E175FF1A2257FE0075AF14 /* futura-48.fnt */,
 				42E176001A2257FE0075AF14 /* futura-48.png */,
@@ -984,9 +992,6 @@
 				42E176031A2257FE0075AF14 /* instructions_yellow.png */,
 				42E176051A2257FE0075AF14 /* jgnation_logo_med.png */,
 				42E176081A2257FE0075AF14 /* mm_level_1.plist */,
-				42E176111A2257FE0075AF14 /* mm_level_10.plist */,
-				42E176121A2257FE0075AF14 /* mm_level_11.plist */,
-				42E176131A2257FE0075AF14 /* mm_level_12.plist */,
 				42E176091A2257FE0075AF14 /* mm_level_2.plist */,
 				42E1760A1A2257FE0075AF14 /* mm_level_3.plist */,
 				42E1760B1A2257FE0075AF14 /* mm_level_4.plist */,
@@ -995,11 +1000,11 @@
 				42E1760E1A2257FE0075AF14 /* mm_level_7.plist */,
 				42E1760F1A2257FE0075AF14 /* mm_level_8.plist */,
 				42E176101A2257FE0075AF14 /* mm_level_9.plist */,
+				42E176111A2257FE0075AF14 /* mm_level_10.plist */,
+				42E176121A2257FE0075AF14 /* mm_level_11.plist */,
+				42E176131A2257FE0075AF14 /* mm_level_12.plist */,
 				42E176141A2257FE0075AF14 /* mm_levels.plist */,
 				42E176151A2257FE0075AF14 /* num_1.png */,
-				42E1761E1A2257FE0075AF14 /* num_10.png */,
-				42E1761F1A2257FE0075AF14 /* num_11.png */,
-				42E176201A2257FE0075AF14 /* num_12.png */,
 				42E176161A2257FE0075AF14 /* num_2.png */,
 				42E176171A2257FE0075AF14 /* num_3.png */,
 				42E176181A2257FE0075AF14 /* num_4.png */,
@@ -1008,10 +1013,14 @@
 				42E1761B1A2257FE0075AF14 /* num_7.png */,
 				42E1761C1A2257FE0075AF14 /* num_8.png */,
 				42E1761D1A2257FE0075AF14 /* num_9.png */,
+				42E1761E1A2257FE0075AF14 /* num_10.png */,
+				42E1761F1A2257FE0075AF14 /* num_11.png */,
+				42E176201A2257FE0075AF14 /* num_12.png */,
 				42E1762E1A2257FE0075AF14 /* plank_small.png */,
 				42E176311A2257FE0075AF14 /* Platform.mp3 */,
 				42EC073C1A61ACF1006624E5 /* purchase_ad_removal_orange.png */,
 				42EC073D1A61ACF1006624E5 /* purchase_ad_removal_yellow.png */,
+				4230057E1A7498810053FB1B /* Restore.png */,
 				42E176371A2257FE0075AF14 /* resume.png */,
 				42E176391A2257FE0075AF14 /* select_level.png */,
 				42E176401A2257FE0075AF14 /* SpaceQuest3.mp3 */,
@@ -1192,10 +1201,12 @@
 			files = (
 				42E176A21A2257FE0075AF14 /* num_2.png in Resources */,
 				42E176A41A2257FE0075AF14 /* num_4.png in Resources */,
+				423005811A7498810053FB1B /* Restore.png in Resources */,
 				42E1765D1A2257FE0075AF14 /* background7.png in Resources */,
 				42E1768C1A2257FE0075AF14 /* futura-48.png in Resources */,
 				42E1768D1A2257FE0075AF14 /* game_over.png in Resources */,
 				42E176871A2257FE0075AF14 /* esm_level_11.plist in Resources */,
+				4230057F1A7498810053FB1B /* arrow_left.png in Resources */,
 				42E1765A1A2257FE0075AF14 /* background4.png in Resources */,
 				42E1768B1A2257FE0075AF14 /* futura-48.fnt in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
@@ -1262,6 +1273,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				42E176801A2257FE0075AF14 /* esm_level_4.plist in Resources */,
+				423005801A7498810053FB1B /* Buy.png in Resources */,
 				42E176A51A2257FE0075AF14 /* num_5.png in Resources */,
 				42E1767A1A2257FE0075AF14 /* egg_scramble_title.png in Resources */,
 				42E176AC1A2257FE0075AF14 /* num_12.png in Resources */,

@@ -5,6 +5,7 @@ class PurchaseHelper
 {
 public:
 	static void makePurchase();
+    static void restorePurchase();
 	static bool isPremium();
 	static void getStoreData();
 };

@@ -18,25 +18,8 @@ void iOSHelper::showInterstitial(){
 }
 
 void iOSHelper::getAvailableItems() {
-    //AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
-    //[appDelegate validateProductIdentifiers];
-    
-    /*[[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
-        if (success) {
-            NSArray * _products = products;
-            
-            //self.products = response.products;
-            NSLog(@"The ProductIdentifiers are:%@",[_products description]);
-            NSArray * skProducts = _products;
-            for (SKProduct * skProduct in skProducts) {
-                NSLog(@"Found product: %@ %@ %0.2f",
-                      skProduct.productIdentifier,
-                      skProduct.localizedTitle,
-                      skProduct.price.floatValue);
-            }
-
-        }
-    }];*/    
+    AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appDelegate requestProducts];
 }
 
 void iOSHelper::buyAdRemoval() {

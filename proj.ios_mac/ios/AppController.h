@@ -14,6 +14,7 @@
 - (void) showInterstitial;
 - (void) validateProductIdentifiers;
 - (void) initializeIAP;
+- (void) requestProducts;
 - (void) buyAdRemoval;
 
 @end

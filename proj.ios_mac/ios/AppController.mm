@@ -103,25 +103,33 @@ BannerViewController *_bannerViewController;
 - (void)initializeIAP {
     [EggScrambleIAPHelper sharedInstance]; //create singleton
     
-    [[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
-        if (success) {
-            _products = products;
-            [_products retain]; //why do I need to do this?
-            
-            //self.products = response.products;
-            NSLog(@"The ProductIdentifiers are:%@",[_products description]);
-            NSArray * skProducts = _products;
-            for (SKProduct * skProduct in skProducts) {
-                NSLog(@"Found product: %@ %@ %0.2f",
-                      skProduct.productIdentifier,
-                      skProduct.localizedTitle,
-                      skProduct.price.floatValue);
-            }
-            
-        }
-    }];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+}
+
+- (void) requestProducts {
+    if (_products == nil) {
+        [[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+            if (success) {
+                _products = products;
+                [_products retain]; //why do I need to do this?
+                
+                //self.products = response.products;
+                NSLog(@"The ProductIdentifiers are:%@",[_products description]);
+                NSArray * skProducts = _products;
+                for (SKProduct * skProduct in skProducts) {
+                    NSLog(@"Found product: %@ %@ %0.2f",
+                          skProduct.productIdentifier,
+                          skProduct.localizedTitle,
+                          skProduct.price.floatValue);
+                }
+                [ObjCToCpp storeDataLoadedSuccess];
+            } else {
+                [ObjCToCpp storeDataLoadedFailure];
+            }
+        }];
+    } else {
+        [ObjCToCpp storeDataLoadedSuccess];
+    }
 }
 
 - (void)productPurchased:(NSNotification *)notification {

@@ -25,6 +25,10 @@ public:
 	CCMenuItemImage* createBuyButton();
 	CCMenuItemImage* createRestoreButton();
 	CCMenuItemImage* createExitButton();
+    
+    void loadStore();
+    void loadStoreSuccessCallback();
+    void loadStoreFailureCallback();
 };
 
 #endif
