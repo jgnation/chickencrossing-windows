@@ -14,6 +14,8 @@ private:
 	CCSprite* _loadingSprite;
 	CCSprite* _purchaseTitleImage;
 	CCLabelTTF* _failureLabel;
+    CCLabelTTF* _premiumLabel;
+    bool _storeLoaded;
 public:
 	CREATE_FUNC(MenuStoreLayer);
 	virtual bool init();
@@ -36,6 +38,8 @@ public:
 	void createLoadingSprite();
 
 	void createLoadingFailureLabel();
+    void createPremiumLabel();
+    
 	CCMenuItemImage* createRetryButton();
 	void retry(CCObject* pSender);
 };

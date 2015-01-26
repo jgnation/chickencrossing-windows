@@ -11,50 +11,46 @@ bool MenuStoreLayer::init()
     {
         CC_BREAK_IF(! CCLayer::init());
 
-		this->createLoadingSprite();
-
-		//create exit button
-		CCMenuItemImage * exitImage = this->createExitButton();
-		_exitMenu = CCMenu::create(exitImage, NULL);
-		_exitMenu->setPosition(CCPointZero);
-		this->addChild(_exitMenu);
-
-        //create and hide this stuff
-		this->createPurchaseTitleImage();
-		_purchaseTitleImage->setVisible(false);
-		
-		//create buy/restore buttons
-		CCMenuItemImage * buyImage = this->createBuyButton();
-		CCMenuItemImage * restoreImage = this->createRestoreButton();		
-		_buyMenu = CCMenu::create(buyImage,	restoreImage, NULL);
-		_buyMenu->setPosition(CCPointZero);
-		this->addChild(_buyMenu);
-		_buyMenu->setVisible(false);
-
-		//create failed label
-		this->createLoadingFailureLabel();
-		_failureLabel->setVisible(false);
-
-		//create retry menu
-		CCMenuItemImage * retryImage = this->createRetryButton();
-		_retryMenu = CCMenu::create(retryImage, NULL);
-		_retryMenu->setPosition(CCPointZero);
-		this->addChild(_retryMenu);
-		_retryMenu->setVisible(true);
-
-		
-
 		if(CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium"))
 		{
-			//display "you already own premium!"
+            this->createPremiumLabel();
+            _premiumLabel->setVisible(true);
 		}
 		else
 		{
-			//create and display "loading..." image
-
-			//fire off request to get store data
-			//this->getStoreData();
+            _storeLoaded = false;
+            
+            this->createLoadingSprite();
+            
+            //create and hide this stuff
+            this->createPurchaseTitleImage();
+            _purchaseTitleImage->setVisible(false);
+            
+            //create buy/restore buttons
+            CCMenuItemImage * buyImage = this->createBuyButton();
+            CCMenuItemImage * restoreImage = this->createRestoreButton();
+            _buyMenu = CCMenu::create(buyImage,	restoreImage, NULL);
+            _buyMenu->setPosition(CCPointZero);
+            this->addChild(_buyMenu);
+            _buyMenu->setVisible(false);
+            
+            //create failed label
+            this->createLoadingFailureLabel();
+            _failureLabel->setVisible(false);
+            
+            //create retry menu
+            CCMenuItemImage * retryImage = this->createRetryButton();
+            _retryMenu = CCMenu::create(retryImage, NULL);
+            _retryMenu->setPosition(CCPointZero);
+            this->addChild(_retryMenu);
+            _retryMenu->setVisible(false);
 		}
+        
+        //create exit button
+        CCMenuItemImage * exitImage = this->createExitButton();
+        _exitMenu = CCMenu::create(exitImage, NULL);
+        _exitMenu->setPosition(CCPointZero);
+        this->addChild(_exitMenu);
 
 		bRet = true;
     } while (0);
@@ -64,19 +60,45 @@ bool MenuStoreLayer::init()
 
 void MenuStoreLayer::loadStore()
 {
-    PurchaseHelper::getStoreData();
-    //if !loaded
-    //send request to ObjC to get products
-    //ObjC should store the products after a single request is made, so only one will ever be needed
-    //if products sucessfully load (or already exist in Objc code), hit a callback in here
-    //in callabck, hide loading... and display store
-    
-    //if loaded, hide loading... and display store
+    if(!(CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium")))
+    {
+        if (_storeLoaded)
+        {
+            //hide everything I don't need
+            _retryMenu->setVisible(false);
+            _failureLabel->setVisible(false);
+            _loadingSprite->setVisible(false);
+        
+            //show what I need
+            _purchaseTitleImage->setVisible(true);
+            _buyMenu->setVisible(true);
+        }
+        else
+        {
+            //hide everything I don't need
+            _retryMenu->setVisible(false);
+            _failureLabel->setVisible(false);
+            _purchaseTitleImage->setVisible(false);
+            _buyMenu->setVisible(false);
+        
+            //show what I need
+            _loadingSprite->setVisible(true);
+            
+            PurchaseHelper::getStoreData();
+            //if !loaded
+            //send request to ObjC to get products
+            //ObjC should store the products after a single request is made, so only one will ever be needed
+            //if products sucessfully load (or already exist in Objc code), hit a callback in here
+            //in callabck, hide loading... and display store
+        
+            //if loaded, hide loading... and display store
+        }
+    }
 }
 
 void MenuStoreLayer::loadStoreSuccessCallback()
 {
-    //TODO: set loaded to true
+    _storeLoaded = true;
     
 	_loadingSprite->setVisible(false);
 	_buyMenu->setVisible(true);
@@ -87,6 +109,8 @@ void MenuStoreLayer::loadStoreFailureCallback()
 {
     //display error and retry button
 	_loadingSprite->setVisible(false);
+    _failureLabel->setVisible(true);
+    _retryMenu->setVisible(true);
 }
 
 void MenuStoreLayer::createPurchaseTitleImage()
@@ -202,8 +226,13 @@ CCMenuItemImage* MenuStoreLayer::createRetryButton()
 
 void MenuStoreLayer::retry(CCObject* pSender)
 {
-	_buyMenu->setVisible(false);
-	_loadingSprite->setVisible(true);
+    //TODO: set everything that I don't need false? just in case?
+	//_buyMenu->setVisible(false);
+    
+    //_retryMenu->setVisible(false);
+    //_failureLabel->setVisible(false);
+	//_loadingSprite->setVisible(true);
+    this->loadStore();
 }
 
 /*
@@ -242,4 +271,17 @@ void MenuStoreLayer::createLoadingFailureLabel()
 	_failureLabel->setScale(scaleRatio);
 	_failureLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
     this->addChild(_failureLabel);
+}
+
+void MenuStoreLayer::createPremiumLabel()
+{
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    _premiumLabel = CCLabelTTF::create("You already own the full, ad-free game.\nThank you!", "Verdana-Bold", 60.0);
+    _premiumLabel->setColor(ccc3(255,0,0));
+    
+    float scaleRatio = (winSize.width *.7) / _premiumLabel->getContentSize().width;
+    _premiumLabel->setScale(scaleRatio);
+    _premiumLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+    this->addChild(_premiumLabel);
 }

@@ -44,6 +44,8 @@
 		42223C9B1A73F794006147B6 /* MenuInstructionsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C961A73F794006147B6 /* MenuInstructionsLayer.cpp */; };
 		42223C9C1A73F794006147B6 /* MenuStoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C981A73F794006147B6 /* MenuStoreLayer.cpp */; };
 		422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 422668821A2ABF1100FC2D82 /* iOSHelper.mm */; };
+		42281AD91A75FDBA00B4024C /* requesting_store_data.png in Resources */ = {isa = PBXBuildFile; fileRef = 42281AD71A75FDBA00B4024C /* requesting_store_data.png */; };
+		42281ADA1A75FDBA00B4024C /* Retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 42281AD81A75FDBA00B4024C /* Retry.png */; };
 		4230057F1A7498810053FB1B /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057C1A7498810053FB1B /* arrow_left.png */; };
 		423005801A7498810053FB1B /* Buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057D1A7498810053FB1B /* Buy.png */; };
 		423005811A7498810053FB1B /* Restore.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057E1A7498810053FB1B /* Restore.png */; };
@@ -403,6 +405,8 @@
 		42223C991A73F794006147B6 /* MenuStoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuStoreLayer.h; path = ../Classes/MenuStoreLayer.h; sourceTree = "<group>"; };
 		422668821A2ABF1100FC2D82 /* iOSHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = iOSHelper.mm; path = ios/iOSHelper.mm; sourceTree = SOURCE_ROOT; };
 		422668831A2ABF1100FC2D82 /* iOSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSHelper.h; path = ios/iOSHelper.h; sourceTree = SOURCE_ROOT; };
+		42281AD71A75FDBA00B4024C /* requesting_store_data.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requesting_store_data.png; sourceTree = "<group>"; };
+		42281AD81A75FDBA00B4024C /* Retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Retry.png; sourceTree = "<group>"; };
 		4230057C1A7498810053FB1B /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
 		4230057D1A7498810053FB1B /* Buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buy.png; sourceTree = "<group>"; };
 		4230057E1A7498810053FB1B /* Restore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore.png; sourceTree = "<group>"; };
@@ -1020,8 +1024,10 @@
 				42E176311A2257FE0075AF14 /* Platform.mp3 */,
 				42EC073C1A61ACF1006624E5 /* purchase_ad_removal_orange.png */,
 				42EC073D1A61ACF1006624E5 /* purchase_ad_removal_yellow.png */,
+				42281AD71A75FDBA00B4024C /* requesting_store_data.png */,
 				4230057E1A7498810053FB1B /* Restore.png */,
 				42E176371A2257FE0075AF14 /* resume.png */,
+				42281AD81A75FDBA00B4024C /* Retry.png */,
 				42E176391A2257FE0075AF14 /* select_level.png */,
 				42E176401A2257FE0075AF14 /* SpaceQuest3.mp3 */,
 				42E176411A2257FE0075AF14 /* start_game_orange.png */,
@@ -1200,6 +1206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42E176A21A2257FE0075AF14 /* num_2.png in Resources */,
+				42281AD91A75FDBA00B4024C /* requesting_store_data.png in Resources */,
 				42E176A41A2257FE0075AF14 /* num_4.png in Resources */,
 				423005811A7498810053FB1B /* Restore.png in Resources */,
 				42E1765D1A2257FE0075AF14 /* background7.png in Resources */,
@@ -1230,6 +1237,7 @@
 				42E176641A2257FE0075AF14 /* brown_egg.png in Resources */,
 				42E176941A2257FE0075AF14 /* mm_level_1.plist in Resources */,
 				42EC073E1A61ACF1006624E5 /* purchase_ad_removal_orange.png in Resources */,
+				42281ADA1A75FDBA00B4024C /* Retry.png in Resources */,
 				42E176601A2257FE0075AF14 /* background10.png in Resources */,
 				42E176D01A2257FF0075AF14 /* survival_yellow.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
