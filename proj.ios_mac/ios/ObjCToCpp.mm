@@ -7,8 +7,8 @@
     PurchaseCallbackIOS::purchaseSuccessful();
 }
 
-+ (void)storeDataLoadedSuccess {
-    PurchaseCallbackIOS::storeDataLoadedSuccess();
++ (void)storeDataLoadedSuccess:(NSString *) price {
+    PurchaseCallbackIOS::storeDataLoadedSuccess(std::string([price UTF8String]));
 }
 
 + (void)storeDataLoadedFailure {

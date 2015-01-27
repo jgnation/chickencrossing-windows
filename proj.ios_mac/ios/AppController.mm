@@ -122,14 +122,24 @@ BannerViewController *_bannerViewController;
                           skProduct.localizedTitle,
                           skProduct.price.floatValue);
                 }
-                [ObjCToCpp storeDataLoadedSuccess];
+                [ObjCToCpp storeDataLoadedSuccess:[[self class] getFormattedPrice:[_products objectAtIndex:0]]];
             } else {
                 [ObjCToCpp storeDataLoadedFailure];
             }
         }];
     } else {
-        [ObjCToCpp storeDataLoadedSuccess];
+        [ObjCToCpp storeDataLoadedSuccess:[[self class] getFormattedPrice:[_products objectAtIndex:0]]];
     }
+}
+
++ (NSString *) getFormattedPrice:(SKProduct *)product {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setLocale:product.priceLocale];
+    NSString *formattedString = [numberFormatter stringFromNumber:product.price];
+    [numberFormatter release];
+    return formattedString;
 }
 
 - (void)productPurchased:(NSNotification *)notification {

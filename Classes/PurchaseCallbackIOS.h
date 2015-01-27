@@ -8,7 +8,7 @@ private:
     static MenuStoreLayer * getMenuStoreLayer();
 public:
     static void purchaseSuccessful();
-    static void storeDataLoadedSuccess();
+    static void storeDataLoadedSuccess(std::string price);
     static void storeDataLoadedFailure();
 };
 

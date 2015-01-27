@@ -16,6 +16,7 @@
 - (void) initializeIAP;
 - (void) requestProducts;
 - (void) buyAdRemoval;
++ (NSString *) getFormattedPrice:(SKProduct *)product;
 
 @end
 

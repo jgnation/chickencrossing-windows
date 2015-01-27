@@ -15,7 +15,7 @@
 //- (void)anInstanceMethod;
 
 +(void) purchaseSuccessful;
-+(void) storeDataLoadedSuccess;
++(void) storeDataLoadedSuccess:(NSString *)price;
 +(void) storeDataLoadedFailure;
 
 @end

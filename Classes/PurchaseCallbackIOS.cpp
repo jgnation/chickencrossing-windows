@@ -10,7 +10,7 @@ void PurchaseCallbackIOS::purchaseSuccessful()
     cocos2d::CCDirector::sharedDirector()->replaceScene(MenuLayer::scene());
 }
 
-void PurchaseCallbackIOS::storeDataLoadedSuccess()
+void PurchaseCallbackIOS::storeDataLoadedSuccess(std::string price)
 {
     //call function in MenuStoreLayer
     MenuStoreLayer * menuStoreLayer = PurchaseCallbackIOS::getMenuStoreLayer();
