@@ -37,10 +37,15 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/MainModeLayer.cpp \
 				   ../../Classes/MainModeLevel.cpp \
 				   ../../Classes/MainModeLevelFactory.cpp \
+				   ../../Classes/MenuAboutLayer.cpp \
 				   ../../Classes/MenuButtonLayer.cpp \
+				   ../../Classes/MenuInstructionsLayer.cpp \
 				   ../../Classes/MenuLayer.cpp \
+				   ../../Classes/MenuStoreLayer.cpp \
 				   ../../Classes/PauseLayer.cpp \
 				   ../../Classes/PurchaseCallback.cpp \
+				   ../../Classes/PurchaseCallbackHelper.cpp \
+				   ../../Classes/PurchaseCallbackIOS.cpp \
 				   ../../Classes/PurchaseHelper.cpp \
 				   ../../Classes/SpriteContainer.cpp \
 				   ../../Classes/TopScore.cpp \

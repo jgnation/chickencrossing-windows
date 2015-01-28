@@ -135,6 +135,9 @@
     <ClCompile Include="..\Classes\MenuInstructionsLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\PurchaseCallbackHelper.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -255,6 +258,9 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MenuInstructionsLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PurchaseCallbackHelper.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

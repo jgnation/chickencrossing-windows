@@ -32,7 +32,7 @@ public:
 	CCMenuItemImage* createExitButton();
     
     void loadStore();
-    void loadStoreSuccessCallback();
+    void loadStoreSuccessCallback(std::string formattedPrice);
     void loadStoreFailureCallback();
 
 	void createLoadingSprite();

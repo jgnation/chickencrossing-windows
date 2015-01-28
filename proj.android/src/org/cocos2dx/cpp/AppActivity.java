@@ -28,6 +28,8 @@ package org.cocos2dx.cpp;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
@@ -65,6 +67,7 @@ public class AppActivity extends Cocos2dxActivity {
 	private static IabHelper mHelper;
 	private static IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener;
 	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
+	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener2;
 	private boolean isPremium;
 	private static String SKU_PREMIUM = "asfdsadf";
 	private static String SKU_TEST = "android.test.purchased";
@@ -130,6 +133,18 @@ public class AppActivity extends Cocos2dxActivity {
 			}
     	};
     	
+    	mGotInventoryListener2 = new IabHelper.QueryInventoryFinishedListener() {
+			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+				if (result.isFailure()) {
+					// handle error here
+				}
+				else {
+					String formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
+					//get localized price of item
+				}
+			}
+    	};
+    	
     	setupBannerAd();
         setupInterstitial();
         Appirater.appLaunched(this);
@@ -157,6 +172,19 @@ public class AppActivity extends Cocos2dxActivity {
     	});    	
     }    
     public static native void isPremiumCallback(boolean isPremium);
+    
+    public static void getStoreData() {
+    	final List<String> additionalSkuList = new ArrayList<>();
+    	additionalSkuList.add(SKU_TEST);
+
+    	_appActivity.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				mHelper.queryInventoryAsync(true, additionalSkuList, mGotInventoryListener2);				
+			}    		
+    	}); 
+    }
+    public static native void getStoreDataCallback(String price);
     
     private void setupBannerAd() {
     	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

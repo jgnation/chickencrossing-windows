@@ -36,6 +36,12 @@ void PurchaseHelper::restorePurchase()
 
 void PurchaseHelper::getStoreData()
 {
+	cocos2d::JniMethodInfo t;
+	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName2, "getStoreData", "()V"))
+	{
+		t.env->CallStaticVoidMethod(t.classID, t.methodID);
+		t.env->DeleteLocalRef(t.classID);
+	}
 }
 
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)

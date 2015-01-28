@@ -166,6 +166,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\MenuStoreLayer.cpp" />
     <ClCompile Include="..\Classes\PauseLayer.cpp" />
     <ClCompile Include="..\Classes\PurchaseCallback.cpp" />
+    <ClCompile Include="..\Classes\PurchaseCallbackHelper.cpp" />
     <ClCompile Include="..\Classes\PurchaseCallbackIOS.cpp" />
     <ClCompile Include="..\Classes\PurchaseHelper.cpp" />
     <ClCompile Include="..\Classes\SpriteContainer.cpp" />
@@ -208,6 +209,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\MenuLayer.h" />
     <ClInclude Include="..\Classes\MenuStoreLayer.h" />
     <ClInclude Include="..\Classes\PauseLayer.h" />
+    <ClInclude Include="..\Classes\PurchaseCallbackHelper.h" />
     <ClInclude Include="..\Classes\PurchaseCallbackIOS.h" />
     <ClInclude Include="..\Classes\PurchaseHelper.h" />
     <ClInclude Include="..\Classes\SpriteContainer.h" />

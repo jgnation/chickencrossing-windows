@@ -96,7 +96,7 @@ void MenuStoreLayer::loadStore()
     }
 }
 
-void MenuStoreLayer::loadStoreSuccessCallback()
+void MenuStoreLayer::loadStoreSuccessCallback(std::string formattedPrice)
 {
     _storeLoaded = true;
     
