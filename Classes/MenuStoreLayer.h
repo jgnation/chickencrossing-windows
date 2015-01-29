@@ -15,6 +15,7 @@ private:
 	CCSprite* _purchaseTitleImage;
 	CCLabelTTF* _failureLabel;
     CCLabelTTF* _premiumLabel;
+    CCLabelTTF* _descriptionLabel;
     bool _storeLoaded;
 public:
 	CREATE_FUNC(MenuStoreLayer);
@@ -42,6 +43,8 @@ public:
     
 	CCMenuItemImage* createRetryButton();
 	void retry(CCObject* pSender);
+    
+    void createDescriptionLabel();
 };
 
 #endif

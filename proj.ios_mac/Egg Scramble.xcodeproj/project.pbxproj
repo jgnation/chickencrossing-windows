@@ -43,6 +43,7 @@
 		42223C9A1A73F794006147B6 /* MenuAboutLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C941A73F794006147B6 /* MenuAboutLayer.cpp */; };
 		42223C9B1A73F794006147B6 /* MenuInstructionsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C961A73F794006147B6 /* MenuInstructionsLayer.cpp */; };
 		42223C9C1A73F794006147B6 /* MenuStoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42223C981A73F794006147B6 /* MenuStoreLayer.cpp */; };
+		4222E0E41A79A7ED00BAAB0B /* PurchaseCallbackHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4222E0E21A79A7ED00BAAB0B /* PurchaseCallbackHelper.cpp */; };
 		422668841A2ABF1100FC2D82 /* iOSHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 422668821A2ABF1100FC2D82 /* iOSHelper.mm */; };
 		42281AD91A75FDBA00B4024C /* requesting_store_data.png in Resources */ = {isa = PBXBuildFile; fileRef = 42281AD71A75FDBA00B4024C /* requesting_store_data.png */; };
 		42281ADA1A75FDBA00B4024C /* Retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 42281AD81A75FDBA00B4024C /* Retry.png */; };
@@ -403,6 +404,8 @@
 		42223C971A73F794006147B6 /* MenuInstructionsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuInstructionsLayer.h; path = ../Classes/MenuInstructionsLayer.h; sourceTree = "<group>"; };
 		42223C981A73F794006147B6 /* MenuStoreLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuStoreLayer.cpp; path = ../Classes/MenuStoreLayer.cpp; sourceTree = "<group>"; };
 		42223C991A73F794006147B6 /* MenuStoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuStoreLayer.h; path = ../Classes/MenuStoreLayer.h; sourceTree = "<group>"; };
+		4222E0E21A79A7ED00BAAB0B /* PurchaseCallbackHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PurchaseCallbackHelper.cpp; path = ../Classes/PurchaseCallbackHelper.cpp; sourceTree = "<group>"; };
+		4222E0E31A79A7ED00BAAB0B /* PurchaseCallbackHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchaseCallbackHelper.h; path = ../Classes/PurchaseCallbackHelper.h; sourceTree = "<group>"; };
 		422668821A2ABF1100FC2D82 /* iOSHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = iOSHelper.mm; path = ios/iOSHelper.mm; sourceTree = SOURCE_ROOT; };
 		422668831A2ABF1100FC2D82 /* iOSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSHelper.h; path = ios/iOSHelper.h; sourceTree = SOURCE_ROOT; };
 		42281AD71A75FDBA00B4024C /* requesting_store_data.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requesting_store_data.png; sourceTree = "<group>"; };
@@ -705,6 +708,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4222E0E21A79A7ED00BAAB0B /* PurchaseCallbackHelper.cpp */,
+				4222E0E31A79A7ED00BAAB0B /* PurchaseCallbackHelper.h */,
 				42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */,
 				42E1755B1A2257D40075AF14 /* AcceleratingLane.h */,
 				4220B01E1A2A6001002CCFAE /* AdmobHelper.cpp */,
@@ -1366,6 +1371,7 @@
 				42223C9B1A73F794006147B6 /* MenuInstructionsLayer.cpp in Sources */,
 				42E1759E1A2257D40075AF14 /* Background.cpp in Sources */,
 				42EC07471A61B120006624E5 /* PurchaseHelper.cpp in Sources */,
+				4222E0E41A79A7ED00BAAB0B /* PurchaseCallbackHelper.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				42E175A11A2257D40075AF14 /* Chicken.cpp in Sources */,
 				42E175B51A2257D40075AF14 /* MenuButtonLayer.cpp in Sources */,

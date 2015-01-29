@@ -34,6 +34,9 @@ bool MenuStoreLayer::init()
             this->addChild(_buyMenu);
             _buyMenu->setVisible(false);
             
+            this->createDescriptionLabel();
+            _descriptionLabel->setVisible(false);
+            
             //create failed label
             this->createLoadingFailureLabel();
             _failureLabel->setVisible(false);
@@ -72,6 +75,7 @@ void MenuStoreLayer::loadStore()
             //show what I need
             _purchaseTitleImage->setVisible(true);
             _buyMenu->setVisible(true);
+            _descriptionLabel->setVisible(false);
         }
         else
         {
@@ -80,6 +84,7 @@ void MenuStoreLayer::loadStore()
             _failureLabel->setVisible(false);
             _purchaseTitleImage->setVisible(false);
             _buyMenu->setVisible(false);
+            _descriptionLabel->setVisible(false);
         
             //show what I need
             _loadingSprite->setVisible(true);
@@ -101,6 +106,12 @@ void MenuStoreLayer::loadStoreSuccessCallback(std::string formattedPrice)
     _storeLoaded = true;
     
 	_loadingSprite->setVisible(false);
+    
+    //TODO: scale the CCLabelTTF?
+    CCString * descriptionString = CCString::createWithFormat("Get the full, ad-free version of Egg Scramble,\nand support the developer!\nCost: %s", formattedPrice.c_str());
+    _descriptionLabel->setString(descriptionString->getCString());
+    
+    _descriptionLabel->setVisible(true);
 	_buyMenu->setVisible(true);
 	_purchaseTitleImage->setVisible(true);
 }
@@ -284,4 +295,18 @@ void MenuStoreLayer::createPremiumLabel()
     _premiumLabel->setScale(scaleRatio);
     _premiumLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
     this->addChild(_premiumLabel);
+}
+
+void MenuStoreLayer::createDescriptionLabel()
+{
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    _descriptionLabel = CCLabelTTF::create("Get the full, ad-free version of Egg Scramble,\nand support the developer!\nCost: X", "Verdana-Bold", 45.0);
+    _descriptionLabel->setColor(ccc3(0,153,255));
+    
+    float scaleRatio = (winSize.width *.7) / _descriptionLabel->getContentSize().width;
+    _descriptionLabel->setScale(scaleRatio);
+    _descriptionLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .6));
+    
+    this->addChild(_descriptionLabel);
 }

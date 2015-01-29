@@ -16,7 +16,7 @@ void PurchaseCallbackIOS::storeDataLoadedSuccess(std::string price)
     MenuStoreLayer * menuStoreLayer = PurchaseCallbackIOS::getMenuStoreLayer();
     if (menuStoreLayer != 0)
     {
-        menuStoreLayer->loadStoreSuccessCallback();
+        menuStoreLayer->loadStoreSuccessCallback(price);
     }
 }
 
