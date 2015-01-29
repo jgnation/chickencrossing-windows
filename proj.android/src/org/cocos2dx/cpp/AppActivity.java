@@ -140,7 +140,7 @@ public class AppActivity extends Cocos2dxActivity {
 				}
 				else {
 					String formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
-					//get localized price of item
+					getStoreDataCallback(formattedPrice);
 				}
 			}
     	};
