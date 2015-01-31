@@ -31,7 +31,12 @@ void PurchaseHelper::makePurchase()
 
 void PurchaseHelper::restorePurchase()
 {
-
+	cocos2d::JniMethodInfo t;
+	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName2, "restorePurchase", "()V"))
+	{
+		t.env->CallStaticVoidMethod(t.classID, t.methodID);
+		t.env->DeleteLocalRef(t.classID);
+	}
 }
 
 void PurchaseHelper::getStoreData()

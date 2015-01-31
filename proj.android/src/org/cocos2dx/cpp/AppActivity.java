@@ -69,7 +69,7 @@ public class AppActivity extends Cocos2dxActivity {
 	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
 	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener2;
 	private boolean isPremium;
-	private static String SKU_PREMIUM = "asfdsadf";
+	private static String SKU_PREMIUM = "com.jgnation.eggscramble.adremoval";
 	private static String SKU_TEST = "android.test.purchased";
 	private static Activity thisActivity;
 
@@ -104,9 +104,11 @@ public class AppActivity extends Cocos2dxActivity {
     				//result can be a FAILURE even if the test purchase was successful.
     				//explanation: http://stackoverflow.com/questions/22657519/google-play-billing-signature-verification-failed-for-sku-android-test-purchas		
     				//comment this block out when not debugging
-    				if (purchase.getSku().equals(SKU_TEST)) {
-    					mHelper.consumeAsync(purchase, null); 
-        				makePurchaseCallback(true);
+    				if (purchase != null) { //this will be null if the user cancels the purchase
+	    				if (purchase.getSku().equals(SKU_TEST)) {
+	    					mHelper.consumeAsync(purchase, null); 
+	        				makePurchaseCallback(true);
+	    				}
     				}
     				return;
     			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
@@ -123,11 +125,12 @@ public class AppActivity extends Cocos2dxActivity {
 				if (result.isFailure()) {
 					// handle error here
 				}
-				else {
-					// does the user have the premium upgrade?       
-					// update UI accordingly
+				else {					
 					if (inventory.hasPurchase(SKU_TEST)) {
 			            mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
+			            restorePurchaseCallback(); //or should this be done in a .hasOwnedItem block?
+			        } else if (inventory.hasPurchase(SKU_PREMIUM)) {
+			        	restorePurchaseCallback();
 			        }
 				}
 			}
@@ -139,6 +142,7 @@ public class AppActivity extends Cocos2dxActivity {
 					// handle error here
 				}
 				else {
+					//String formattedPrice = inventory.getSkuDetails(SKU_PREMIUM).getPrice();
 					String formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
 					getStoreDataCallback(formattedPrice);
 				}
@@ -152,9 +156,7 @@ public class AppActivity extends Cocos2dxActivity {
         _appActivity = this;
     }    
     
-    public static void makePurchase() {
-    	//isPremium();
-    	
+    public static void makePurchase() {    	
     	//Purchase real item
     	//mHelper.launchPurchaseFlow(thisActivity, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
     	
@@ -163,7 +165,7 @@ public class AppActivity extends Cocos2dxActivity {
     }
     public static native void makePurchaseCallback(boolean isSuccessful);
     
-    public static void isPremium() {
+    public static void restorePurchase() {
     	_appActivity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -171,11 +173,12 @@ public class AppActivity extends Cocos2dxActivity {
 			}    		
     	});    	
     }    
-    public static native void isPremiumCallback(boolean isPremium);
+    public static native void restorePurchaseCallback();
     
     public static void getStoreData() {
     	final List<String> additionalSkuList = new ArrayList<>();
     	additionalSkuList.add(SKU_TEST);
+    	//additionalSkuList.add(SKU_PREMIUM);
 
     	_appActivity.runOnUiThread(new Runnable() {
 			@Override
