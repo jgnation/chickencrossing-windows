@@ -72,7 +72,11 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // run
     director->runWithScene(scene);
-	AdmobHelper::showAd();
+	
+	if (! CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium")) {
+		AdmobHelper::showAd();
+	}
+
     return true;
 }
 

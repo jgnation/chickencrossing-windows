@@ -3,6 +3,7 @@
 #include "MenuLayer.h"
 #include "PurchaseCallbackHelper.h"
 #include "MenuStoreLayer.h"
+#include "AdmobHelper.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 
@@ -13,6 +14,7 @@ extern "C"
 {
 	JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_makePurchaseCallback(JNIEnv* env, jobject thiz, jboolean jIsSuccessful);
 	JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_getStoreDataCallback(JNIEnv* env, jobject thiz, jstring jFormattedPrice);
+	JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_getStoreDataFailureCallback(JNIEnv* env, jobject thiz);
 	JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_restorePurchaseCallback(JNIEnv* env, jobject thiz);
 	//JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_isPremiumCallback(JNIEnv* env, jobject thiz, jboolean jIsPremium);
 };
@@ -20,6 +22,7 @@ extern "C"
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_makePurchaseCallback(JNIEnv* env, jobject thiz, jboolean jIsPremium)
 {
     cocos2d::CCUserDefault::sharedUserDefault()->setBoolForKey("isPremium", true);
+	AdmobHelper::hideAd();
 	cocos2d::CCDirector::sharedDirector()->replaceScene(MenuLayer::scene());
 }
 
@@ -33,9 +36,19 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_getStoreDataCallback(JN
     }
 }
 
+JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_getStoreDataFailureCallback(JNIEnv* env, jobject thiz)
+{
+	MenuStoreLayer * menuStoreLayer = PurchaseCallbackHelper::getMenuStoreLayer();
+    if (menuStoreLayer != 0)
+    {
+        menuStoreLayer->loadStoreFailureCallback();
+    }
+}
+
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_AppActivity_restorePurchaseCallback(JNIEnv* env, jobject thiz)
 {
 	cocos2d::CCUserDefault::sharedUserDefault()->setBoolForKey("isPremium", true);
+	AdmobHelper::hideAd();
 	cocos2d::CCDirector::sharedDirector()->replaceScene(MenuLayer::scene());
 }
 

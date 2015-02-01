@@ -146,7 +146,10 @@ void GameOverLayer::displayTopScores()
 void GameOverLayer::nextButton2Callback(CCObject* pSender)
 {
 	CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
-	AdmobHelper::showInterstitial();
+
+	if (! CCUserDefault::sharedUserDefault()->getBoolForKey("isPremium")) {
+		AdmobHelper::showInterstitial();
+	}
 
 	CCScene *pScene = MenuLayer::scene();
     //CCScene *s = CCTransitionSplitRows::transitionWithDuration(0.5, pScene);

@@ -39,7 +39,16 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
+-show interstitial every other death
+-don't show android ads in test mode
+-test ad actually disappearing on iOS
+-test the "failedToLoadStore" callback on android
+-obfuscate public key in android app
+-make sure to hide ads after a successful purchase on iOS
+-test cancelling a purchase on iOS
+-add mute button
 -the start screen buttons are different colors!  fix that!
+
 -add option to disable ads for $0.99
 	-soomla?
 	-android: http://developer.android.com/training/in-app-billing/preparing-iab-app.html#GetSample

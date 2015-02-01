@@ -35,7 +35,6 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -59,28 +58,30 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.sbstrm.appirater.Appirater;
 
 public class AppActivity extends Cocos2dxActivity {
-	private AdView adView;
+	private static AppActivity _appActivity;
+	
 	private static final String AD_UNIT_ID_BANNER = "ca-app-pub-8133410011148346/2441787914";
 	private static final String AD_UNIT_ID_INTERSTITIAL = "ca-app-pub-8133410011148346/9374468716";	
-	private static AppActivity _appActivity;
-	private static InterstitialAd interstitial;
-	private static IabHelper mHelper;
-	private static IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener;
-	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener;
-	private static IabHelper.QueryInventoryFinishedListener mGotInventoryListener2;
-	private boolean isPremium;
 	private static String SKU_PREMIUM = "com.jgnation.eggscramble.adremoval";
 	private static String SKU_TEST = "android.test.purchased";
-	private static Activity thisActivity;
+	
+	private AdView adView;
+	private static InterstitialAd interstitial;
+	
+	private static IabHelper mHelper;
+	private static IabHelper.OnIabPurchaseFinishedListener purchaseFinishedListener;
+	private static IabHelper.QueryInventoryFinishedListener restorePurchaseListener;
+	private static IabHelper.QueryInventoryFinishedListener getStoreDataListener;
+	
+	private static boolean testing = false;
 
 	//http://stackoverflow.com/questions/26641052/error-refreshing-inventory-in-app-billing
 	
     @Override
 	protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
-    	thisActivity = this;
     	
-    	isPremium = false;
+    	_appActivity = this;
     	
     	//TODO: check out sample project for tips on how to compute/hide this value rather than store it literally
     	String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqi7eaTzatZp2aUpbzH8LN3R6R1HeVkap4NyPguST0JuBHZCIBWx0Z/IWy8XgP1ikL+Hrz9by+xXp+TUqrtpRD49hII5LASZ1fBiTu3qh12QvjuJjEMTYFBdVVH/2UXGHNA18Ei6lAbx8yJBEDhGPeyNqPetnArJwJb+D/79MRdUtOHRBqH6kkJe3stHlykyhmwpi8ZcTEVw1wzbuBGNSqCEDd0fmJ79w7jZYY7DT3/6YpRPaOe2p+/FezPrUlKDI9o/y9uKEtXivotoy3KukryeTlHIoMLJEdgnTbDGZckK41DRlpUpH0qkG/tiDPqEkcalSbKJhqbctroJm6QF7yQIDAQAB";
@@ -96,7 +97,7 @@ public class AppActivity extends Cocos2dxActivity {
 			}
 		});
     	
-    	mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+    	purchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
     		public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
     			if (result.isFailure()) {
     				Log.d(TAG, "Error purchasing: " + result);
@@ -104,31 +105,38 @@ public class AppActivity extends Cocos2dxActivity {
     				//result can be a FAILURE even if the test purchase was successful.
     				//explanation: http://stackoverflow.com/questions/22657519/google-play-billing-signature-verification-failed-for-sku-android-test-purchas		
     				//comment this block out when not debugging
-    				if (purchase != null) { //this will be null if the user cancels the purchase
-	    				if (purchase.getSku().equals(SKU_TEST)) {
-	    					mHelper.consumeAsync(purchase, null); 
-	        				makePurchaseCallback(true);
-	    				}
+    				if (testing) {
+        				if (purchase != null) { //this will be null if the user cancels the purchase
+    	    				if (purchase.getSku().equals(SKU_TEST)) {
+    	    					mHelper.consumeAsync(purchase, null); 
+    	        				makePurchaseCallback(true);
+    	    				}
+        				}
     				}
     				return;
     			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
     				makePurchaseCallback(true);
     			} else if (purchase.getSku().equals(SKU_TEST)) {
-    				mHelper.consumeAsync(purchase, null);
-    				makePurchaseCallback(true);
+    				if (testing) {
+        				mHelper.consumeAsync(purchase, null);
+        				makePurchaseCallback(true);
+    				}
+
     			}
     		}
     	};
     	
-		mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
+		restorePurchaseListener = new IabHelper.QueryInventoryFinishedListener() {
 			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
 				if (result.isFailure()) {
 					// handle error here
 				}
 				else {					
 					if (inventory.hasPurchase(SKU_TEST)) {
-			            mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
-			            restorePurchaseCallback(); //or should this be done in a .hasOwnedItem block?
+						if (testing) {
+							mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
+							restorePurchaseCallback(); //or should this be done in a .hasOwnedItem block?
+						}
 			        } else if (inventory.hasPurchase(SKU_PREMIUM)) {
 			        	restorePurchaseCallback();
 			        }
@@ -136,14 +144,18 @@ public class AppActivity extends Cocos2dxActivity {
 			}
     	};
     	
-    	mGotInventoryListener2 = new IabHelper.QueryInventoryFinishedListener() {
+    	getStoreDataListener = new IabHelper.QueryInventoryFinishedListener() {
 			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
 				if (result.isFailure()) {
-					// handle error here
+					getStoreDataFailureCallback();
 				}
 				else {
-					//String formattedPrice = inventory.getSkuDetails(SKU_PREMIUM).getPrice();
-					String formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
+					String formattedPrice = null;
+					if (testing) {
+						formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
+					} else {
+						formattedPrice = inventory.getSkuDetails(SKU_PREMIUM).getPrice();
+					}
 					getStoreDataCallback(formattedPrice);
 				}
 			}
@@ -152,16 +164,14 @@ public class AppActivity extends Cocos2dxActivity {
     	setupBannerAd();
         setupInterstitial();
         Appirater.appLaunched(this);
-        
-        _appActivity = this;
     }    
     
-    public static void makePurchase() {    	
-    	//Purchase real item
-    	//mHelper.launchPurchaseFlow(thisActivity, SKU_PREMIUM, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
-    	
-    	//Purchase test item
-    	mHelper.launchPurchaseFlow(thisActivity, SKU_TEST, 10001, mPurchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+    public static void makePurchase() { 
+    	if (testing) {
+        	mHelper.launchPurchaseFlow(_appActivity, SKU_TEST, 10001, purchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+    	} else {
+        	mHelper.launchPurchaseFlow(_appActivity, SKU_PREMIUM, 10001, purchaseFinishedListener, "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+    	}
     }
     public static native void makePurchaseCallback(boolean isSuccessful);
     
@@ -169,7 +179,7 @@ public class AppActivity extends Cocos2dxActivity {
     	_appActivity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				mHelper.queryInventoryAsync(mGotInventoryListener);				
+				mHelper.queryInventoryAsync(restorePurchaseListener);				
 			}    		
     	});    	
     }    
@@ -177,17 +187,21 @@ public class AppActivity extends Cocos2dxActivity {
     
     public static void getStoreData() {
     	final List<String> additionalSkuList = new ArrayList<>();
-    	additionalSkuList.add(SKU_TEST);
-    	//additionalSkuList.add(SKU_PREMIUM);
+    	if (testing) {
+        	additionalSkuList.add(SKU_TEST);
+    	} else {
+        	additionalSkuList.add(SKU_PREMIUM);
+    	}
 
     	_appActivity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				mHelper.queryInventoryAsync(true, additionalSkuList, mGotInventoryListener2);				
+				mHelper.queryInventoryAsync(true, additionalSkuList, getStoreDataListener);				
 			}    		
     	}); 
     }
     public static native void getStoreDataCallback(String price);
+    public static native void getStoreDataFailureCallback();
     
     private void setupBannerAd() {
     	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
