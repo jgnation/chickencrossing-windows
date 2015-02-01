@@ -39,15 +39,17 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
--I should not be loading ads when the game is premium.  Don't request an infinite number of ads when there is no data connection.
+
 -check if user has permission to make purchase?
--don't show android ads in test mode
--test the "failedToLoadStore" callback on android (this works on the MotoX, not on the Galaxy S2.  The S2 does a bunch of weird stuff, freeze, crash, etc.)
 -obfuscate public key in android app
+-don't show android ads in test mode
 -what if internet connection goes down after loading store but before buying/restoring? (works fine on android)
 -turn off admob ads in iOS for approval, and then turn them back on
 -turn off debugging mode for ads and appirater
 -alter appirater settings (when to show, Apple App Id, etc.)
+
+-test the "failedToLoadStore" callback on android (this works on the MotoX, not on the Galaxy S2.  The S2 does a bunch of weird stuff, freeze, crash, etc.)
+-I should not be loading ads when the game is premium.  Don't request an infinite number of ads when there is no data connection. (this can wait)
 
 -add option to disable ads for $0.99
 	-soomla?
