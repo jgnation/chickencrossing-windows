@@ -533,5 +533,26 @@
     <Image Include="..\Resources\Retry.png">
       <Filter>resource</Filter>
     </Image>
+    <Image Include="..\Resources\Buy_down.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\mute_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\mute_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Restore_down.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\Retry_down.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\unmute_orange.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\unmute_yellow.png">
+      <Filter>resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>

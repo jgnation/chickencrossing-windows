@@ -145,7 +145,7 @@ CCMenuItemImage* MenuStoreLayer::createBuyButton()
 
 	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
 		"Buy.png",
-		"Buy.png",
+		"Buy_down.png",
 		this,
 		menu_selector(MenuStoreLayer::buy));
 
@@ -169,7 +169,7 @@ CCMenuItemImage* MenuStoreLayer::createRestoreButton()
 
 	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
 		"Restore.png",
-		"Restore.png",
+		"Restore_down.png",
 		this,
 		menu_selector(MenuStoreLayer::restore));
 
@@ -224,7 +224,7 @@ CCMenuItemImage* MenuStoreLayer::createRetryButton()
 
 	CCMenuItemImage *purchaseImage = CCMenuItemImage::create(
 		"Retry.png",
-		"Retry.png",
+		"Retry_down.png",
 		this,
 		menu_selector(MenuStoreLayer::retry));
 

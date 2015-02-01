@@ -308,6 +308,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\beetle_small.png" />
     <Image Include="..\Resources\brown_egg.png" />
     <Image Include="..\Resources\Buy.png" />
+    <Image Include="..\Resources\Buy_down.png" />
     <Image Include="..\Resources\cactus.png" />
     <Image Include="..\Resources\chicken_crossing_title.png" />
     <Image Include="..\Resources\chicken_xxsmall.png" />
@@ -318,6 +319,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\instructions_orange.png" />
     <Image Include="..\Resources\instructions_yellow.png" />
     <Image Include="..\Resources\jgnation_logo_med.png" />
+    <Image Include="..\Resources\mute_orange.png" />
+    <Image Include="..\Resources\mute_yellow.png" />
     <Image Include="..\Resources\num_1.png" />
     <Image Include="..\Resources\num_10.png" />
     <Image Include="..\Resources\num_11.png" />
@@ -335,14 +338,18 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <Image Include="..\Resources\purchase_ad_removal_yellow.png" />
     <Image Include="..\Resources\requesting_store_data.png" />
     <Image Include="..\Resources\Restore.png" />
+    <Image Include="..\Resources\Restore_down.png" />
     <Image Include="..\Resources\resume.png" />
     <Image Include="..\Resources\Retry.png" />
+    <Image Include="..\Resources\Retry_down.png" />
     <Image Include="..\Resources\select_level.png" />
     <Image Include="..\Resources\start_game_orange.png" />
     <Image Include="..\Resources\start_game_yellow.png" />
     <Image Include="..\Resources\survival_orange.png" />
     <Image Include="..\Resources\survival_yellow.png" />
     <Image Include="..\Resources\top_scores.png" />
+    <Image Include="..\Resources\unmute_orange.png" />
+    <Image Include="..\Resources\unmute_yellow.png" />
     <Image Include="..\Resources\vw_small.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
