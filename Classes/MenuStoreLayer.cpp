@@ -75,7 +75,7 @@ void MenuStoreLayer::loadStore()
             //show what I need
             _purchaseTitleImage->setVisible(true);
             _buyMenu->setVisible(true);
-            _descriptionLabel->setVisible(false);
+            _descriptionLabel->setVisible(true);
         }
         else
         {

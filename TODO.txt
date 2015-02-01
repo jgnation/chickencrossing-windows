@@ -43,7 +43,7 @@ Before version 1.0 release:
 -don't show android ads in test mode
 -test the "failedToLoadStore" callback on android
 -obfuscate public key in android app
--entering, exiting, entering store makes stuff disappear
+-what if internet connection goes down after loading store but before buying/restoring?
 -add mute button
 -the start screen buttons are different colors!  fix that!
 
