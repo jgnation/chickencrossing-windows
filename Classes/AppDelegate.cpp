@@ -59,6 +59,11 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+	if (CCUserDefault::sharedUserDefault()->getBoolForKey("isMute")) {
+		SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.0);
+		SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.0);
+	}
+
 	//preload audio
 	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("Complete.mp3");
 	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("SpaceQuest3.mp3");

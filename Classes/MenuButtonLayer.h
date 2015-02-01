@@ -18,6 +18,9 @@ private:
 	MenuStoreLayer * _menuStoreLayer;
 	MenuAboutLayer * _menuAboutLayer;
 	MenuInstructionsLayer * _menuInstructionsLayer;
+
+	CCMenuItemImage* _muteImage;
+	CCMenuItemImage* _unmuteImage;
  
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -31,12 +34,16 @@ public:
 	void aboutCallback(CCObject* pSender);
 	void instructionsCallback(CCObject* pSender);
 	void purchaseCallback(CCObject* pSender);
+	void muteCallback(CCObject* pSender);
+	void unmuteCallback(CCObject* pSender);
  
 	CCMenuItemImage* createStartGameButton();
 	CCMenuItemImage* createEggScrambleButton();
 	CCMenuItemImage* createAboutButton();
 	CCMenuItemImage* createInstructionsButton();
 	CCMenuItemImage* createPurchaseButton();
+	CCMenuItemImage* createMuteButton();
+	CCMenuItemImage* createUnmuteButton();
 
 	void resetDisplay();
 };
