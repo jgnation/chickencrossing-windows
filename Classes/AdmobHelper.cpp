@@ -10,6 +10,7 @@ GPLv3
 
 
 bool AdmobHelper::isAdShowing = true;
+int AdmobHelper::_interstitialRequests = 0;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 
@@ -68,7 +69,11 @@ void AdmobHelper::showAd()
 
 void AdmobHelper::showInterstitial()
 {
-    iOSHelper::showInterstitial();
+    _interstitialRequests++;
+    if (_interstitialRequests % 2 != 0)
+    {
+        iOSHelper::showInterstitial();
+    }
 }
 
 #else

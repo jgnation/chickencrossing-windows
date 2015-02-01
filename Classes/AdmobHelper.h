@@ -12,8 +12,10 @@ class AdmobHelper
 public:
 	static void hideAd();
 	static void showAd();
-	static bool isAdShowing;
 	static void showInterstitial();
+    
+    static bool isAdShowing;
+    static int _interstitialRequests;
 };
 
 
