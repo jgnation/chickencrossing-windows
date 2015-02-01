@@ -50,6 +50,13 @@
 		4230057F1A7498810053FB1B /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057C1A7498810053FB1B /* arrow_left.png */; };
 		423005801A7498810053FB1B /* Buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057D1A7498810053FB1B /* Buy.png */; };
 		423005811A7498810053FB1B /* Restore.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230057E1A7498810053FB1B /* Restore.png */; };
+		4231BBCE1A7EB23A00367B7A /* Buy_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBC71A7EB23A00367B7A /* Buy_down.png */; };
+		4231BBCF1A7EB23A00367B7A /* mute_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBC81A7EB23A00367B7A /* mute_orange.png */; };
+		4231BBD01A7EB23A00367B7A /* mute_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBC91A7EB23A00367B7A /* mute_yellow.png */; };
+		4231BBD11A7EB23A00367B7A /* Restore_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBCA1A7EB23A00367B7A /* Restore_down.png */; };
+		4231BBD21A7EB23A00367B7A /* Retry_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBCB1A7EB23A00367B7A /* Retry_down.png */; };
+		4231BBD31A7EB23A00367B7A /* unmute_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBCC1A7EB23A00367B7A /* unmute_orange.png */; };
+		4231BBD41A7EB23A00367B7A /* unmute_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4231BBCD1A7EB23A00367B7A /* unmute_yellow.png */; };
 		42510FCE1A6AD71A005B013B /* ObjCToCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */; };
 		42510FD11A6ADA28005B013B /* PurchaseCallbackIOS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42510FD01A6ADA28005B013B /* PurchaseCallbackIOS.cpp */; };
 		42E1759C1A2257D40075AF14 /* AcceleratingLane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42E1755A1A2257D40075AF14 /* AcceleratingLane.cpp */; };
@@ -413,6 +420,13 @@
 		4230057C1A7498810053FB1B /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
 		4230057D1A7498810053FB1B /* Buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buy.png; sourceTree = "<group>"; };
 		4230057E1A7498810053FB1B /* Restore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore.png; sourceTree = "<group>"; };
+		4231BBC71A7EB23A00367B7A /* Buy_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buy_down.png; sourceTree = "<group>"; };
+		4231BBC81A7EB23A00367B7A /* mute_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_orange.png; sourceTree = "<group>"; };
+		4231BBC91A7EB23A00367B7A /* mute_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_yellow.png; sourceTree = "<group>"; };
+		4231BBCA1A7EB23A00367B7A /* Restore_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore_down.png; sourceTree = "<group>"; };
+		4231BBCB1A7EB23A00367B7A /* Retry_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Retry_down.png; sourceTree = "<group>"; };
+		4231BBCC1A7EB23A00367B7A /* unmute_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute_orange.png; sourceTree = "<group>"; };
+		4231BBCD1A7EB23A00367B7A /* unmute_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute_yellow.png; sourceTree = "<group>"; };
 		42510FCA1A6AD6F3005B013B /* ObjCToCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjCToCpp.h; path = ios/ObjCToCpp.h; sourceTree = SOURCE_ROOT; };
 		42510FCD1A6AD71A005B013B /* ObjCToCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ObjCToCpp.mm; path = ios/ObjCToCpp.mm; sourceTree = SOURCE_ROOT; };
 		42510FCF1A6AD9FB005B013B /* PurchaseCallbackIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PurchaseCallbackIOS.h; path = ../Classes/PurchaseCallbackIOS.h; sourceTree = "<group>"; };
@@ -974,6 +988,7 @@
 				42E175D51A2257FE0075AF14 /* background12.png */,
 				42E175D61A2257FE0075AF14 /* beetle_small.png */,
 				42E175D71A2257FE0075AF14 /* brown_egg.png */,
+				4231BBC71A7EB23A00367B7A /* Buy_down.png */,
 				4230057D1A7498810053FB1B /* Buy.png */,
 				42E175DA1A2257FE0075AF14 /* cactus.png */,
 				42E175DC1A2257FE0075AF14 /* chicken_crossing_title.png */,
@@ -1013,6 +1028,8 @@
 				42E176121A2257FE0075AF14 /* mm_level_11.plist */,
 				42E176131A2257FE0075AF14 /* mm_level_12.plist */,
 				42E176141A2257FE0075AF14 /* mm_levels.plist */,
+				4231BBC81A7EB23A00367B7A /* mute_orange.png */,
+				4231BBC91A7EB23A00367B7A /* mute_yellow.png */,
 				42E176151A2257FE0075AF14 /* num_1.png */,
 				42E176161A2257FE0075AF14 /* num_2.png */,
 				42E176171A2257FE0075AF14 /* num_3.png */,
@@ -1030,8 +1047,10 @@
 				42EC073C1A61ACF1006624E5 /* purchase_ad_removal_orange.png */,
 				42EC073D1A61ACF1006624E5 /* purchase_ad_removal_yellow.png */,
 				42281AD71A75FDBA00B4024C /* requesting_store_data.png */,
+				4231BBCA1A7EB23A00367B7A /* Restore_down.png */,
 				4230057E1A7498810053FB1B /* Restore.png */,
 				42E176371A2257FE0075AF14 /* resume.png */,
+				4231BBCB1A7EB23A00367B7A /* Retry_down.png */,
 				42281AD81A75FDBA00B4024C /* Retry.png */,
 				42E176391A2257FE0075AF14 /* select_level.png */,
 				42E176401A2257FE0075AF14 /* SpaceQuest3.mp3 */,
@@ -1040,6 +1059,8 @@
 				42E176441A2257FE0075AF14 /* survival_orange.png */,
 				42E176451A2257FE0075AF14 /* survival_yellow.png */,
 				42E176461A2257FE0075AF14 /* top_scores.png */,
+				4231BBCC1A7EB23A00367B7A /* unmute_orange.png */,
+				4231BBCD1A7EB23A00367B7A /* unmute_yellow.png */,
 				42E176481A2257FE0075AF14 /* vw_small.png */,
 			);
 			name = Resources;
@@ -1236,10 +1257,13 @@
 				42E176AA1A2257FE0075AF14 /* num_10.png in Resources */,
 				42E176511A2257FE0075AF14 /* about_orange.png in Resources */,
 				42E1769F1A2257FE0075AF14 /* mm_level_12.plist in Resources */,
+				4231BBCE1A7EB23A00367B7A /* Buy_down.png in Resources */,
+				4231BBD21A7EB23A00367B7A /* Retry_down.png in Resources */,
 				42E176821A2257FE0075AF14 /* esm_level_6.plist in Resources */,
 				42E1765B1A2257FE0075AF14 /* background5.png in Resources */,
 				42E176CB1A2257FF0075AF14 /* SpaceQuest3.mp3 in Resources */,
 				42E176641A2257FE0075AF14 /* brown_egg.png in Resources */,
+				4231BBD41A7EB23A00367B7A /* unmute_yellow.png in Resources */,
 				42E176941A2257FE0075AF14 /* mm_level_1.plist in Resources */,
 				42EC073E1A61ACF1006624E5 /* purchase_ad_removal_orange.png in Resources */,
 				42281ADA1A75FDBA00B4024C /* Retry.png in Resources */,
@@ -1269,6 +1293,7 @@
 				42E176A81A2257FE0075AF14 /* num_8.png in Resources */,
 				42E176581A2257FE0075AF14 /* background2.png in Resources */,
 				42EC073F1A61ACF1006624E5 /* purchase_ad_removal_yellow.png in Resources */,
+				4231BBD31A7EB23A00367B7A /* unmute_orange.png in Resources */,
 				42E1766E1A2257FE0075AF14 /* chicken_xxsmall.png in Resources */,
 				42E1765E1A2257FE0075AF14 /* background8.png in Resources */,
 				4220B0641A2A6562002CCFAE /* README.txt in Resources */,
@@ -1284,6 +1309,7 @@
 				42E176881A2257FE0075AF14 /* esm_level_12.plist in Resources */,
 				42E176621A2257FE0075AF14 /* background12.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				4231BBD01A7EB23A00367B7A /* mute_yellow.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				42E176801A2257FE0075AF14 /* esm_level_4.plist in Resources */,
 				423005801A7498810053FB1B /* Buy.png in Resources */,
@@ -1293,6 +1319,7 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				42E176521A2257FE0075AF14 /* about_yellow.png in Resources */,
 				42E1764F1A2257FE0075AF14 /* 253177__suntemple__retro-accomplished-sfx.wav in Resources */,
+				4231BBCF1A7EB23A00367B7A /* mute_orange.png in Resources */,
 				42E176811A2257FE0075AF14 /* esm_level_5.plist in Resources */,
 				42E176A01A2257FE0075AF14 /* mm_levels.plist in Resources */,
 				42E176A91A2257FE0075AF14 /* num_9.png in Resources */,
@@ -1311,6 +1338,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				42E176911A2257FE0075AF14 /* jgnation_logo_med.png in Resources */,
 				42E176691A2257FE0075AF14 /* chicken_crossing_title.png in Resources */,
+				4231BBD11A7EB23A00367B7A /* Restore_down.png in Resources */,
 				42E176671A2257FE0075AF14 /* cactus.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
