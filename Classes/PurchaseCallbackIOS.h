@@ -4,8 +4,6 @@
 #include "MenuStoreLayer.h"
 
 class PurchaseCallbackIOS {
-private:
-    static MenuStoreLayer * getMenuStoreLayer();
 public:
     static void purchaseSuccessful();
     static void storeDataLoadedSuccess(std::string price);

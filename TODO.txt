@@ -41,11 +41,9 @@ Before version 1.0 release:
 
 -show interstitial every other death
 -don't show android ads in test mode
--test ad actually disappearing on iOS
 -test the "failedToLoadStore" callback on android
 -obfuscate public key in android app
--make sure to hide ads after a successful purchase on iOS
--test cancelling a purchase on iOS
+-entering, exiting, entering store makes stuff disappear
 -add mute button
 -the start screen buttons are different colors!  fix that!
 

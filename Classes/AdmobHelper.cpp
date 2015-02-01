@@ -58,16 +58,12 @@ void AdmobHelper::showInterstitial()
 
 void AdmobHelper::hideAd()
 {
-	CCLOG("hideAd() called");
-	isAdShowing = false;
-	return; //nothing
+    iOSHelper::hideAdmobBanner();
 }
 
 void AdmobHelper::showAd()
 {
-	CCLOG("showAd() called");
-	isAdShowing = true;
-	return; //nothing;
+	iOSHelper::showAdmobBanner();
 }
 
 void AdmobHelper::showInterstitial()

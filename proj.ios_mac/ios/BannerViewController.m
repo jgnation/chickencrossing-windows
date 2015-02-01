@@ -117,10 +117,11 @@
     [super viewDidLoad];
     
     _bannerView.rootViewController = self;
-    [self.view addSubview:_bannerView];
     
-    GADRequest *request = [GADRequest request];
-    [_bannerView loadRequest:request];
+    //display banner on BannerViewController load
+    //[self.view addSubview:_bannerView];
+    //GADRequest *request = [GADRequest request];
+    //[_bannerView loadRequest:request];
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
