@@ -417,6 +417,8 @@ void GameLayer::pauseGame()
         {
             child->pauseSchedulerAndActions();
         }
+		_chicken->getSprite()->pauseSchedulerAndActions(); //I won't have to make this special call if I add the chicken to the action layer
+
 		_pauseLayer->pause();
 	}
 }
@@ -428,6 +430,8 @@ void GameLayer::resumeGame()
     {
         child->resumeSchedulerAndActions();
     }
+	_chicken->getSprite()->resumeSchedulerAndActions(); //I won't have to make this special call if I add the chicken to the action layer
+
     _isPaused = false;
     //Director::getInstance()->startAnimation();
     //CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
