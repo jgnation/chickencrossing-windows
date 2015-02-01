@@ -46,11 +46,15 @@ void AdmobHelper::showAd()
 
 void AdmobHelper::showInterstitial()
 {
-	cocos2d::JniMethodInfo t;
-	if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "showInterstitial", "()V"))
-	{
-		t.env->CallStaticVoidMethod(t.classID, t.methodID);
-	    t.env->DeleteLocalRef(t.classID);
+	_interstitialRequests++;
+    if (_interstitialRequests % 2 != 0)
+    {
+		cocos2d::JniMethodInfo t;
+		if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "showInterstitial", "()V"))
+		{
+			t.env->CallStaticVoidMethod(t.classID, t.methodID);
+			t.env->DeleteLocalRef(t.classID);
+		}
 	}
 }
 

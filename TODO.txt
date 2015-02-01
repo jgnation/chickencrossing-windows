@@ -39,7 +39,7 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
--show interstitial every other death
+-check if user has permission to make purchase?
 -don't show android ads in test mode
 -test the "failedToLoadStore" callback on android
 -obfuscate public key in android app
