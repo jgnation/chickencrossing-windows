@@ -49,7 +49,6 @@ Before version 1.0 release:
 -alter appirater settings (when to show, Apple App Id, etc.)
 
 -test the "failedToLoadStore" callback on android (this works on the MotoX, not on the Galaxy S2.  The S2 does a bunch of weird stuff, freeze, crash, etc.)
--I should not be loading ads when the game is premium.  Don't request an infinite number of ads when there is no data connection. (this can wait)
 
 -add option to disable ads for $0.99
 	-soomla?

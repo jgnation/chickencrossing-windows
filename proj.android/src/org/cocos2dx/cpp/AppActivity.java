@@ -74,6 +74,8 @@ public class AppActivity extends Cocos2dxActivity {
 	private static IabHelper.QueryInventoryFinishedListener getStoreDataListener;
 	
 	private static boolean testing = false;
+	
+	private static int interstitial_attempts = 0;
 
 	//http://stackoverflow.com/questions/26641052/error-refreshing-inventory-in-app-billing
 	
@@ -237,11 +239,23 @@ public class AppActivity extends Cocos2dxActivity {
         	//TODO: sometimes these loadAd call fails. why?
         	
         	@Override
+        	public void onAdLoaded() {
+        		interstitial_attempts = 0;
+        	}
+        	
+        	@Override
         	public void onAdFailedToLoad(int errorCode) {
-        		AdRequest adRequest = new AdRequest.Builder()
-        			.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
-        			.build();
-        		interstitial.loadAd(adRequest);
+        		interstitial_attempts++;
+        		/*
+        		 * When network is running, sometimes it still takes 2 or 3 requests to get a legitimate response (see error posted on google forums).
+        		 * When network is down, make a maximum of 10 requests for each call to showInterstitial().
+        		 */
+        		if (interstitial_attempts < 10) {
+        			AdRequest adRequest = new AdRequest.Builder()
+        				.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+        				.build();
+        			interstitial.loadAd(adRequest);
+        		}        		
         	}
         	
         	@Override
@@ -262,6 +276,14 @@ public class AppActivity extends Cocos2dxActivity {
 		    public void run() {
 		    	if (interstitial.isLoaded()) {
                     interstitial.show();
+                } else {
+                	interstitial_attempts = 0;
+                	
+                    AdRequest adRequest = new AdRequest.Builder()
+            			.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+            			.build();
+                    
+                	interstitial.loadAd(adRequest);
                 }
 		    }
 		});
