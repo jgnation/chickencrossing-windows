@@ -39,15 +39,17 @@ http://www.freesound.org/people/qubodup/sounds/212143/ (splash)
 
 Before version 1.0 release:
 
-
--check if user has permission to make purchase?
+-if I shut off phone service/data on galaxy s2, the iABHelper fails to startup, which causes app crash when accessing store
 -obfuscate public key in android app
+	- http://stackoverflow.com/questions/11671865/how-to-protect-google-play-public-key-when-doing-inapp-billing
+	- http://stackoverflow.com/questions/14352758/android-in-app-billing-securing-application-public-key
 -don't show android ads in test mode
 -what if internet connection goes down after loading store but before buying/restoring? (works fine on android)
 -turn off admob ads in iOS for approval, and then turn them back on
 -turn off debugging mode for ads and appirater
 -alter appirater settings (when to show, Apple App Id, etc.)
 
+-check if user has permission to make purchase?  (I'll let Apple ding me for this if need be)
 -test the "failedToLoadStore" callback on android (this works on the MotoX, not on the Galaxy S2.  The S2 does a bunch of weird stuff, freeze, crash, etc.)
 
 -add option to disable ads for $0.99

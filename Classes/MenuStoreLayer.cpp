@@ -15,6 +15,7 @@ bool MenuStoreLayer::init()
 		{
             this->createPremiumLabel();
             _premiumLabel->setVisible(true);
+			_premiumBackgroundColor->setVisible(true);
 		}
 		else
 		{
@@ -36,10 +37,12 @@ bool MenuStoreLayer::init()
             
             this->createDescriptionLabel();
             _descriptionLabel->setVisible(false);
+			_descriptionBackgroundColor->setVisible(false);
             
             //create failed label
             this->createLoadingFailureLabel();
             _failureLabel->setVisible(false);
+			_failureBackgroundColor->setVisible(false);
             
             //create retry menu
             CCMenuItemImage * retryImage = this->createRetryButton();
@@ -70,21 +73,25 @@ void MenuStoreLayer::loadStore()
             //hide everything I don't need
             _retryMenu->setVisible(false);
             _failureLabel->setVisible(false);
+			_failureBackgroundColor->setVisible(false);
             _loadingSprite->setVisible(false);
         
             //show what I need
             _purchaseTitleImage->setVisible(true);
             _buyMenu->setVisible(true);
             _descriptionLabel->setVisible(true);
+			_descriptionBackgroundColor->setVisible(true);
         }
         else
         {
             //hide everything I don't need
             _retryMenu->setVisible(false);
             _failureLabel->setVisible(false);
+			_failureBackgroundColor->setVisible(false);
             _purchaseTitleImage->setVisible(false);
             _buyMenu->setVisible(false);
             _descriptionLabel->setVisible(false);
+			_descriptionBackgroundColor->setVisible(false);
         
             //show what I need
             _loadingSprite->setVisible(true);
@@ -112,6 +119,7 @@ void MenuStoreLayer::loadStoreSuccessCallback(std::string formattedPrice)
     _descriptionLabel->setString(descriptionString->getCString());
     
     _descriptionLabel->setVisible(true);
+	_descriptionBackgroundColor->setVisible(true);
 	_buyMenu->setVisible(true);
 	_purchaseTitleImage->setVisible(true);
 }
@@ -121,6 +129,7 @@ void MenuStoreLayer::loadStoreFailureCallback()
     //display error and retry button
 	_loadingSprite->setVisible(false);
     _failureLabel->setVisible(true);
+	_failureBackgroundColor->setVisible(true);
     _retryMenu->setVisible(true);
 }
 
@@ -133,7 +142,7 @@ void MenuStoreLayer::createPurchaseTitleImage()
 	_purchaseTitleImage = CCSprite::create("purchase_ad_removal_orange.png", CCRectMake(0, 0, originalWidth, originalHeight));        
 	float scaleRatio = (windowSize.width *.6) / _purchaseTitleImage->getContentSize().width;
 	_purchaseTitleImage->setScale(scaleRatio);
-	_purchaseTitleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
+	_purchaseTitleImage->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .75));
 	this->addChild(_purchaseTitleImage);
 }
 
@@ -237,20 +246,9 @@ CCMenuItemImage* MenuStoreLayer::createRetryButton()
 
 void MenuStoreLayer::retry(CCObject* pSender)
 {
-    //TODO: set everything that I don't need false? just in case?
-	//_buyMenu->setVisible(false);
-    
-    //_retryMenu->setVisible(false);
-    //_failureLabel->setVisible(false);
-	//_loadingSprite->setVisible(true);
     this->loadStore();
 }
 
-/*
-I envision this calling into iOS/Android and getting the formatted price back eventually.
-The iOS/Android controller/activity can make the request and store the data.
-If the data is stored (i.e. a request has already been made), then there is no need to make a second request
-*/
 void MenuStoreLayer::getStoreData()
 {
 	PurchaseHelper::getStoreData();
@@ -281,32 +279,52 @@ void MenuStoreLayer::createLoadingFailureLabel()
 	float scaleRatio = (winSize.width *.7) / _failureLabel->getContentSize().width;
 	_failureLabel->setScale(scaleRatio);
 	_failureLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
-    this->addChild(_failureLabel);
+    this->addChild(_failureLabel, 2);
+
+	Size labelSize = _failureLabel->getContentSize();
+	_failureBackgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), labelSize.width, labelSize.height);
+	_failureBackgroundColor->setOpacity(200);
+	_failureBackgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
+	_failureBackgroundColor->setPosition(_failureLabel->getPosition());
+	this->addChild(_failureBackgroundColor, 1);
 }
 
 void MenuStoreLayer::createPremiumLabel()
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
-    _premiumLabel = CCLabelTTF::create("You already own the full, ad-free game.\nThank you!", "Verdana-Bold", 60.0);
-    _premiumLabel->setColor(ccc3(255,0,0));
+    _premiumLabel = CCLabelTTF::create("You already own the full, ad-free game.\nThank you!", "Verdana-Bold", 70.0);
+    _premiumLabel->setColor(ccc3(0,0,0));
     
     float scaleRatio = (winSize.width *.7) / _premiumLabel->getContentSize().width;
     _premiumLabel->setScale(scaleRatio);
     _premiumLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .7));
-    this->addChild(_premiumLabel);
+    this->addChild(_premiumLabel, 2);
+
+	Size labelSize = _premiumLabel->getContentSize();
+	_premiumBackgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), labelSize.width, labelSize.height);
+	_premiumBackgroundColor->setOpacity(200);
+	_premiumBackgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
+	_premiumBackgroundColor->setPosition(_premiumLabel->getPosition());
+	this->addChild(_premiumBackgroundColor, 1);
 }
 
 void MenuStoreLayer::createDescriptionLabel()
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
-    _descriptionLabel = CCLabelTTF::create("Get the full, ad-free version of Egg Scramble,\nand support the developer!\nCost: X", "Verdana-Bold", 45.0);
-    _descriptionLabel->setColor(ccc3(0,153,255));
+    _descriptionLabel = CCLabelTTF::create("Get the full, ad-free version of Egg Scramble,\nand support the developer!\nCost: X", "Verdana-Bold", 50.0);
+    _descriptionLabel->setColor(ccc3(0,0,0));
     
     float scaleRatio = (winSize.width *.7) / _descriptionLabel->getContentSize().width;
     _descriptionLabel->setScale(scaleRatio);
-    _descriptionLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .6));
-    
-    this->addChild(_descriptionLabel);
+    _descriptionLabel->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height * .6));   
+    this->addChild(_descriptionLabel, 2);
+
+	Size labelSize = _descriptionLabel->getContentSize();
+	_descriptionBackgroundColor = CCLayerColor::create(ccc4(255, 255, 255, 255), labelSize.width, labelSize.height);
+	_descriptionBackgroundColor->setOpacity(200);
+	_descriptionBackgroundColor->ignoreAnchorPointForPosition(false); //for some odd reason, Layer's constructor calls ignoreAnchorPointForPosition(true)
+	_descriptionBackgroundColor->setPosition(_descriptionLabel->getPosition());
+	this->addChild(_descriptionBackgroundColor, 1);
 }

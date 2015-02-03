@@ -14,8 +14,11 @@ private:
 	CCSprite* _loadingSprite;
 	CCSprite* _purchaseTitleImage;
 	CCLabelTTF* _failureLabel;
+	CCLayerColor * _failureBackgroundColor;
     CCLabelTTF* _premiumLabel;
+	CCLayerColor * _premiumBackgroundColor;
     CCLabelTTF* _descriptionLabel;
+	CCLayerColor * _descriptionBackgroundColor;
     bool _storeLoaded;
 public:
 	CREATE_FUNC(MenuStoreLayer);
