@@ -87,8 +87,8 @@ public class AppActivity extends Cocos2dxActivity {
     	_appActivity = this;
     	
     	//TODO: check out sample project for tips on how to compute/hide this value rather than store it literally
-    	String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqi7eaTzatZp2aUpbzH8LN3R6R1HeVkap4NyPguST0JuBHZCIBWx0Z/IWy8XgP1ikL+Hrz9by+xXp+TUqrtpRD49hII5LASZ1fBiTu3qh12QvjuJjEMTYFBdVVH/2UXGHNA18Ei6lAbx8yJBEDhGPeyNqPetnArJwJb+D/79MRdUtOHRBqH6kkJe3stHlykyhmwpi8ZcTEVw1wzbuBGNSqCEDd0fmJ79w7jZYY7DT3/6YpRPaOe2p+/FezPrUlKDI9o/y9uKEtXivotoy3KukryeTlHIoMLJEdgnTbDGZckK41DRlpUpH0qkG/tiDPqEkcalSbKJhqbctroJm6QF7yQIDAQAB";
-    	mHelper = new IabHelper(this, base64EncodedPublicKey);
+    	String base64EncodedPublicKey = create();
+		mHelper = new IabHelper(this, base64EncodedPublicKey);
     	mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
     		public void onIabSetupFinished(IabResult result) {
     			if (!result.isSuccess()) {
@@ -417,4 +417,17 @@ public class AppActivity extends Cocos2dxActivity {
 	        Log.d(TAG, "onActivityResult handled by IABUtil.");
 	    }
 	}
+    
+    private String create() {
+    	return "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBC" + 
+    			"gKCAQEAqi7eaTzatZp2aUpbzH8LN3R6R1HeV" + 
+    			"kap4NyPguST0JuBHZCIBWx0Z/IWy8XgP1ikL+Hrz9by+x" + 
+    			"Xp+TUqrtpRD49hII5LASZ1fBiTu3qh12Qvju" + 
+    			"JjEMTYFBdVVH/2UXGHNA18Ei6lAbx8y" + 
+    			"JBEDhGPeyNqPetnArJwJb+D/79MRdUtOHRB" + 
+    			"qH6kkJe3stHlykyhmwpi8ZcTEVw1wzbuBGNSq" + 
+    			"CEDd0fmJ79w7jZYY7DT3/6YpRPaOe2p+/FezPrUlK" + 
+    			"DI9o/y9uKEtXivotoy3KukryeTlHIoMLJEdgnTbDGZ" + 
+    			"ckK41DRlpUpH0qkG/tiDPqEkcalSbKJhqbctroJm6QF7yQIDAQAB";
+    }
 }
