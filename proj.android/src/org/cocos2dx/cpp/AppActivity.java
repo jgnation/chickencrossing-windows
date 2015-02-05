@@ -232,7 +232,7 @@ public class AppActivity extends Cocos2dxActivity {
 		adView.setAdUnitId(AD_UNIT_ID_BANNER);
 
 		AdRequest adRequest = new AdRequest.Builder()
-			.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+			//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
 			.build();
 
 		adView.loadAd(adRequest);
@@ -246,7 +246,7 @@ public class AppActivity extends Cocos2dxActivity {
         interstitial.setAdUnitId(AD_UNIT_ID_INTERSTITIAL);
         
         AdRequest adRequest = new AdRequest.Builder()
-    		.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+    		//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
     		.build();
         
         interstitial.setAdListener(new AdListener() {
@@ -266,7 +266,7 @@ public class AppActivity extends Cocos2dxActivity {
         		 */
         		if (interstitial_attempts < 10) {
         			AdRequest adRequest = new AdRequest.Builder()
-        				.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+        				//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
         				.build();
         			interstitial.loadAd(adRequest);
         		}        		
@@ -275,7 +275,7 @@ public class AppActivity extends Cocos2dxActivity {
         	@Override
         	public void onAdClosed() {
         		AdRequest adRequest = new AdRequest.Builder()
-    				.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+    				//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
     				.build();
         		interstitial.loadAd(adRequest);
         	}
@@ -294,7 +294,7 @@ public class AppActivity extends Cocos2dxActivity {
                 	interstitial_attempts = 0;
                 	
                     AdRequest adRequest = new AdRequest.Builder()
-            			.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+            			//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
             			.build();
                     
                 	interstitial.loadAd(adRequest);
