@@ -69,6 +69,7 @@ public class AppActivity extends Cocos2dxActivity {
 	private static InterstitialAd interstitial;
 	
 	private static IabHelper mHelper;
+	private static boolean iabIsAvailable = true;
 	private static IabHelper.OnIabPurchaseFinishedListener purchaseFinishedListener;
 	private static IabHelper.QueryInventoryFinishedListener restorePurchaseListener;
 	private static IabHelper.QueryInventoryFinishedListener getStoreDataListener;
@@ -91,6 +92,12 @@ public class AppActivity extends Cocos2dxActivity {
     	mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
     		public void onIabSetupFinished(IabResult result) {
     			if (!result.isSuccess()) {
+    				//I sometimes see this situation with the following error...
+    				//"Error checking for billing v3 support"
+    				//this happens on old phones: http://stackoverflow.com/questions/21091353/what-are-the-possibilities-to-get-this-error-code-3-in-inapp-purchase
+    				//for now I don't report anything to the user, instead I just don't make any calls to mHelper. The chance of this happening is very small.
+    				iabIsAvailable = false;
+    				
     				// Oh noes, there was a problem.
     				Log.d(TAG, "Problem setting up In-app Billing: " + result);
     			}
@@ -137,7 +144,7 @@ public class AppActivity extends Cocos2dxActivity {
 					if (inventory.hasPurchase(SKU_TEST)) {
 						if (testing) {
 							mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
-							restorePurchaseCallback(); //or should this be done in a .hasOwnedItem block?
+							restorePurchaseCallback();
 						}
 			        } else if (inventory.hasPurchase(SKU_PREMIUM)) {
 			        	restorePurchaseCallback();
@@ -195,12 +202,19 @@ public class AppActivity extends Cocos2dxActivity {
         	additionalSkuList.add(SKU_PREMIUM);
     	}
 
-    	_appActivity.runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				mHelper.queryInventoryAsync(true, additionalSkuList, getStoreDataListener);				
-			}    		
-    	}); 
+    	if (iabIsAvailable) {
+	    	_appActivity.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					mHelper.queryInventoryAsync(true, additionalSkuList, getStoreDataListener);				
+				}    		
+	    	});
+    	} else {
+    		//TODO: at some point in the future...
+    		//I could call this below...
+    		//getStoreDataFailureCallback();
+    		//or I could call another method that tells the user that the IabHelper was not setup correctly
+    	}
     }
     public static native void getStoreDataCallback(String price);
     public static native void getStoreDataFailureCallback();
