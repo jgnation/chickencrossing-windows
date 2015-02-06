@@ -16,20 +16,20 @@ Lane::Lane(int laneNumber, LaneType laneType, int interval, float duration, std:
 	_vehicles = vehicles;
 	_interval = interval;
 
-	_nextSpawnTime = 0;
+	_nextSpawnTime = 0ULL;
 }
 
 Lane::~Lane(void)
 {
 }
 
-bool Lane::isTimeToSpawn(float currentTime)
+bool Lane::isTimeToSpawn(unsigned long long currentTime)
 {
 	if (_laneType == LaneType::WATER || _laneType == LaneType::ROAD)
 	{
 		if (currentTime > _nextSpawnTime) 
-		{ 
-			_nextSpawnTime = _interval + currentTime;
+		{
+			_nextSpawnTime = (unsigned long long) _interval + currentTime; //_interval should get promoted implicity...but whatev
 			return true;
 		}
 	}

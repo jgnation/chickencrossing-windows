@@ -7,7 +7,7 @@ using namespace cocos2d;
 
 namespace GameFunctions
 {
-	float getTimeTick();
+	unsigned long long getTimeTick();
 
 	//I implemented my own just because I am not sure about cross-platform compatibility of c libraries (cmath)
 	int getAbsoluteValue(int num);

@@ -23,7 +23,7 @@ public:
 	void setVehicles();
 	void setInterval(std::string interval);
 	void setSpeed(std::string speed);
-	bool isTimeToSpawn(float currentTime);
+	bool isTimeToSpawn(unsigned long long currentTime);
 	Vehicle * spawnVehicle();
 	Vehicle * getRandomVehicle();	//this should be private
 
@@ -36,7 +36,7 @@ public:
 	int _speed;
 	float _duration;
 
-	float _nextSpawnTime;
+	unsigned long long _nextSpawnTime;
 	int _laneNumber;
 
 	int getLaneNumber();

@@ -24,7 +24,6 @@ public:
     CREATE_FUNC(MenuLayer);
 
 	void update(float dt);
-	float getTimeTick();
 };
 
 #endif  // __MENU_LAYER_H__

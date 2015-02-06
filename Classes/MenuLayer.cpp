@@ -4,7 +4,8 @@
 #include "LevelManager.h"
 #include "Level.h"
 #include "MainModeLevelFactory.h"
-#include "SimpleAudioEngine.h" 
+#include "SimpleAudioEngine.h"
+#include "GameFunctions.h"
 
 using namespace cocos2d;
 
@@ -88,7 +89,7 @@ void MenuLayer::update(float dt)
 	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
 	{
 		Lane * lane = dynamic_cast<Lane *>(*it);
-		float currentTime = getTimeTick();
+        unsigned long long currentTime = GameFunctions::getTimeTick();
 		if (lane->isTimeToSpawn(currentTime))
 		{
 			Vehicle * vehicle = lane->spawnVehicle();
@@ -99,14 +100,6 @@ void MenuLayer::update(float dt)
 			this->addChild(vehicle->getSprite(), 1);
 		}
 	}
-}
-
-float MenuLayer::getTimeTick() 
-{
-	timeval time;
-	gettimeofday(&time, NULL);
-	unsigned long millisecs = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (float) millisecs;
 }
 
 

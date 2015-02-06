@@ -264,7 +264,7 @@ void GameLayer::doUpdate(float dt)
 	for(std::vector<Lane *>::iterator it = lanes.begin(); it != lanes.end(); ++it) 
 	{
 		Lane * lane = dynamic_cast<Lane *>(*it);
-		float currentTime = GameFunctions::getTimeTick();
+		unsigned long long currentTime = GameFunctions::getTimeTick();
 		if (lane->isTimeToSpawn(currentTime))
 		{
 			Vehicle * vehicle = lane->spawnVehicle();

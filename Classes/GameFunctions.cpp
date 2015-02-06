@@ -2,12 +2,19 @@
 #include <sstream>
 #include <string>
 
-float GameFunctions::getTimeTick() 
+unsigned long long GameFunctions::getTimeTick()
 {
-	timeval time;
-	gettimeofday(&time, NULL);
-	unsigned long millisecs = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (float) millisecs;
+	//timeval time;
+	//gettimeofday(&time, NULL);
+	//unsigned long millisecs = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	//return (float) millisecs;
+    
+    //http://stackoverflow.com/questions/16177295/get-time-since-epoch-in-milliseconds-preferably-using-c11-chrono
+    unsigned long long milliseconds_since_epoch =
+    std::chrono::system_clock::now().time_since_epoch() /
+    std::chrono::milliseconds(1);
+    
+    return milliseconds_since_epoch;
 }
 
 //I implemented my own just because I am not sure about cross-platform compatibility of c libraries (cmath)
