@@ -1,10 +1,4 @@
 
-/*
-Copyright (c) 2014 Mudafar
-GPLv3
-*/
-
-
 #include "AdmobHelper.h"
 #include "cocos2d.h"
 
@@ -46,16 +40,16 @@ void AdmobHelper::showAd()
 
 void AdmobHelper::showInterstitial()
 {
-	_interstitialRequests++;
-    if (_interstitialRequests % 2 != 0)
-    {
+	//_interstitialRequests++;
+    //if (_interstitialRequests % 2 != 0)
+    //{
 		cocos2d::JniMethodInfo t;
 		if (cocos2d::JniHelper::getStaticMethodInfo(t, AppActivityClassName, "showInterstitial", "()V"))
 		{
 			t.env->CallStaticVoidMethod(t.classID, t.methodID);
 			t.env->DeleteLocalRef(t.classID);
 		}
-	}
+	//}
 }
 
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -73,11 +67,11 @@ void AdmobHelper::showAd()
 
 void AdmobHelper::showInterstitial()
 {
-    _interstitialRequests++;
-    if (_interstitialRequests % 2 != 0)
-    {
+    //_interstitialRequests++;
+    //if (_interstitialRequests % 2 != 0)
+    //{
         iOSHelper::showInterstitial();
-    }
+    //}
 }
 
 #else
