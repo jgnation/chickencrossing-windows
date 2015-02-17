@@ -19,7 +19,7 @@
     if (self != nil) {
         self.interstitial = [self createAndLoadInterstitial];
         
-        _bannerView = [[GADBannerView alloc] initWithAdSize: kGADAdSizeSmartBannerLandscape];
+        _bannerView = [[GADBannerView alloc] initWithAdSize: kGADAdSizeSmartBannerPortrait];
         _bannerView.adUnitID = @"ca-app-pub-8133410011148346/8294688315"; //REPLACE WITH YOUR OWN PUBLISHER ID
         _bannerView.delegate = self;
         _contentController = contentController;
