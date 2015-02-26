@@ -60,7 +60,7 @@ void MenuAboutLayer::createAboutScreenInfo()
 
 	CCClippingNode* clippingNode = CCClippingNode::create(stencil);
 
-	std::string info = "Version 1.0\n\n";
+	std::string info = "Version 1.0.2\n\n";
 	info += "Developed by JGNation\n";
 	info += "www.jgnation.com\n\n";
 	info += "Chicken image by bloodsong\n";
