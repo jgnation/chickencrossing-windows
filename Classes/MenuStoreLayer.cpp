@@ -31,7 +31,7 @@ bool MenuStoreLayer::init()
             CCMenuItemImage * buyImage = this->createBuyButton();
             CCMenuItemImage * restoreImage = this->createRestoreButton();
             _buyMenu = CCMenu::create(buyImage,	restoreImage, NULL);
-            _buyMenu->setPosition(CCPointZero);
+            _buyMenu->setPosition(ccp(0,0));
             this->addChild(_buyMenu);
             _buyMenu->setVisible(false);
             
@@ -47,7 +47,7 @@ bool MenuStoreLayer::init()
             //create retry menu
             CCMenuItemImage * retryImage = this->createRetryButton();
             _retryMenu = CCMenu::create(retryImage, NULL);
-            _retryMenu->setPosition(CCPointZero);
+            _retryMenu->setPosition(ccp(0,0));
             this->addChild(_retryMenu);
             _retryMenu->setVisible(false);
 		}
@@ -55,7 +55,7 @@ bool MenuStoreLayer::init()
         //create exit button
         CCMenuItemImage * exitImage = this->createExitButton();
         _exitMenu = CCMenu::create(exitImage, NULL);
-        _exitMenu->setPosition(CCPointZero);
+        _exitMenu->setPosition(ccp(0,0));
         this->addChild(_exitMenu);
 
 		bRet = true;

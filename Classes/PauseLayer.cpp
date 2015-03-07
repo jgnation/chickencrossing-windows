@@ -29,7 +29,7 @@ void PauseLayer::createResumeButton()
 	arrow1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width / 2, CCDirector::sharedDirector()->getWinSize().height / 2));
 
 	_buttonMenu = CCMenu::create(arrow1, NULL);
-	_buttonMenu->setPosition(CCPointZero);
+	_buttonMenu->setPosition(ccp(0,0));
 
     _buttonMenu->setVisible(false);
 	this->addChild(_buttonMenu);

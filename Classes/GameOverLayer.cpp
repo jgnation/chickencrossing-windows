@@ -52,7 +52,7 @@ bool GameOverLayer::init(std::vector<TopScore> highScores)
 
 		// Create a menu with the "close" menu item, it's an auto release object.
 		pMenu = CCMenu::create(arrow1, NULL);
-		pMenu->setPosition(CCPointZero);
+		pMenu->setPosition(ccp(0,0));
 
 		// Add the menu to HelloWorld layer as a child layer.
 		this->addChild(pMenu);
@@ -98,7 +98,7 @@ void GameOverLayer::nextButton1Callback(CCObject* pSender)
 
 	// Create a menu with the "close" menu item, it's an auto release object.
 	CCMenu* pMenu = CCMenu::create(arrow2, NULL);
-	pMenu->setPosition(CCPointZero);
+	pMenu->setPosition(ccp(0,0));
 
 	// Add the menu to HelloWorld layer as a child layer.
 	this->addChild(pMenu);

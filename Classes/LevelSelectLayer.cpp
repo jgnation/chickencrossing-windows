@@ -51,7 +51,7 @@ bool LevelSelectLayer::init()
 			number12Image,
 			NULL
 		);
-		_mainMenu->setPosition(CCPointZero);
+		_mainMenu->setPosition(ccp(0,0));
 		this->addChild(_mainMenu);
 
 		bRet = true;

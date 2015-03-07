@@ -31,7 +31,7 @@ void MenuAboutLayer::createAboutScreen()
 	CCMenuItemImage * _logoImage = this->createJGNationLogo();
 	CCMenuItemImage * _aboutExitImage = this->createAboutExitButton();
 	CCMenu* pMenu = CCMenu::create(_aboutExitImage, NULL);
-	pMenu->setPosition(CCPointZero);
+	pMenu->setPosition(ccp(0,0));
 	this->addChild(_logoImage);
 	this->addChild(pMenu);
 	this->addChild(_backgroundColor);

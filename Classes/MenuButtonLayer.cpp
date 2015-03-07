@@ -49,7 +49,7 @@ bool MenuButtonLayer::init()
 		}
 
 		_mainMenu = CCMenu::create(startGameImage, eggScrambleImage, instructionsImage, aboutImage, purchaseImage, _muteImage, _unmuteImage, NULL);
-		_mainMenu->setPosition(CCPointZero);
+		_mainMenu->setPosition(ccp(0,0));
 		this->addChild(_mainMenu);
 
 		_menuInstructionsLayer = MenuInstructionsLayer::create();

@@ -61,7 +61,7 @@ void MenuInstructionsLayer::createInstructionScreen()
 
 	CCMenuItemImage * _instructionsExitImage = this->createInstructionsExitButton();
 	CCMenu* pMenu = CCMenu::create(_instructionsExitImage, NULL);
-	pMenu->setPosition(CCPointZero);
+	pMenu->setPosition(ccp(0,0));
 	this->addChild(_chickenCrossingInstructionsImage);
 	this->addChild(pMenu);
 	this->addChild(_instructionsBackgroundColor);

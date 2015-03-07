@@ -17,42 +17,25 @@ AppDelegate::~AppDelegate()
 {
 }
 
+//if you want a different context,just modify the value of glContextAttrs
+//it will takes effect on all platforms
+void AppDelegate::initGLContextAttrs()
+{
+    //set OpenGL context attributions,now can only set six attributions:
+    //red,green,blue,alpha,depth,stencil
+    GLContextAttrs glContextAttrs = {8, 8, 8, 8, 24, 8};
+
+    GLView::setGLContextAttrs(glContextAttrs);
+}
+
 bool AppDelegate::applicationDidFinishLaunching()
-{/*
-    // initialize director
-    CCDirector *pDirector = CCDirector::sharedDirector();
-	//start change screen size
-	CCEGLView * eglView = CCEGLView::sharedOpenGLView();
-    eglView->setViewName("Hello World");
-    //eglView->setFrameSize(720, 720);
-	eglView->setFrameSize(640, 480);
-	//eglView->setFrameSize(400, 900);
-	pDirector->setOpenGLView(eglView);
-	//end change screen size
-
-	//default (without changing screen size)
-    //pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
-
-    // turn on display FPS
-    pDirector->setDisplayStats(true);
-
-    // set FPS. the default value is 1.0/60 if you don't call this
-    pDirector->setAnimationInterval(1.0 / 60);
-
-    // create a scene. it's an autorelease object
-    CCScene *pScene = MenuLayer::scene();
-
-    // run
-    pDirector->runWithScene(pScene);
-    return true;*/
-
-
+{
 	// initialize director
     auto director = Director::getInstance();
 	auto glview = director->getOpenGLView();
 	if(!glview) 
 	{
-        glview = GLView::create("Egg Scramble");
+        glview = GLViewImpl::create("Egg Scramble");
         director->setOpenGLView(glview);
     }
 

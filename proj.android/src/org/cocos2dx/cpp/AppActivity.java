@@ -87,91 +87,91 @@ public class AppActivity extends Cocos2dxActivity {
     	_appActivity = this;
     	
     	//TODO: check out sample project for tips on how to compute/hide this value rather than store it literally
-    	String base64EncodedPublicKey = create();
-		mHelper = new IabHelper(this, base64EncodedPublicKey);
-    	mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-    		public void onIabSetupFinished(IabResult result) {
-    			if (!result.isSuccess()) {
-    				//I sometimes see this situation with the following error...
-    				//"Error checking for billing v3 support"
-    				//this happens on old phones: http://stackoverflow.com/questions/21091353/what-are-the-possibilities-to-get-this-error-code-3-in-inapp-purchase
-    				//for now I don't report anything to the user, instead I just don't make any calls to mHelper. The chance of this happening is very small.
-    				iabIsAvailable = false;
-    				
-    				// Oh noes, there was a problem.
-    				Log.d(TAG, "Problem setting up In-app Billing: " + result);
-    			}
-    			Log.d(TAG, "In-app Billing successfully set up.");
-    			// Hooray, IAB is fully set up!
-			}
-		});
+//    	String base64EncodedPublicKey = create();
+//		mHelper = new IabHelper(this, base64EncodedPublicKey);
+//    	mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+//    		public void onIabSetupFinished(IabResult result) {
+//    			if (!result.isSuccess()) {
+//    				//I sometimes see this situation with the following error...
+//    				//"Error checking for billing v3 support"
+//    				//this happens on old phones: http://stackoverflow.com/questions/21091353/what-are-the-possibilities-to-get-this-error-code-3-in-inapp-purchase
+//    				//for now I don't report anything to the user, instead I just don't make any calls to mHelper. The chance of this happening is very small.
+//    				iabIsAvailable = false;
+//    				
+//    				// Oh noes, there was a problem.
+//    				Log.d(TAG, "Problem setting up In-app Billing: " + result);
+//    			}
+//    			Log.d(TAG, "In-app Billing successfully set up.");
+//    			// Hooray, IAB is fully set up!
+//			}
+//		});
+//    	
+//    	purchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+//    		public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+//    			if (result.isFailure()) {
+//    				Log.d(TAG, "Error purchasing: " + result);
+//    				
+//    				//result can be a FAILURE even if the test purchase was successful.
+//    				//explanation: http://stackoverflow.com/questions/22657519/google-play-billing-signature-verification-failed-for-sku-android-test-purchas		
+//    				//comment this block out when not debugging
+//    				if (testing) {
+//        				if (purchase != null) { //this will be null if the user cancels the purchase
+//    	    				if (purchase.getSku().equals(SKU_TEST)) {
+//    	    					mHelper.consumeAsync(purchase, null); 
+//    	        				makePurchaseCallback(true);
+//    	    				}
+//        				}
+//    				}
+//    				return;
+//    			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
+//    				makePurchaseCallback(true);
+//    			} else if (purchase.getSku().equals(SKU_TEST)) {
+//    				if (testing) {
+//        				mHelper.consumeAsync(purchase, null);
+//        				makePurchaseCallback(true);
+//    				}
+//
+//    			}
+//    		}
+//    	};
+//    	
+//		restorePurchaseListener = new IabHelper.QueryInventoryFinishedListener() {
+//			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+//				if (result.isFailure()) {
+//					// handle error here
+//				}
+//				else {					
+//					if (inventory.hasPurchase(SKU_TEST)) {
+//						if (testing) {
+//							mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
+//							restorePurchaseCallback();
+//						}
+//			        } else if (inventory.hasPurchase(SKU_PREMIUM)) {
+//			        	restorePurchaseCallback();
+//			        }
+//				}
+//			}
+//    	};
+//    	
+//    	getStoreDataListener = new IabHelper.QueryInventoryFinishedListener() {
+//			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+//				if (result.isFailure()) {
+//					getStoreDataFailureCallback();
+//				}
+//				else {
+//					String formattedPrice = null;
+//					if (testing) {
+//						formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
+//					} else {
+//						formattedPrice = inventory.getSkuDetails(SKU_PREMIUM).getPrice();
+//					}
+//					getStoreDataCallback(formattedPrice);
+//				}
+//			}
+//    	};
     	
-    	purchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
-    		public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
-    			if (result.isFailure()) {
-    				Log.d(TAG, "Error purchasing: " + result);
-    				
-    				//result can be a FAILURE even if the test purchase was successful.
-    				//explanation: http://stackoverflow.com/questions/22657519/google-play-billing-signature-verification-failed-for-sku-android-test-purchas		
-    				//comment this block out when not debugging
-    				if (testing) {
-        				if (purchase != null) { //this will be null if the user cancels the purchase
-    	    				if (purchase.getSku().equals(SKU_TEST)) {
-    	    					mHelper.consumeAsync(purchase, null); 
-    	        				makePurchaseCallback(true);
-    	    				}
-        				}
-    				}
-    				return;
-    			} else if (purchase.getSku().equals(SKU_PREMIUM)) {
-    				makePurchaseCallback(true);
-    			} else if (purchase.getSku().equals(SKU_TEST)) {
-    				if (testing) {
-        				mHelper.consumeAsync(purchase, null);
-        				makePurchaseCallback(true);
-    				}
-
-    			}
-    		}
-    	};
-    	
-		restorePurchaseListener = new IabHelper.QueryInventoryFinishedListener() {
-			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-				if (result.isFailure()) {
-					// handle error here
-				}
-				else {					
-					if (inventory.hasPurchase(SKU_TEST)) {
-						if (testing) {
-							mHelper.consumeAsync(inventory.getPurchase(SKU_TEST), null);
-							restorePurchaseCallback();
-						}
-			        } else if (inventory.hasPurchase(SKU_PREMIUM)) {
-			        	restorePurchaseCallback();
-			        }
-				}
-			}
-    	};
-    	
-    	getStoreDataListener = new IabHelper.QueryInventoryFinishedListener() {
-			public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-				if (result.isFailure()) {
-					getStoreDataFailureCallback();
-				}
-				else {
-					String formattedPrice = null;
-					if (testing) {
-						formattedPrice = inventory.getSkuDetails(SKU_TEST).getPrice();
-					} else {
-						formattedPrice = inventory.getSkuDetails(SKU_PREMIUM).getPrice();
-					}
-					getStoreDataCallback(formattedPrice);
-				}
-			}
-    	};
-    	
-    	setupBannerAd();
-        setupInterstitial();
+    	//setupBannerAd();
+        //setupInterstitial();
         Appirater.appLaunched(this);
     }    
     
@@ -285,46 +285,46 @@ public class AppActivity extends Cocos2dxActivity {
     }
     
     public static void showInterstitial() {
-		_appActivity.runOnUiThread(new Runnable() {
-		    @Override
-		    public void run() {
-		    	if (interstitial.isLoaded()) {
-                    interstitial.show();
-                } else {
-                	interstitial_attempts = 0;
-                	
-                    AdRequest adRequest = new AdRequest.Builder()
-            			//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
-            			.build();
-                    
-                	interstitial.loadAd(adRequest);
-                }
-		    }
-		});
+//		_appActivity.runOnUiThread(new Runnable() {
+//		    @Override
+//		    public void run() {
+//		    	if (interstitial.isLoaded()) {
+//                    interstitial.show();
+//                } else {
+//                	interstitial_attempts = 0;
+//                	
+//                    AdRequest adRequest = new AdRequest.Builder()
+//            			//.addTestDevice("74CF565D181FBE42D5B6C217467E561F")
+//            			.build();
+//                    
+//                	interstitial.loadAd(adRequest);
+//                }
+//		    }
+//		});
     }
 
     public static void hideAd() {
-    	_appActivity.runOnUiThread(new Runnable() {
-    		@Override
-    		public void run() {
-    			if (_appActivity.adView.isEnabled())
-    				_appActivity.adView.setEnabled(false);
-    			if (_appActivity.adView.getVisibility() != 4 )
-    				_appActivity.adView.setVisibility(View.INVISIBLE);
-    		}
-    	});
+//    	_appActivity.runOnUiThread(new Runnable() {
+//    		@Override
+//    		public void run() {
+//    			if (_appActivity.adView.isEnabled())
+//    				_appActivity.adView.setEnabled(false);
+//    			if (_appActivity.adView.getVisibility() != 4 )
+//    				_appActivity.adView.setVisibility(View.INVISIBLE);
+//    		}
+//    	});
     }
 
     public static void showAd() {
-    	_appActivity.runOnUiThread(new Runnable() {
-    		@Override
-    		public void run() {	
-    			if (!_appActivity.adView.isEnabled())
-    				_appActivity.adView.setEnabled(true);
-    			if (_appActivity.adView.getVisibility() == 4 )
-    				_appActivity.adView.setVisibility(View.VISIBLE);	
-    		}
-    	});
+//    	_appActivity.runOnUiThread(new Runnable() {
+//    		@Override
+//    		public void run() {	
+//    			if (!_appActivity.adView.isEnabled())
+//    				_appActivity.adView.setEnabled(true);
+//    			if (_appActivity.adView.getVisibility() == 4 )
+//    				_appActivity.adView.setVisibility(View.VISIBLE);	
+//    		}
+//    	});
     }
 
 	@Override
@@ -404,7 +404,7 @@ public class AppActivity extends Cocos2dxActivity {
     //http://stackoverflow.com/questions/14800286/oniabpurchasefinished-never-called
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	    Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
+	    Log.d(AppActivity.class.getSimpleName(), "onActivityResult(" + requestCode + "," + resultCode + "," + data);
 	
 	    // Pass on the activity result to the helper for handling
 	    if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
@@ -414,7 +414,7 @@ public class AppActivity extends Cocos2dxActivity {
 	        super.onActivityResult(requestCode, resultCode, data);
 	    }
 	    else {
-	        Log.d(TAG, "onActivityResult handled by IABUtil.");
+	        Log.d(AppActivity.class.getSimpleName(), "onActivityResult handled by IABUtil.");
 	    }
 	}
     

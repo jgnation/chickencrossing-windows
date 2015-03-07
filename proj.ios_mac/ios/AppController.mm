@@ -23,14 +23,10 @@
  ****************************************************************************/
 
 #import "AppController.h"
-#import "CCEAGLView.h"
+#import "platform/ios/CCEAGLView-ios.h"
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
-#import "BannerViewController.h"
-#import "Appirater.h"
-#import "EggScrambleIAPHelper.h"
-#import "ObjCToCpp.h"
 
 @implementation AppController
 
@@ -39,12 +35,13 @@
 
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
-BannerViewController *_bannerViewController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //initialize IAP handlers
-    [self initializeIAP];
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+
+    cocos2d::Application *app = cocos2d::Application::getInstance();
+    app->initGLContextAttrs();
+    cocos2d::GLViewImpl::convertAttrs();
+
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
@@ -52,164 +49,46 @@ BannerViewController *_bannerViewController;
 
     // Init the CCEAGLView
     CCEAGLView *eaglView = [CCEAGLView viewWithFrame: [window bounds]
-                                     pixelFormat: kEAGLColorFormatRGBA8
-                                     depthFormat: GL_DEPTH24_STENCIL8_OES
-                              preserveBackbuffer: NO
-                                      sharegroup: nil
-                                   multiSampling: NO
-                                 numberOfSamples: 0];
+                                         pixelFormat: (NSString*)cocos2d::GLViewImpl::_pixelFormat
+                                         depthFormat: cocos2d::GLViewImpl::_depthFormat
+                                  preserveBackbuffer: NO
+                                          sharegroup: nil
+                                       multiSampling: NO
+                                     numberOfSamples: 0 ];
+    
+    // Enable or disable multiple touches
+    [eaglView setMultipleTouchEnabled:NO];
 
     // Use RootViewController manage CCEAGLView 
     _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     _viewController.wantsFullScreenLayout = YES;
     _viewController.view = eaglView;
-    
-    _bannerViewController = [[BannerViewController alloc] initWithContentViewController:_viewController];
-    
+
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
         // warning: addSubView doesn't work on iOS6
-        [window addSubview: _bannerViewController.view];
+        [window addSubview: _viewController.view];
     }
     else
     {
         // use this method on ios6
-        [window setRootViewController:_bannerViewController];
+        [window setRootViewController:_viewController];
     }
 
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
-    
-    //Appirater stuff
-    [Appirater setAppId:@"955093478"];
-    [Appirater setDaysUntilPrompt:3];
-    [Appirater setUsesUntilPrompt:5];
-    [Appirater setSignificantEventsUntilPrompt:-1];
-    [Appirater setTimeBeforeReminding:2];
-    [Appirater setDebug:NO];
-    [Appirater appLaunched:YES];
-    
+
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
-    cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
+    cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
 
-    cocos2d::Application::getInstance()->run();
+    app->run();
 
     return YES;
 }
 
-- (void)initializeIAP {
-    [EggScrambleIAPHelper sharedInstance]; //create singleton
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
-}
-
-- (void) requestProducts {
-    if (_products == nil) {
-        [[EggScrambleIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
-            if (success) {
-                _products = products;
-                [_products retain]; //why do I need to do this?
-                
-                //self.products = response.products;
-                NSLog(@"The ProductIdentifiers are:%@",[_products description]);
-                NSArray * skProducts = _products;
-                for (SKProduct * skProduct in skProducts) {
-                    NSLog(@"Found product: %@ %@ %0.2f",
-                          skProduct.productIdentifier,
-                          skProduct.localizedTitle,
-                          skProduct.price.floatValue);
-                }
-                [ObjCToCpp storeDataLoadedSuccess:[[self class] getFormattedPrice:[_products objectAtIndex:0]]];
-            } else {
-                [ObjCToCpp storeDataLoadedFailure];
-            }
-        }];
-    } else {
-        [ObjCToCpp storeDataLoadedSuccess:[[self class] getFormattedPrice:[_products objectAtIndex:0]]];
-    }
-}
-
-+ (NSString *) getFormattedPrice:(SKProduct *)product {
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [numberFormatter setLocale:product.priceLocale];
-    NSString *formattedString = [numberFormatter stringFromNumber:product.price];
-    [numberFormatter release];
-    return formattedString;
-}
-
-- (void)productPurchased:(NSNotification *)notification {
-    /*NSString * productIdentifier = notification.object;
-    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-        if ([product.productIdentifier isEqualToString:productIdentifier]) {
-            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-            *stop = YES;
-        }
-    }]; */
-    [ObjCToCpp purchaseSuccessful];
-}
-
-- (void) buyAdRemoval {
-    //TODO: make sure products is not NULL and that it has an item at index zero
-    //OR, get item with idenitfier = "com.jgnation.eggscramble.adremoval"
-    SKProduct * removeAdProduct = (SKProduct *) _products[0]; //I only have one product available currently
-    [[EggScrambleIAPHelper sharedInstance] buyProduct: removeAdProduct];
-}
-
-- (void)validateProductIdentifiers:(NSArray *)productIdentifiers {
-    SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
-                                          initWithProductIdentifiers:[NSSet setWithArray:productIdentifiers]];
-    productsRequest.delegate = self;
-    [productsRequest start];
-}
-
-- (void)validateProductIdentifiers {
-    NSArray  * myArray = [NSArray arrayWithObject:@"com.jgnation.eggscramble.adremoval"];
-    
-    SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
-                                          initWithProductIdentifiers:[NSSet setWithArray:myArray]];
-    
-    productsRequest.delegate = self;
-    [productsRequest start];
-}
-
-// SKProductsRequestDelegate protocol method
-- (void)productsRequest:(SKProductsRequest *)request
-     didReceiveResponse:(SKProductsResponse *)response
-{
-    //self.products = response.products;
-    NSLog(@"The ProductIdentifiers are:%@",[response.products description]);
-    NSArray * skProducts = response.products;
-    for (SKProduct * skProduct in skProducts) {
-        NSLog(@"Found product: %@ %@ %0.2f",
-              skProduct.productIdentifier,
-              skProduct.localizedTitle,
-              skProduct.price.floatValue);
-    }
-    
-    NSLog(@"The invalidProductIdentifiers are:%@",[response.invalidProductIdentifiers description]);
-    for (NSString *invalidIdentifier in response.invalidProductIdentifiers) {
-        // Handle any invalid product identifiers.
-    }
-    
-    //[self displayStoreUI]; // Custom method
-}
-
-- (void) hideAdmobBanner{
-    [_bannerViewController hideBanner];
-}
-
-- (void) showAdmobBanner{
-    [_bannerViewController showBanner];
-}
-
-- (void) showInterstitial{
-    [_bannerViewController showInterstitial];
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

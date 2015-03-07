@@ -14,6 +14,8 @@ public:
     AppDelegate();
     virtual ~AppDelegate();
 
+	virtual void initGLContextAttrs();
+
     /**
     @brief    Implement CCDirector and CCScene init code here.
     @return true    Initialize success, app continue.
